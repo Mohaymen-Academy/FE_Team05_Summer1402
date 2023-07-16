@@ -1,2 +1,2 @@
-import NavbarButton from '../../NavbarButton';
+import NavbarButton from './NavbarButton';
 export {NavbarButton}
