@@ -1,0 +1,1 @@
+export const navbarTexts = ["Home","Store","Community","Contact Us"];
