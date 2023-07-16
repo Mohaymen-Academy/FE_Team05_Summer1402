@@ -1,7 +1,10 @@
-import Navbar from '../Navbar/Navbar';
-import IconButton from '../../IconButton';
+import {Navbar} from '../Index';
+import {IconButton} from '../IconButton';
+import React from 'react';
 
-function Header() {
+
+
+function Header():React.ReactNode {
   return (<header>
       <Navbar/>
       <IconButton/>
@@ -9,4 +12,4 @@ function Header() {
   )
 }
 
-export default Navbar
+export default Header;
