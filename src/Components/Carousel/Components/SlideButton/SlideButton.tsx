@@ -1,7 +1,8 @@
+import {Button} from '@chakra-ui/react';
 import React from 'react';
 
 function SlideButton(): React.ReactNode {
-  return <></>;
+  return <Button />;
 }
 
 export default SlideButton;
