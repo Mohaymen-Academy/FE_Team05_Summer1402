@@ -1,6 +1,7 @@
-import NavbarButton from '../../NavbarButton';
+import {NavbarButton} from '../NavbarButton';
+import React from 'react';
 
-function Navbar() {
+function Navbar():React.ReactNode {
   return (<>
       <NavbarButton/>
       <NavbarButton/>
@@ -10,4 +11,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
