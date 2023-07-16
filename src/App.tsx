@@ -4,10 +4,12 @@ import {Carousel} from './Components/Carousel';
 
 function App() {
   return (
-    <Container>
-      <Header />
-      <Carousel />
-    </Container>
+    <div className="font-roboto">
+      <Container>
+        <Header />
+        <Carousel />
+      </Container>
+    </div>
   );
 }
 

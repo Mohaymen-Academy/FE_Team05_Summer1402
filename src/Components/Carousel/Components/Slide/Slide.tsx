@@ -1,5 +1,5 @@
 import React from 'react';
-import {SwiperSlide} from 'swiper/react';
+import {Text} from '@chakra-ui/react';
 
 type SlideProps = {
   imgUrl: string;
@@ -7,9 +7,10 @@ type SlideProps = {
 
 function Slide({imgUrl}: SlideProps): React.ReactNode {
   return (
-    <SwiperSlide className="w-[100px]">
+    <div className="relative">
+      <Text className="absolute"></Text>
       <img src={imgUrl} />
-    </SwiperSlide>
+    </div>
   );
 }
 
