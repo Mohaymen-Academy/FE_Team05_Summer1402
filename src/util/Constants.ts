@@ -3,10 +3,29 @@ import img1 from '../assets/images/carousel/img1.jpg';
 import img2 from '../assets/images/carousel/img2.jpg';
 import img3 from '../assets/images/carousel/img3.jpg';
 import img4 from '../assets/images/carousel/img4.jpg';
+
 //import card image
 import image1 from '../assets/images/cards/img1.jpg';
 import image2 from '../assets/images/cards/img2.jpg';
 import image3 from '../assets/images/cards/img3.jpg';
+
+//import post image
+import postImg1 from '../assets/images/posts/img1.jpg';
+import postImg2 from '../assets/images/posts/img2.jpg';
+import postImg3 from '../assets/images/posts/img3.jpg';
+import postImg4 from '../assets/images/posts/img4.jpg';
+import postImg5 from '../assets/images/posts/img5.jpg';
+
+// import news image
+
+import newsImage1 from '../assets/images/news/img1.jpg';
+import newsImage2 from '../assets/images/news/img2.jpg';
+import newsImage3 from '../assets/images/news/img3.jpg';
+import newsImage4 from '../assets/images/news/img4.jpg';
+import newsImage5 from '../assets/images/news/img5.jpg';
+import newsImage6 from '../assets/images/news/img6.jpg';
+
+export const navbarTexts = ['Home', 'Store', 'Community', 'Contact Us'];
 
 export const slidesData = [
   {
@@ -55,13 +74,6 @@ export const CardsData = [
     imgUrl: image3,
   },
 ];
-import postImg1 from '../assets/images/posts/img1.jpg';
-import postImg2 from '../assets/images/posts/img2.jpg';
-import postImg3 from '../assets/images/posts/img3.jpg';
-import postImg4 from '../assets/images/posts/img4.jpg';
-import postImg5 from '../assets/images/posts/img5.jpg';
-
-export const navbarTexts = ['Home', 'Store', 'Community', 'Contact Us'];
 
 export const postsDetails = [
   {img: postImg1, heading: '', Description: ''},
@@ -69,4 +81,13 @@ export const postsDetails = [
   {img: postImg3, heading: '', Description: ''},
   {img: postImg4, heading: '', Description: ''},
   {img: postImg5, heading: '', Description: ''},
+];
+
+export const newsDetails = [
+  {img: newsImage1, heading: '', Description: '', view: 0},
+  {img: newsImage2, heading: '', Description: '', view: 0},
+  {img: newsImage3, heading: '', Description: '', view: 0},
+  {img: newsImage4, heading: '', Description: '', view: 0},
+  {img: newsImage5, heading: '', Description: '', view: 0},
+  {img: newsImage6, heading: '', Description: '', view: 0},
 ];

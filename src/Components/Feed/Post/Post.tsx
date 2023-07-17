@@ -1,5 +1,6 @@
 import React from 'react';
-import {Card, CardHeader, CardBody, CardFooter, Image, Stack, Heading, Text, Button} from '@chakra-ui/react';
+import {Card, CardBody, CardFooter, Image, Stack, Heading, Text, Button} from '@chakra-ui/react';
+import {TbShoppingCart} from 'react-icons/tb';
 
 type PostTypes = {
   img: string;
@@ -12,7 +13,6 @@ function Post({img}: PostTypes): React.ReactNode {
       overflow="hidden"
       variant="solid"
       shadow="xl"
-      p="2"
       bg={'rgb(76 92 115)'}
       className="group"
     >
@@ -32,8 +32,8 @@ function Post({img}: PostTypes): React.ReactNode {
         </CardBody>
 
         <CardFooter>
-          <Button variant="solid" colorScheme="blue">
-            Buy Latte
+          <Button rightIcon={<TbShoppingCart size="22" />} variant="solid" colorScheme="blue">
+            Buy now
           </Button>
         </CardFooter>
       </Stack>
