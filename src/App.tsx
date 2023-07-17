@@ -1,8 +1,8 @@
-
 import {Carousel} from './Components';
 import {Container} from './Components/Container';
 import {Header} from './Components';
-import { Footer } from './Components';
+import {Footer} from './Components';
+import Feed from './Components/Feed/Feed';;
 import { Cards } from './Components';
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
       <Header />
       <Carousel />
       <Cards />
-      <Footer/>
+      <Feed />
+      <Footer />
     </Container>
   );
 }

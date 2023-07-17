@@ -8,8 +8,6 @@ import image1 from '../assets/images/cards/img1.jpg';
 import image2 from '../assets/images/cards/img2.jpg';
 import image3 from '../assets/images/cards/img3.jpg';
 
-export const navbarTexts = ['Home', 'Store', 'Community', 'Contact Us'];
-
 export const slidesData = [
   {
     heading: 'A modern multiplayer masterpiece',
@@ -56,4 +54,19 @@ export const CardsData = [
     price: '$49.99',
     imgUrl: image3,
   },
+];
+import postImg1 from '../assets/images/posts/img1.jpg';
+import postImg2 from '../assets/images/posts/img2.jpg';
+import postImg3 from '../assets/images/posts/img3.jpg';
+import postImg4 from '../assets/images/posts/img4.jpg';
+import postImg5 from '../assets/images/posts/img5.jpg';
+
+export const navbarTexts = ['Home', 'Store', 'Community', 'Contact Us'];
+
+export const postsDetails = [
+  {img: postImg1, heading: '', Description: ''},
+  {img: postImg2, heading: '', Description: ''},
+  {img: postImg3, heading: '', Description: ''},
+  {img: postImg4, heading: '', Description: ''},
+  {img: postImg5, heading: '', Description: ''},
 ];

@@ -14,17 +14,18 @@ import {Slide} from './Components';
 
 import {slidesData} from '../../util/Constants';
 
-function Carousel(): React.ReactNode {
-  const progressCircle = useRef<null | HTMLElement>(null);
-  const progressContent = useRef<null | HTMLElement>(null);
-  const onAutoplayTimeLeft = (_: any, time: number, progress: number) => {
-    if (!progressCircle.current || !progressContent.current) return;
-    progressCircle.current.style.setProperty('--progress', (1 - progress).toString());
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-  };
+function Carousel() {
+
+  // const progressCircle = useRef<null | HTMLElement>(null);
+  // const progressContent = useRef<null | HTMLElement>(null);
+  // const onAutoplayTimeLeft = (_: any, time: number, progress: number) => {
+  //   if (!progressCircle.current || !progressContent.current) return;
+  //   progressCircle.current.style.setProperty('--progress', (1 - progress).toString());
+  //   progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  // };
 
   return (
-    <div className="w-full">
+    <div className="w-full my-6">
       <Swiper
         effect={'coverflow'}
         spaceBetween={30}
@@ -45,7 +46,7 @@ function Carousel(): React.ReactNode {
           pauseOnMouseEnter: true,
         }}
         modules={[EffectCoverflow, Pagination, Autoplay]}
-        onAutoplayTimeLeft={onAutoplayTimeLeft}
+        // onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper h-auto overflow-visible"
       >
         {slidesData.map((tmp) => (
@@ -53,12 +54,12 @@ function Carousel(): React.ReactNode {
             <Slide heading={tmp.heading} description={tmp.description} imgUrl={tmp.imgUrl} />
           </SwiperSlide>
         ))}
-        <div className="autoplay-progress" slot="container-end">
+        {/* <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle as LegacyRef<SVGSVGElement> | undefined}>
             <circle cx="24" cy="24" r="20"></circle>
           </svg>
           <span ref={progressContent}></span>
-        </div>
+        </div> */}
       </Swiper>
     </div>
   );
