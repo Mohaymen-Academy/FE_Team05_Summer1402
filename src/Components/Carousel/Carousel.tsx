@@ -1,4 +1,3 @@
-import React, {LegacyRef, useRef, useState} from 'react';
 // Import Swiper React components
 import {Swiper, SwiperSlide} from 'swiper/react';
 
@@ -14,9 +13,7 @@ import {Slide} from './Components';
 
 import {slidesData} from '../../util/Constants';
 
-
 function Carousel() {
-
   // const progressCircle = useRef<null | HTMLElement>(null);
   // const progressContent = useRef<null | HTMLElement>(null);
   // const onAutoplayTimeLeft = (_: any, time: number, progress: number) => {
@@ -35,14 +32,14 @@ function Carousel() {
         slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 0,
-          stretch: 300,
-          depth: 1200,
+          stretch: 200,
+          depth: 1000,
           modifier: 1,
           slideShadows: true,
         }}
         pagination={true}
         autoplay={{
-          delay: 5000,
+          delay: 10000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
@@ -51,7 +48,7 @@ function Carousel() {
         className="mySwiper h-auto overflow-visible"
       >
         {slidesData.map((tmp) => (
-          <SwiperSlide className="w-[1200px] rounded-xl overflow-hidden">
+          <SwiperSlide className="w-[980px] rounded-xl overflow-hidden">
             <Slide heading={tmp.heading} description={tmp.description} imgUrl={tmp.imgUrl} />
           </SwiperSlide>
         ))}
