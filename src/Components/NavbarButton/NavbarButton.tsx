@@ -7,7 +7,7 @@ type NavbarButtonProps = {
 
 function NavbarButton({text, href}: NavbarButtonProps): React.ReactNode {
   return (
-      <li><a href={href}>{text}</a></li>
+      <li><a href={href} className='text-white hover:underline md:mr-6'>{text}</a></li>
   );
 }
 
