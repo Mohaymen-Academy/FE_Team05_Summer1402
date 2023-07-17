@@ -1,15 +1,15 @@
+
+import {Carousel} from './Components';
 import {Container} from './Components/Container';
 import {Header} from './Components';
-import {Carousel} from './Components/Carousel';
-
+import { Footer } from './Components'
 function App() {
   return (
-    <div className="font-roboto">
-      <Container>
-        <Header />
-        <Carousel />
-      </Container>
-    </div>
+    <Container>
+      <Header />
+      <Carousel />
+      <Footer/>
+    </Container>
   );
 }
 

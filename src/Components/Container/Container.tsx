@@ -2,7 +2,7 @@ import React from 'react';
 
 
 function Container({children}):React.ReactNode{
-  return (<div className="max-w-[1280px] m-auto">
+  return (<div className="max-w-7xl m-auto">
     {children}
     </div>)
 }

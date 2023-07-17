@@ -4,6 +4,7 @@
 
 body {
   overflow-x: hidden;
+  background-image: linear-gradient(to right,#141E30,#375271) !important;
 }
 .autoplay-progress {
   position: absolute;
