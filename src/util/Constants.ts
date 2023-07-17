@@ -84,10 +84,10 @@ export const postsDetails = [
 ];
 
 export const newsDetails = [
-  {img: newsImage1, heading: '', Description: '', view: 0},
-  {img: newsImage2, heading: '', Description: '', view: 0},
-  {img: newsImage3, heading: '', Description: '', view: 0},
-  {img: newsImage4, heading: '', Description: '', view: 0},
-  {img: newsImage5, heading: '', Description: '', view: 0},
-  {img: newsImage6, heading: '', Description: '', view: 0},
+  {img: newsImage1, heading: 'News1', view: 1320},
+  {img: newsImage2, heading: 'News2', view: 9000},
+  {img: newsImage3, heading: 'news3', view: 8765},
+  {img: newsImage4, heading: 'news4', view: 2341},
+  {img: newsImage5, heading: 'news5', view: 9237},
+  {img: newsImage6, heading: 'news6', view: 3409},
 ];
