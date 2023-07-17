@@ -1,7 +1,5 @@
-import {Navbar} from '../Index';
+import {Navbar} from '..';
 import {IconButton} from '../IconButton';
-import React from 'react';
-
 
 function Header() {
   return (
@@ -12,6 +10,4 @@ function Header() {
   );
 }
 
-
 export default Header;
-
