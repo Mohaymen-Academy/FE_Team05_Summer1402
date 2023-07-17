@@ -1,10 +1,7 @@
 import React from 'react';
 
-
-function Container({children}):React.ReactNode{
-  return (<div className="max-w-7xl m-auto">
-    {children}
-    </div>)
+function Container({children}: {children: React.ReactNode}): React.ReactNode {
+  return <div className="max-w-7xl m-auto relative">{children}</div>;
 }
 
 export default Container;
