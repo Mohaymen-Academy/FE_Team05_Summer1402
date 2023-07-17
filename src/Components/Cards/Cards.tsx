@@ -4,7 +4,7 @@ import {Card} from '../Card';
 
 function Cards(): React.ReactNode {
   return (
-    <div>
+    <section>
       <div>
         <h2 className='text-white my-5 pl-5 border-l-4 border-orange-600 tracking-tight font-semibold'>TRENDING NOW</h2>
       </div>
@@ -13,7 +13,7 @@ function Cards(): React.ReactNode {
           <Card heading={tmp.heading} description={tmp.description} price={tmp.price} imgUrl={tmp.imgUrl} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
