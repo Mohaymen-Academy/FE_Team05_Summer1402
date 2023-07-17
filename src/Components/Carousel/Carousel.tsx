@@ -10,15 +10,11 @@ import 'swiper/css/pagination';
 // import required modules
 import {EffectCoverflow, Pagination, Autoplay} from 'swiper/modules';
 
-import img1 from '../../assets/images/carousel/img1.jpg';
-import img2 from '../../assets/images/carousel/img2.jpg';
-import img3 from '../../assets/images/carousel/img3.jpg';
-import img4 from '../../assets/images/carousel/img4.jpg';
 import {Slide} from './Components';
 
-function Carousel(): React.ReactNode {
-  const urls = [img1, img2, img3, img4];
+import {slidesData} from '../../util/Constants';
 
+function Carousel(): React.ReactNode {
   const progressCircle = useRef<null | HTMLElement>(null);
   const progressContent = useRef<null | HTMLElement>(null);
   const onAutoplayTimeLeft = (_: any, time: number, progress: number) => {
@@ -52,9 +48,9 @@ function Carousel(): React.ReactNode {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper h-auto overflow-visible"
       >
-        {urls.map((url) => (
+        {slidesData.map((tmp) => (
           <SwiperSlide className="w-[1200px] rounded-xl overflow-hidden">
-            <Slide imgUrl={url} />
+            <Slide heading={tmp.heading} description={tmp.description} imgUrl={tmp.imgUrl} />
           </SwiperSlide>
         ))}
         <div className="autoplay-progress" slot="container-end">
