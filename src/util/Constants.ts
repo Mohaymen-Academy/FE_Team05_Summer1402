@@ -55,6 +55,7 @@ export const CardsData = [
     imgUrl: image3,
   },
 ];
+
 import postImg1 from '../assets/images/posts/img1.jpg';
 import postImg2 from '../assets/images/posts/img2.jpg';
 import postImg3 from '../assets/images/posts/img3.jpg';

@@ -14,6 +14,7 @@ import {Slide} from './Components';
 
 import {slidesData} from '../../util/Constants';
 
+
 function Carousel() {
 
   // const progressCircle = useRef<null | HTMLElement>(null);
