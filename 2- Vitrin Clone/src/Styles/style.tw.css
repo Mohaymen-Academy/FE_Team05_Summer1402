@@ -22,7 +22,7 @@
 
 ::before,
 ::after {
-  --tw-content: '';
+  --tw-content: "";
 }
 
 /*
@@ -42,9 +42,10 @@ html {
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -85,7 +86,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /*
@@ -224,9 +225,9 @@ select {
 */
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -273,7 +274,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 
-[type='search'] {
+[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -366,7 +367,8 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   opacity: 1;
   /* 1 */
   color: #9ca3af;
@@ -434,7 +436,9 @@ video {
   display: none;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -444,19 +448,19 @@ video {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -464,24 +468,24 @@ video {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
 }
 
 ::backdrop {
@@ -494,19 +498,19 @@ video {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -514,50 +518,236 @@ video {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
 }
 
-.h-2 {
-  height: 0.5rem;
+.fixed {
+  position: fixed;
 }
 
-.h-12 {
-  height: 3rem;
+.top-0 {
+  top: 0px;
 }
 
-.bg-green-200 {
+.top-2 {
+  top: 0.5rem;
+}
+
+.top-3 {
+  top: 0.75rem;
+}
+
+.top-1 {
+  top: 0.25rem;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.box-border {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+
+.h-\[140px\] {
+  height: 140px;
+}
+
+.h-\[4000px\] {
+  height: 4000px;
+}
+
+.h-\[55\%\] {
+  height: 55%;
+}
+
+.h-\[80px\] {
+  height: 80px;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[8\] {
+  height: 8;
+}
+
+.h-\[180px\] {
+  height: 180px;
+}
+
+.h-\[5\] {
+  height: 5;
+}
+
+.h-\[5000px\] {
+  height: 5000px;
+}
+
+.w-24 {
+  width: 6rem;
+}
+
+.w-4\/5 {
+  width: 80%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.max-w-\[1200px\] {
+  max-width: 1200px;
+}
+
+.max-w-\[768px\] {
+  max-width: 768px;
+}
+
+.max-w-\[868px\] {
+  max-width: 868px;
+}
+
+.max-w-\[\] {
+  max-width: ;
+}
+
+.max-w-\[1\] {
+  max-width: 1;
+}
+
+.max-w-xl {
+  max-width: 36rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.max-w-5xl {
+  max-width: 64rem;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.bg-\[\#f2f1f6\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+  background-color: rgb(242 241 246 / var(--tw-bg-opacity));
 }
 
-.bg-green-50 {
+.bg-blue-600 {
   --tw-bg-opacity: 1;
-  background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
-.bg-green-500 {
+.bg-green-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
 }
 
-.bg-slate-400 {
+.bg-red-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.pt-\[140px\] {
+  padding-top: 140px;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.drop-shadow-md {
+  --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate)
+    var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.carousel {
+  width: 400px;
+  overflow: hidden;
+  background-color: aquamarine;
+}
+
+.carousel-container {
+  display: flex;
+  width: fit-content;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  margin-right: 10px;
 }

@@ -1,13 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/style.tw.css" />
+    <link rel="stylesheet" href="./src/Styles/style.tw.css" />
+    <link rel="stylesheet" href="./src/Carousel/CarouselStyle.css" />
     <title>CodeStar Showcase</title>
   </head>
   <body>
-    <div id="app" class=""></div>
+    <div id="app" class="pt-[140px]">
+      <!-- header section -->
+      <header
+        id="header"
+        class="bg-[#f2f1f6] fixed top-0 flex flex-col w-screen h-[140px] justify-center items-cente drop-shadow-md transition-all"
+      >
+        <div class="w-full bg-blue-600 box-border h-[80px]">
+          <div class="w-4/5 max-w-[1200px] m-auto h-[80px]">
+            <div class="h-full overflow-hidden flex flex-col items-center justify-center w-24">
+              <img src="public/assets/logo.png" alt="logo" class="h-[55%]" />
+              <p class="text-white text-sm">سروش پلاس</p>
+            </div>
+          </div>
+        </div>
+        <div class="h-[80px] w-4/5 max-w-[868px]"></div>
+      </header>
+
+      <!-- main section -->
+      <main class="h-[5000px] bg-red-400 max-w-6xl m-auto">
+        <div class="slider-container">
+          <div class="slider-content">
+            <div class="slider-single">
+              <img class="slider-single-image" src="https://picsum.photos/id/973/200/300" alt="1" />
+              <h1 class="slider-single-title">Through the Mountains</h1>
+              <a class="slider-single-likes" href="javascript:void(0);">
+                <i class="fa fa-heart"></i>
+                <p>1,247</p>
+              </a>
+            </div>
+
+            <div class="slider-single">
+              <img class="slider-single-image" src="https://picsum.photos/id/974/200/300" alt="2" />
+              <h1 class="slider-single-title">Through the Mountains</h1>
+              <a class="slider-single-likes" href="javascript:void(0);">
+                <i class="fa fa-heart"></i>
+                <p>1,247</p>
+              </a>
+            </div>
+
+            <div class="slider-single">
+              <img class="slider-single-image" src="https://picsum.photos/id/975/200/300" alt="3" />
+              <h1 class="slider-single-title">Through the Mountains</h1>
+              <a class="slider-single-likes" href="javascript:void(0);">
+                <i class="fa fa-heart"></i>
+                <p>1,247</p>
+              </a>
+            </div>
+
+            <div class="slider-single">
+              <img class="slider-single-image" src="https://picsum.photos/id/976/200/300" alt="4" />
+              <h1 class="slider-single-title">Through the Mountains</h1>
+              <a class="slider-single-likes" href="javascript:void(0);">
+                <i class="fa fa-heart"></i>
+                <p>1,247</p>
+              </a>
+            </div>
+
+            <div class="slider-single">
+              <img class="slider-single-image" src="https://picsum.photos/id/977/200/300" alt="5" />
+              <h1 class="slider-single-title">Through the Mountains</h1>
+              <a class="slider-single-likes" href="javascript:void(0);">
+                <i class="fa fa-heart"></i>
+                <p>1,247</p>
+              </a>
+            </div>
+
+            <div class="slider-single">
+              <img class="slider-single-image" src="https://picsum.photos/id/978/200/300" alt="6" />
+              <h1 class="slider-single-title">Through the Mountains</h1>
+              <a class="slider-single-likes" href="javascript:void(0);">
+                <i class="fa fa-heart"></i>
+                <p>1,247</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
     <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="src/Carousel/Carousel.ts"></script>
   </body>
 </html>
