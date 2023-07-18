@@ -38,3 +38,8 @@ document.addEventListener('scroll', async () => {
     }
   if (scrollDirection === 'up') headerElement.style.top = '0px';
 });
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+  <div>
+     
+  </div>
+`;
