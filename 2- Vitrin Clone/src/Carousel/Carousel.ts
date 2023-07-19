@@ -1,226 +1,121 @@
-const repeat = false;
-const noArrows = false;
-const noBullets = false;
+class Carousel {
+  private carouselContainer: Element;
+  private carouselControls: string[];
+  private carouselArray: Element[];
 
-const container = document.querySelector('.slider-container');
-var slide = document.querySelectorAll('.slider-single');
-var slideTotal = slide.length - 1;
-var slideCurrent = -1;
-
-function initBullets() {
-  if (noBullets) {
-    return;
+  constructor(container: Element, items: Element[], controls: string[]) {
+    this.carouselContainer = container;
+    this.carouselControls = controls;
+    this.carouselArray = [...items];
   }
-  const bulletContainer = document.createElement('div');
-  bulletContainer.classList.add('bullet-container');
-  slide.forEach((elem, i) => {
-    const bullet = document.createElement('div');
-    bullet.classList.add('bullet');
-    bullet.id = `bullet-index-${i}`;
-    bullet.addEventListener('click', () => {
-      goToIndexSlide(i);
+
+  updateGallery() {
+    this.carouselArray.forEach((el) => {
+      el.classList.remove('gallery-item-1');
+      el.classList.remove('gallery-item-2');
+      el.classList.remove('gallery-item-3');
+      el.classList.remove('gallery-item-4');
+      el.classList.remove('gallery-item-5');
     });
-    bulletContainer.appendChild(bullet);
-    elem.classList.add('proactivede');
-  });
-  container.appendChild(bulletContainer);
-}
-
-function initArrows() {
-  if (noArrows) {
-    return;
-  }
-  const leftArrow = document.createElement('a');
-  const iLeft = document.createElement('i');
-  iLeft.classList.add('fa');
-  iLeft.classList.add('fa-arrow-left');
-  leftArrow.classList.add('slider-left');
-  leftArrow.appendChild(iLeft);
-  leftArrow.addEventListener('click', () => {
-    slideLeft();
-  });
-  const rightArrow = document.createElement('a');
-  const iRight = document.createElement('i');
-  iRight.classList.add('fa');
-  iRight.classList.add('fa-arrow-right');
-  rightArrow.classList.add('slider-right');
-  rightArrow.appendChild(iRight);
-  rightArrow.addEventListener('click', () => {
-    slideRight();
-  });
-  container.appendChild(leftArrow);
-  container.appendChild(rightArrow);
-}
-
-function slideInitial() {
-  initBullets();
-  initArrows();
-  setTimeout(function () {
-    slideRight();
-  }, 500);
-}
-
-function updateBullet() {
-  if (!noBullets) {
-    document
-      .querySelector('.bullet-container')
-      .querySelectorAll('.bullet')
-      .forEach((elem, i) => {
-        elem.classList.remove('active');
-        if (i === slideCurrent) {
-          elem.classList.add('active');
-        }
+    if (this.carouselArray.length === 1) {
+      this.carouselArray.slice(0, 5).forEach((el, i) => {
+        el.classList.add(`gallery-item-${i + 3}`);
       });
-  }
-  checkRepeat();
-}
-
-function checkRepeat() {
-  if (!repeat) {
-    if (slideCurrent === slide.length - 1) {
-      slide[0].classList.add('not-visible');
-      slide[slide.length - 1].classList.remove('not-visible');
-      if (!noArrows) {
-        document.querySelector('.slider-right').classList.add('not-visible');
-        document.querySelector('.slider-left').classList.remove('not-visible');
-      }
-    } else if (slideCurrent === 0) {
-      slide[slide.length - 1].classList.add('not-visible');
-      slide[0].classList.remove('not-visible');
-      if (!noArrows) {
-        document.querySelector('.slider-left').classList.add('not-visible');
-        document.querySelector('.slider-right').classList.remove('not-visible');
-      }
-    } else {
-      slide[slide.length - 1].classList.remove('not-visible');
-      slide[0].classList.remove('not-visible');
-      if (!noArrows) {
-        document.querySelector('.slider-left').classList.remove('not-visible');
-        document.querySelector('.slider-right').classList.remove('not-visible');
-      }
+    }
+    if (this.carouselArray.length === 2) {
+      this.carouselArray.slice(0, 5).forEach((el, i) => {
+        el.classList.add(`gallery-item-${i + 3}`);
+      });
+    }
+    if (this.carouselArray.length === 3) {
+      this.carouselArray.slice(0, 5).forEach((el, i) => {
+        el.classList.add(`gallery-item-${i + 2}`);
+      });
+    }
+    if (this.carouselArray.length === 4) {
+      this.carouselArray.slice(0, 5).forEach((el, i) => {
+        el.classList.add(`gallery-item-${i + 1}`);
+      });
+    }
+    if (this.carouselArray.length >= 5) {
+      this.carouselArray.slice(0, 5).forEach((el, i) => {
+        el.classList.add(`gallery-item-${i + 1}`);
+      });
     }
   }
-}
-
-function slideRight() {
-  if (slideCurrent < slideTotal) {
-    slideCurrent++;
-  } else {
-    slideCurrent = 0;
-  }
-
-  if (slideCurrent > 0) {
-    var preactiveSlide = slide[slideCurrent - 1];
-  } else {
-    var preactiveSlide = slide[slideTotal];
-  }
-  var activeSlide = slide[slideCurrent];
-  if (slideCurrent < slideTotal) {
-    var proactiveSlide = slide[slideCurrent + 1];
-  } else {
-    var proactiveSlide = slide[0];
-  }
-
-  slide.forEach((elem) => {
-    var thisSlide = elem;
-    if (thisSlide.classList.contains('preactivede')) {
-      thisSlide.classList.remove('preactivede');
-      thisSlide.classList.remove('preactive');
-      thisSlide.classList.remove('active');
-      thisSlide.classList.remove('proactive');
-      thisSlide.classList.add('proactivede');
+  private setCurrentState(direction: Element): void {
+    if (direction.classList.contains('gallery-controls-prev')) {
+      this.carouselArray.unshift(this.carouselArray.pop()!);
+    } else if (direction.classList.contains('gallery-controls-next')) {
+      this.carouselArray.push(this.carouselArray.shift()!);
     }
-    if (thisSlide.classList.contains('preactive')) {
-      thisSlide.classList.remove('preactive');
-      thisSlide.classList.remove('active');
-      thisSlide.classList.remove('proactive');
-      thisSlide.classList.remove('proactivede');
-      thisSlide.classList.add('preactivede');
-    }
-  });
-  preactiveSlide.classList.remove('preactivede');
-  preactiveSlide.classList.remove('active');
-  preactiveSlide.classList.remove('proactive');
-  preactiveSlide.classList.remove('proactivede');
-  preactiveSlide.classList.add('preactive');
 
-  activeSlide.classList.remove('preactivede');
-  activeSlide.classList.remove('preactive');
-  activeSlide.classList.remove('proactive');
-  activeSlide.classList.remove('proactivede');
-  activeSlide.classList.add('active');
-
-  proactiveSlide.classList.remove('preactivede');
-  proactiveSlide.classList.remove('preactive');
-  proactiveSlide.classList.remove('active');
-  proactiveSlide.classList.remove('proactivede');
-  proactiveSlide.classList.add('proactive');
-
-  updateBullet();
-}
-
-function slideLeft() {
-  if (slideCurrent > 0) {
-    slideCurrent--;
-  } else {
-    slideCurrent = slideTotal;
+    this.updateGallery();
   }
 
-  if (slideCurrent < slideTotal) {
-    var proactiveSlide = slide[slideCurrent + 1];
-  } else {
-    var proactiveSlide = slide[0];
+  private setControls(): void {
+    const galleryControlsContainer = document.querySelector('.gallery-controls');
+    if (!galleryControlsContainer) return;
+
+    this.carouselControls.forEach((ctrl) => {
+      const button = document.createElement('button');
+      button.className = `gallery-controls-${ctrl} btn`;
+      button.innerHTML = ctrl;
+      galleryControlsContainer.appendChild(button);
+    });
   }
-  var activeSlide = slide[slideCurrent];
-  if (slideCurrent > 0) {
-    var preactiveSlide = slide[slideCurrent - 1];
-  } else {
-    var preactiveSlide = slide[slideTotal];
+
+  private useControls(): void {
+    const galleryControlsContainer = document.querySelector('.gallery-controls');
+    if (!galleryControlsContainer) return;
+
+    const triggers = galleryControlsContainer.querySelectorAll('button');
+
+    triggers.forEach((ctrl) => {
+      ctrl.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.setCurrentState(ctrl);
+      });
+    });
   }
-  slide.forEach((elem) => {
-    var thisSlide = elem;
-    if (thisSlide.classList.contains('proactive')) {
-      thisSlide.classList.remove('preactivede');
-      thisSlide.classList.remove('preactive');
-      thisSlide.classList.remove('active');
-      thisSlide.classList.remove('proactive');
-      thisSlide.classList.add('proactivede');
-    }
-    if (thisSlide.classList.contains('proactivede')) {
-      thisSlide.classList.remove('preactive');
-      thisSlide.classList.remove('active');
-      thisSlide.classList.remove('proactive');
-      thisSlide.classList.remove('proactivede');
-      thisSlide.classList.add('preactivede');
-    }
-  });
 
-  preactiveSlide.classList.remove('preactivede');
-  preactiveSlide.classList.remove('active');
-  preactiveSlide.classList.remove('proactive');
-  preactiveSlide.classList.remove('proactivede');
-  preactiveSlide.classList.add('preactive');
+  // private setDrag(): void {
+  //   this.carouselArray.forEach((el) => {
+  //     el.addEventListener('dragstart', (e) => {
+  //       // e.preventDefault();
+  //       // console.log(e);
+  //       let startOffset: number = e.clientX;
+  //       let endOffset: number;
 
-  activeSlide.classList.remove('preactivede');
-  activeSlide.classList.remove('preactive');
-  activeSlide.classList.remove('proactive');
-  activeSlide.classList.remove('proactivede');
-  activeSlide.classList.add('active');
+  //       el.addEventListener('dragend', (e) => {
+  //         if (e.clientX < startOffset) {
+  //           this.carouselArray.unshift(this.carouselArray.pop());
+  //           this.updateGallery();
+  //         }
+  //       });
+  //     });
+  //   });
+  // }
 
-  proactiveSlide.classList.remove('preactivede');
-  proactiveSlide.classList.remove('preactive');
-  proactiveSlide.classList.remove('active');
-  proactiveSlide.classList.remove('proactivede');
-  proactiveSlide.classList.add('proactive');
+  public automate(): void {
+    setInterval(() => {
+      this.carouselArray.unshift(this.carouselArray.pop()!);
+      this.updateGallery();
+    }, 5000);
+  }
 
-  updateBullet();
-}
-
-function goToIndexSlide(index) {
-  const sliding = slideCurrent > index ? () => slideRight() : () => slideLeft();
-  while (slideCurrent !== index) {
-    sliding();
+  public init(): void {
+    this.updateGallery();
+    this.setControls();
+    this.useControls();
+    // this.setDrag();
+    this.automate();
   }
 }
 
-slideInitial();
+const galleryContainer = document.querySelector('.gallery-container');
+const galleryControls = ['prev', 'next'];
+const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+
+const carousel = new Carousel(galleryContainer!, galleryItems, galleryControls);
+carousel.init();
