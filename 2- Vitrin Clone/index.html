@@ -12,19 +12,151 @@
       <!-- header section -->
       <header
         id="header"
-        class="bg-[#f2f1f6] fixed top-0 flex flex-col w-screen h-[140px] justify-center items-cente drop-shadow-md transition-all"
+        class="bg-[#f2f1f6] fixed top-0 flex-col w-screen h-[140px] justify-center drop-shadow-md transition-all hidden md:flex"
       >
-        <div class="w-full bg-blue-600 box-border h-[80px]">
-          <div class="w-4/5 max-w-[1200px] m-auto h-[80px]">
-            <div class="h-full overflow-hidden flex flex-col items-center justify-center w-24">
-              <img src="/assets/logo.png" alt="logo" class="h-[55%]" />
-              <p class="text-white text-sm">سروش پلاس</p>
+        <!-- upper header -->
+        <div class="flex justify-between items-center w-full bg-blue-600 box-border h-[80px]">
+          <div class="w-full flex justify-between items-center h-full">
+            <!-- logo -->
+            <div class="w-2/5 m-auto h-full flex justify-center">
+              <div class="h-full overflow-hidden flex flex-col items-center justify-center w-24">
+                <img src="public/assets/logo.png" alt="logo" class="h-[55%]" />
+                <p class="text-white text-sm">سروش پلاس</p>
+              </div>
+            </div>
+            <!-- items -->
+            <div class="flex justify-center h-full">
+              <ul class="flex justify-between items-center gap-[2rem] text-white">
+                <li><a href="#" class="hover:underline">صفحه نخست</a></li>
+                <li><a href="#" class="hover:underline">بلاگ</a></li>
+                <li><a href="#" class="hover:underline">دریافت برنامه</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- search bar -->
+          <div class="flex items-center justify-center w-full h-full">
+            <div class="relative w-[40%]">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <button
+                  type="submit"
+                  class="text-white bg-white hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2"
+                >
+                  <svg
+                    class="w-4 h-3 text-gray-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <input
+                class="block w-full p-[11px] pl-10 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none"
+                placeholder="جستجو در ویترین"
+                dir="rtl"
+              />
             </div>
           </div>
         </div>
-        <div class="h-[80px] w-4/5 max-w-[868px]"></div>
+        <!-- down header -->
+        <div class="flex flex-row items-center bg-ft-white h-[80px]">
+          <div class="w-full h-full overflow-x-auto">
+            <div class="flex justify-center h-full">
+              <ul class="flex justify-between items-center gap-[2rem] text-slate-600">
+                <li><a href="#" class="hover:underline">مذهبی</a></li>
+                <li><a href="#" class="hover:underline">برترین</a></li>
+                <li><a href="#" class="hover:underline">پرفروش هفته</a></li>
+                <li><a href="#" class="hover:underline">سبک زندگی</a></li>
+                <li><a href="#" class="hover:underline">اخبار</a></li>
+                <li><a href="#" class="hover:underline">تبلیغ گسترده</a></li>
+                <li><a href="#" class="hover:underline">سروش پلاس</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- header section for mobile -->
+      <header
+        id="mobile-header"
+        class="bg-[#f2f1f6] fixed top-0 flex md:hidden flex-col w-screen h-[80px] justify-center drop-shadow-md transition-all"
+      >
+        <!-- upper header -->
+        <div class="flex justify-between items-center w-full bg-blue-600 box-border h-[80px]">
+          <!-- logo -->
+          <div class="w-full m-auto h-full flex justify-center">
+            <div class="h-full overflow-hidden flex flex-col items-center justify-center w-24">
+              <img src="public/assets/logo.png" alt="logo" class="h-[55%]" />
+              <p class="text-white text-sm">سروش پلاس</p>
+            </div>
+          </div>
+          <!-- search bar -->
+          <div class="flex justify-center items-center w-full">
+            <div class="relative w-[80%] ml-4">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <button
+                  type="submit"
+                  class="text-white bg-white hover:bg-blue-800 font-medium rounded-lg text-sm px-1 py-2"
+                >
+                  <svg
+                    class="w-4 h-3 text-gray-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <input
+                class="block w-full p-[11px] pl-10 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none"
+                placeholder="جستجو"
+                dir="rtl"
+              />
+            </div>
+          </div>
+
+          <!-- items -->
+          <!-- <div class="flex justify-center h-full">
+            <ul class="flex justify-between items-center gap-[2rem] text-white">
+              <li><a href="#" class="hover:underline">صفحه نخست</a></li>
+              <li><a href="#" class="hover:underline">بلاگ</a></li>
+              <li><a href="#" class="hover:underline">دریافت برنامه</a></li>
+            </ul>
+          </div> -->
+        </div>
       </header>
 
+      <aside id="side-menu" class="grid md:hidden fixed top-[80px] right-0">
+        <div id="asideDiv" class="flex flex-row justify-start items-center">
+          <div class="pl-3 text-sm bg-green-600">
+            <ul class="grid gap-[3rem] text-slate-600 my-2 mx-8">
+              <li><a href="#" class="hover:underline">مذهبی</a></li>
+              <li><a href="#" class="hover:underline">برترین</a></li>
+              <li><a href="#" class="hover:underline">پرفروش هفته</a></li>
+              <li><a href="#" class="hover:underline">سبک زندگی</a></li>
+              <li><a href="#" class="hover:underline">اخبار</a></li>
+              <li><a href="#" class="hover:underline">تبلیغ گسترده</a></li>
+              <li><a href="#" class="hover:underline">سروش پلاس</a></li>
+            </ul>
+          </div>
+          <div class="bg-yellow-500">x</div>
+        </div>
+      </aside>
       <!-- main section -->
       <main class="h-[4000px] bg-red-400 max-w-6xl m-auto">
         <div class="gallery w-[90%] m-auto overflow-hidden">
@@ -42,19 +174,21 @@
           <div class="gallery-controls flex justify-center my-[25px] h-[100px]"></div>
         </div>
       </main>
+      <!-- footer part -->
       <footer class="flex flex-row bg-ft-white rounded-lg shadow m-4 mx-auto max-w-screen-xl p-4">
+        <!-- inform & social -->
         <div class="w-full flex justify-center flex-col items-center">
-          <!-- part1 -->
+          <!-- inform -->
           <div class="w-full m-auto">
-            <div class="flex justify-center mx-5 mt-2 mb-2 pb-5 gap-[2rem] md:gap-[4rem] text-sm">
+            <div class="flex justify-center mx-5 mt-2 mb-2 gap-[2rem] md:gap-[4rem] text-sm">
               <div>
                 <h2 class="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-white">راهنما</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                   <li class="mb-2">
-                    <a href="https://flowbite.com/" class="hover:underline">ارتباط با ما</a>
+                    <a href="#" class="hover:underline">ارتباط با ما</a>
                   </li>
                   <li>
-                    <a href="https://tailwindcss.com/" class="hover:underline">درباره ما</a>
+                    <a href="#" class="hover:underline">درباره ما</a>
                   </li>
                 </ul>
               </div>
@@ -62,10 +196,10 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-white">حقوقی</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                   <li class="mb-4">
-                    <a href="https://github.com/themesberg/flowbite" class="hover:underline">حریم خصوصی</a>
+                    <a href="#" class="hover:underline">حریم خصوصی</a>
                   </li>
                   <li>
-                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">قوانین و مقررات</a>
+                    <a href="#" class="hover:underline">قوانین و مقررات</a>
                   </li>
                 </ul>
               </div>
@@ -83,9 +217,9 @@
             </div>
           </div>
 
-          <!-- part2 -->
+          <!-- inform -->
           <div class="flex items-start w-full justify-center">
-            <ul class="flex mt-3 text-sm font-medium text-white">
+            <ul class="flex mt-3 text-sm font-medium text-white gap-2 md:gap-0">
               <li>
                 <a href="#" class="flex h-[60px] w-[45px] md:mr-6">
                   <img
@@ -132,19 +266,30 @@
               </li>
             </ul>
           </div>
-        </div>
 
+          <!--logo & copy right text for mobile-->
+          <div class="flex md:hidden items-center w-full justify-center">
+            <a href="#" class="flex justify-center w-1/4">
+              <img
+                class="w-1/2 aspect-auto my-4 filter opacity-20 hover:opacity-60 transition-all"
+                src="./assets/footer/logo.png"
+              />
+            </a>
+            <p class="text-sm text-slate-600 my-4 w-full">تمامی حقوق مادی و معنوی این صفحه محفوظ می‌باشد .</p>
+          </div>
+        </div>
+        <!-- logo & copy right text -->
         <div class="hidden md:flex flex-col w-full">
-          <!-- part3 -->
-          <div class="flex justify-center items-center w-full h-full md:h-auto">
+          <!-- logo -->
+          <div class="flex justify-center items-center w-full h-full">
             <a href="#" class="flex md:mr-6">
               <img
-                class="h-[160px] w-full my-4 filter opacity-20 hover:opacity-60 transition-all"
+                class="h-[100px] w-full my-4 filter opacity-20 hover:opacity-60 transition-all"
                 src="./assets/footer/logo.png"
               />
             </a>
           </div>
-          <!-- part4 -->
+          <!-- copy right text -->
           <div class="w-full text-center">
             <p class="text-sm text-slate-600 mx-16">
               تمامی حقوق مادی و معنوی این صفحه متعلق به پیام رسان سروش پلاس می‌باشد .
