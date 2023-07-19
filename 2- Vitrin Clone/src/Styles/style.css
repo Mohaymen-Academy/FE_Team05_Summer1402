@@ -7,21 +7,27 @@
     @apply absolute rounded-lg bg-contain opacity-0 transition left-[3000px];
   }
   .gallery-item-1 {
-    @apply h-[200px] z-10 opacity-50 w-[330px] left-[15%] -translate-x-1/2 scale-100;
+    @apply z-10 opacity-0 md:opacity-50 left-[15%] -translate-x-1/2 scale-100 w-[550px];
   }
   .gallery-item-2 {
-    @apply left-[30%] h-[250px] z-30 opacity-90 -translate-x-1/2 w-[380px] transition-all scale-100;
+    @apply left-[30%] z-30 opacity-0 md:opacity-90 -translate-x-1/2 transition-all scale-100 w-[650px];
   }
   .gallery-item-3 {
-    @apply h-[300px] opacity-100 left-1/2 -translate-x-1/2 z-50 w-[430px] transition-all scale-100;
+    @apply opacity-100 left-1/2 -translate-x-1/2 z-50 transition-all scale-100 w-[650px] h-[366px];
   }
   .gallery-item-4 {
-    @apply -translate-x-1/2 left-[70%] h-[250px] z-30 opacity-90 w-[380px] transition-all scale-100;
+    @apply -translate-x-1/2 left-[70%] z-30 opacity-0 md:opacity-90 transition-all scale-100 w-[650px];
   }
   .gallery-item-5 {
-    @apply -translate-x-1/2 left-[85%] h-[200px] z-10 opacity-50 w-[330px] transition-all scale-100;
+    @apply -translate-x-1/2 left-[85%] z-10 opacity-0 md:opacity-50 transition-all scale-100 w-[550px];
   }
   .btn {
     @apply bg-slate-500 p-5;
+  }
+  .bullet {
+    @apply w-4 h-4 bg-slate-400 rounded-full cursor-pointer transition;
+  }
+  .bullet-active {
+    @apply bg-slate-500;
   }
 }
