@@ -142,77 +142,87 @@
       </header>
 
       <!-- aside filter section reveals only on mobile view -->
-      <aside id="side-menu" class="grid md:hidden fixed z-[999] top-[80px] right-0 transition-all">
-        <div class="flex flex-row justify-start items-center">
-          <div class="pl-3 text-sm bg-ft-white rounded-l-lg">
-            <ul class="grid gap-[3rem] text-slate-500 my-2 mx-8">
-              <li><a href="#" class="hover:underline">مذهبی</a></li>
-              <li><a href="#" class="hover:underline">برترین</a></li>
-              <li><a href="#" class="hover:underline">پرفروش هفته</a></li>
-              <li><a href="#" class="hover:underline">سبک زندگی</a></li>
-              <li><a href="#" class="hover:underline">اخبار</a></li>
-              <li><a href="#" class="hover:underline">تبلیغ گسترده</a></li>
-              <li><a href="#" class="hover:underline">سروش پلاس</a></li>
-            </ul>
-          </div>
-          <div onclick="toggleSideMenu()" class="bg-yellow-500 w-5 h-5 rounded-l-sm">
-            <img id="side-menu-icon" src="/assets/asideMenu/right.svg" />
-          </div>
+      <aside id="side-menu" class="grid md:hidden fixed z-[999] top-[80px] right-[-120px] transition-all">
+        <div class="text-sm bg-ft-white rounded-l-lg relative p-5">
+          <ul class="grid gap-8 text-slate-500">
+            <li><a href="#" class="hover:underline">مذهبی</a></li>
+            <li><a href="#" class="hover:underline">برترین</a></li>
+            <li><a href="#" class="hover:underline">پرفروش هفته</a></li>
+            <li><a href="#" class="hover:underline">سبک زندگی</a></li>
+            <li><a href="#" class="hover:underline">اخبار</a></li>
+            <li><a href="#" class="hover:underline">تبلیغ گسترده</a></li>
+            <li><a href="#" class="hover:underline">سروش پلاس</a></li>
+          </ul>
+          <button
+            id="side-menu-button"
+            class="bg-ft-white w-5 h-10 rounded-l-md absolute top-10 left-0 -translate-x-full"
+          >
+            <img id="side-menu-icon" src="/assets/asideMenu/right.svg" class="rotate-180 transition duration-500" />
+          </button>
         </div>
       </aside>
 
+      <!-- carousel section -->
+      <section class="max-w-6xl m-auto mb-12">
+        <div
+          id="carousel-loader"
+          class="grid max-w-[90%] w-[650px] h-[50vw] sm:h-[366px] m-auto rounded-lg overflow-hidden mt-12"
+        >
+          <div class="skeleton grid justify-center items-center">
+            <img src="assets/icons/circle-notch.svg" class="animate-spin h-1/4 opacity-30" alt="loader" />
+          </div>
+        </div>
+        <div id="carousel" class="w-[90%] m-auto overflow-hidden hidden">
+          <div class="gallery-container flex items-center h-[330px] sm:h-[478px] mx-auto max-w-[1000px] relative">
+            <a class="gallery-item" data-index="1" href="#">
+              <img class="carousel-image" src="/assets/carousel/img1.jpg" alt="carousel image" />
+            </a>
+            <a class="gallery-item" data-index="2" href="#">
+              <img class="carousel-image w-full h-full" src="/assets/carousel/img2.jpg" alt="carousel image" />
+            </a>
+            <a class="gallery-item" data-index="3" href="#">
+              <img class="carousel-image w-full h-full" src="/assets/carousel/img4.jpg" alt="carousel image" />
+            </a>
+            <a class="gallery-item" data-index="4" href="#">
+              <img class="carousel-image w-full h-full" src="/assets/carousel/img5.jpg" alt="carousel image" />
+            </a>
+            <a class="gallery-item" data-index="5" href="#">
+              <img class="carousel-image w-full h-full" src="/assets/carousel/img6.jpg" alt="carousel image" />
+            </a>
+            <a class="gallery-item" data-index="6" href="#">
+              <img class="carousel-image w-full h-full" src="/assets/carousel/img7.jpg" alt="carousel image" />
+            </a>
+            <div
+              id="bullet-container"
+              class="flex flex-row gap-2 absolute z-50 bottom-2 md:bottom-0 left-1/2 -translate-x-1/2 bg-slate-500/30 p-2 rounded-xl opacity-70 hover:opacity-100 transition"
+            ></div>
+          </div>
+        </div>
+      </section>
+
       <!-- main section -->
-      <main class="m-auto overflow-hidden">
-        <section class="max-w-6xl m-auto">
-          <div
-            id="carousel-loader"
-            class="grid max-w-[90%] w-[650px] h-[50vw] sm:h-[366px] m-auto rounded-lg overflow-hidden mt-12"
-          >
-            <div class="skeleton grid justify-center items-center">
-              <img src="assets/icons/circle-notch.svg" class="animate-spin h-1/4 opacity-30" alt="loader" />
-            </div>
-          </div>
-          <div id="carousel" class="w-[90%] m-auto overflow-hidden hidden">
-            <div class="gallery-container flex items-center h-[330px] sm:h-[478px] mx-auto max-w-[1000px] relative">
-              <a class="gallery-item" data-index="1" href="#">
-                <img class="carousel-image" src="/assets/carousel/img1.jpg" alt="carousel image" />
-              </a>
-              <a class="gallery-item" data-index="2" href="#">
-                <img class="carousel-image" src="/assets/carousel/img2.jpg" alt="carousel image" />
-              </a>
-              <a class="gallery-item" data-index="3" href="#">
-                <img class="carousel-image" src="/assets/carousel/img4.jpg" alt="carousel image" />
-              </a>
-              <a class="gallery-item" data-index="4" href="#">
-                <img class="carousel-image" src="/assets/carousel/img5.jpg" alt="carousel image" />
-              </a>
-              <a class="gallery-item" data-index="5" href="#">
-                <img class="carousel-image" src="/assets/carousel/img6.jpg" alt="carousel image" />
-              </a>
-              <a class="gallery-item" data-index="6" href="#">
-                <img class="carousel-image" src="/assets/carousel/img7.jpg" alt="carousel image" />
-              </a>
-              <div
-                id="bullet-container"
-                class="flex flex-row gap-2 absolute z-50 bottom-2 md:bottom-0 left-1/2 -translate-x-1/2 bg-slate-500/30 p-2 rounded-xl opacity-70 hover:opacity-100 transition"
-              ></div>
-            </div>
-          </div>
-        </section>
+      <main class="m-auto overflow-hidden flex flex-col gap-10">
         <section
           id="banner1"
-          class="banner translate-y-14 opacity-0 bg-gradient-to-l from-green-500/30 h-[30vh] min-h-[250px] flex justify-center gap-56 items-center transition duration-500"
+          class="banner translate-y-14 opacity-0 bg-gradient-to-l from-green-500/30 h-[30vh] min-h-[250px] flex justify-center items-center sm:gap-16 lg:gap-52 transition duration-500"
         >
           <div
-            class="banner-text h-full grid justify-center items-center text-center translate-x-[100vw] transition duration-1000 ease-out"
+            class="banner-text h-full w-1/2 sm:w-auto grid justify-center items-center text-center translate-x-[100vw] transition duration-1000 ease-out"
           >
-            <div class="text-5xl flex flex-col gap-9">
-              <div>پویش سبک</div>
-              <div class="font-bold text-green-500 mr-36">زندگی اسلامی</div>
-              <button class="btn-banner">اطلاعات بیشتر</button>
+            <div class="text-xl sm:text-3xl md:text-5xl lg:text-6xl flex flex-col gap-5 sm:gap-7">
+              <div class="flex flex-col gap-2 sm:gap-4 md:gap-6">
+                <div>پویش سبک</div>
+                <div class="font-bold text-green-500 sm:mr-12 lg:mr-28">زندگی اسلامی</div>
+              </div>
+              <button class="btn-banner flex justify-center items-center">
+                <div class="block">اطلاعات بیشتر</div>
+                <img class="h-full" src="public/assets/icons/caret-left-bold.svg" />
+              </button>
             </div>
           </div>
-          <div class="banner-img h-[90%] -translate-x-[100vw] transition duration-1000 ease-out">
+          <div
+            class="banner-img h-full sm:h-[90%] w-1/2 sm:w-auto -translate-x-[100vw] transition duration-1000 ease-out"
+          >
             <img class="h-full" src="public/assets/Banner/quran.svg" />
           </div>
         </section>

@@ -4,6 +4,10 @@ const headerElement = document.getElementById('header');
 const mobileHeaderElement = document.getElementById('mobile-header');
 const asideTag = document.getElementById('side-menu');
 const banners = document.querySelectorAll('.banner');
+// side menu
+const sideMenu = document.getElementById('side-menu');
+const sideMenuButton = document.getElementById('side-menu-button') as HTMLImageElement;
+const sideMenuButtonIcon = document.getElementById('side-menu-icon') as HTMLImageElement;
 
 ////functions
 
@@ -32,8 +36,6 @@ document.addEventListener('scroll', async () => {
     scrollDirection = 'up';
   }
 
-  // previousScrollPosition = currentScrollPosition;
-
   const scrolledHeight = document.documentElement.scrollTop;
   if (scrollDirection === 'down')
     if (scrolledHeight > 40) {
@@ -56,35 +58,23 @@ document.addEventListener('scroll', async () => {
   }
 });
 
-// side menu
-const sideMenu = document.getElementById('side-menu');
-const sideMenuIcon = document.getElementById('side-menu-icon') as HTMLImageElement;
+//show and hide aside menu
 let sideFlag = false;
-function toggleSideMenu() {
-  console.log('1');
-  if (!sideFlag) {
-    sideFlag = true;
-    if (sideMenu != null) {
-      sideMenu.style.right = '0px';
-    }
-    if (sideMenuIcon != null) {
-      sideMenuIcon.src = '/assets/asideMenu/right.svg';
-    }
-    console.log('true');
-  } else {
+function toggleSideMenu(e: Event) {
+  e.stopPropagation();
+  if (!sideMenu) return;
+
+  if (sideFlag) {
+    sideMenu.style.right = '-120px';
+    sideMenuButtonIcon.style.transform = 'rotate(180deg)';
     sideFlag = false;
-    if (sideMenu != null) {
-      sideMenu.style.right = '-150px';
-    }
-    if (sideMenuIcon != null) {
-      sideMenuIcon.src = '/assets/asideMenu/left.svg';
-    }
+  } else {
+    sideMenu.style.right = '0px';
+    sideMenuButtonIcon.style.transform = 'rotate(0deg)';
+    sideFlag = true;
   }
 }
-
-// card slider
-const myCategory = document.getElementsByClassName('my-category');
-const showMore = document.getElementsByClassName('show-more');
+sideMenuButton.addEventListener('click', toggleSideMenu);
 
 //intersection observer for banners
 console.log(banners);
@@ -102,8 +92,3 @@ const bannerObserver = new IntersectionObserver((entries) => {
 });
 
 banners.forEach((banner) => bannerObserver.observe(banner));
-
-function showMoreDiv(i: number) {
-  const divTag = showMore[i] as HTMLDivElement;
-  divTag.style.display = 'show';
-}

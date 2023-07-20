@@ -6,20 +6,20 @@
   @variants responsive {
     /* Hide scrollbar for Chrome, Safari and Opera */
     .no-scrollbar::-webkit-scrollbar {
-        display: none;
+      display: none;
     }
 
     /* Hide scrollbar for IE, Edge and Firefox */
     .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
     }
   }
 }
 
 @layer components {
   .gallery-item {
-    @apply absolute overflow-hidden rounded-lg bg-contain opacity-0  blur-[20px] sm:h-[140px] transition-all duration-500 left-[4000px] drop-shadow-md ease-out;
+    @apply absolute overflow-hidden rounded-lg bg-contain opacity-0  blur-[20px] sm:h-[140px] transition-all duration-0 md:duration-500 left-[4000px] drop-shadow-md ease-out;
   }
   .gallery-item img {
     @apply opacity-100 w-full h-full;
@@ -43,7 +43,7 @@
     @apply bg-slate-500 p-5;
   }
   .btn-banner {
-    @apply bg-white text-[1.5rem] w-1/2 mr-auto h-14 rounded-xl font-bold;
+    @apply bg-white text-[1rem] w-full sm:w-3/4 sm:text-xl md:w-auto mr-auto h-12 p-2 rounded-xl font-bold;
   }
   .bullet {
     @apply w-4 h-4 bg-white rounded-full cursor-pointer transition;
