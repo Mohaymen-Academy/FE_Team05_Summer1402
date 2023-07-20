@@ -61,12 +61,10 @@ document.addEventListener('click', async () => {
     if (sideMenu != null) {
       sideMenu.style.right = '0px';
     }
-    console.log('true');
   } else {
     sideFlag = false;
     if (sideMenu != null) {
       sideMenu.style.right = '-150px';
     }
-    console.log('false');
   }
 });
