@@ -2,8 +2,8 @@
 const body = document.body;
 const headerElement = document.getElementById('header');
 const mobileHeaderElement = document.getElementById('mobile-header');
-
 const asideTag = document.getElementById('asideDiv');
+const banners = document.querySelectorAll('.banner');
 
 ////functions
 
@@ -68,3 +68,20 @@ document.addEventListener('click', async () => {
     }
   }
 });
+
+//intersection observer for banners
+console.log(banners);
+const bannerObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const text = entry.target.getElementsByClassName('banner-text')[0] as HTMLElement;
+    const image = entry.target.getElementsByClassName('banner-img')[0] as HTMLElement;
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translate(0)';
+      text.style.transform = 'translate(0)';
+      image.style.transform = 'translate(0)';
+    }
+  });
+});
+
+banners.forEach((banner) => bannerObserver.observe(banner));
