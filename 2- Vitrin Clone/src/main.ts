@@ -79,7 +79,6 @@ function toggleSideMenu() {
     if (sideMenuIcon != null) {
       sideMenuIcon.src = '/assets/asideMenu/left.svg';
     }
-    console.log('false');
   }
 }
 

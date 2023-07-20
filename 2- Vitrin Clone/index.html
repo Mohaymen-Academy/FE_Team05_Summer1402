@@ -8,11 +8,11 @@
     <title>CodeStar Showcase</title>
   </head>
   <body>
-    <div id="app" class="pt-[180px]">
-      <!-- header section -->
+    <div id="app" class="pt-[80px] md:pt-[140px]">
+      <!-- header section desktop -->
       <header
         id="header"
-        class="bg-[#f2f1f6] fixed top-0 flex-col w-screen h-[140px] justify-center drop-shadow-md transition-all hidden md:flex"
+        class="bg-[#f2f1f6] fixed z-[999] top-0 flex-col w-screen h-[140px] justify-center drop-shadow-md transition-all hidden md:flex"
       >
         <!-- upper header -->
         <div class="flex justify-between items-center w-full bg-blue-600 box-border h-[80px]">
@@ -86,7 +86,7 @@
       <!-- header section for mobile -->
       <header
         id="mobile-header"
-        class="bg-[#f2f1f6] fixed top-0 flex md:hidden flex-col w-screen h-[80px] justify-center drop-shadow-md transition-all"
+        class="bg-[#f2f1f6] fixed top-0 z-[999] flex md:hidden flex-col w-screen h-[80px] justify-center drop-shadow-md transition-all"
       >
         <!-- upper header -->
         <div class="flex justify-between items-center w-full bg-blue-600 box-border h-[80px]">
@@ -140,23 +140,47 @@
           </div> -->
         </div>
       </header>
-
       <!-- main section -->
       <main class="h-[4000px] bg-red-400 max-w-6xl m-auto">
         <!-- carousel -->
         <div class="gallery w-[90%] m-auto overflow-hidden">
+         <section class="max-w-6xl m-auto">
           <div
-            class="gallery-container flex items-center h-[350px] sm:h-[370px] md:h-[478px] mx-auto max-w-[1000px] relative"
+            id="carousel-loader"
+            class="grid max-w-[90%] w-[650px] h-[50vw] sm:h-[366px] m-auto rounded-lg overflow-hidden mt-12"
           >
-            <img class="gallery-item" src="/assets/carousel/img1.jpg" data-index="1" />
-            <img class="gallery-item" src="/assets/carousel/img2.jpg" data-index="2" />
-            <img class="gallery-item" src="/assets/carousel/img4.jpg" data-index="3" />
-            <img class="gallery-item" src="/assets/carousel/img5.jpg" data-index="4" />
-            <img class="gallery-item" src="/assets/carousel/img6.jpg" data-index="5" />
-            <img class="gallery-item" src="/assets/carousel/img7.jpg" data-index="6" />
-            <div id="bullet-container" class="flex gap-2 absolute z-50 bottom-0 left-1/2 -translate-x-1/2"></div>
+            <div class="skeleton grid justify-center items-center">
+              <img src="assets/icons/circle-notch.svg" class="animate-spin h-1/4 opacity-30" alt="loader" />
+            </div>
           </div>
-          <div class="gallery-controls flex justify-center my-[25px] h-[100px]"></div>
+           <div id="carousel" class="w-[90%] m-auto overflow-hidden hidden">
+            <div class="gallery-container flex items-center h-[330px] sm:h-[478px] mx-auto max-w-[1000px] relative">
+              <a class="gallery-item" data-index="1" href="#">
+                <img class="carousel-image" src="/assets/carousel/img1.jpg" alt="carousel image" />
+              </a>
+              <a class="gallery-item" data-index="2" href="#">
+                <img class="carousel-image" src="/assets/carousel/img2.jpg" alt="carousel image" />
+              </a>
+              <a class="gallery-item" data-index="3" href="#">
+                <img class="carousel-image" src="/assets/carousel/img4.jpg" alt="carousel image" />
+              </a>
+              <a class="gallery-item" data-index="4" href="#">
+                <img class="carousel-image" src="/assets/carousel/img5.jpg" alt="carousel image" />
+              </a>
+              <a class="gallery-item" data-index="5" href="#">
+                <img class="carousel-image" src="/assets/carousel/img6.jpg" alt="carousel image" />
+              </a>
+              <a class="gallery-item" data-index="6" href="#">
+                <img class="carousel-image" src="/assets/carousel/img7.jpg" alt="carousel image" />
+              </a>
+              <div
+                id="bullet-container"
+                class="flex flex-row gap-2 absolute z-50 bottom-2 md:bottom-0 left-1/2 -translate-x-1/2 bg-slate-500/30 p-2 rounded-xl opacity-70 hover:opacity-100 transition"
+              ></div>
+            </div>
+          </div>
+        </section>
+        <section id=""></section>
         </div>
         <aside id="side-menu" class="grid md:hidden fixed z-[999] top-[80px] right-0 transition-all">
           <div class="flex flex-row justify-start items-center">
@@ -406,6 +430,7 @@
           </div>
         </div>
       </main>
+
       <!-- footer part -->
       <footer class="flex flex-row bg-ft-white rounded-lg shadow m-1 mx-auto max-w-screen-xl p-4">
         <!-- inform & social -->
@@ -456,7 +481,7 @@
                 <a href="#" class="flex h-[60px] w-[45px] md:mr-6">
                   <img
                     class="w-10 h-10 my-4 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/img5.svg"
+                    src="./assets/footer/icons/img5.svg"
                   />
                 </a>
               </li>
@@ -465,7 +490,7 @@
                 <a href="#" class="flex h-[60px] w-[45px] md:mr-6">
                   <img
                     class="w-10 h-10 my-4 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/img4.svg"
+                    src="./assets/footer/icons/img4.svg"
                   />
                 </a>
               </li>
@@ -474,7 +499,7 @@
                 <a href="#" class="flex h-[60px] w-[45px] md:mr-6">
                   <img
                     class="w-10 h-10 my-4 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/img3.svg"
+                    src="./assets/footer/icons/img3.svg"
                   />
                 </a>
               </li>
@@ -483,7 +508,7 @@
                 <a href="#" class="flex h-[60px] w-[45px] md:mr-6">
                   <img
                     class="w-10 h-10 my-4 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/img2.png"
+                    src="./assets/footer/icons/img2.png"
                   />
                 </a>
               </li>
@@ -492,7 +517,7 @@
                 <a href="#" class="flex h-[60px] w-[45px] md:mr-6">
                   <img
                     class="w-10 h-10 my-4 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/img1.svg"
+                    src="./assets/footer/icons/img1.svg"
                   />
                 </a>
               </li>
@@ -504,7 +529,7 @@
             <a href="#" class="flex justify-center w-1/4">
               <img
                 class="w-1/2 aspect-auto my-4 filter opacity-20 hover:opacity-60 transition-all"
-                src="./assets/footer/logo.png"
+                src="./assets/footer/icons/logo.png"
               />
             </a>
             <p class="text-sm text-slate-600 my-4 w-full">تمامی حقوق مادی و معنوی این صفحه محفوظ می‌باشد .</p>
@@ -517,7 +542,7 @@
             <a href="#" class="flex md:mr-6">
               <img
                 class="h-[100px] w-full my-4 filter opacity-20 hover:opacity-60 transition-all"
-                src="./assets/footer/logo.png"
+                src="./assets/logo.png"
               />
             </a>
           </div>
