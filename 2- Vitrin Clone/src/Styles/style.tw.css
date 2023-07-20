@@ -846,28 +846,16 @@ video {
   margin-left: 1rem;
 }
 
+.mt-12 {
+  margin-top: 3rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
 
 .mt-3 {
   margin-top: 0.75rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
-}
-
-.mt-12 {
-  margin-top: 3rem;
-}
-
-.mt-16 {
-  margin-top: 4rem;
 }
 
 .box-border {
@@ -940,6 +928,26 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[3\] {
+  height: 3;
+}
+
+.h-\[30\] {
+  height: 30;
+}
+
+.h-\[30v\] {
+  height: 30v;
+}
+
+.h-\[30vh\] {
+  height: 30vh;
 }
 
 .w-1\/2 {
@@ -1023,56 +1031,6 @@ video {
 
 .animate-spin {
   animation: spin 1s linear infinite;
-}
-
-.animate-\[\] {
-  animation: ;
-}
-
-.animate-\[s\] {
-  animation: s;
-}
-
-.animate-\[so\] {
-  animation: so;
-}
-
-.animate-\[soi\] {
-  animation: soi;
-}
-
-.animate-\[soin\] {
-  animation: soin;
-}
-
-.animate-\[sop\] {
-  animation: sop;
-}
-
-.animate-\[sopi\] {
-  animation: sopi;
-}
-
-.animate-\[sopin\] {
-  animation: sopin;
-}
-
-.animate-\[sp\] {
-  animation: sp;
-}
-
-.animate-\[spi\] {
-  animation: spi;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-\[spin\] {
-  animation: spin;
 }
 
 .flex-row {
@@ -1160,10 +1118,6 @@ video {
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
 
-.bg-red-400\/20 {
-  background-color: rgb(248 113 113 / 0.2);
-}
-
 .bg-slate-500\/30 {
   background-color: rgb(100 116 139 / 0.3);
 }
@@ -1176,6 +1130,16 @@ video {
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.bg-gradient-to-l {
+  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+}
+
+.from-red-500\/30 {
+  --tw-gradient-from: rgb(239 68 68 / 0.3) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(239 68 68 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .p-2 {
@@ -1267,20 +1231,12 @@ video {
   opacity: 0.2;
 }
 
-.opacity-70 {
-  opacity: 0.7;
-}
-
-.opacity-50 {
-  opacity: 0.5;
-}
-
-.opacity-0 {
-  opacity: 0;
-}
-
 .opacity-30 {
   opacity: 0.3;
+}
+
+.opacity-70 {
+  opacity: 0.7;
 }
 
 .shadow {
@@ -1325,14 +1281,6 @@ video {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-.duration-200 {
-  transition-duration: 200ms;
-}
-
-.duration-100 {
-  transition-duration: 100ms;
 }
 
 .skeleton {
