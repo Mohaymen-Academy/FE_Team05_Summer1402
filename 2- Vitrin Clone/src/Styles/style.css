@@ -42,6 +42,9 @@
   .btn {
     @apply bg-slate-500 p-5;
   }
+  .btn-banner {
+    @apply bg-white text-[1.5rem] w-1/2 mr-auto h-14 rounded-xl font-bold;
+  }
   .bullet {
     @apply w-4 h-4 bg-white rounded-full cursor-pointer transition;
   }
