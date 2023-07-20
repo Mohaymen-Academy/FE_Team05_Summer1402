@@ -107,3 +107,40 @@ function showMoreDiv(i: number) {
   const divTag = showMore[i] as HTMLDivElement;
   divTag.style.display = 'show';
 }
+// draggable card container
+
+const slider = document.getElementById('container2') as HTMLDivElement;
+let isDown = false;
+let startX: number;
+let scrollLeft: number;
+
+const mouseDownHandler: EventListenerOrEventListenerObject = (e: any) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - (slider as HTMLElement).offsetLeft;
+  scrollLeft = (slider as HTMLElement).scrollLeft;
+};
+
+const mouseLeaveHandler: EventListenerOrEventListenerObject = () => {
+  isDown = false;
+  slider.classList.remove('active');
+};
+
+const mouseUpHandler: EventListenerOrEventListenerObject = () => {
+  isDown = false;
+  slider.classList.remove('active');
+};
+
+const mouseMoveHandler: EventListenerOrEventListenerObject = (e: any) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - (slider as HTMLElement).offsetLeft;
+  const walk = (x - startX) * 3; //scroll-fast
+  (slider as HTMLElement).scrollLeft = scrollLeft - walk;
+  console.log(walk);
+};
+
+slider.addEventListener('mousedown', mouseDownHandler);
+slider.addEventListener('mouseleave', mouseLeaveHandler);
+slider.addEventListener('mouseup', mouseUpHandler);
+slider.addEventListener('mousemove', mouseMoveHandler);
