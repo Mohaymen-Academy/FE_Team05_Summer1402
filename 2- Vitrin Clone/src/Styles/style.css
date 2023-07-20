@@ -19,30 +19,58 @@
 
 @layer components {
   .gallery-item {
-    @apply absolute rounded-lg bg-contain opacity-0 transition left-[3000px];
+    @apply absolute overflow-hidden rounded-lg bg-contain opacity-0  blur-[20px] sm:h-[140px] transition-all duration-500 left-[4000px] drop-shadow-md ease-out;
+  }
+  .gallery-item img {
+    @apply opacity-100 w-full h-full;
   }
   .gallery-item-1 {
-    @apply z-10 opacity-0 md:opacity-50 left-[15%] -translate-x-1/2 scale-100 w-[550px];
+    @apply z-10 opacity-0 md:opacity-50 left-[15%] -translate-x-1/2 scale-100 w-[250px] h-auto sm:h-[140px] blur-[2px];
   }
   .gallery-item-2 {
-    @apply left-[30%] z-30 opacity-0 md:opacity-90 -translate-x-1/2 transition-all scale-100 w-[650px];
+    @apply left-[30%] z-30 opacity-0 md:opacity-90 -translate-x-1/2 scale-100 w-[450px] h-auto sm:h-[253px] blur-[1px];
   }
   .gallery-item-3 {
-    @apply opacity-100 left-1/2 -translate-x-1/2 z-50 transition-all scale-100 w-[650px] h-[366px];
+    @apply opacity-100 left-1/2 -translate-x-1/2 z-50 scale-100 w-[650px] blur-[0px] h-[50vw] sm:h-[366px];
   }
   .gallery-item-4 {
-    @apply -translate-x-1/2 left-[70%] z-30 opacity-0 md:opacity-90 transition-all scale-100 w-[650px];
+    @apply -translate-x-1/2 left-[70%] z-30 opacity-0 md:opacity-90 scale-100 w-[450px] h-auto sm:h-[253px] blur-[1px];
   }
   .gallery-item-5 {
-    @apply -translate-x-1/2 left-[85%] z-10 opacity-0 md:opacity-50 transition-all scale-100 w-[550px];
+    @apply -translate-x-1/2 left-[85%] z-10 opacity-0 md:opacity-50 scale-100 w-[250px] h-auto sm:h-[140px] blur-[2px];
   }
   .btn {
     @apply bg-slate-500 p-5;
   }
+  .btn-banner {
+    @apply bg-white text-[1.5rem] w-1/2 mr-auto h-14 rounded-xl font-bold;
+  }
   .bullet {
-    @apply w-4 h-4 bg-slate-400 rounded-full cursor-pointer transition;
+    @apply w-4 h-4 bg-white rounded-full cursor-pointer transition;
   }
   .bullet-active {
-    @apply bg-slate-500;
+    @apply bg-neutral-600;
+  }
+}
+
+.skeleton {
+  width: 100%;
+  height: 100%;
+  background-color: #edededf7;
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    #edededf7;
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
   }
 }

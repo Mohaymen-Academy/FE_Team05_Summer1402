@@ -2,8 +2,8 @@
 const body = document.body;
 const headerElement = document.getElementById('header');
 const mobileHeaderElement = document.getElementById('mobile-header');
-
 const asideTag = document.getElementById('side-menu');
+const banners = document.querySelectorAll('.banner');
 
 ////functions
 
@@ -79,7 +79,6 @@ function toggleSideMenu() {
     if (sideMenuIcon != null) {
       sideMenuIcon.src = '/assets/asideMenu/left.svg';
     }
-    console.log('false');
   }
 }
 
@@ -87,13 +86,30 @@ function toggleSideMenu() {
 const myCategory = document.getElementsByClassName('my-category');
 const showMore = document.getElementsByClassName('show-more');
 
+//intersection observer for banners
+console.log(banners);
+const bannerObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const text = entry.target.getElementsByClassName('banner-text')[0] as HTMLElement;
+    const image = entry.target.getElementsByClassName('banner-img')[0] as HTMLElement;
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translate(0)';
+      text.style.transform = 'translate(0)';
+      image.style.transform = 'translate(0)';
+    }
+  });
+});
+
+banners.forEach((banner) => bannerObserver.observe(banner));
+
 function showMoreDiv(i: number) {
   const divTag = showMore[i] as HTMLDivElement;
   divTag.style.display = 'show';
 }
 // draggable card container
 
-const slider = document.getElementById('container1') as HTMLDivElement;
+const slider = document.getElementById('container2') as HTMLDivElement;
 let isDown = false;
 let startX: number;
 let scrollLeft: number;
