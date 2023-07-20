@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="app" class="pt-[80px] md:pt-[140px]">
-      <!-- header section desktop -->
+      <!-- header section for desktop -->
       <header
         id="header"
         class="bg-[#f2f1f6] fixed z-[999] top-0 flex-col w-screen h-[140px] justify-center drop-shadow-md transition-all hidden md:flex"
@@ -226,10 +226,10 @@
             <img class="h-full" src="public/assets/Banner/quran.svg" />
           </div>
         </section>
-        <!-- card container1 -->
-        <section id="container1" class="flex flex-col justify-center items-center w-full max-w-6xl m-auto">
+        <!-- card container -->
+        <section id="draggableSlideHaeder" class="flex flex-col justify-center items-center w-full max-w-6xl m-auto">
           <div class="flex items-center justify-between w-full">
-            <div onmouseover="showMoreDiv(0)" class="px-5 my-category">
+            <div class="px-5 my-category">
               <p>مذهبی</p>
             </div>
             <div class="hidden px-5 show-more">
@@ -237,8 +237,181 @@
             </div>
           </div>
           <div
-            id="container2"
-            class="flex overflow-x-auto no-scrollbar transition-all duration-[0.2s] scale-95 active:scale-100 will-change-transform select-none w-full"
+            id="draggableSlide"
+            class="draggable-slide flex overflow-x-auto no-scrollbar transition-all duration-[0.2s] scale-95 active:scale-100 will-change-transform select-none w-full"
+          >
+            <div id="conatainer" class="flex gap-[1rem] p-4">
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-full flex flex-col rounded-lg shadow">
+                <div class="flex justify-center items-center py-2 px-1">
+                  <a href="#">
+                    <img class="rounded-xl w-24 h-24" src="public/assets/card/img1.jpeg" alt="مجالس اهل بیت" />
+                  </a>
+                </div>
+                <div class="text-sm flex w-32 justify-center items-center pb-2 px-3">
+                  <a href="#">
+                    <p>مجالس اهل بیت</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="draggableSlideHaeder" class="flex flex-col justify-center items-center w-full max-w-6xl m-auto">
+          <div class="flex items-center justify-between w-full">
+            <div class="px-5 my-category">
+              <p>مذهبی</p>
+            </div>
+            <div class="hidden px-5 show-more">
+              <a href="#">نمایش همه</a>
+            </div>
+          </div>
+          <div
+            id="draggableSlide"
+            class="draggable-slide flex overflow-x-auto no-scrollbar transition-all duration-[0.2s] scale-95 active:scale-100 will-change-transform select-none w-full"
           >
             <div id="conatainer" class="flex gap-[1rem] p-4">
               <div class="w-full h-full flex flex-col rounded-lg shadow">
@@ -634,5 +807,6 @@
     </div>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="src/Carousel/Carousel.ts"></script>
+    <script type="module" src="src/DraggableSlide/DraggableSlide.ts"></script>
   </body>
 </html>
