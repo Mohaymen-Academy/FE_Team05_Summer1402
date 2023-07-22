@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/Styles/style.tw.css" />
+    <link rel="stylesheet" href="./src/Carousel/CarouselStyle.css" />
+    <title>CodeStar Showcase</title>
+  </head>
+  <body>
+    <div class="bg-slate-200">
+      <div class="flex flex-col items-center justify-center px-6 mx-auto h-screen lg:py-0">
+        <!--logo-->
+        <a href="#" class="text-base flex flex-col items-center mb-6 text-gray-700">
+          <img class="w-12 h-12 mr-2" src="public/assets/logo.png" alt="logo" />
+          صفحه ساز سروش پلاس
+        </a>
+        <div class="w-[90%] sm:w-[65%] min-[810px]:w-[40%] bg-white rounded-lg shadow">
+          <div class="flex flex-col justify-center items-center w-full gap-6 mt-6">
+            <!--title-->
+            <div class="flex justify-center items-center text-center font-semibold w-full text-gray-700">
+              <p>اطلاعات طراحی صفحه</p>
+            </div>
+            <!--form-->
+            <form class="flex flex-col justify-center items-start px-5 pb-7 w-full gap-1 md:gap-3" action="#">
+              <div class="flex flex-col justify-start w-full pr-4">
+                <label for="title" class="pr-2 mb-2 text-gray-700">عنوان صفحه خود را وارد کنید</label>
+                <input
+                  type="title"
+                  name="title"
+                  id="title"
+                  class="w-full text-sm h-12 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg pr-2"
+                  placeholder="عنوان صفحه "
+                  required=""
+                />
+                <label for="title" class="mb-2 text-sm text-gray-500">عنوان صفحه ، تگ عنوان HTML است </label>
+              </div>
+              <div class="flex flex-col sm:flex-row mx-2 items-center w-full gap-1 md:gap-0">
+                <div class="pr-2 w-full">
+                  <label for="pagename En" class="block mb-2 text-gray-700">نام صفحه خود را وارد کنید (انگلیسی)</label>
+                  <input
+                    type="pagename En"
+                    name="pagename En"
+                    id="pagename En"
+                    placeholder="Page name"
+                    class="h-12 w-[98%] bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg pr-2"
+                    required=""
+                  />
+                </div>
+                <div class="pr-2 w-full">
+                  <label for="pagename Fa" class="block mb-2 text-gray-700">نام صفحه خود را وارد کنید (فارسی)</label>
+                  <input
+                    type="pagename Fa"
+                    name="pagename Fa"
+                    id="pagename Fa"
+                    placeholder="نام صفحه"
+                    class="w-[98%] h-12 bg-gray-50 border border-gray-300 text-gray-700 sm:text-sm rounded-lg pr-2"
+                    required=""
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-start pr-4">
+                <div class="flex items-center h-8">
+                  <input id="show" type="checkbox" class="w-5 h-5 bg-blue-700 border-4 border-black" required="" />
+                </div>
+                <div class="ml-1 text-sm pt-1">
+                  <p class="mr-2 text-gray-500" href="#">در طراحی نمایش داده شود</p>
+                </div>
+              </div>
+              <div class="flex w-full justify-center items-center">
+                <a
+                  href="page/page1.html"
+                  class="h-10 w-full text-white bg-primary-600 hover:bg-blue-800 font-medium rounded-lg"
+                >
+                  ذخیره و شروع طراحی
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
