@@ -76,6 +76,7 @@ function toggleSideMenu(e: Event) {
   }
 }
 
+
 sideMenuButton.addEventListener('click', toggleSideMenu);
 document.addEventListener('click', () => {
   if (!sideMenu) return;
@@ -85,12 +86,7 @@ document.addEventListener('click', () => {
 });
 sideMenu?.addEventListener('click', (e: Event) => e.stopPropagation());
 
-// card slider
-const myCategory = document.getElementsByClassName('my-category');
-const showMore = document.getElementsByClassName('show-more');
-
 //intersection observer for banners
-console.log(banners);
 const bannerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     const text = entry.target.getElementsByClassName('banner-text')[0] as HTMLElement;
