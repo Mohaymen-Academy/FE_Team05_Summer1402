@@ -4,10 +4,6 @@ const headerElement = document.getElementById('header');
 const mobileHeaderElement = document.getElementById('mobile-header');
 const asideTag = document.getElementById('side-menu');
 const banners = document.querySelectorAll('.banner');
-// side menu
-const sideMenu = document.getElementById('side-menu');
-const sideMenuButton = document.getElementById('side-menu-button') as HTMLImageElement;
-const sideMenuButtonIcon = document.getElementById('side-menu-icon') as HTMLImageElement;
 
 ////functions
 
@@ -36,6 +32,8 @@ document.addEventListener('scroll', async () => {
     scrollDirection = 'up';
   }
 
+  // previousScrollPosition = currentScrollPosition;
+
   const scrolledHeight = document.documentElement.scrollTop;
   if (scrollDirection === 'down')
     if (scrolledHeight > 40) {
@@ -58,32 +56,45 @@ document.addEventListener('scroll', async () => {
   }
 });
 
-//show and hide aside menu
+// side menu
+const sideMenu = document.getElementById('side-menu');
+const sideMenuIcon = document.getElementById('side-menu-icon') as HTMLImageElement;
 let sideFlag = false;
-function toggleSideMenu(e: Event) {
-  e.stopPropagation();
-  if (!sideMenu) return;
-
-  if (sideFlag) {
-    sideMenu.style.right = '-120px';
-    sideMenuButtonIcon.style.transform = 'rotate(180deg)';
-    sideFlag = false;
-  } else {
-    sideMenu.style.right = '0px';
-    sideMenuButtonIcon.style.transform = 'rotate(0deg)';
+function toggleSideMenu() {
+  console.log('1');
+  if (!sideFlag) {
     sideFlag = true;
+    if (sideMenu != null) {
+      sideMenu.style.right = '0px';
+    }
+    if (sideMenuIcon != null) {
+      sideMenuIcon.src = '/assets/asideMenu/right.svg';
+    }
+    console.log('true');
+  } else {
+    sideFlag = false;
+    if (sideMenu != null) {
+      sideMenu.style.right = '-150px';
+    }
+    if (sideMenuIcon != null) {
+      sideMenuIcon.src = '/assets/asideMenu/left.svg';
+    }
   }
 }
-sideMenuButton.addEventListener('click', toggleSideMenu);
+
+// card slider
+const myCategory = document.getElementsByClassName('my-category');
+const showMore = document.getElementsByClassName('show-more');
 
 //intersection observer for banners
+console.log(banners);
 const bannerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     const text = entry.target.getElementsByClassName('banner-text')[0] as HTMLElement;
     const image = entry.target.getElementsByClassName('banner-img')[0] as HTMLElement;
     if (entry.isIntersecting) {
-      (entry.target as HTMLElement).style.opacity = '1';
-      (entry.target as HTMLElement).style.transform = 'translate(0)';
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translate(0)';
       text.style.transform = 'translate(0)';
       image.style.transform = 'translate(0)';
     }
@@ -91,3 +102,8 @@ const bannerObserver = new IntersectionObserver((entries) => {
 });
 
 banners.forEach((banner) => bannerObserver.observe(banner));
+
+function showMoreDiv(i: number) {
+  const divTag = showMore[i] as HTMLDivElement;
+  divTag.style.display = 'show';
+}
