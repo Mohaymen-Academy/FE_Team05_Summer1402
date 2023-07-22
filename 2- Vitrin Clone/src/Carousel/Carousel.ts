@@ -209,7 +209,7 @@ class Carousel {
     carousel.style.display = 'block';
   }
 
-  private handleDragStart(e: MouseEvent | TouchEvent): void {
+  private handleDragStart(e: Event): void {
     e.preventDefault();
     if (e instanceof MouseEvent) {
       this.dragStartX = e.clientX;
@@ -218,7 +218,7 @@ class Carousel {
     }
   }
 
-  private handleDragMove(e: MouseEvent | TouchEvent): void {
+  private handleDragMove(e: Event): void {
     e.preventDefault();
     if (e instanceof MouseEvent) {
       this.dragEndX = e.clientX;
