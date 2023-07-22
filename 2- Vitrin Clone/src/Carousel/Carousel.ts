@@ -1,6 +1,8 @@
 class Carousel {
   private carouselContainer: Element;
   private carouselArray: HTMLElement[];
+  private dragStartX: number = 0;
+  private dragEndX: number = 0;
 
   constructor(container: Element, items: HTMLElement[]) {
     this.carouselContainer = container;
@@ -145,17 +147,7 @@ class Carousel {
     let slideInterval: number;
     const initiateAutoSlide = () => {
       slideInterval = setInterval(() => {
-        const elements: HTMLElement[] = this.carouselArray;
-        const numElements: number = elements.length;
-
-        for (let i = numElements - 1; i > 0; i--) {
-          const currentElement: HTMLElement = elements[i];
-          const nextElement: HTMLElement = elements[(i + 1) % numElements];
-          const nextElementClassListValue = nextElement.classList.value;
-          const currentElementClassListValue = currentElement.classList.value;
-          nextElement.classList.value = currentElementClassListValue;
-          currentElement.classList.value = nextElementClassListValue;
-        }
+        this.shiftClassesByOne('next');
         this.updateBullet();
       }, 5000);
     };
@@ -217,12 +209,85 @@ class Carousel {
     carousel.style.display = 'block';
   }
 
+  private handleDragStart(e: MouseEvent | TouchEvent): void {
+    e.preventDefault();
+    if (e instanceof MouseEvent) {
+      this.dragStartX = e.clientX;
+    } else if (e instanceof TouchEvent) {
+      this.dragStartX = e.touches[0].clientX;
+    }
+  }
+
+  private handleDragMove(e: MouseEvent | TouchEvent): void {
+    e.preventDefault();
+    if (e instanceof MouseEvent) {
+      this.dragEndX = e.clientX;
+    } else if (e instanceof TouchEvent) {
+      this.dragEndX = e.touches[0].clientX;
+    }
+  }
+
+  private handleDragEnd(): void {
+    const threshold = 50;
+    const deltaX = this.dragEndX - this.dragStartX;
+
+    if (deltaX > threshold) {
+      // Dragged to the right (previous slide)
+      this.shiftClassesByOne('prev');
+    } else if (deltaX < -threshold) {
+      // Dragged to the left (next slide)
+      this.shiftClassesByOne('next');
+    }
+
+    this.updateBullet();
+  }
+
+  private shiftClassesByOne(dir: 'next' | 'prev') {
+    const elements: HTMLElement[] = this.carouselArray;
+    const numElements: number = elements.length;
+    function shitClass(index: number) {
+      const currentElement: HTMLElement = elements[index];
+      const nextElement: HTMLElement = elements[(index + 1) % numElements];
+      const nextElementClassListValue = nextElement.classList.value;
+      const currentElementClassListValue = currentElement.classList.value;
+      nextElement.classList.value = currentElementClassListValue;
+      currentElement.classList.value = nextElementClassListValue;
+    }
+
+    if (dir === 'next') {
+      for (let i = numElements - 1; i > 0; i--) {
+        shitClass(i);
+      }
+    }
+    if (dir === 'prev') {
+      for (let i = 0; i < numElements - 1; i++) {
+        shitClass(i);
+      }
+    }
+  }
+
+  private addDragListeners(): void {
+    //drag or touch will not work on bullet container
+    document.getElementById('bullet-container')?.addEventListener('mouseup', (e) => e.stopPropagation());
+    document.getElementById('bullet-container')?.addEventListener('touchend', (e) => e.stopPropagation());
+
+    this.carouselContainer.addEventListener('mousedown', (e) => this.handleDragStart(e));
+    this.carouselContainer.addEventListener('touchstart', (e) => this.handleDragStart(e));
+
+    this.carouselContainer.addEventListener('mousemove', (e) => this.handleDragMove(e));
+    this.carouselContainer.addEventListener('touchmove', (e) => this.handleDragMove(e));
+
+    this.carouselContainer.addEventListener('mouseup', () => this.handleDragEnd());
+    this.carouselContainer.addEventListener('touchend', () => this.handleDragEnd());
+  }
+
   public init(): void {
     this.updateGallery();
     this.renderBullets();
     this.setBulletControls();
     this.setSkeletonLoader();
     this.updateBullet();
+    this.addDragListeners();
     this.automate();
     this.showCarousel();
   }
