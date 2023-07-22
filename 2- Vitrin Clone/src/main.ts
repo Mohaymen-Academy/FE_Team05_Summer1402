@@ -82,12 +82,7 @@ function toggleSideMenu() {
   }
 }
 
-// card slider
-const myCategory = document.getElementsByClassName('my-category');
-const showMore = document.getElementsByClassName('show-more');
-
 //intersection observer for banners
-console.log(banners);
 const bannerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     const text = entry.target.getElementsByClassName('banner-text')[0] as HTMLElement;
@@ -102,8 +97,3 @@ const bannerObserver = new IntersectionObserver((entries) => {
 });
 
 banners.forEach((banner) => bannerObserver.observe(banner));
-
-function showMoreDiv(i: number) {
-  const divTag = showMore[i] as HTMLDivElement;
-  divTag.style.display = 'show';
-}
