@@ -58,29 +58,32 @@ document.addEventListener('scroll', async () => {
 
 // side menu
 const sideMenu = document.getElementById('side-menu');
+const sideMenuButton = document.getElementById('side-menu-button') as HTMLImageElement;
 const sideMenuIcon = document.getElementById('side-menu-icon') as HTMLImageElement;
 let sideFlag = false;
-function toggleSideMenu() {
-  console.log('1');
-  if (!sideFlag) {
-    sideFlag = true;
-    if (sideMenu != null) {
-      sideMenu.style.right = '0px';
-    }
-    if (sideMenuIcon != null) {
-      sideMenuIcon.src = '/assets/asideMenu/right.svg';
-    }
-    console.log('true');
-  } else {
+function toggleSideMenu(e: Event) {
+  e.stopPropagation();
+  if (!sideMenu) return;
+
+  if (sideFlag) {
+    sideMenu.style.right = '-120px';
+    sideMenuIcon.style.transform = 'rotate(180deg)';
     sideFlag = false;
-    if (sideMenu != null) {
-      sideMenu.style.right = '-150px';
-    }
-    if (sideMenuIcon != null) {
-      sideMenuIcon.src = '/assets/asideMenu/left.svg';
-    }
+  } else {
+    sideMenu.style.right = '0px';
+    sideMenuIcon.style.transform = 'rotate(0deg)';
+    sideFlag = true;
   }
 }
+
+sideMenuButton.addEventListener('click', toggleSideMenu);
+document.addEventListener('click', () => {
+  if (!sideMenu) return;
+  sideMenu.style.right = '-120px';
+  sideMenuIcon.style.transform = 'rotate(180deg)';
+  sideFlag = false;
+});
+sideMenu?.addEventListener('click', (e: Event) => e.stopPropagation());
 
 //intersection observer for banners
 const bannerObserver = new IntersectionObserver((entries) => {
@@ -88,8 +91,8 @@ const bannerObserver = new IntersectionObserver((entries) => {
     const text = entry.target.getElementsByClassName('banner-text')[0] as HTMLElement;
     const image = entry.target.getElementsByClassName('banner-img')[0] as HTMLElement;
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translate(0)';
+      (entry.target as HTMLElement).style.opacity = '1';
+      (entry.target as HTMLElement).style.transform = 'translate(0)';
       text.style.transform = 'translate(0)';
       image.style.transform = 'translate(0)';
     }
