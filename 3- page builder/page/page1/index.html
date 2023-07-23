@@ -5,54 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../Styles/style.tw.css" />
     <link rel="stylesheet" href="../../Styles/fonts.css" />
-    <title>CodeStar Showcase</title>
+    <title>CodeStar page builder</title>
   </head>
   <body class="overflow-hidden">
     <div class="bg-neutral-light h-screen flex flex-col w-full">
-      <!--header for mobile-->
-      <header class="flex-col bg-white hidden items-center justify-center w-full h-[150px]">
-        <!--page name-->
-        <div class="flex justify-between items-center w-full">
-          <div class="flex justify-start w-[80%] pr-4 pt-3">
-            <img class="h-10 w-10" src="../../public/assets/header/logo.png" alt="Logo" />
-          </div>
-          <div class="w-full text-start p-2"><h4 class="text-blue-600">نام صفحه</h4></div>
-        </div>
-        <div class="flex justify-between items-center w-full">
-          <!--icons-->
-          <div class="flex justify-start items-center w-full p-3 gap-4">
-            <div>
-              <img class="h-7 w-7" src="../../public/assets/header/home.svg" alt="Home" />
-            </div>
-            <div>
-              <img class="h-7 w-7" src="../../public/assets/header/eye.svg" alt="eye" />
-            </div>
-            <div>
-              <img class="h-7 w-7" src="../../public/assets/header/upload.png" alt="upload" />
-            </div>
-          </div>
-          <!--undo icons-->
-          <div class="flex justify-end items-center w-full px-6 py-2 gap-3">
-            <div class="pt-2">
-              <button class="h-6 w-6">
-                <img src="../../public/assets/header/undo-right.svg" alt="undo right" />
-              </button>
-            </div>
-            <div class="pt-2">
-              <button class="w-6 h-6">
-                <img src="../../public/assets/header/undo-left.svg" alt="undo left" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!--header for desktop-->
       <header class="bg-white flex items-center justify-between w-full h-14">
-        <!--icons-->
-        <div class="flex justify-start items-center w-full p-3 gap-4">
-          <div>
+        <!--right icons-->
+        <div class="flex justify-start items-center p-3 gap-4 w-[170%] lg:w-full">
+          <div class="h-10 w-10">
             <img class="h-10 w-10" src="../../public/assets/header/logo.png" alt="Logo" />
+          </div>
+          <div id="aside-frame-btn">
+            <img class="h-7 w-7 lg:hidden cursor-pointer" src="../../public/assets/asideMenu/frame.svg" />
           </div>
           <div>
             <img class="h-7 w-7" src="../../public/assets/header/home.svg" alt="Home" />
@@ -66,26 +30,30 @@
         </div>
         <!--page name-->
         <div class="w-full text-center p-2"><h4 class="text-blue-600">نام صفحه</h4></div>
-        <!--undo icons-->
-        <div class="flex justify-end items-center w-full px-6 py-2 gap-3">
-          <div class="pt-2">
-            <a href="../page2/">
-              <button class="h-6 w-6">
-                <img src="../../public/assets/header/undo-right.svg" alt="undo right" />
-              </button>
-            </a>
-          </div>
-          <div class="pt-2">
-            <button class="w-6 h-6">
-              <img src="../../public/assets/header/undo-left.svg" alt="undo left" />
+        <!--left icons-->
+        <div class="flex justify-end items-center w-full px-6 py-2 gap-5">
+          <a class="w-4 h-6" href="../page2/">
+            <button class="h-6 w-6">
+              <img src="../../public/assets/header/undo-right.svg" alt="undo right" />
             </button>
-          </div>
+          </a>
+          <a class="w-4 h-6" href="">
+            <button class="w-6 h-6">
+              <img src="../../public/assets/header/undo-left.svg" alt="undo left" /></button
+          ></a>
+
+          <button id="aside-setting-btn" class="w-6 h-6 lg:hidden">
+            <img src="../../public/assets/asideMenu/sliders.svg" alt="undo left" />
+          </button>
         </div>
       </header>
 
-      <div class="flex w-screen h-[calc(100vh-56px)]">
+      <div class="flex w-screen h-[calc(100vh-56px)] reltive">
         <!--frames column-->
-        <aside class="bg-white w-[175px] px-[12px]">
+        <aside
+          id="aside-frame"
+          class="bg-white h-full w-[175px] px-[12px] absolute lg:static -right-[175px] transition-all z-50 shadow-lg"
+        >
           <div class="justify-center items-center w-full my-[8px]">
             <h1 class="py-[8px] px-2 font-bold">قالب‌ها</h1>
           </div>
@@ -128,7 +96,7 @@
           </div>
         </aside>
         <!--drag & design column-->
-        <main class="w-[calc(100vw-175px-345px)] flex justify-center items-center">
+        <main class="lg:w-[calc(100vw-175px-345px)] w-full flex justify-center items-center">
           <!--drag & drop box-->
           <div class="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
             <div class="bg-white w-full h-full">
@@ -174,7 +142,10 @@
           </div>
         </main>
         <!--page settings-->
-        <section class="bg-white w-[345px] p-[24px]">
+        <section
+          id="aside-setting"
+          class="bg-white h-full w-[300px] lg:w-[345px] p-[24px] absolute lg:static -left-[345px] transition-all z-50 shadow-lg"
+        >
           <div class="flex justify-start items-center w-full font-semibold mb-[16px]">
             <h2>تنظیمات صفحه</h2>
           </div>
@@ -183,10 +154,7 @@
               <div class="w-full text-[14px] font-semibold">
                 <p>فاصله بین فریم ها</p>
               </div>
-              <select
-                id="countries"
-                class="border border-gray-300 text-gray-400 text-sm rounded-lg rtl h-[40px] w-[132px] px-2 outline-none"
-              >
+              <select class="input-drop">
                 <option selected>پیش فرض</option>
                 <option value="2rem">2</option>
                 <option value="4rem">4</option>
@@ -209,126 +177,7 @@
           </div>
         </section>
       </div>
-
-      <!--main for mobile-->
-      <main class="hidden">
-        <div class="flex flex-col justify-center items-center w-full">
-          <!--frames row-->
-          <div class="w-full bg-white px-4 my-2 rounded-lg">
-            <div class="h-12 pr-3 flex justify-center items-center w-full">
-              <h1>قالب ها</h1>
-            </div>
-            <div class="text-sm w-full flex flex-row justify-center items-center gap-3 py-3">
-              <button class="h-10 w-12 border-2 rounded-lg border-y-gray-100">کارت</button>
-              <button class="h-10 w-12 border-2 rounded-lg border-y-gray-100">دکمه ها</button>
-              <button class="h-10 w-12 border-2 rounded-lg border-y-gray-100">متن</button>
-              <button class="h-10 w-12 border-2 rounded-lg border-y-gray-100">عکس</button>
-              <button class="h-10 w-12 border-2 rounded-lg border-y-gray-100">ویدئو</button>
-              <button class="h-10 w-12 border-2 rounded-lg border-y-gray-100">اسلایدر</button>
-              <button class="h-10 w-12 border-2 rounded-lg border-y-gray-100">آیکون</button>
-            </div>
-          </div>
-          <!--page settings-->
-          <div class="bg-white w-full pr-2 rounded-lg">
-            <div class="h-12 pr-3 flex justify-center items-center w-full">
-              <h2>تنظیمات صفحه</h2>
-            </div>
-            <div class="w-full flex flex-col justify-start items-center gap-4 pt-5 pb-[15px]">
-              <div class="flex justify-start items-center w-full">
-                <div class="w-full text-sm pr-4">
-                  <p>فاصله بین فریم ها</p>
-                </div>
-                <div class="w-full flex justify-end items-center pl-3">
-                  <select
-                    id="countries"
-                    class="border border-gray-300 text-gray-400 text-sm rounded-lg rtl h-8 pr-2 w-24"
-                  >
-                    <option selected>پیش فرض</option>
-                    <option value="2rem">2</option>
-                    <option value="4rem">4</option>
-                    <option value="8rem">8</option>
-                    <option value="12rem">12</option>
-                  </select>
-                </div>
-              </div>
-              <div class="flex justify-start items-center w-full">
-                <div class="w-full text-sm pr-4">
-                  <p>حاشیه</p>
-                </div>
-                <div class="w-full flex justify-end items-center pl-3">
-                  <input
-                    type="text"
-                    id="padding"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg h-8 w-8 text-center"
-                    placeholder="16"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="flex justify-start items-center w-full">
-                <div class="w-full text-sm pr-4">
-                  <p>فاصله از دیواره</p>
-                </div>
-                <div class="w-full flex justify-end items-center pl-3">
-                  <input
-                    type="text"
-                    id="margin"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg h-8 w-8 text-center"
-                    placeholder="24"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--drag & design column-->
-          <div class="w-full flex justify-center items-start gap-3 px-2 pt-4">
-            <!--drag & drop box-->
-            <div class="w-[45%]">
-              <div class="bg-white w-full px-4 pt-8">
-                <div class="bg-white pb-[460px]">
-                  <div
-                    class="bg-white border-2 border-dashed border-blue-500 rounded-lg flex flex-col justify-center items-center w-full gap-4 p-4"
-                  >
-                    <div class="w-10 h-10 flex justify-center items-center">
-                      <button class="h-10 border-2 border-white rounded-lg w-full flex justify-center items-center">
-                        <img class="w-6 h-6" src="public/assets/body/plus.png" alt="افزودن" />
-                      </button>
-                    </div>
-                    <div class="text-blue-500">
-                      <p>یک قالب را بکشید و رها کنید</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="flex w-full justify-center items-center pt-3">
-                <button class="flex justify-center items-center border-2 border-white rounded-lg w-full h-12">
-                  <img class="w-5 h-5 ml-2 mt-1" src="public/assets/body/plus.png" alt="افزودن صفحه" />
-                  <p class="text-blue-500 text-lg font-bold">افزودن صفحه</p>
-                </button>
-              </div>
-            </div>
-            <!--icons column-->
-            <div class="w-9 flex flex-col gap-2 items-center justify-center">
-              <button class="bg-neutral-light h-9 pr-1 border-2 border-white rounded-lg w-full">
-                <img class="w-6 h-6" src="public/assets/body/pen.png" alt="وبرایش" title="وبرایش" />
-              </button>
-              <button class="bg-neutral-light h-9 pr-1 border-2 border-white rounded-lg w-full">
-                <img class="w-6 h-6" src="public/assets/body/up.png" alt="صفحه قبل" title="صفحه قبل" />
-              </button>
-              <button class="bg-neutral-light h-9 pr-1 border-2 border-white rounded-lg w-full">
-                <img class="w-6 h-6" src="public/assets/body/down.png" alt="صفحه بعد" title="صفحه بعد" />
-              </button>
-              <button class="bg-neutral-light h-9 pr-1 border-2 border-white rounded-lg w-full">
-                <img class="w-6 h-6" src="public/assets/body/lock.png" alt="قفل صفحه" title="قفل صفحه" />
-              </button>
-              <button class="bg-neutral-light h-9 pr-1 border-2 border-white rounded-lg w-full">
-                <img class="w-6 h-6" src="public/assets/body/trash.png" alt="حذف" title="حذف" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </main>
     </div>
+    <script type="module" src="../../main.js"></script>
   </body>
 </html>

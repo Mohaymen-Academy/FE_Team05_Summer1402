@@ -18,4 +18,7 @@
   .btn-edit {
     @apply bg-white/60 w-8 h-8 border-2 border-white rounded-lg flex justify-center items-center;
   }
+  .input-drop {
+    @apply border border-neutral-border-light bg-white rounded-[10px] text-gray-400 text-sm h-[40px] w-[200px] outline-none;
+  }
 }
