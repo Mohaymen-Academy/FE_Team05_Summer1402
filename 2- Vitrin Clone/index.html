@@ -112,12 +112,13 @@
               </div>
             </div>
             <!-- search bar -->
-            <div class="flex justify-center items-center w-full">
-              <div class="relative w-[80%] ml-4">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <div class="flex justify-start items-center w-full">
+              <div class="relative w-full mx-4">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3">
                   <button
+                    id="searchButton"
                     type="submit"
-                    class="text-white bg-white hover:bg-blue-800 font-medium rounded-lg text-sm px-1 py-2"
+                    class="text-white bg-white font-medium rounded-lg text-sm px-1 py-2"
                   >
                     <svg
                       class="w-4 h-5 text-gray-500"
@@ -137,7 +138,8 @@
                   </button>
                 </div>
                 <input
-                  class="block w-full p-[11px] pl-10 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none"
+                  id="searchInput"
+                  class="hidden w-full p-[11px] pl-10 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none"
                   placeholder="جستجو"
                   dir="rtl"
                 />
@@ -149,21 +151,25 @@
 
       <!-- aside filter section reveals only on mobile view -->
       <aside id="side-menu" class="grid md:hidden fixed z-[999] top-[80px] right-[-120px] transition-all">
-        <div class="text-sm bg-ft-white rounded-l-lg relative p-5">
-          <ul class="grid gap-8 text-slate-500">
-            <li><a href="#banner1">مذهبی</a></li>
-            <li><a href="#banner2">برترین</a></li>
-            <li><a href="#draggableSlideHaeder3">پرفروش هفته</a></li>
-            <li><a href="#">سبک زندگی</a></li>
-            <li><a href="#">اخبار</a></li>
-            <li><a href="#">تبلیغ گسترده</a></li>
-            <li><a href="#">سروش پلاس</a></li>
+        <div class="text-sm bg-blue-600 relative p-5">
+          <ul class="grid gap-8 text-white">
+            <li><a class="anchor" href="#banner1">مذهبی</a></li>
+            <li><a class="anchor" href="#banner2">برترین</a></li>
+            <li><a class="anchor" href="#draggableSlideHaeder3">پرفروش هفته</a></li>
+            <li><a class="anchor" href="#">سبک زندگی</a></li>
+            <li><a class="anchor" href="#">اخبار</a></li>
+            <li><a class="anchor" href="#">تبلیغ گسترده</a></li>
+            <li><a class="anchor" href="#">سروش پلاس</a></li>
           </ul>
           <button
             id="side-menu-button"
-            class="bg-ft-white w-5 h-10 rounded-l-md absolute top-10 left-0 -translate-x-full"
+            class="bg-blue-600 text-center w-10 h-16 border-r-0 rounded-l-md absolute top-10 left-1 -translate-x-full scale-90"
           >
-            <img id="side-menu-icon" src="/assets/asideMenu/right.svg" class="rotate-180 transition duration-500" />
+            <img
+              id="side-menu-icon"
+              src="/assets/asideMenu/left.svg"
+              class="transition duration-500 pr-1 filter invert"
+            />
           </button>
         </div>
       </aside>
@@ -207,7 +213,7 @@
       </section>
 
       <!-- main section -->
-      <main class="m-auto overflow-hidden flex flex-col gap-8 mb-10">
+      <main class="m-auto overflow-hidden flex flex-col gap-4 mb-10">
         <!-- Categories -->
         <section class="gap-[1rem] max-w-6xl m-auto mb-6">
           <div class="justify-center items-center gap-[1rem]">
@@ -341,7 +347,7 @@
         <!-- first draggable slide -->
         <section
           id="draggableSlideHaeder1"
-          class="flex flex-col justify-center items-center w-full max-w-6xl m-auto group"
+          class="flex flex-col justify-center items-center xl:w-full md:mx-8 max-w-6xl mx-4 sm:mx-6 xl:m-auto group"
         >
           <div class="flex items-center justify-start w-full text-xl mb-2">
             <div class="mr-2 pl-2 my-category">
@@ -352,12 +358,12 @@
               <img class="h-5 w-5 pt-1" src="public/assets/icons/caret-left-bold.svg" />
             </div>
           </div>
-          <div class="w-full bg-ft-white p-3 overflow-hidden rounded-xl shadow-sm">
+          <div class="w-full bg-ft-white py-3 px-5 overflow-hidden rounded-xl shadow-sm">
             <div
               id="draggableSlide"
               class="draggable-slide flex overflow-x-auto no-scrollbar transition-all duration-[0.2s] scale-100 active:scale-105 will-change-transform select-none w-full"
             >
-              <div id="conatainer" class="flex gap-[1rem] p-4">
+              <div id="conatainer" class="flex gap-[1rem] py-2">
                 <div class="w-full h-full flex flex-col rounded-lg shadow bg-white">
                   <div class="flex justify-center items-center py-2 px-1">
                     <a href="#">
@@ -547,7 +553,7 @@
         <!-- second draggable slide -->
         <section
           id="draggableSlideHaeder2"
-          class="flex flex-col justify-center items-center w-full max-w-6xl m-auto group"
+          class="flex flex-col justify-center items-center xl:w-full md:mx-8 max-w-6xl mx-4 sm:mx-6 xl:m-auto group"
         >
           <div class="flex items-center justify-start w-full text-xl mb-2">
             <div class="mr-2 pl-2 my-category">
@@ -558,12 +564,12 @@
               <img class="h-5 w-5 pt-1" src="public/assets/icons/caret-left-bold.svg" />
             </div>
           </div>
-          <div class="w-full bg-ft-white p-3 overflow-hidden rounded-xl shadow-sm">
+          <div class="w-full bg-ft-white py-3 px-5 overflow-hidden rounded-xl shadow-sm">
             <div
               id="draggableSlide"
               class="draggable-slide flex overflow-x-auto no-scrollbar transition-all duration-[0.2s] scale-100 active:scale-105 will-change-transform select-none w-full"
             >
-              <div id="conatainer" class="flex gap-[1rem] p-4">
+              <div id="conatainer" class="flex gap-[1rem] py-2">
                 <div class="w-full h-full flex flex-col rounded-lg shadow bg-white">
                   <div class="flex justify-center items-center py-2 px-1">
                     <a href="#">
@@ -753,7 +759,7 @@
         <!-- third draggable slide -->
         <section
           id="draggableSlideHaeder3"
-          class="flex flex-col justify-center items-center w-full max-w-6xl m-auto group"
+          class="flex flex-col justify-center items-center xl:w-full md:mx-8 max-w-6xl mx-4 sm:mx-6 xl:m-auto group"
         >
           <div class="flex items-center justify-start w-full text-xl mb-2">
             <div class="mr-2 pl-2 my-category">
@@ -764,12 +770,12 @@
               <img class="h-5 w-5 pt-1" src="public/assets/icons/caret-left-bold.svg" />
             </div>
           </div>
-          <div class="w-full bg-ft-white p-3 overflow-hidden rounded-xl shadow-sm">
+          <div class="w-full bg-ft-white py-3 px-5 overflow-hidden rounded-xl shadow-sm">
             <div
               id="draggableSlide"
               class="draggable-slide flex overflow-x-auto no-scrollbar transition-all duration-[0.2s] scale-100 active:scale-105 will-change-transform select-none w-full"
             >
-              <div id="conatainer" class="flex gap-[1rem] p-4">
+              <div id="conatainer" class="flex gap-[1rem] py-2">
                 <div class="w-full h-full flex flex-col rounded-lg shadow bg-white">
                   <div class="flex justify-center items-center py-2 px-1">
                     <a href="#">
@@ -937,8 +943,8 @@
         <!-- inform & social -->
         <div class="w-full flex justify-center flex-col sm:flex-row items-center">
           <!-- inform -->
-          <div class="hidden sm:flex w-[66%] md:w-full m-auto">
-            <div class="flex justify-center mx-5 gap-[2rem] sm:gap-[3rem] md:gap-[4rem]">
+          <div class="hidden sm:flex w-full md:w-full justify-center items-center">
+            <div class="flex justify-center mx-5 gap-[1rem] sm:gap-[1rem] md:gap-[2rem]">
               <div>
                 <h2 class="mb-6 text-sm font-semibold text-gray-700">راهنما</h2>
                 <ul class="text-gray-500 font-medium text-xs sm:text-sm">
@@ -953,7 +959,7 @@
               <div>
                 <h2 class="mb-6 text-sm font-semibold text-gray-700">حقوقی</h2>
                 <ul class="text-gray-500 font-medium text-xs sm:text-sm">
-                  <li class="mb-4">
+                  <li class="mb-2">
                     <a href="#">حریم خصوصی</a>
                   </li>
                   <li>
@@ -964,7 +970,7 @@
               <div>
                 <h2 class="mb-6 text-sm font-semibold text-gray-700">سرویس</h2>
                 <ul class="text-gray-500 font-medium text-xs sm:text-sm">
-                  <li class="mb-4">
+                  <li class="mb-2">
                     <a href="#">تبلیغات</a>
                   </li>
                   <li>
@@ -974,83 +980,69 @@
               </div>
             </div>
           </div>
+          <div class="flex flex-col w-full justify-center items-center">
+            <!-- social -->
+            <div class="flex w-full sm:w-full md:w-full justify-center items-center pt-2 sm:pt-5">
+              <ul class="flex sm:justify-center text-sm font-medium text-white gap-2 md:gap-4 pb-2 sm:pb-5">
+                <li>
+                  <a href="#" class="flex">
+                    <img
+                      class="sm:w-12 sm:h-12 h-8 w-8 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
+                      src="./assets/footer/icons/img5.svg"
+                    />
+                  </a>
+                </li>
 
-          <!-- social -->
-          <div class="flex w-full sm:w-[33%] md:w-full justify-center">
-            <ul class="flex sm:justify-center text-sm font-medium text-white gap-2 md:gap-0 pb-2 sm:pb-5">
-              <li>
-                <a href="#" class="flex md:mr-6">
-                  <img
-                    class="sm:w-8 sm:h-8 h-6 w-6 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/icons/img5.svg"
-                  />
-                </a>
-              </li>
+                <li>
+                  <a href="#" class="flex">
+                    <img
+                      class="sm:w-12 sm:h-12 h-8 w-8 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
+                      src="./assets/footer/icons/img4.svg"
+                    />
+                  </a>
+                </li>
 
-              <li>
-                <a href="#" class="flex md:mr-6">
-                  <img
-                    class="sm:w-8 sm:h-8 h-6 w-6 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/icons/img4.svg"
-                  />
-                </a>
-              </li>
+                <li>
+                  <a href="#" class="flex">
+                    <img
+                      class="sm:w-12 sm:h-12 h-8 w-8 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
+                      src="./assets/footer/icons/img3.svg"
+                    />
+                  </a>
+                </li>
 
-              <li>
-                <a href="#" class="flex md:mr-6">
-                  <img
-                    class="sm:w-8 sm:h-8 h-6 w-6 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/icons/img3.svg"
-                  />
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="flex md:mr-6">
-                  <img
-                    class="sm:w-8 sm:h-8 h-6 w-6 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/icons/img2.png"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="#" class="flex md:mr-6">
-                  <img
-                    class="sm:w-8 sm:h-8 h-6 w-6 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
-                    src="./assets/footer/icons/img1.svg"
-                  />
-                </a>
-              </li>
-            </ul>
+                <li>
+                  <a href="#" class="flex">
+                    <img
+                      class="sm:w-12 sm:h-12 h-8 w-8 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
+                      src="./assets/footer/icons/img2.png"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex">
+                    <img
+                      class="sm:w-12 sm:h-12 h-8 w-8 filter hue-rotate-60 grayscale invert opacity-20 hover:opacity-60 transition-all"
+                      src="./assets/footer/icons/img1.svg"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!--copy right text for desktop-->
+            <div class="hidden sm:flex items-center flex-col w-full">
+              <div class="w-full flex justify-center items-center">
+                <p class="text-xs text-slate-600 md:text-center w-full">
+                  تمامی حقوق مادی و معنوی این صفحه متعلق به پیام رسان سروش پلاس می‌باشد .
+                </p>
+              </div>
+            </div>
           </div>
+
           <!--copy right text for mobile-->
           <div class="flex sm:hidden items-center w-full justify-center">
-            <!-- <a href="#" class="flex justify-center w-1/4">
-              <img
-                class="w-1/2 aspect-auto  filter opacity-20 hover:opacity-60 transition-all"
-                src="public/assets/logo.png"
-              />
-            </a> -->
-            <p class="flex sm:hidden justify-center text-xs sm:text-sm text-slate-600 mt-1 sm:mt-2 mb-2 w-full">
+            <p class="flex sm:hidden justify-center text-xs sm:text-sm text-slate-600 mt-1 sm:mt-2 mb-1 w-full">
               تمامی حقوق مادی و معنوی این صفحه محفوظ می‌باشد .
-            </p>
-          </div>
-        </div>
-        <!--copy right text for desktop-->
-        <div class="hidden sm:flex items-center flex-col w-full">
-          <!-- logo -->
-          <!-- <div class="flex justify-center items-center w-full h-full">
-            <a href="#" class="flex md:mr-6">
-              <img
-                class="h-[100px] w-full my-4 filter opacity-20 hover:opacity-60 transition-all"
-                src="public/assets/logo.png"
-              />
-            </a>
-          </div> -->
-          <!-- copy right text -->
-          <div class="w-full flex justify-center items-center">
-            <p class="text-xs text-slate-600 pt-3">
-              تمامی حقوق مادی و معنوی این صفحه متعلق به پیام رسان سروش پلاس می‌باشد .
             </p>
           </div>
         </div>

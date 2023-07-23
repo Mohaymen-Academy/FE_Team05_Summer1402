@@ -60,24 +60,38 @@ document.addEventListener('scroll', async () => {
 const sideMenu = document.getElementById('side-menu');
 const sideMenuButton = document.getElementById('side-menu-button') as HTMLImageElement;
 const sideMenuIcon = document.getElementById('side-menu-icon') as HTMLImageElement;
+const sideMenuAnchors = document.querySelectorAll('.anchor') as NodeListOf<HTMLAnchorElement>;
+sideMenuAnchors.forEach((sideMenuAnchor) => {
+  sideMenuAnchor.addEventListener('click', closeSideMenu);
+});
 let sideFlag = false;
+// close menu after click on anchors
+function closeSideMenu(e: Event) {
+  e.stopPropagation();
+  if (!sideMenu) return;
+  sideMenu.style.right = '-120px';
+  sideMenuIcon.style.transform = 'rotate(0deg)';
+  sideFlag = false;
+}
+
 function toggleSideMenu(e: Event) {
   e.stopPropagation();
   if (!sideMenu) return;
 
   if (sideFlag) {
     sideMenu.style.right = '-120px';
-    sideMenuIcon.style.transform = 'rotate(180deg)';
+    sideMenuIcon.style.transform = 'rotate(0deg)';
     sideFlag = false;
   } else {
     sideMenu.style.right = '0px';
-    sideMenuIcon.style.transform = 'rotate(0deg)';
+    sideMenuIcon.style.transform = 'rotate(180deg)';
     sideFlag = true;
   }
 }
 
 sideMenuButton.addEventListener('click', toggleSideMenu);
 document.addEventListener('click', () => {
+  if (!sideFlag) return;
   if (!sideMenu) return;
   sideMenu.style.right = '-120px';
   sideMenuIcon.style.transform = 'rotate(180deg)';
@@ -100,3 +114,24 @@ const bannerObserver = new IntersectionObserver((entries) => {
 });
 
 banners.forEach((banner) => bannerObserver.observe(banner));
+
+//search icon
+
+const searchIcon2 = document.getElementById('searchButton');
+const searchInput2 = document.getElementById('searchInput');
+let flag = true;
+if (searchIcon2 != null) {
+  searchIcon2.addEventListener('click', () => {
+    if (!flag) {
+      if (searchInput2 != null) {
+        searchInput2.classList.add('hidden');
+        flag = true;
+      }
+    } else {
+      if (searchInput2 != null) {
+        searchInput2.classList.remove('hidden');
+        flag = false;
+      }
+    }
+  });
+}
