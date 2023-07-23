@@ -52,7 +52,7 @@
     @apply bg-neutral-600;
   }
 }
-* {
+html {
   scroll-behavior: smooth;
 }
 
