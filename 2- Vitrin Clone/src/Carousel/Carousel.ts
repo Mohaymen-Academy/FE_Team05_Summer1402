@@ -149,7 +149,7 @@ class Carousel {
       slideInterval = setInterval(() => {
         this.shiftClassesByOne('next');
         this.updateBullet();
-      }, 5000);
+      }, 10000);
     };
 
     initiateAutoSlide();
