@@ -119,19 +119,28 @@ banners.forEach((banner) => bannerObserver.observe(banner));
 
 const searchIcon2 = document.getElementById('searchButton');
 const searchInput2 = document.getElementById('searchInput');
-let flag = true;
+let flag = false;
 if (searchIcon2 != null) {
-  searchIcon2.addEventListener('click', () => {
-    if (!flag) {
-      if (searchInput2 != null) {
-        searchInput2.classList.add('hidden');
-        flag = true;
-      }
-    } else {
-      if (searchInput2 != null) {
-        searchInput2.classList.remove('hidden');
-        flag = false;
+  searchIcon2.addEventListener('click', (e: Event) => {
+    if (flag) return;
+    e.stopPropagation();
+    if (searchInput2 != null) {
+      if (!flag) {
+        if (searchInput2 != null) {
+          searchInput2.classList.remove('hidden');
+          flag = true;
+        }
       }
     }
   });
 }
+
+document.addEventListener('click', (e: Event) => {
+  e.stopPropagation();
+  if (flag) {
+    if (searchInput2 != null) {
+      searchInput2.classList.add('hidden');
+      flag = false;
+    }
+  }
+});
