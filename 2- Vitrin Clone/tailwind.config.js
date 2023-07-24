@@ -18,7 +18,13 @@ export default {
         skeleton: 'loading 1s linear infinite ease-in-out ',
       },
       screens: {
-        'md2': '1048px',
+        md2: '1048px',
+      },
+      backgroundImage: {
+        line: 'url(/assets/Wave_bg.svg)',
+      },
+      backgroundSize: {
+        full: '100% 100%',
       },
     },
   },
