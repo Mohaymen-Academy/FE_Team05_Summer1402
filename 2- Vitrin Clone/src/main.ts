@@ -134,7 +134,6 @@ if (searchIcon2 != null) {
         if (searchInput2 != null && searchBtn2 != null) {
           searchInput2.classList.remove('hidden');
           searchBtn2.classList.remove('bg-blue-600');
-          searchBtn2.classList.add('bg-white');
           flag = true;
         }
       }
@@ -151,7 +150,6 @@ document.addEventListener('click', (e: Event) => {
     if (searchInput2 != null && searchBtn2 != null) {
       searchInput2.classList.add('hidden');
       searchBtn2.classList.add('bg-blue-600');
-      searchBtn2.classList.remove('bg-white');
       flag = false;
     }
   }
