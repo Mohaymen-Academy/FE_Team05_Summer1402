@@ -118,7 +118,7 @@ banners.forEach((banner) => bannerObserver.observe(banner));
 //search icon
 
 const searchIcon2 = document.getElementById('searchButton');
-const searchInput2 = document.getElementById('searchInput');
+const searchInput2 = document.getElementById('searchInput') as HTMLElement;
 const searchSVG2 = document.getElementById('searchSVG');
 const searchBtn2 = document.getElementById('searchButton');
 let flag = false;
@@ -131,6 +131,9 @@ if (searchIcon2 != null) {
         if (searchSVG2 != null) {
           searchSVG2.classList.remove('invert');
         }
+        if (searchBtn2 != null) {
+          searchBtn2.classList.add('hidden');
+        }
         if (searchInput2 != null && searchBtn2 != null) {
           searchInput2.classList.remove('hidden');
           searchBtn2.classList.remove('bg-blue-600');
@@ -140,6 +143,11 @@ if (searchIcon2 != null) {
     }
   });
 }
+if (searchInput2 != null) {
+  searchInput2.addEventListener('click', (e: Event) => {
+    e.stopPropagation();
+  });
+}
 
 document.addEventListener('click', (e: Event) => {
   e.stopPropagation();
@@ -147,9 +155,13 @@ document.addEventListener('click', (e: Event) => {
     if (searchSVG2 != null) {
       searchSVG2.classList.add('invert');
     }
+    if (searchBtn2 != null) {
+      searchBtn2.classList.remove('hidden');
+    }
     if (searchInput2 != null && searchBtn2 != null) {
       searchInput2.classList.add('hidden');
       searchBtn2.classList.add('bg-blue-600');
+      searchInput2.value = '';
       flag = false;
     }
   }
