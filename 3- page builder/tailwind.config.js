@@ -12,6 +12,11 @@ export default {
           main: '#0066ff',
           light: '#e9f1ff',
         },
+        secondary: {
+          border: {
+            light: '#ffd1a1',
+          },
+        },
       },
     },
   },
