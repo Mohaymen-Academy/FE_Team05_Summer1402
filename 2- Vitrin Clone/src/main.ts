@@ -119,6 +119,8 @@ banners.forEach((banner) => bannerObserver.observe(banner));
 
 const searchIcon2 = document.getElementById('searchButton');
 const searchInput2 = document.getElementById('searchInput');
+const searchSVG2 = document.getElementById('searchSVG');
+const searchBtn2 = document.getElementById('searchButton');
 let flag = false;
 if (searchIcon2 != null) {
   searchIcon2.addEventListener('click', (e: Event) => {
@@ -126,8 +128,13 @@ if (searchIcon2 != null) {
     e.stopPropagation();
     if (searchInput2 != null) {
       if (!flag) {
-        if (searchInput2 != null) {
+        if (searchSVG2 != null) {
+          searchSVG2.classList.remove('invert');
+        }
+        if (searchInput2 != null && searchBtn2 != null) {
           searchInput2.classList.remove('hidden');
+          searchBtn2.classList.remove('bg-blue-600');
+          searchBtn2.classList.add('bg-white');
           flag = true;
         }
       }
@@ -138,9 +145,17 @@ if (searchIcon2 != null) {
 document.addEventListener('click', (e: Event) => {
   e.stopPropagation();
   if (flag) {
-    if (searchInput2 != null) {
+    if (searchSVG2 != null) {
+      searchSVG2.classList.add('invert');
+    }
+    if (searchInput2 != null && searchBtn2 != null) {
       searchInput2.classList.add('hidden');
+      searchBtn2.classList.add('bg-blue-600');
+      searchBtn2.classList.remove('bg-white');
       flag = false;
     }
   }
 });
+
+// close side menu when we scroll
+document.addEventListener('scroll', closeSideMenu);
