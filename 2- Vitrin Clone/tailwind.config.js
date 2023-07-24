@@ -17,8 +17,8 @@ export default {
       animation: {
         skeleton: 'loading 1s linear infinite ease-in-out ',
       },
-      minWidth: {
-        minWidth: '1048px',
+      screens: {
+        'md2': '1048px',
       },
     },
   },
