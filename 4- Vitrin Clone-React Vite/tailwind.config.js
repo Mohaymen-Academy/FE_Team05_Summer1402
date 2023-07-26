@@ -22,7 +22,7 @@ export default {
         md2: '1048px',
       },
       backgroundImage: {
-        line: 'url(/assets/Wave_bg.svg)',
+        line: 'url(/src/assets/Wave_bg.svg)',
       },
       backgroundSize: {
         full: '100% 100%',

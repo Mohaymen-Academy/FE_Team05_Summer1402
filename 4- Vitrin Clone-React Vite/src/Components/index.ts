@@ -1,3 +1,7 @@
 import {Carousel} from './Carousel';
+import {Footer} from './Footer';
+import {Main} from './Main';
+import {Header} from './Header';
 
-export {Carousel};
+export {Header, Main, Footer,Carousel};
+
