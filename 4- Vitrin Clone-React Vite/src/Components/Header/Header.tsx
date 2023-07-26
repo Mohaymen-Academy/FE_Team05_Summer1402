@@ -1,7 +1,14 @@
 import React from 'react';
+import {DesktopHeader} from '../DesktopHeader';
+import MobileHeader from '../MobileHeader/MobileHeader';
 
-export const Header = () => {
-  return <div>Header</div>;
+const Header = () => {
+  return (
+    <header>
+      <DesktopHeader />
+      <MobileHeader />
+    </header>
+  );
 };
 
 export default Header;
