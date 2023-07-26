@@ -1,11 +1,15 @@
-import Carousel from './Components/Carousel/Carousel';
-
-import {carouselImages} from './util/Constants';
+import {Footer, Header} from './Components';
+import {Main} from './Components';
+import {AsideMenu} from './Components/AsideMenu';
+import FilmCard from './Components/FilmCard/FilmCard';
 
 function App() {
   return (
     <>
-      <div className="bg-rose-100">سلام</div>
+      <Header />
+      <AsideMenu />
+      <Main />
+      <Footer />
     </>
   );
 }

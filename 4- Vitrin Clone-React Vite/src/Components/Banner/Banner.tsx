@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Banner = () => {
+const Banner = () => {
   return <div>Banner</div>;
 };
 
