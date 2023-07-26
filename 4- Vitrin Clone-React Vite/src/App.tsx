@@ -1,11 +1,12 @@
+import Carousel from './Components/Carousel/Carousel';
 import {Footer, Header} from './Components';
 import {Main} from './Components';
 import {AsideMenu} from './Components/AsideMenu';
-import FilmCard from './Components/FilmCard/FilmCard';
 
 function App() {
   return (
     <>
+      <Carousel />
       <Header />
       <AsideMenu />
       <Main />
