@@ -6,11 +6,13 @@ import {AsideMenu} from './Components/AsideMenu';
 function App() {
   return (
     <>
-      <Carousel />
-      <Header />
-      <AsideMenu />
-      <Main />
-      <Footer />
+      <div>
+        <Header />
+        <AsideMenu />
+        <Carousel />
+        <Main />
+        <Footer />
+      </div>
     </>
   );
 }
