@@ -211,7 +211,31 @@ export const asideMenuTagInfo = [
 
 //Banner images
 export const bannerArray = [
-  {image: bannerImg1, color: 'rgba(21, 128, 61, 0.3)', textColor: 'rgba(21, 128, 61, 1)'},
-  {image: bannerImg2, color: 'rgba(59, 130, 246, 0.3)', textColor: 'rgba(59, 130, 246, 1)'},
-  {image: bannerImg3, color: 'rgba(168, 85, 247, 0.3)', textColor: 'rgba(168, 85, 247, 1)'},
+  {
+    image: bannerImg1,
+    color: 'rgba(21, 128, 61, 0.3)',
+    textColor: 'rgba(21, 128, 61, 1)',
+    upperText: 'پویش سبک',
+    lowerText: 'زندگی اسلامی',
+    buttonText: 'اطلاعات بیشتر',
+    oneLine: false,
+  },
+  {
+    image: bannerImg2,
+    color: 'rgba(59, 130, 246, 0.3)',
+    textColor: 'rgba(59, 130, 246, 1)',
+    upperText: 'صبحانه',
+    lowerText: 'کتاب',
+    buttonText: 'ورود به کانال',
+    oneLine: true,
+  },
+  {
+    image: bannerImg3,
+    color: 'rgba(168, 85, 247, 0.3)',
+    textColor: 'rgba(168, 85, 247, 1)',
+    upperText: 'دنیای',
+    lowerText: 'سرگرمی',
+    buttonText: 'ورود به کانال',
+    oneLine: true,
+  },
 ];
