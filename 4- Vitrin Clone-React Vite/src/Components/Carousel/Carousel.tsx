@@ -4,18 +4,21 @@ import {config} from 'react-spring';
 import {carouselImages} from '../../util/Constants';
 import {v4 as uuidv4} from 'uuid';
 import Card from './Card';
+import useWindowDimensions from '../../hooks/useWindowDimention';
 
 export default function Carousel() {
-  const [offsetRadius, setOffsetRadius] = useState(2);
+  // const [offsetRadius, setOffsetRadius] = useState(2);
   const [goToSlide, setGoToSlide] = useState<number>(2);
+
+  const {width: windowWidth} = useWindowDimensions();
 
   const startOffset = useRef(0);
   const endOffset = useRef(0);
   const slide = useRef(goToSlide);
 
-  let cards: {key: string; content: React.ReactNode}[] = carouselImages.map((img) => ({
+  let cards: {key: string; content: React.ReactNode}[] = carouselImages.map((img, i) => ({
     key: uuidv4(),
-    content: <Card imageSrc={img} />,
+    content: <Card imageSrc={img} isFront={i === goToSlide} />,
   }));
 
   const slides = cards.map((element, index) => {
@@ -24,6 +27,8 @@ export default function Carousel() {
 
   const determineDirection = (delta: number) => {
     if (delta === 0) return;
+
+    if (Math.abs(delta) < 25) return;
 
     if (delta > 0) {
       if (goToSlide === slides.length) {
@@ -56,15 +61,15 @@ export default function Carousel() {
       }
       // setGoToSlide(slide.current - 1);
       slide.current++;
-    }, 2000);
+    }, 10000);
+
+    // window.addEventListener('resize', () => {
+
+    // });
 
     //cleanUp function
     return () => clearInterval(slideAutomate);
   }, []);
-
-  useEffect(() => {
-    console.log(goToSlide);
-  }, [goToSlide]);
 
   const dragStart = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     //@ts-ignore
@@ -97,16 +102,16 @@ export default function Carousel() {
         onMouseUp={dragEnd}
         onTouchStart={touchStart}
         onTouchEnd={touchEnd}
-        className="h-[420px] w-full relative"
+        className="h-[420px] mt-0 xs:mt-[40px] sm:mt-[80px] md:mt-[100px] mb-[40px] w-full relative"
       >
         <Carousel3d
           slides={slides}
           goToSlide={goToSlide}
-          offsetRadius={offsetRadius}
+          offsetRadius={windowWidth < 650 ? 1 : 2}
           showNavigation={false}
           animationConfig={config.gentle}
         />
-        <div className="flex flex-row-reverse gap-2 absolute z-50 bottom-5 left-1/2 -translate-x-1/2 bg-slate-500/70 p-2 rounded-xl opacity-70 hover:opacity-100 transition">
+        <div className="flex flex-row-reverse gap-2 absolute z-50 bottom-16 left-1/2 -translate-x-1/2 bg-slate-500/70 p-2 rounded-xl opacity-70 hover:opacity-100 transition">
           {slides.map((sld, i) => (
             <div
               key={sld.key}
