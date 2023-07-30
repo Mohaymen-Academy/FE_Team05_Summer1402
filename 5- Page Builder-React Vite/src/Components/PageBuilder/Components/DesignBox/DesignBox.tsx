@@ -1,7 +1,7 @@
-import plus from '../../assets/body/plus.png';
-import {DesignBoxSettings} from '../DesignBoxSettings';
-import {DragBox} from '../DragBox';
-import {ElementBox} from '../ElementBox';
+import plus from '../../../../assets/body/plus.png';
+import {DesignBoxSettings} from './Components/DesignBoxSettings';
+import {DragBox} from './Components/DragBox';
+import {ElementBox} from './Components/ElementBox';
 
 const DesignBox = () => {
   return (

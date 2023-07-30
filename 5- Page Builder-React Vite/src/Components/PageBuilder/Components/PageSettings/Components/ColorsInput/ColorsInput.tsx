@@ -1,4 +1,4 @@
-import {ColorPicker} from '../ColorPicker';
+import {ColorPicker} from './Components/ColorPicker';
 
 type SettingsInputProps = {
   text: string;

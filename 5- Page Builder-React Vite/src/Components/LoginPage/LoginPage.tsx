@@ -1,7 +1,7 @@
 import {useForm, SubmitHandler} from 'react-hook-form';
 import logo from '../../assets/logo.png';
-import {LoginButton} from '../LoginButton';
-import {LoginInput} from '../LoginInput';
+import {LoginButton} from './Components/LoginButton';
+import {LoginInput} from './Components/LoginInput';
 
 type Inputs = {
   name: string;

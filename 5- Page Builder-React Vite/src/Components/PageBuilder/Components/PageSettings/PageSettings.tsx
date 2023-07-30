@@ -1,11 +1,11 @@
-import {SettingsHeader} from '../SettingsHeader';
-import {SettingsInput} from '../SettingsInput';
-import {SettingSelectionInput} from '../SettingsSelectionInput';
-import {SettingsAlignmentIcons} from '../SettingsAlignmentIcons';
-import {SettingsFrameSelection} from '../SettingsFrameSelection';
-import {SettingsAddImg} from '../SettingsAddImg';
-import {ColorsInput} from '../ColorsInput';
-import {SettingsTextInput} from '../SettingsTextInput';
+import {SettingsHeader} from './Components/SettingsHeader';
+import {SettingsInput} from './Components/SettingsInput';
+import {SettingSelectionInput} from './Components/SettingsSelectionInput';
+import {SettingsAlignmentIcons} from './Components/SettingsAlignmentIcons';
+import {SettingsFrameSelection} from './Components/SettingsFrameSelection';
+import {SettingsAddImg} from './Components/SettingsAddImg';
+import {ColorsInput} from './Components/ColorsInput';
+import {SettingsTextInput} from './Components/SettingsTextInput';
 
 const PageSettings = () => {
   return (

@@ -1,4 +1,4 @@
-import IconButton from '../IconButton/IconButton';
+import IconButton from '../../../Common/IconButton/IconButton';
 import icon1 from '../../assets/asideMenu/align1.png';
 
 type SettingsTextInputProps = {
@@ -14,7 +14,11 @@ const SettingsTextInput: React.FC<SettingsTextInputProps> = ({text, placeholder,
       <div className="text-[14px] font-semibold">
         <p>{text}</p>
       </div>
-      <input type="placeholder" className={`input ${inputStyle} pr-1/2 placeholder:text-[12px]`} placeholder={placeholder} />
+      <input
+        type="placeholder"
+        className={`input ${inputStyle} pr-1/2 placeholder:text-[12px]`}
+        placeholder={placeholder}
+      />
       <div className="grid grid-cols-6 gap-3 justify-center items-center">
         <IconButton btnStyle="flex justify-center" iconStyle="w-[16px]" src={icon1} alt="align6" title="align6" />
         <IconButton btnStyle="flex justify-center" iconStyle="w-[16px]" src={icon1} alt="align5" title="align5" />
