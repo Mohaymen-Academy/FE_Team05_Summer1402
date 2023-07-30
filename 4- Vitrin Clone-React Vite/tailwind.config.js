@@ -19,6 +19,7 @@ export default {
         skeleton: 'loading 1s linear infinite ease-in-out ',
       },
       screens: {
+        xs: '376px',
         md2: '1048px',
       },
       backgroundImage: {

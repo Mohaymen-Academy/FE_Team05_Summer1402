@@ -6,6 +6,10 @@ import CarouselImage4 from '../assets/carousel/img5.jpg';
 import CarouselImage5 from '../assets/carousel/img6.jpg';
 import CarouselImage6 from '../assets/carousel/img7.jpg';
 
+import bannerImg1 from '../assets/Banner/quran.svg';
+import bannerImg2 from '../assets/Banner/book.svg';
+import bannerImg3 from '../assets/Banner/game.svg';
+
 export const carouselImages = [
   CarouselImage1,
   CarouselImage2,
@@ -203,4 +207,11 @@ export const asideMenuTagInfo = [
     title: 'مذهبی',
     link: '#',
   },
+];
+
+//Banner images
+export const bannerArray = [
+  {image: bannerImg1, color: 'rgba(21, 128, 61, 0.3)', textColor: 'rgba(21, 128, 61, 1)'},
+  {image: bannerImg2, color: 'rgba(59, 130, 246, 0.3)', textColor: 'rgba(59, 130, 246, 1)'},
+  {image: bannerImg3, color: 'rgba(168, 85, 247, 0.3)', textColor: 'rgba(168, 85, 247, 1)'},
 ];

@@ -9,7 +9,7 @@ function App() {
       <div>
         <Header />
         <AsideMenu />
-        {/* <Carousel /> */}
+        <Carousel />
         <Main />
         <Footer />
       </div>
