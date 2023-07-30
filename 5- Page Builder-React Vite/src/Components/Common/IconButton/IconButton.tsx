@@ -4,7 +4,7 @@ type IconButtonProps = {
   src: string;
   alt: string;
   title: string;
-  btnStyle: 'btn-edit' | '' | 'h-[16px] w-[16px]';
+  btnStyle: 'btn-edit' | '' | 'h-[16px] w-[16px]' | 'flex justify-center';
   iconStyle: string;
 };
 

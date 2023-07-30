@@ -1,11 +1,11 @@
-import logo from '../../assets/logo.png';
-import asideMenu from '../../assets/asideMenu/frame.svg';
-import home from '../../assets/header/home.png';
-import eye from '../../assets/header/eye.png';
-import upload from '../../assets/header/upload.png';
-import forward from '../../assets/header/forward.png';
-import slider from '../../assets/asideMenu/sliders.svg';
-import {IconAnchor} from '../IconAnchor';
+import logo from '../../../../assets/logo.png';
+import asideMenu from '../../../../assets/asideMenu/frame.svg';
+import home from '../../../../assets/header/home.png';
+import eye from '../../../../assets/header/eye.png';
+import upload from '../../../../assets/header/upload.png';
+import forward from '../../../../assets/header/forward.png';
+import slider from '../../../../assets/asideMenu/sliders.svg';
+import {IconAnchor} from './Components/IconAnchor';
 
 const Header = () => {
   return (

@@ -1,9 +1,9 @@
-import icon1 from '../../assets/body/pen.png';
-import icon2 from '../../assets/body/up.png';
-import icon3 from '../../assets/body/down.png';
-import icon4 from '../../assets/body/lock.png';
-import icon5 from '../../assets/body/trash.png';
-import IconButton from '../IconButton/IconButton';
+import icon1 from '../../../../../../assets/body/pen.png';
+import icon2 from '../../../../../../assets/body/up.png';
+import icon3 from '../../../../../../assets/body/down.png';
+import icon4 from '../../../../../../assets/body/lock.png';
+import icon5 from '../../../../../../assets/body/trash.png';
+import {IconButton} from '../../../../../Common/IconButton';
 
 const DesignBoxSettings = () => {
   return (

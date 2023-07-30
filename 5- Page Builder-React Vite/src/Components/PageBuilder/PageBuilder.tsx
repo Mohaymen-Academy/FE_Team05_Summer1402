@@ -1,7 +1,7 @@
-import {Header} from '../Header';
-import {FramesMenu} from '../FramesMenu';
-import DesignBox from '../DesignBox/DesignBox';
-import {PageSettings} from '../PageSettings';
+import {Header} from './Components/Header';
+import {FramesMenu} from './Components/FramesMenu';
+import DesignBox from './Components/DesignBox/DesignBox';
+import {PageSettings} from './Components/PageSettings';
 
 const PageBuilder = () => {
   return (

@@ -1,5 +1,4 @@
-import React from 'react';
-import plus from '../../assets/body/plus.png';
+import plus from '../../../../../../assets/body/plus.png';
 
 const DragBox = () => {
   return (

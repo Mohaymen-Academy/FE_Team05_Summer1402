@@ -1,5 +1,5 @@
 import React from 'react';
-import {FrameButton} from '../FrameButton';
+import {FrameButton} from './Components/FrameButton';
 
 const FramesMenu = () => {
   return (

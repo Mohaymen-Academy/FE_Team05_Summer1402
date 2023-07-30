@@ -1,9 +1,11 @@
-import {SettingsHeader} from '../SettingsHeader';
-import {SettingsInput} from '../SettingsInput';
-import {SettingSelectionInput} from '../SettingsSelectionInput';
-import {SettingsAlignmentIcons} from '../SettingsAlignmentIcons';
-import {SettingsFrameSelection} from '../SettingsFrameSelection';
-import {SettingsAddImg} from '../SettingsAddImg';
+import {SettingsHeader} from './Components/SettingsHeader';
+import {SettingsInput} from './Components/SettingsInput';
+import {SettingSelectionInput} from './Components/SettingsSelectionInput';
+import {SettingsAlignmentIcons} from './Components/SettingsAlignmentIcons';
+import {SettingsFrameSelection} from './Components/SettingsFrameSelection';
+import {SettingsAddImg} from './Components/SettingsAddImg';
+import {ColorsInput} from './Components/ColorsInput';
+import {SettingsTextInput} from './Components/SettingsTextInput';
 
 const PageSettings = () => {
   return (
@@ -21,7 +23,7 @@ const PageSettings = () => {
         option4="کارت4"
       />
       <div className="w-full flex flex-col justify-start items-center gap-4 mt-3">
-        <SettingsAlignmentIcons />
+        {/* <SettingsAlignmentIcons /> */}
         <SettingSelectionInput
           inputHeaderName="فاصله بین فریم ها"
           selectionText="پیش فرض"
@@ -32,8 +34,15 @@ const PageSettings = () => {
           option3="8"
           option4="12"
         />
+        <ColorsInput text="رنگ" />
         <SettingsInput text="حاشیه" placeholder="۱۶" />
         <SettingsInput text="فاصله از دیواره" placeholder="۲۴" />
+        {/* <SettingsTextInput
+          text="متن مورد نظر خود را وارد کنید"
+          placeholder="لورم ایپسوم"
+          inputStyle=" w-[298px] h-[145px] "
+          divStyle="h-[205px]"
+        /> */}
       </div>
       <SettingsFrameSelection />
     </section>

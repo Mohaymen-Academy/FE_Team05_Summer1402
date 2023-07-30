@@ -1,9 +1,9 @@
 import React from 'react';
-import pen from '../../assets/body/yellow pen.png';
-import trash from '../../assets/body/yellow trash.png';
-import hand from '../../assets/body/yellow hand.png';
-import IconButton from '../IconButton/IconButton';
-import plus from '../../assets/body/plus.png';
+import pen from '../../../../../../assets/body/yellow pen.png';
+import trash from '../../../../../../assets/body/yellow trash.png';
+import hand from '../../../../../../assets/body/yellow hand.png';
+import {IconButton} from '../../../../../Common/IconButton';
+import plus from '../../../../../../assets/body/plus.png';
 
 const ElementBox = () => {
   return (
