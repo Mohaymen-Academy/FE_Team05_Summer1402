@@ -8,10 +8,9 @@ const DesignBox = () => {
     <main className="lg:w-[calc(100vw-175px-345px)] w-full flex justify-center items-center">
       <div className="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
         <div className="bg-white w-full h-full">
-        <ElementBox />
-        <DragBox />
+          <ElementBox />
+          <DragBox />
         </div>
-        
         {/* confirm  */}
         <div className="w-full justify-center items-center pt-3 bg-slate-200">
           <button className="flex justify-center items-center border-2 border-white rounded-lg w-full h-12 bg-white/60">
