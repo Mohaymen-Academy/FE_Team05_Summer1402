@@ -25,4 +25,7 @@
   .frame-btn{
     @apply border-2 border-neutral-light w-full h-[50px] rounded-[12px] active:bg-neutral-light font-bold;
   }
+  .settings-header{
+    @apply flex justify-start items-center w-full font-semibold mb-[16px];
+  }
 }

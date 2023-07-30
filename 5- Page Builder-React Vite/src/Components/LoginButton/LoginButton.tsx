@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 type LoginButtonProps = {
   width: string;
@@ -10,9 +11,11 @@ const LoginButton: React.FC<LoginButtonProps> = ({width, height, type}) => {
   return (
     <>
       <a className={width + ' ' + height} href="#">
-        <div className={type}>
-          <p>ذخیره و شروع طراحی</p>
-        </div>
+        <Link to={'/home'}>
+          <div className={type}>
+            <p>ذخیره و شروع طراحی</p>
+          </div>
+        </Link>
       </a>
     </>
   );

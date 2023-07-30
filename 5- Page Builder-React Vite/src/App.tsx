@@ -1,15 +1,17 @@
-import {useState} from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
-import { LoginPage } from './Components/LoginPage';
+import {LoginPage} from './Components/LoginPage';
+import {Routes, Route, BrowserRouter as Router, Link, BrowserRouter} from 'react-router-dom';
+import {PageBuilder} from './Components/PageBuilder';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <LoginPage />
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/home" element={<PageBuilder />} />
+        </Routes>
+      </Router>
     </>
   );
 }

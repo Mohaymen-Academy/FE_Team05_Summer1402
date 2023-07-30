@@ -1,25 +1,28 @@
-import React from 'react';
+import logo from '../../assets/logo.png';
+import asideMenu from '../../assets/asideMenu/frame.svg';
+import home from '../../assets/header/home.png';
+import eye from '../../assets/header/eye.png';
+import upload from '../../assets/header/upload.png';
+import forward from '../../assets/header/forward.png';
+import slider from '../../assets/asideMenu/sliders.svg';
+import {IconAnchor} from '../IconAnchor';
 
 const Header = () => {
   return (
     <header className="bg-white flex items-center justify-between w-full h-14">
-      {/* <!--right icons--> */}
+      {/* right icons */}
       <div className="flex justify-start items-center p-3 gap-4 w-full md:w-[170%] lg:w-full">
+        {/* logo */}
         <div className="h-[32px] w-[32px]">
-          <img className="h-[32px] w-[32px]" src="../../public/assets/header/logo.png" alt="Logo" />
+          <img className="h-[32px] w-[32px]" src={logo} alt="Logo" />
         </div>
-        <div id="aside-frame-btn" className="lg:hidden">
-          <img className="w-[24px] cursor-pointer" src="../../public/assets/asideMenu/frame.svg" />
-        </div>
-        <div>
-          <img className="w-[24px]" src="../../public/assets/header/home.png" alt="Home" />
-        </div>
-        <div>
-          <img className="w-[24px]" src="../../public/assets/header/eye.png" alt="eye" />
-        </div>
-        <div>
-          <img className="w-[24px]" src="../../public/assets/header/upload.png" alt="upload" />
-        </div>
+        <IconAnchor anchorStyle="lg:hidden" imgStyle="w-[24px] cursor-pointer" src={asideMenu} alt="asideMenu" />
+
+        <IconAnchor anchorStyle="" imgStyle="w-[24px]" src={home} alt="Home" />
+
+        <IconAnchor anchorStyle="" imgStyle="w-[24px]" src={eye} alt="eye" />
+
+        <IconAnchor anchorStyle="" imgStyle="w-[24px]" src={upload} alt="upload" />
       </div>
       {/* <!--page name--> */}
       <div className="w-full text-center p-2">
@@ -27,20 +30,11 @@ const Header = () => {
       </div>
       {/* <!--left icons--> */}
       <div className="flex justify-end items-center w-full px-6 py-2 gap-5">
-        <a className="w-[24px] h-[24px]" href="../page2/">
-          <button className="w-[20px]">
-            <img src="../../public/assets/header/forward.png" alt="undo right" />
-          </button>
-        </a>
-        <a className="w-[24px] h-[24px]" href="">
-          <button className="w-[20px]">
-            <img src="../../public/assets/header/forward.png" className="scale-x-[-1]" alt="undo left" />
-          </button>
-        </a>
+        <IconAnchor anchorStyle="w-[24px] h-[24px]" imgStyle="w-[20px]" src={forward} alt="undo right" />
 
-        <button id="aside-setting-btn" className="w-6 h-6 lg:hidden">
-          <img src="../../public/assets/asideMenu/sliders.svg" alt="undo left" />
-        </button>
+        <IconAnchor anchorStyle="w-[24px] h-[24px]" imgStyle="w-[20px] scale-x-[-1]" src={forward} alt="undo left" />
+
+        <IconAnchor anchorStyle="w-6 h-6 lg:hidden" imgStyle="" src={slider} alt="slider" />
       </div>
     </header>
   );

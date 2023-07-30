@@ -1,37 +1,41 @@
-import React from 'react';
+import {SettingsHeader} from '../SettingsHeader';
+import {SettingsInput} from '../SettingsInput';
+import {SettingSelectionInput} from '../SettingsSelectionInput';
+import {SettingsAlignmentIcons} from '../SettingsAlignmentIcons';
+import {SettingsFrameSelection} from '../SettingsFrameSelection';
+import {SettingsAddImg} from '../SettingsAddImg';
 
 const PageSettings = () => {
   return (
-    <section className="bg-white h-full w-[300px] lg:w-[345px] p-[24px] absolute lg:static -left-[345px] transition-all z-50 shadow-lg">
-      <div className="flex justify-start items-center w-full font-semibold mb-[16px]">
-        <h2>تنظیمات صفحه</h2>
+    <section className="bg-white h-full w-[300px] lg:w-[345px] p-[24px] absolute lg:static -left-[345px] transition-all z-50 shadow-lg ">
+      <SettingsHeader title="تنظیمات صفحه" />
+      <SettingsAddImg />
+      <SettingSelectionInput
+        inputHeaderName=""
+        selectionText="نوع کارت خود را انتخاب کنید"
+        selectStyle="flex justify-center w-[294px] h-[40px] input-drop"
+        headerStyle="hidden"
+        option1="کارت1"
+        option2="کارت2"
+        option3="کارت3"
+        option4="کارت4"
+      />
+      <div className="w-full flex flex-col justify-start items-center gap-4 mt-3">
+        <SettingsAlignmentIcons />
+        <SettingSelectionInput
+          inputHeaderName="فاصله بین فریم ها"
+          selectionText="پیش فرض"
+          selectStyle="input-drop"
+          headerStyle=""
+          option1="2"
+          option2="4"
+          option3="8"
+          option4="12"
+        />
+        <SettingsInput text="حاشیه" placeholder="۱۶" />
+        <SettingsInput text="فاصله از دیواره" placeholder="۲۴" />
       </div>
-      {/* <div class="w-full flex flex-col justify-start items-center gap-4">
-        <div class="flex justify-between w-full items-center">
-          <div class="w-full text-[14px] font-semibold">
-            <p>فاصله بین فریم ها</p>
-          </div>
-          <select class="input-drop">
-            <option selected>پیش فرض</option>
-            <option value="2rem">2</option>
-            <option value="4rem">4</option>
-            <option value="8rem">8</option>
-            <option value="12rem">12</option>
-          </select>
-        </div>
-        <div class="flex justify-between w-full items-center">
-          <div class="text-[14px] font-semibold">
-            <p>حاشیه</p>
-          </div>
-          <input type="text" class="input w-[40px] h-[40px] pr-1/2 placeholder:text-[12px]" placeholder="۱۶" />
-        </div>
-        <div class="flex justify-between w-full items-center">
-          <div class="text-[14px] font-semibold">
-            <p>فاصله از دیواره</p>
-          </div>
-          <input type="text" class="input w-[40px] h-[40px] pr-1/2 placeholder:text-[12px]" placeholder="۲۴" />
-        </div>
-      </div> */}
+      <SettingsFrameSelection />
     </section>
   );
 };
