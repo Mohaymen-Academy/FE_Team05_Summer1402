@@ -54,6 +54,7 @@ document.addEventListener('scroll', async () => {
       asideTag.style.top = '80px';
     }
   }
+  
 });
 
 // side menu
@@ -118,7 +119,7 @@ banners.forEach((banner) => bannerObserver.observe(banner));
 //search icon
 
 const searchIcon2 = document.getElementById('searchButton');
-const searchInput2 = document.getElementById('searchInput') as HTMLElement;
+const searchInput2 = document.getElementById('searchInput') as HTMLInputElement;
 const searchSVG2 = document.getElementById('searchSVG');
 const searchBtn2 = document.getElementById('searchButton');
 let flag = false;

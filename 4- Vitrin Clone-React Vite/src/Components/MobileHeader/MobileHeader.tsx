@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/logo.png';
+import {SearchBar} from '../Searchbar';
 
 const MobileHeader = () => {
   return (
@@ -39,7 +40,7 @@ const MobileHeader = () => {
           </div>
         </div>
         {/* search bar */}
-        <div className="flex justify-start items-center w-full">
+        {/* <div className="flex justify-start items-center w-full">
           <div className="relative w-[70%] mx-4">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3">
               <button id="searchButton" type="submit" className="bg-blue-600 font-medium rounded-lg text-sm px-1 py-2">
@@ -68,7 +69,8 @@ const MobileHeader = () => {
               dir="rtl"
             />
           </div>
-        </div>
+        </div> */}
+        <SearchBar />
       </div>
     </div>
   );
