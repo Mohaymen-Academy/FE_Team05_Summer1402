@@ -11,6 +11,7 @@ type BannerProps = {
   textColor: string;
   img: string;
   oneLine: boolean;
+  id: string;
 };
 type bannerSubComponentProps = {
   gotInViewPort?: boolean;
@@ -70,7 +71,7 @@ const TextButtonContainer: React.FC<bannerSubComponentProps> = ({
   </div>
 );
 
-const Banner: React.FC<BannerProps> = ({color, dir, buttonText, textColor, img, upperText, lowerText, oneLine}) => {
+const Banner: React.FC<BannerProps> = ({color, dir, buttonText, textColor, img, upperText, lowerText, oneLine,id}) => {
   const [gotInViewPort, setGotInViewPort] = useState(false);
 
   return (
@@ -83,7 +84,7 @@ const Banner: React.FC<BannerProps> = ({color, dir, buttonText, textColor, img, 
         }
       }}
     >
-      <div
+      <div id={id}
         style={{
           background: `linear-gradient(to ${dir === 'l' ? 'left' : 'right'}, ${color}, #ffffff00)`,
           opacity: gotInViewPort ? 1 : 0,

@@ -8,7 +8,7 @@ const CategoryContainer = () => {
       <div className="justify-center items-center gap-[1rem]">
         <div className="w-full gap-2 text-center grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
           {categoryContainerInfo.map((card) => (
-            <CategoryCard link={card.link} imgUrl={card.imgUrl} title={card.title} />
+            <CategoryCard link={card.link} imgUrl={card.imgUrl} title={card.title} key={card.id}/>
           ))}
         </div>
       </div>

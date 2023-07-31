@@ -101,7 +101,7 @@ const AsideMenu = () => {
       <div className="text-sm bg-blue-600 relative p-5">
         <ul ref={asideAnchor} className="grid gap-8 text-white">
           {asideMenuTagInfo.map((tag) => (
-            <AsideMenuTag title={tag.title} link={tag.link} />
+            <AsideMenuTag title={tag.title} link={tag.link} key={tag.id} />
           ))}
         </ul>
         <button
