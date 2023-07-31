@@ -1,4 +1,5 @@
-import {FrameButton} from './Components/FrameButton';
+import {frameButton} from '../../../../util/Constatnts';
+import {Button} from '../../../Common';
 
 const FramesMenu = () => {
   return (
@@ -7,13 +8,9 @@ const FramesMenu = () => {
         <h1 className="py-[8px] px-2 font-bold">قالب‌ها</h1>
       </div>
       <div className="text-sm w-full flex flex-col gap-2 justify-start items-center">
-        <FrameButton name="کارت" style="frame-btn" />
-        <FrameButton name="دکمه ها" style="frame-btn" />
-        <FrameButton name="متن" style="frame-btn" />
-        <FrameButton name="عکس" style="frame-btn" />
-        <FrameButton name="ویدئو" style="frame-btn" />
-        <FrameButton name="اسلایدر" style="frame-btn" />
-        <FrameButton name="آیکون" style="frame-btn" />
+        {frameButton.map((btn) => (
+          <Button text={btn.text} style="frame" key={btn.id} onClick={() => console.log(btn.id)} />
+        ))}
       </div>
     </aside>
   );
