@@ -1,6 +1,6 @@
 import {FieldValues, useForm} from 'react-hook-form';
-import {SettingSelectionInput} from '../../Inputs/SettingsSelectionInput';
-import {SettingsInput} from '../../Inputs/SettingsInput';
+import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
+import {SettingsInput} from '../Inputs/SettingsInput';
 
 const PageSetting = () => {
   const {

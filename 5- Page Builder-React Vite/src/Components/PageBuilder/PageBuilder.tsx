@@ -1,7 +1,7 @@
 import {Header} from './Components/Header';
 import {FramesMenu} from './Components/FramesMenu';
 import DesignBox from './Components/DesignBox/DesignBox';
-import AsideMenu from './Components/PageSettings/AsideMenu';
+import AsideMenu from './Components/AsideMenu/AsideMenu';
 import {Outlet} from 'react-router-dom';
 
 const PageBuilder = () => {

@@ -1,10 +1,10 @@
 import {FieldValues, useForm} from 'react-hook-form';
 import {Switch} from '@chakra-ui/react';
-import {SettingsAlignmentIcons} from '../../Inputs/SettingsAlignmentIcons';
-import {SettingSelectionInput} from '../../Inputs/SettingsSelectionInput';
-import {ColorsInput} from '../../Inputs/ColorsInput';
-import {TextInput} from '../../../../../../Common';
-import {SettingsTextInput} from '../../Inputs/SettingsTextInput';
+import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
+import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
+import {ColorsInput} from '../Inputs/ColorsInput';
+import {TextInput} from '../../../../../Common';
+import {SettingsTextInput} from '../Inputs/SettingsTextInput';
 import {AiOutlineLink} from 'react-icons/ai';
 
 const PageButtons = () => {

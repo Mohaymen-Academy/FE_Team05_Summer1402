@@ -1,10 +1,10 @@
 import {FieldValues, useForm} from 'react-hook-form';
-import {ColorsInput} from '../../Inputs/ColorsInput';
-import {SettingsAlignmentIcons} from '../../Inputs/SettingsAlignmentIcons';
-import {SettingSelectionInput} from '../../Inputs/SettingsSelectionInput';
-import {SettingsTextInput} from '../../Inputs/SettingsTextInput';
-import {TextInput} from '../../../../../../Common';
-import {SettingsInput} from '../../Inputs/SettingsInput';
+import {ColorsInput} from '../Inputs/ColorsInput';
+import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
+import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
+import {SettingsTextInput} from '../Inputs/SettingsTextInput';
+import {TextInput} from '../../../../../Common';
+import {SettingsInput} from '../Inputs/SettingsInput';
 import {AiOutlineLink} from 'react-icons/ai';
 
 const TextPage = () => {

@@ -1,7 +1,7 @@
 import {LoginPage} from './Components/LoginPage';
 import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 import {PageBuilder} from './Components/PageBuilder';
-import {PageButtons, PageLayout, PageSetting, TextPage} from './Components/PageBuilder/Components/PageSettings';
+import {PageButtons, PageLayout, PageSetting, TextPage} from './Components/PageBuilder/Components/AsideMenu';
 
 function App() {
   return (
