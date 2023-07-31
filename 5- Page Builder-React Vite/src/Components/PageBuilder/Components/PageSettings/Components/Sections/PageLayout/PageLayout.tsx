@@ -4,7 +4,7 @@ import {SettingsFrameSelection} from '../../Inputs/SettingsFrameSelection';
 import {SettingsInput} from '../../Inputs/SettingsInput';
 import {SettingSelectionInput} from '../../Inputs/SettingsSelectionInput';
 
-const PageLayout = () => {
+const PageSetting = () => {
   return (
     <div>
       <SettingsAddImg />
@@ -39,4 +39,4 @@ const PageLayout = () => {
   );
 };
 
-export default PageLayout;
+export default PageSetting;

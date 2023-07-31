@@ -1,9 +1,10 @@
 import {FieldValues, useForm} from 'react-hook-form';
+import {Switch} from '@chakra-ui/react';
 import {SettingsAlignmentIcons} from '../../Inputs/SettingsAlignmentIcons';
-
 import {SettingSelectionInput} from '../../Inputs/SettingsSelectionInput';
 import {ColorsInput} from '../../Inputs/ColorsInput';
 import {TextInput} from '../../../../../../Common';
+import {SettingsTextInput} from '../../Inputs/SettingsTextInput';
 
 const PageButtons = () => {
   const {
@@ -54,8 +55,15 @@ const PageButtons = () => {
           ]}
           dropMenuStyle={{width: '25%', padding: '0 4px'}}
         />
+        <SettingsTextInput divStyle="h-[100px]" text="متن" inputStyle="h-[45px]" />
         <ColorsInput text="رنگ پس زمینه" />
         <ColorsInput text="رنگ متن" />
+        <div className="w-full flex justify-between">
+          <div className="text-[14px] font-semibold">
+            <p>آیکون دار</p>
+          </div>
+          <Switch />
+        </div>
         <div className="w-full">
           <TextInput
             labelText="لینک دکمه"
