@@ -1,4 +1,3 @@
-import React from 'react';
 import {FrameButton} from './Components/FrameButton';
 
 const FramesMenu = () => {

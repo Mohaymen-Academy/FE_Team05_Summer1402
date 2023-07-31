@@ -1,20 +1,23 @@
-import {useForm, SubmitHandler} from 'react-hook-form';
+import {useForm, SubmitHandler, FieldValues} from 'react-hook-form';
 import logo from '../../assets/logo.png';
-import {LoginButton} from './Components/LoginButton';
-import {LoginInput} from './Components/LoginInput';
-
-type Inputs = {
-  name: string;
-};
+import {Button, TextInput} from '../Common';
+import {useNavigate} from 'react-router-dom';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    watch,
     formState: {errors},
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  } = useForm<FieldValues>({
+    defaultValues: {
+      name: '',
+      pageNamePersian: '',
+      pageNameEnglish: '',
+    },
+  });
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
   return (
     <div className="bg-slate-200">
       <div className="flex flex-col items-center justify-center px-6 mx-auto h-screen lg:py-0">
@@ -36,36 +39,30 @@ const LoginPage = () => {
               action="#"
             >
               <div className="flex flex-col justify-start w-full">
-                <LoginInput
-                  myLabelClass="label"
-                  myInputClass="input"
+                <TextInput
                   labelText=" عنوان صفحه خود را وارد کنید"
                   placeholder="عنوان صفحه"
-                  type="name"
-                  {...register('name')}
+                  formId="name"
+                  register={register}
                 />
                 <label className="subLabel">عنوان صفحه ، تگ عنوان HTML است </label>
               </div>
               <div className="flex-col">
                 <div className="flex flex-row items-center w-full gap-4">
                   <div className="w-full">
-                    <LoginInput
-                      myLabelClass="label"
-                      myInputClass="input"
+                    <TextInput
                       labelText="نام صفحه خود را وارد کنید (انگلیسی)"
                       placeholder="Page name"
-                      type="name"
-                      {...register('name')}
+                      formId="pageNameEnglish"
+                      register={register}
                     />
                   </div>
                   <div className="w-full">
-                    <LoginInput
-                      myLabelClass="label"
-                      myInputClass="input"
+                    <TextInput
                       labelText="نام صفحه خود را وارد کنید (فارسی)"
                       placeholder="نام صفحه"
-                      type="name"
-                      {...register('name')}
+                      formId="pageNamePersian"
+                      register={register}
                     />
                   </div>
                 </div>
@@ -76,7 +73,7 @@ const LoginPage = () => {
                   <p className="subLabel">در طراحی نمایش داده شود</p>
                 </div>
               </div>
-              <LoginButton width="w-[502px]" height="h-[48px]" type="btn-primary" />
+              <Button text="ذخیره و شروع طراحی" type="primary" onClick={() => navigate('/home')} />
             </form>
           </div>
         </div>

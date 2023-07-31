@@ -1,6 +1,5 @@
-import './App.css';
 import {LoginPage} from './Components/LoginPage';
-import {Routes, Route, BrowserRouter as Router, Link, BrowserRouter} from 'react-router-dom';
+import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 import {PageBuilder} from './Components/PageBuilder';
 
 function App() {

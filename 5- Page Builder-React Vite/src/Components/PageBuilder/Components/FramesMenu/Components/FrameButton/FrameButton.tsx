@@ -6,7 +6,7 @@ type FrameButtonProps = {
 };
 
 const FrameButton: React.FC<FrameButtonProps> = ({name, style}) => {
-  return <button className={style}>{name}</button>;
+  return <button draggable className={style}>{name}</button>;
 };
 
 export default FrameButton;
