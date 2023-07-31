@@ -3,7 +3,10 @@ import {channelContainerInfo} from '../../../../util/Constants';
 import {ChannelCard} from './Components/ChannelCard';
 import img from '../../../../assets/icons/caret-left-bold.svg';
 
-const ChannelContainer = () => {
+type ChannelCardProps = {
+  headerText: string;
+};
+const ChannelContainer: React.FC<ChannelCardProps> = ({headerText}) => {
   const slider = useRef<HTMLDivElement>(null);
   let isDown = useRef(false);
   let startX = useRef(0);
@@ -74,7 +77,7 @@ const ChannelContainer = () => {
     >
       <div className="flex items-center justify-start w-full text-xl mb-2">
         <div className="mr-2 pl-2 my-category">
-          <p>مذهبی</p>
+          <p>{headerText}</p>
         </div>
         <div className="flex justify-start items-center opacity-0 px-5 show-more group-hover:opacity-100">
           <a href="#">نمایش همه</a>
@@ -89,7 +92,7 @@ const ChannelContainer = () => {
         >
           <div id="conatainer" className="flex gap-[1rem] py-2">
             {channelContainerInfo.map((card) => (
-              <ChannelCard imgUrl={card.imgUrl} link={card.link} title={card.title} />
+              <ChannelCard imgUrl={card.imgUrl} link={card.link} title={card.title} key={card.id}/>
             ))}
           </div>
         </div>

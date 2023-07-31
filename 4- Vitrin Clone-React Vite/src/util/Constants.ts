@@ -1,3 +1,4 @@
+import {v4 as uuid} from 'uuid';
 // carousel
 import CarouselImage1 from '../assets/carousel/img1.jpg';
 import CarouselImage2 from '../assets/carousel/img2.jpg';
@@ -31,6 +32,7 @@ export const filmCardInfo = [
     label1: 'درام',
     label2: 'راز آلود',
     link: '#',
+    id: uuid(),
   },
   {
     imgUrl: FilmCard1,
@@ -40,6 +42,7 @@ export const filmCardInfo = [
     label1: 'درام',
     label2: 'راز آلود',
     link: '#',
+    id: uuid(),
   },
   {
     imgUrl: FilmCard1,
@@ -49,6 +52,7 @@ export const filmCardInfo = [
     label1: 'درام',
     label2: 'راز آلود',
     link: '#',
+    id: uuid(),
   },
   {
     imgUrl: FilmCard1,
@@ -58,6 +62,7 @@ export const filmCardInfo = [
     label1: 'درام',
     label2: 'راز آلود',
     link: '#',
+    id: uuid(),
   },
 ];
 
@@ -68,41 +73,49 @@ export const categoryContainerInfo = [
     link: '#',
     imgUrl: CategoryCard1,
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     link: '#',
     imgUrl: CategoryCard1,
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     link: '#',
     imgUrl: CategoryCard1,
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     link: '#',
     imgUrl: CategoryCard1,
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     link: '#',
     imgUrl: CategoryCard1,
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     link: '#',
     imgUrl: CategoryCard1,
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     link: '#',
     imgUrl: CategoryCard1,
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     link: '#',
     imgUrl: CategoryCard1,
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
 ];
 
@@ -114,66 +127,79 @@ export const channelContainerInfo = [
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
   {
     imgUrl: channelCardImg1,
     link: '#',
     title: 'مجالس اهل بیت',
+    id: uuid(),
   },
 ];
 
@@ -181,36 +207,43 @@ export const channelContainerInfo = [
 export const asideMenuTagInfo = [
   {
     title: 'مذهبی',
-    link: '#',
+    link: '#banner1',
+    id: uuid(),
   },
   {
-    title: 'مذهبی',
-    link: '#',
+    title: 'برترین',
+    link: '#banner2',
+    id: uuid(),
   },
   {
-    title: 'مذهبی',
-    link: '#',
+    title: 'پرفروش هفته',
+    link: '#banner3',
+    id: uuid(),
   },
   {
-    title: 'مذهبی',
+    title: 'سبک زندگی',
     link: '#',
+    id: uuid(),
   },
   {
-    title: 'مذهبی',
+    title: 'اخبار',
     link: '#',
+    id: uuid(),
   },
   {
-    title: 'مذهبی',
+    title: 'تبلیغ گسترده',
     link: '#',
+    id: uuid(),
   },
   {
-    title: 'مذهبی',
+    title: 'سروش پلاس',
     link: '#',
+    id: uuid(),
   },
 ];
 
 //Banner images
-export const bannerArray = [
+export const sectionArray = [
   {
     image: bannerImg1,
     color: 'rgba(21, 128, 61, 0.3)',
@@ -219,6 +252,9 @@ export const bannerArray = [
     lowerText: 'زندگی اسلامی',
     buttonText: 'اطلاعات بیشتر',
     oneLine: false,
+    headerText: 'مذهبی',
+    tagId: 'banner1',
+    id: uuid(),
   },
   {
     image: bannerImg2,
@@ -228,6 +264,9 @@ export const bannerArray = [
     lowerText: 'کتاب',
     buttonText: 'ورود به کانال',
     oneLine: true,
+    headerText: 'برترین',
+    tagId: 'banner2',
+    id: uuid(),
   },
   {
     image: bannerImg3,
@@ -237,5 +276,8 @@ export const bannerArray = [
     lowerText: 'سرگرمی',
     buttonText: 'ورود به کانال',
     oneLine: true,
+    headerText: 'پرفروش هفته',
+    tagId: 'banner3',
+    id: uuid(),
   },
 ];

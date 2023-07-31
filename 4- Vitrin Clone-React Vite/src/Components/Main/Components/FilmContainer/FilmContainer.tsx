@@ -16,6 +16,7 @@ const FilmContainer = () => {
               rate={card.rate}
               label1={card.label1}
               label2={card.label2}
+              key={card.id}
             />
           ))}
         </div>
