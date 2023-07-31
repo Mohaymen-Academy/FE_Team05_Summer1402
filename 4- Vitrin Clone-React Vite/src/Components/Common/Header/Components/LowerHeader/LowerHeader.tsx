@@ -11,7 +11,7 @@ const LowerHeader = () => {
               <a href="#banner2">برترین</a>
             </li>
             <li>
-              <a href="#draggableSlideHaeder3">پرفروش هفته</a>
+              <a href="#banner3">پرفروش هفته</a>
             </li>
             <li>
               <a href="#">سبک زندگی</a>

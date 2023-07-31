@@ -2,13 +2,13 @@ import {FilmContainer} from '../Main/Components/FilmContainer';
 import {CategoryContainer} from '../Main/Components/CategoryContainer';
 import {ChannelContainer} from '../Main/Components/ChannelContainer';
 import {Banner} from '..';
-import {bannerArray} from '../../util/Constants';
+import {sectionArray} from '../../util/Constants';
 const Main = () => {
   return (
     <main className="m-auto overflow-hidden flex flex-col gap-4 mb-10">
       <CategoryContainer />
-      {bannerArray.map((banner, i) => (
-        <>
+      {sectionArray.map((banner, i) => (
+        <div key={banner.id}>
           <Banner
             img={banner.image}
             color={banner.color}
@@ -18,9 +18,10 @@ const Main = () => {
             lowerText={banner.lowerText}
             textColor={banner.textColor}
             oneLine={banner.oneLine}
+            id={banner.tagId}
           />
-          <ChannelContainer />
-        </>
+          <ChannelContainer headerText={banner.headerText} />
+        </div>
       ))}
 
       <FilmContainer />

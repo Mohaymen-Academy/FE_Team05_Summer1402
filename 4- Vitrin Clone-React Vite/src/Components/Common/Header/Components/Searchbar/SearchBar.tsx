@@ -26,6 +26,7 @@ const SearchBar = () => {
           }
         }
       });
+      
     }
     if (searchInput.current != null) {
       searchInput.current.addEventListener('click', (e: Event) => {
