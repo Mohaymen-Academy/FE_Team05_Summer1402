@@ -1,10 +1,10 @@
 import {useForm, SubmitHandler, FieldValues} from 'react-hook-form';
 import logo from '../../assets/logo.png';
-import {LoginButton} from './Components/LoginButton';
-import {LoginInput} from './Components/LoginInput';
-import {TextInput} from '../Common';
+import {Button, TextInput} from '../Common';
+import {useNavigate} from 'react-router-dom';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -73,7 +73,7 @@ const LoginPage = () => {
                   <p className="subLabel">در طراحی نمایش داده شود</p>
                 </div>
               </div>
-              <LoginButton width="w-[502px]" height="h-[48px]" type="btn-primary" />
+              <Button text="ذخیره و شروع طراحی" type="primary" onClick={() => navigate('/home')} />
             </form>
           </div>
         </div>
