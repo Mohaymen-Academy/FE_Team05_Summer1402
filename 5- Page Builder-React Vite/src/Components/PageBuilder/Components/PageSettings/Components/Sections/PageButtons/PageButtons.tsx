@@ -1,10 +1,11 @@
 import {FieldValues, useForm} from 'react-hook-form';
-import {ColorsInput} from '../../Inputs/ColorsInput';
 import {SettingsAlignmentIcons} from '../../Inputs/SettingsAlignmentIcons';
-import {SettingSelectionInput} from '../../Inputs/SettingsSelectionInput';
-import {SettingsTextInput} from '../../Inputs/SettingsTextInput';
 
-const TextPage = () => {
+import {SettingSelectionInput} from '../../Inputs/SettingsSelectionInput';
+import {ColorsInput} from '../../Inputs/ColorsInput';
+import {TextInput} from '../../../../../../Common';
+
+const PageButtons = () => {
   const {
     register,
     handleSubmit,
@@ -53,9 +54,22 @@ const TextPage = () => {
           ]}
           dropMenuStyle={{width: '25%', padding: '0 4px'}}
         />
+        <ColorsInput text="رنگ پس زمینه" />
+        <ColorsInput text="رنگ متن" />
+        <div className="w-full">
+          <TextInput
+            labelText="لینک دکمه"
+            register={register}
+            formId="linkUrl"
+            errors={errors}
+            placeholder="لینک مورد نظر خود را وارد کنید"
+            labelStyle={{fontWeight: 'bold', margin: '0 0px'}}
+            inputStyle={{margin: '12px 0'}}
+          />
+        </div>
       </div>
     </>
   );
 };
 
-export default TextPage;
+export default PageButtons;
