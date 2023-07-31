@@ -1,5 +1,5 @@
-import IconButton from '../../../Common/IconButton/IconButton';
-import icon1 from '../../assets/asideMenu/align1.png';
+import {IconButton} from '../../../../../../Common';
+import icon1 from '../../../../../../../assets/asideMenu/align1.png';
 
 type SettingsTextInputProps = {
   text: string;

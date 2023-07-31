@@ -1,11 +1,11 @@
 import React from 'react';
-import IconButton from '../../../Common/IconButton/IconButton';
-import icon1 from '../../assets/asideMenu/align1.png';
-import icon2 from '../../assets/asideMenu/align2.png';
-import icon3 from '../../assets/asideMenu/align3.png';
-import icon4 from '../../assets/asideMenu/align4.png';
-import icon5 from '../../assets/asideMenu/align5.png';
-import icon6 from '../../assets/asideMenu/align6.png';
+import {IconButton} from '../../../../../../Common';
+import icon1 from '../../../../../../../assets/asideMenu/align1.png';
+import icon2 from '../../../../../../../assets/asideMenu/align2.png';
+import icon3 from '../../../../../../../assets/asideMenu/align3.png';
+import icon4 from '../../../../../../../assets/asideMenu/align4.png';
+import icon5 from '../../../../../../../assets/asideMenu/align5.png';
+import icon6 from '../../../../../../../assets/asideMenu/align6.png';
 
 const SettingsAlignmentIcons = () => {
   return (
