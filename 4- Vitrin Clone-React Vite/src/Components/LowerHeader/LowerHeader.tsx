@@ -1,8 +1,6 @@
-import React from 'react';
-
 const LowerHeader = () => {
   return (
-    <div className="items-center bg-ft-white h-[40px]">
+    <div className="hidden md:flex items-center bg-ft-white h-[40px]">
       <div className="w-full h-full overflow-x-auto">
         <div className="flex justify-center h-full">
           <ul className="flex justify-between items-center gap-[2rem] text-slate-600">

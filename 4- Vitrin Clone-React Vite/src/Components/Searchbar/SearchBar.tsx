@@ -53,7 +53,7 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <div className="flex justify-start items-center w-full">
+    <div className="flex md:hidden justify-start items-center w-full">
       <div className="relative w-[70%] mx-4">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3">
           <button ref={searchBtn} type="submit" className="bg-blue-600 font-medium rounded-lg text-sm px-1 py-2">
