@@ -1,16 +1,18 @@
 import {Header} from './Components/Header';
 import {FramesMenu} from './Components/FramesMenu';
 import DesignBox from './Components/DesignBox/DesignBox';
-import {PageSettings} from './Components/PageSettings';
+import AsideMenu from './Components/PageSettings/AsideMenu';
+import {Outlet} from 'react-router-dom';
 
 const PageBuilder = () => {
+  console.log(Outlet);
   return (
     <div className="bg-neutral-light h-screen flex flex-col w-full">
       <Header />
       <div className="flex w-screen h-[calc(100vh-56px)] reltive">
         <FramesMenu />
         <DesignBox />
-        <PageSettings />
+        <AsideMenu />
       </div>
     </div>
   );
