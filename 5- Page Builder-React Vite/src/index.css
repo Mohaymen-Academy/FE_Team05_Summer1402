@@ -4,10 +4,10 @@
 
 @layer components {
   .input {
-    @apply bg-white mt-1 border-[1px] h-[45px] py-[10px] pb-[12px] px-[12px] border-neutral-light rounded-[12px] w-full outline-none placeholder:text-[10px] placeholder:text-neutral-main placeholder:font-semibold;
+    @apply bg-white mt-1 border-[1px] h-[45px] py-[10px] pb-[12px] px-[12px] border-neutral-light rounded-[12px] w-full outline-none placeholder:text-[10px] placeholder:text-neutral-main placeholder:font-bold;
   }
   .label {
-    @apply mr-2 text-neutral-dark text-[14px];
+    @apply mr-2 text-neutral-dark text-[14px] w-full;
   }
   .subLabel {
     @apply text-[12px] text-neutral-hover;
@@ -22,7 +22,7 @@
     @apply border-2 border-neutral-light w-full h-[50px] rounded-[12px] active:bg-neutral-light font-bold cursor-pointer select-none;
   }
   .input-drop {
-    @apply border border-neutral-border-light bg-white rounded-[10px] text-gray-400 text-sm h-[40px] w-[200px] outline-none;
+    @apply border border-neutral-border-light bg-white rounded-[10px] text-gray-400 text-sm h-[40px] w-[200px] font-bold outline-none;
   }
 
   .settings-header {

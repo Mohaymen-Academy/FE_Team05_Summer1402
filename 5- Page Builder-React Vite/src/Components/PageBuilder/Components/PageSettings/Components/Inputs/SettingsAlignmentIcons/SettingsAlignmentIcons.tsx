@@ -1,4 +1,3 @@
-import React from 'react';
 import {IconButton} from '../../../../../../Common';
 import icon1 from '../../../../../../../assets/asideMenu/align1.png';
 import icon2 from '../../../../../../../assets/asideMenu/align2.png';
