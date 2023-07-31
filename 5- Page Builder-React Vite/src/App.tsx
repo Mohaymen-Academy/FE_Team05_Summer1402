@@ -1,7 +1,7 @@
 import {LoginPage} from './Components/LoginPage';
 import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 import {PageBuilder} from './Components/PageBuilder';
-import {PageLayout, PageSetting} from './Components/PageBuilder/Components/PageSettings';
+import {PageLayout, PageSetting, TextPage} from './Components/PageBuilder/Components/PageSettings';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
           <Route path="/home" element={<PageBuilder />}>
             <Route path="pageSetting" element={<PageSetting />} />
             <Route path="pageLayout" element={<PageLayout />} />
+            <Route path="TextPage" element={<TextPage />} />
           </Route>
         </Routes>
       </Router>
