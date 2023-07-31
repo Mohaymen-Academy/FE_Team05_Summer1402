@@ -9,7 +9,7 @@ import {SettingsTextInput} from './Components/SettingsTextInput';
 
 const PageSettings = () => {
   return (
-    <section className="bg-white h-full w-[300px] lg:w-[345px] p-[24px] absolute lg:static -left-[345px] transition-all z-50 shadow-lg ">
+    <section className="bg-white h-full w-[300px] lg:w-[345px] p-[24px] absolute lg:static -left-[345px] transition-all z-50 shadow-lg overflow-auto">
       <SettingsHeader title="تنظیمات صفحه" />
       <SettingsAddImg />
       <SettingSelectionInput
