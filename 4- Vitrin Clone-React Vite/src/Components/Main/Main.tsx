@@ -7,18 +7,22 @@ const Main = () => {
   return (
     <main className="m-auto overflow-hidden flex flex-col gap-4 mb-10">
       <CategoryContainer />
-      <ChannelContainer />
-      <ChannelContainer />
-      <ChannelContainer />
-      <Banner
-        img={bannerArray[0].image}
-        color={bannerArray[0].color}
-        buttonText="اطلاعات بیشتر"
-        dir="l"
-        upperText="پویش سبک"
-        lowerText="زندگی اسلامی"
-        textColor={bannerArray[0].textColor}
-      />
+      {bannerArray.map((banner, i) => (
+        <>
+          <Banner
+            img={banner.image}
+            color={banner.color}
+            buttonText={banner.buttonText}
+            dir={i % 2 === 0 ? 'r' : 'l'}
+            upperText={banner.upperText}
+            lowerText={banner.lowerText}
+            textColor={banner.textColor}
+            oneLine={banner.oneLine}
+          />
+          <ChannelContainer />
+        </>
+      ))}
+
       <FilmContainer />
     </main>
   );
