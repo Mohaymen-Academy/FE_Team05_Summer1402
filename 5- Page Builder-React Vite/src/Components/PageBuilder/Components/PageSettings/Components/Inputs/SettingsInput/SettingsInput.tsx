@@ -10,8 +10,10 @@ type SettingsInputProps = {
   errors: FieldErrors;
   required?: boolean;
   pattern?: RegExp;
-  inputW: string;
-  inputH: string;
+  inputW?: string;
+  inputH?: string;
+  smallInput?: boolean;
+  inputType: 'number' | 'text';
 };
 
 const SettingsInput: React.FC<SettingsInputProps> = ({
@@ -24,6 +26,8 @@ const SettingsInput: React.FC<SettingsInputProps> = ({
   pattern,
   inputW,
   inputH,
+  smallInput,
+  inputType,
 }) => {
   return (
     <div className="flex justify-between w-full items-center">
@@ -31,7 +35,6 @@ const SettingsInput: React.FC<SettingsInputProps> = ({
         <p>{text}</p>
       </div>
       <TextInput
-        inputStyle={{padding: 4}}
         errors={errors}
         register={register}
         required={required}
@@ -40,6 +43,8 @@ const SettingsInput: React.FC<SettingsInputProps> = ({
         placeholder={placeholder}
         width={inputW}
         height={inputH}
+        smallInput={smallInput}
+        type={inputType}
       />
     </div>
   );

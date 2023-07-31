@@ -31,20 +31,20 @@ const PageSetting = () => {
         ]}
       />
       <SettingsInput
+        inputType="number"
+        smallInput
         register={register}
         errors={errors}
         formId="padding"
-        inputH="36px"
-        inputW="36px"
         text="حاشیه"
         placeholder="۱۶"
       />
       <SettingsInput
+        inputType="number"
+        smallInput
         register={register}
         errors={errors}
         formId="margin"
-        inputH="36px"
-        inputW="36px"
         text="فاصله از دیوار"
         placeholder="۲۴"
       />

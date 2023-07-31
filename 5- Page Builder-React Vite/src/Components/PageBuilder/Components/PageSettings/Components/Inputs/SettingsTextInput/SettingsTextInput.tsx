@@ -10,18 +10,18 @@ import icon7 from '../../../../../../../assets/textEditor/textalign-justifycente
 type SettingsTextInputProps = {
   text: string;
   placeholder: string;
-  inputStyle: string;
-  divStyle: string;
+  inputHeight: string;
 };
 
-const SettingsTextInput: React.FC<SettingsTextInputProps> = ({text, placeholder, inputStyle, divStyle}) => {
+const SettingsTextInput: React.FC<SettingsTextInputProps> = ({text, placeholder, inputHeight}) => {
   return (
-    <div className={`flex flex-col justify-start ${divStyle} w-full gap-[12px]`}>
+    <div className={`flex flex-col justify-start w-full gap-[12px]`}>
       <div className="text-[14px] font-semibold">
         <p>{text}</p>
       </div>
       <textarea
-        className={`input ${inputStyle} pr-1/2 placeholder:text-[14px] resize-none`}
+        style={{height: inputHeight}}
+        className={`input placeholder:text-[14px] resize-none`}
         placeholder={placeholder}
       />
       <div className="grid grid-cols-7 gap-3 justify-center items-center">

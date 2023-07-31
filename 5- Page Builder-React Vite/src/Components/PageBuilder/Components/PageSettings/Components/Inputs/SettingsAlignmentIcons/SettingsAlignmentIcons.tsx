@@ -9,7 +9,7 @@ import icon6 from '../../../../../../../assets/asideMenu/align6.png';
 const SettingsAlignmentIcons = () => {
   return (
     <>
-      <div className="grid grid-cols-6 gap-6 justify-center items-center">
+      <div className="grid grid-cols-6 gap-6 justify-center items-center w-full">
         <IconButton btnStyle="" iconStyle="w-[24px]" src={icon6} alt="align6" title="align6" />
         <IconButton btnStyle="" iconStyle="w-[24px]" src={icon5} alt="align5" title="align5" />
         <IconButton btnStyle="" iconStyle="w-[24px]" src={icon4} alt="align4" title="align4" />
