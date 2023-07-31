@@ -1,2 +1,3 @@
-import {PageSetting, PageLayout, PageButtons} from './Components/Sections';
-export {PageSetting, PageLayout, PageButtons};
+import {PageSetting, PageLayout,TextPage,PageButtons} from './Components/Sections';
+export {PageSetting, PageLayout,TextPage,PageButtons};
+
