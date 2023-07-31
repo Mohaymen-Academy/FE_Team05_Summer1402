@@ -13,9 +13,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({width, height}) => {
       colorInputref.current.click();
     }
   };
-  useEffect(() => {
-    console.log(bgColor);
-  });
   return (
     <div className="relative">
       <div

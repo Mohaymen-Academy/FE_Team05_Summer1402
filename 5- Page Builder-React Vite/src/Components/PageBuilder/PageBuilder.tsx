@@ -2,19 +2,32 @@ import {Header} from './Components/Header';
 import {FramesMenu} from './Components/FramesMenu';
 import DesignBox from './Components/DesignBox/DesignBox';
 import AsideMenu from './Components/AsideMenu/AsideMenu';
-import {Outlet} from 'react-router-dom';
+import {DndContext} from '@dnd-kit/core';
+import {useState} from 'react';
 
 const PageBuilder = () => {
-  console.log(Outlet);
+  const [activeDrag, setActiveDrag] = useState();
+
+  function handleDragStart(event) {
+    // console.log(event.active.data);
+    setActiveDrag(event.active.id);
+  }
+
+  function handleDragEnd() {
+    setActiveDrag(undefined);
+  }
+
   return (
-    <div className="bg-neutral-light h-screen flex flex-col w-full">
-      <Header />
-      <div className="flex w-screen h-[calc(100vh-56px)] reltive">
-        <FramesMenu />
-        <DesignBox />
-        <AsideMenu />
+    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+      <div className="bg-neutral-light h-screen flex flex-col w-full">
+        <Header />
+        <div className="flex w-screen h-[calc(100vh-56px)] reltive">
+          <FramesMenu activeDragId={activeDrag} />
+          <DesignBox />
+          <AsideMenu />
+        </div>
       </div>
-    </div>
+    </DndContext>
   );
 };
 
