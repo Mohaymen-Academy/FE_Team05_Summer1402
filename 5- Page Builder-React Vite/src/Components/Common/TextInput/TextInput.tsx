@@ -9,7 +9,7 @@ type LoginButtonProps = {
   height?: string;
   register: UseFormRegister<FieldValues>;
   formId: string;
-  errors?: FieldErrors;
+  errors: FieldErrors;
   required?: boolean;
   pattern?: RegExp;
 };
@@ -27,10 +27,10 @@ const TextInput: React.FC<LoginButtonProps> = ({
 }) => {
   return (
     <>
-      <label className="label">{labelText}</label>
+      {labelText && <label className="label">{labelText}</label>}
       <input
+        style={{width, height, border: errors[formId] ? '2px solid red' : ''}}
         {...register(formId, {required, pattern})}
-        style={{width, height}}
         placeholder={placeholder}
         className="input"
         type={type}

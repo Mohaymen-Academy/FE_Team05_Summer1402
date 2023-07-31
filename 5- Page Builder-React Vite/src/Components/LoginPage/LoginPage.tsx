@@ -17,7 +17,10 @@ const LoginPage = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    navigate('/home');
+  };
+  
   return (
     <div className="bg-slate-200">
       <div className="flex flex-col items-center justify-center px-6 mx-auto h-screen lg:py-0">
@@ -44,6 +47,8 @@ const LoginPage = () => {
                   placeholder="عنوان صفحه"
                   formId="name"
                   register={register}
+                  required
+                  errors={errors}
                 />
                 <label className="subLabel">عنوان صفحه ، تگ عنوان HTML است </label>
               </div>
@@ -55,6 +60,8 @@ const LoginPage = () => {
                       placeholder="Page name"
                       formId="pageNameEnglish"
                       register={register}
+                      required
+                      errors={errors}
                     />
                   </div>
                   <div className="w-full">
@@ -63,6 +70,7 @@ const LoginPage = () => {
                       placeholder="نام صفحه"
                       formId="pageNamePersian"
                       register={register}
+                      errors={errors}
                     />
                   </div>
                 </div>
@@ -73,7 +81,7 @@ const LoginPage = () => {
                   <p className="subLabel">در طراحی نمایش داده شود</p>
                 </div>
               </div>
-              <Button text="ذخیره و شروع طراحی" type="primary" onClick={() => navigate('/home')} />
+              <Button type={'submit'} text="ذخیره و شروع طراحی" style="primary" />
             </form>
           </div>
         </div>
