@@ -1,6 +1,6 @@
-import {FilmContainer} from '../FilmContainer';
-import {CategoryContainer} from '../CategoryContainer';
-import {ChannelContainer} from '../ChannelContainer';
+import {FilmContainer} from '../Main/Components/FilmContainer';
+import {CategoryContainer} from '../Main/Components/CategoryContainer';
+import {ChannelContainer} from '../Main/Components/ChannelContainer';
 import {Banner} from '..';
 import {bannerArray} from '../../util/Constants';
 const Main = () => {

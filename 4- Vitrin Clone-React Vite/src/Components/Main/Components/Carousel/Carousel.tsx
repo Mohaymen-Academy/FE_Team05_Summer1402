@@ -1,10 +1,10 @@
 import Carousel3d from 'react-spring-3d-carousel';
 import {useState, useEffect, useRef} from 'react';
 import {config} from 'react-spring';
-import {carouselImages} from '../../util/Constants';
+import {carouselImages} from '../../../../util/Constants';
 import {v4 as uuidv4} from 'uuid';
 import Card from './Card';
-import useWindowDimensions from '../../hooks/useWindowDimention';
+import useWindowDimensions from '../../../../hooks/useWindowDimention';
 
 export default function Carousel() {
   // const [offsetRadius, setOffsetRadius] = useState(2);

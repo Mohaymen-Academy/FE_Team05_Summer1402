@@ -1,7 +1,7 @@
 // import {Carousel} from './Carousel';
-import {Footer} from './Footer';
+import {Footer} from './Common/Footer';
 import {Main} from './Main';
-import {Header} from './Header';
-import {Banner} from './Banner';
+import {Header} from './Common/Header';
+import {Banner} from './Main/Components/Banner';
 
 export {Header, Main, Footer, Banner};

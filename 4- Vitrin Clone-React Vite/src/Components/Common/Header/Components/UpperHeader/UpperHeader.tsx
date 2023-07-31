@@ -1,9 +1,8 @@
 import {useEffect} from 'react';
-import logo from '../../assets/logo.png';
+import logo from '../../../../../assets/logo.png';
 import {SearchBar} from '../Searchbar';
 
 const UpperHeader = () => {
- 
   return (
     <header>
       {/* header for desktop */}

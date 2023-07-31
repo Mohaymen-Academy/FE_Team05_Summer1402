@@ -1,6 +1,6 @@
 import {useEffect, useRef} from 'react';
-import {UpperHeader} from '../UpperHeader';
-import {LowerHeader} from '../LowerHeader';
+import {UpperHeader} from './Components/UpperHeader';
+import {LowerHeader} from './Components/LowerHeader';
 
 const Header = () => {
   ///////selectors
