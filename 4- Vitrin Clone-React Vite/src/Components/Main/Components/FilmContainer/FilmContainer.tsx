@@ -1,6 +1,6 @@
 import React from 'react';
-import FilmCard from '../FilmCard/FilmCard';
-import {filmCardInfo} from '../../util/Constants';
+import FilmCard from './Components/FilmCard/FilmCard';
+import {filmCardInfo} from '../../../../util/Constants';
 
 const FilmContainer = () => {
   return (

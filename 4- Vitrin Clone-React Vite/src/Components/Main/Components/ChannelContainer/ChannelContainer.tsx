@@ -1,7 +1,7 @@
 import {useRef, useEffect} from 'react';
-import {channelContainerInfo} from '../../util/Constants';
-import {ChannelCard} from '../ChannelCard';
-import img from '../../assets/icons/caret-left-bold.svg';
+import {channelContainerInfo} from '../../../../util/Constants';
+import {ChannelCard} from './Components/ChannelCard';
+import img from '../../../../assets/icons/caret-left-bold.svg';
 
 const ChannelContainer = () => {
   const slider = useRef<HTMLDivElement>(null);
@@ -57,9 +57,6 @@ const ChannelContainer = () => {
           const x = e.pageX - slider.current.offsetLeft;
           const walk = x - startX.current;
           slider.current.scrollLeft = scrollLeft.current - walk;
-          // console.log('walk : ' + walk);
-          // console.log('slider scroll left: ' + slider.current.scrollLeft);
-          // console.log('scroll left : ' + scrollLeft.current);
         }
       };
 

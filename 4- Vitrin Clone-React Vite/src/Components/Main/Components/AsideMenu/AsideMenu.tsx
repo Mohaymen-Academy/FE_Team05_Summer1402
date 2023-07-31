@@ -1,8 +1,7 @@
-import React from 'react';
 import {useRef, useEffect} from 'react';
-import asideMenuImg from '../../assets/asideMenu/left.svg';
-import {asideMenuTagInfo} from '../../util/Constants';
-import {AsideMenuTag} from '../AsideMenuTag';
+import asideMenuImg from '../../../../assets/asideMenu/left.svg';
+import {asideMenuTagInfo} from '../../../../util/Constants';
+import {AsideMenuTag} from './Components/AsideMenuTag';
 
 const AsideMenu = () => {
   const sideMenu = useRef<HTMLElement>(null);

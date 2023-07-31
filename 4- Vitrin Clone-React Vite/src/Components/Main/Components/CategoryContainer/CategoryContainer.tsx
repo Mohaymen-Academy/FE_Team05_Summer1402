@@ -1,6 +1,6 @@
 import React from 'react';
-import {categoryContainerInfo} from '../../util/Constants';
-import CategoryCard from '../CategoryCard/CategoryCard';
+import {categoryContainerInfo} from '../../../../util/Constants';
+import CategoryCard from './Components/CategoryCard/CategoryCard';
 
 const CategoryContainer = () => {
   return (

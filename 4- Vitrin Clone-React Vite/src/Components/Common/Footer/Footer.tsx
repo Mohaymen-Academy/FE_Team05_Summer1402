@@ -1,9 +1,9 @@
 import React from 'react';
-import img1 from '../../assets/footer/icons/img1.svg';
-import img2 from '../../assets/footer/icons/img2.png';
-import img3 from '../../assets/footer/icons/img3.svg';
-import img4 from '../../assets/footer/icons/img4.svg';
-import img5 from '../../assets/footer/icons/img5.svg';
+import img1 from '../../../assets/footer/icons/img1.svg';
+import img2 from '../../../assets/footer/icons/img2.png';
+import img3 from '../../../assets/footer/icons/img3.svg';
+import img4 from '../../../assets/footer/icons/img4.svg';
+import img5 from '../../../assets/footer/icons/img5.svg';
 
 const Footer = () => {
   return (
