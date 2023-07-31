@@ -3,16 +3,17 @@ import React from 'react';
 type LoginButtonProps = {
   width?: string;
   height?: string;
-  type: 'primary' | 'secondary' | 'frame' | 'edit';
+  style: 'primary' | 'secondary' | 'frame' | 'edit';
   text: string;
   onClick?: () => void;
+  type?: 'submit';
 };
 
-const Button: React.FC<LoginButtonProps> = ({width, height, text, type, onClick}) => {
+const Button: React.FC<LoginButtonProps> = ({width, height, text, type, style, onClick}) => {
   return (
-    <div onClick={onClick} style={{width, height}} className={`btn-${type}`}>
+    <button type={type} onClick={onClick} style={{width, height}} className={`btn-${style}`}>
       {text}
-    </div>
+    </button>
   );
 };
 
