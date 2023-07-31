@@ -1,17 +1,46 @@
 import React from 'react';
+import {TextInput} from '../../../../../../Common';
+import {FieldErrors, FieldValues, UseFormRegister} from 'react-hook-form';
 
 type SettingsInputProps = {
-    text: string;
-    placeholder: string;
-}
+  text: string;
+  placeholder: string;
+  register: UseFormRegister<FieldValues>;
+  formId: string;
+  errors: FieldErrors;
+  required?: boolean;
+  pattern?: RegExp;
+  inputW: string;
+  inputH: string;
+};
 
-const SettingsInput:React.FC<SettingsInputProps> = ({text,placeholder}) => {
+const SettingsInput: React.FC<SettingsInputProps> = ({
+  text,
+  placeholder,
+  register,
+  formId,
+  errors,
+  required,
+  pattern,
+  inputW,
+  inputH,
+}) => {
   return (
     <div className="flex justify-between w-full items-center">
       <div className="text-[14px] font-semibold">
         <p>{text}</p>
       </div>
-      <input type="text" className="input w-[40px] h-[40px] pr-1/2 placeholder:text-[12px]" placeholder={placeholder} />
+      <TextInput
+        inputStyle={{padding: 4}}
+        errors={errors}
+        register={register}
+        required={required}
+        pattern={pattern}
+        formId={formId}
+        placeholder={placeholder}
+        width={inputW}
+        height={inputH}
+      />
     </div>
   );
 };
