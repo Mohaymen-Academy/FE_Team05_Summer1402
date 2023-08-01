@@ -1,14 +1,11 @@
-import {DragOverlay} from '@dnd-kit/core';
 import {frameButton} from '../../../../util/Constatnts';
 import {Button} from '../../../Common';
 import DraggableComponent from './Components/DraggableComponent/DraggableComponent';
-import {createPortal} from 'react-dom';
 
 type FramesMenu = {
   activeDragId?: string;
 };
 const FramesMenu: React.FC<FramesMenu> = ({activeDragId}) => {
-  console.log(activeDragId);
   return (
     <aside className="bg-white h-full w-[175px] px-[12px] absolute lg:static -right-[175px] transition-all z-50 shadow-lg">
       <div className="justify-center items-center w-full my-[8px]">

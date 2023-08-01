@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import state from 'sweetalert/typings/modules/state';
 
 type componentType = {
   type: 'btns' | 'txt';
@@ -37,7 +36,6 @@ export const BuilderSlice = createSlice({
         ...compo,
         active: compo.id === id ? true : false,
       }));
-
     },
   },
 });

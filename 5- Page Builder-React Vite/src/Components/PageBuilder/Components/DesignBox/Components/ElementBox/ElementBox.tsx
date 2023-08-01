@@ -38,10 +38,6 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
   const isActive = components.find((comp) => comp.id === id)?.active;
   const style = {border: isActive ? 'rgb(255,209,161) 1px solid' : ''};
 
-  useEffect(() => {
-    console.log('rerender');
-  });
-
   return (
     <div
       onClick={setActive}
