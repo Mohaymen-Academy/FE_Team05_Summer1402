@@ -32,7 +32,6 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
     }
   }, [type]);
   const setActive = () => {
-    console.log();
     dispatch(BuilderSlice.actions.setActive({id}));
     if (type === 'btns') navigate('/home/pageButtons');
 
