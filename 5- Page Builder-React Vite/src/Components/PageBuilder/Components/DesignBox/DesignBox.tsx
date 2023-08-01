@@ -3,6 +3,7 @@ import plus from '../../../../assets/body/plus.svg';
 import {DesignBoxSettings} from './Components/DesignBoxSettings';
 import {DragBox} from './Components/DragBox';
 import {ElementBox} from './Components/ElementBox';
+import {Droppable} from './Components/Droppable';
 
 const DesignBox = () => {
   return (
@@ -10,7 +11,9 @@ const DesignBox = () => {
       <div className="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
         <div className="bg-white w-full h-full">
           <ElementBox type="buttonBox" />
-          <DragBox />
+          <Droppable id="droppable">
+            <DragBox />
+          </Droppable>
         </div>
         {/* confirm  */}
         <div className="w-full justify-center items-center pt-3 bg-slate-200">

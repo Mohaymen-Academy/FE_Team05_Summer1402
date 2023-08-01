@@ -13,8 +13,9 @@ const PageBuilder = () => {
     setActiveDrag(event.active.id);
   }
 
-  function handleDragEnd() {
+  function handleDragEnd(e) {
     setActiveDrag(undefined);
+    console.log(e);
   }
 
   return (
