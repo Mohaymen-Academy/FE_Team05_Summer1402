@@ -1,3 +1,4 @@
+# this is a script that automatically create a branch and pushes to remote repo
 #!/bin/bash
 
 # Check if both arguments are provided

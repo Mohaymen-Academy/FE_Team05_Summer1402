@@ -6,8 +6,6 @@ import {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {storeStateTypes} from './util/types';
 
-//test commit
-
 function App() {
   return (
     <>
