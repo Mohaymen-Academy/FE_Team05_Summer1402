@@ -3,7 +3,7 @@ import trash from '../../../../../../assets/body/yellow trash.svg';
 import hand from '../../../../../../assets/body/yellow hand.svg';
 import {IconButton} from '../../../../../Common/IconButton';
 import plus from '../../../../../../assets/body/plus.svg';
-import {Outlet, Routes, Route} from 'react-router-dom';
+import {Outlet, Routes, Route, useNavigate} from 'react-router-dom';
 import {ButtonElement} from '.';
 import {TextElement} from './Components/TextElement';
 import {useEffect, useMemo} from 'react';
@@ -20,6 +20,7 @@ type ElementBoxProps = {
   active?: boolean;
 };
 const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const components = useSelector((state: storeStateTypes) => state.builder.component);
   const data = useMemo(() => {
@@ -33,6 +34,9 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
   const setActive = () => {
     console.log();
     dispatch(BuilderSlice.actions.setActive({id}));
+    if (type === 'btns') navigate('/home/pageButtons');
+
+    if (type === 'txt') navigate('/home/textPage');
   };
 
   const isActive = components.find((comp) => comp.id === id)?.active;
