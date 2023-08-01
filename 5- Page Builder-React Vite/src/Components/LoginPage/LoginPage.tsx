@@ -20,7 +20,7 @@ const LoginPage = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     navigate('/home');
   };
-  
+
   return (
     <div className="bg-slate-200">
       <div className="flex flex-col items-center justify-center px-6 mx-auto h-screen lg:py-0">
@@ -52,8 +52,8 @@ const LoginPage = () => {
                 />
                 <label className="subLabel">عنوان صفحه ، تگ عنوان HTML است </label>
               </div>
-              <div className="flex-col">
-                <div className="flex flex-row items-center w-full gap-4">
+              <div className="w-full flex-col">
+                <div className="flex flex-row justify-center w-full gap-4">
                   <div className="w-full">
                     <TextInput
                       labelText="نام صفحه خود را وارد کنید (انگلیسی)"
