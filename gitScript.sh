@@ -27,6 +27,7 @@ if [ "$1" = "-c" ]; then
   # Perform git commands
   git add -A
   git commit -m "$cMessage"
+
   git push origin "$bName"
 
 elif [ $# -eq 2 ]; then
