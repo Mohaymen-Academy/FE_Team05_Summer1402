@@ -8,7 +8,7 @@ import {ButtonElement} from '.';
 import {TextElement} from './Components/TextElement';
 import {useEffect, useMemo} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {BuilderSlice} from '../../../../../../redux/slices';
+import {AsideSlice, BuilderSlice} from '../../../../../../redux/slices';
 import state from 'sweetalert/typings/modules/state';
 import {storeStateTypes} from '../../../../../../util/types';
 import {border} from '@chakra-ui/react';
@@ -22,28 +22,30 @@ type ElementBoxProps = {
 const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const components = useSelector((state: storeStateTypes) => state.builder.component);
+  const component = useSelector((state: storeStateTypes) => state.builder.component.find((comp) => comp.id === id));
   const data = useMemo(() => {
     if (type === 'btns') {
-      return <ButtonElement />;
+      return <ButtonElement setting={component?.setting} />;
     }
     if (type === 'txt') {
-      return <TextElement />;
+      return <TextElement setting={component?.setting} />;
     }
-  }, [type]);
-  const setActive = () => {
+  }, [type, component]);
+  const onClickHandler = () => {
     dispatch(BuilderSlice.actions.setActive({id}));
+    dispatch(AsideSlice.actions.setEdittingComponent({id, type}));
+
     if (type === 'btns') navigate('/home/pageButtons');
 
     if (type === 'txt') navigate('/home/textPage');
   };
 
-  const isActive = components.find((comp) => comp.id === id)?.active;
+  const isActive = component?.active;
   const style = {border: isActive ? 'rgb(255,209,161) 1px solid' : ''};
 
   return (
     <div
-      onClick={setActive}
+      onClick={onClickHandler}
       style={style}
       className={`relative mt-[59px] border-secondary-border-light flex p-2 mx-4 my-8 rounded-l-[8px] rounded-b-[8px] gap-2`}
     >
