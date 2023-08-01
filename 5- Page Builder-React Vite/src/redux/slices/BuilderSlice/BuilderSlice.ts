@@ -1,4 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {useNavigate} from 'react-router-dom';
+
 
 type componentType = {
   type: 'btns' | 'txt';
