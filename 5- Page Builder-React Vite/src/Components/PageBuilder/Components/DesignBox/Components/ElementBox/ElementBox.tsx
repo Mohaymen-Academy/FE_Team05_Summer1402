@@ -33,12 +33,9 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
   }, [type]);
   const setActive = () => {
     dispatch(BuilderSlice.actions.setActive({id}));
-    if (type === 'txt') {
-      navigate('/home/textPage');
-    }
-    if (type === 'btns') {
-      navigate('/home/pageButtons');
-    }
+    if (type === 'btns') navigate('/home/pageButtons');
+
+    if (type === 'txt') navigate('/home/textPage');
   };
 
   const isActive = components.find((comp) => comp.id === id)?.active;
