@@ -2,19 +2,19 @@
 #!/bin/bash
 
 # Check if both arguments are provided
-if [ $# -ne 2 ]; then
+if [ $# -lt 1 ]; then
   echo "Usage: $0 [bName] [cMessage]"
   exit 1
 fi
 
-cMessage="$2"
+cMessage="$1"
 
 # Perform git commands
 git add -A
 git commit -m "$cMessage"
 
-if [ -n "$1" ]; then
-  bName="$1"
+if [ $# -ge 2 ]; then
+  bName="$2"
   git checkout -b "$bName"
   git push origin "$bName"
 fi
