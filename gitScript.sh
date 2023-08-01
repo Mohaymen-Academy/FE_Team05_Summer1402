@@ -1,20 +1,54 @@
 # this is a script that automatically create a branch and pushes to remote repo
 #!/bin/bash
 
-# Check if both arguments are provided
+#!/bin/bash
+
+# Function to show usage
+show_usage() {
+  echo "Usage: $0 [-c] [branch_name] [cMessage]"
+}
+
+# Check if arguments are provided
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 [bName] [cMessage]"
+  show_usage
   exit 1
 fi
 
-cMessage="$1"
+# Check if the first argument is -c
+if [ "$1" = "-c" ]; then
+  if [ $# -lt 3 ]; then
+    show_usage
+    exit 1
+  fi
 
-# Perform git commands
-git add -A
-git commit -m "$cMessage"
-
-if [ $# -ge 2 ]; then
   bName="$2"
+  cMessage="$3"
+
+  # Perform git commands
+  git add -A
+  git commit -m "$cMessage"
+  git checkout "$bName"
+  git push origin "$bName"
+
+elif [$# -eq 2]; then
+
+  bName="$1"
+  cMessage="$2"
+
+  # Perform git commands
+  git add -A
+  git commit -m "$cMessage"
   git checkout -b "$bName"
   git push origin "$bName"
+
+elif [ $# -eq 1 ]; then
+  # No -c option provided, commit only
+  cMessage="$1"
+
+  # Perform git commands
+  git add -A
+  git commit -m "$cMessage"
+else
+  show_usage
+  exit 1
 fi
