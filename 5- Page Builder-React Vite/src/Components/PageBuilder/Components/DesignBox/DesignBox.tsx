@@ -1,3 +1,4 @@
+import {Outlet} from 'react-router-dom';
 import plus from '../../../../assets/body/plus.svg';
 import {DesignBoxSettings} from './Components/DesignBoxSettings';
 import {DragBox} from './Components/DragBox';
@@ -8,7 +9,7 @@ const DesignBox = () => {
     <main className="lg:w-[calc(100vw-175px-345px)] w-full flex justify-center items-center">
       <div className="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
         <div className="bg-white w-full h-full">
-          <ElementBox />
+          <ElementBox type="buttonBox" />
           <DragBox />
         </div>
         {/* confirm  */}
