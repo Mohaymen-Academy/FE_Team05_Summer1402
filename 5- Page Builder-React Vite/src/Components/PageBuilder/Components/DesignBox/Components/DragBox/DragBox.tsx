@@ -1,4 +1,4 @@
-import plus from '../../../../../../assets/body/plus.png';
+import plus from '../../../../../../assets/body/plus.svg';
 
 const DragBox = () => {
   return (

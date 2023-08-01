@@ -1,4 +1,4 @@
-import plus from '../../../../assets/body/plus.png';
+import plus from '../../../../assets/body/plus.svg';
 import {DesignBoxSettings} from './Components/DesignBoxSettings';
 import {DragBox} from './Components/DragBox';
 import {ElementBox} from './Components/ElementBox';

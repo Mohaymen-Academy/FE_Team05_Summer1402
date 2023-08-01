@@ -1,9 +1,9 @@
 import logo from '../../../../assets/logo.png';
 import asideMenu from '../../../../assets/asideMenu/frame.svg';
-import home from '../../../../assets/header/home.png';
-import eye from '../../../../assets/header/eye.png';
-import upload from '../../../../assets/header/upload.png';
-import forward from '../../../../assets/header/forward.png';
+import home from '../../../../assets/header/home.svg';
+import eye from '../../../../assets/header/eye.svg';
+import upload from '../../../../assets/header/directbox-send.svg';
+import forward from '../../../../assets/header/undo.svg';
 import slider from '../../../../assets/asideMenu/sliders.svg';
 import {IconAnchor} from './Components/IconAnchor';
 
@@ -30,9 +30,8 @@ const Header = () => {
       </div>
       {/* <!--left icons--> */}
       <div className="flex justify-end items-center w-full px-6 py-2 gap-5">
-        <IconAnchor anchorStyle="w-[24px] h-[24px]" imgStyle="w-[20px]" src={forward} alt="undo right" />
-
-        <IconAnchor anchorStyle="w-[24px] h-[24px]" imgStyle="w-[20px] scale-x-[-1]" src={forward} alt="undo left" />
+        <IconAnchor anchorStyle="w-[24px] h-[24px]" imgStyle="w-[24px] scale-x-[-1]" src={forward} alt="undo left" />
+        <IconAnchor anchorStyle="w-[24px] h-[24px]" imgStyle="w-[24px]" src={forward} alt="undo right" />
 
         <IconAnchor anchorStyle="w-6 h-6 lg:hidden" imgStyle="" src={slider} alt="slider" />
       </div>
