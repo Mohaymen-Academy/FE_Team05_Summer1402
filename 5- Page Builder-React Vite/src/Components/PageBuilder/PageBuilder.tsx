@@ -21,7 +21,7 @@ const PageBuilder = () => {
     setActiveDrag(undefined);
     console.log(e.active.id);
     const type = e.active.id;
-    dispatch(BuilderSlice.actions.addComponent({id: v4(), setting: {}, type}));
+    dispatch(BuilderSlice.actions.addComponent({id: v4(), setting: {}, type, active: false}));
   }
 
   return (
