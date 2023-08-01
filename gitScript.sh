@@ -30,7 +30,8 @@ if [ "$1" = "-c" ]; then
   git checkout "$bName"
   git push origin "$bName"
 
-elif [$# -eq 2]; then
+elif [ $# -eq 2 ]; then
+  echo "ommmmm"
 
   bName="$1"
   cMessage="$2"
