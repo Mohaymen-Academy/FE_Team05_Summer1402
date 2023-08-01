@@ -13,7 +13,6 @@ const PageBuilder = () => {
   const dispatch = useDispatch();
 
   function handleDragStart(event) {
-    // console.log(event.active.data);
     setActiveDrag(event.active.id);
   }
 

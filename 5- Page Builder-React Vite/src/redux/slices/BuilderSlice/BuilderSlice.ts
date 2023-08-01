@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {useNavigate} from 'react-router-dom';
 import state from 'sweetalert/typings/modules/state';
 
 type componentType = {
@@ -37,7 +38,6 @@ export const BuilderSlice = createSlice({
         ...compo,
         active: compo.id === id ? true : false,
       }));
-
     },
   },
 });
