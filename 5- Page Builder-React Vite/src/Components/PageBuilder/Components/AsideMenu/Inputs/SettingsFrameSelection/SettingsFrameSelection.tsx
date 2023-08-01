@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SettingsFrameSelection = () => {
   return (
     <div className="grid grid-cols-1 gap-y-8 mt-6">

@@ -1,18 +1,12 @@
-import pen from '../../../../../../assets/body/yellow pen.svg';
-import trash from '../../../../../../assets/body/yellow trash.svg';
-import hand from '../../../../../../assets/body/yellow hand.svg';
-import {IconButton} from '../../../../../Common/IconButton';
-import plus from '../../../../../../assets/body/plus.svg';
-import {Outlet, Routes, Route, useNavigate} from 'react-router-dom';
-import {ButtonElement} from '.';
-import {TextElement} from './Components/TextElement';
-import {useEffect, useMemo} from 'react';
+import {useMemo} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {AsideSlice, BuilderSlice} from '../../../../../../redux/slices';
-import state from 'sweetalert/typings/modules/state';
-import {storeStateTypes} from '../../../../../../util/types';
-import {border} from '@chakra-ui/react';
-import {color} from 'framer-motion';
+import {IconButton} from '../../../../Common/IconButton';
+import {ButtonElement} from '.';
+import {TextElement} from './TextElement';
+import {AsideSlice, BuilderSlice} from '../../../../../redux/slices';
+import {storeStateTypes} from '../../../../../util/types';
+import {pen, trash, yellowHand} from '../../../../../assets/body';
 
 type ElementBoxProps = {
   id: string | number;
@@ -55,7 +49,7 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
       >
         <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={pen} alt="pen" title="pen" />
         <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={trash} alt="trash" title="trash" />
-        <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={hand} alt="hand" title="hand" />
+        <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={yellowHand} alt="hand" title="hand" />
       </div>
       {data}
     </div>

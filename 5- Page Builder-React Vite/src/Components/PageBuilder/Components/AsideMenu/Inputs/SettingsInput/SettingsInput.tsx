@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput} from '../../../../../../Common';
+import {TextInput} from '../../../../../Common';
 import {FieldErrors, FieldValues, UseFormRegister} from 'react-hook-form';
 
 type SettingsInputProps = {

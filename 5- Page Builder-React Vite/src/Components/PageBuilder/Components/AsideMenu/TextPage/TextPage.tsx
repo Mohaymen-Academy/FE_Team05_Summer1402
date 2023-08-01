@@ -3,12 +3,12 @@ import {ColorsInput} from '../Inputs/ColorsInput';
 import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
 import {SettingsTextInput} from '../Inputs/SettingsTextInput';
-import {TextInput} from '../../../../../Common';
+import {TextInput} from '../../../../Common';
 import {SettingsInput} from '../Inputs/SettingsInput';
 import {AiOutlineLink} from 'react-icons/ai';
 import {useDispatch, useSelector} from 'react-redux';
-import {storeStateTypes} from '../../../../../../util/types';
-import {BuilderSlice} from '../../../../../../redux/slices';
+import {storeStateTypes} from '../../../../../util/types';
+import {BuilderSlice} from '../../../../../redux/slices';
 
 const TextPage = () => {
   const dispatch = useDispatch();
