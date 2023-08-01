@@ -19,7 +19,7 @@ const FramesMenu: React.FC<FramesMenu> = ({activeDragId}) => {
           <Button text={btn.text} style="frame" key={btn.id} onClick={() => console.log(btn.id)} />
         ))} */}
         {frameButton.map((btn) => (
-          <DraggableComponent id={btn.text} key={btn.id}>
+          <DraggableComponent id={btn.id} key={btn.id}>
             <Button style="frame" text={btn.text} />
           </DraggableComponent>
         ))}
