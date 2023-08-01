@@ -31,8 +31,6 @@ if [ "$1" = "-c" ]; then
   git push origin "$bName"
 
 elif [ $# -eq 2 ]; then
-  echo "ommmmm"
-
   bName="$1"
   cMessage="$2"
 
