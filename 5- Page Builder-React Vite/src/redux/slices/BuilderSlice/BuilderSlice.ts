@@ -1,9 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
+import state from 'sweetalert/typings/modules/state';
 
 type componentType = {
-  type: 'btn' | 'txt';
+  type: 'btns' | 'txt';
   id: string | number;
   setting: Record<string, any>;
+  active: boolean;
 };
 
 export type BuilderSliceTypes = {
@@ -25,7 +27,17 @@ export const BuilderSlice = createSlice({
         payload: componentType;
       }
     ) => {
-      state.component.push(action.payload);
+      if (['btns', 'txt'].includes(action.payload.type)) {
+        state.component.push(action.payload);
+      }
+    },
+    setActive: (state: BuilderSliceTypes, action: {payload: {id: string | number}}) => {
+      const {id} = action.payload;
+      state.component = state.component.map((compo) => ({
+        ...compo,
+        active: compo.id === id ? true : false,
+      }));
+
     },
   },
 });

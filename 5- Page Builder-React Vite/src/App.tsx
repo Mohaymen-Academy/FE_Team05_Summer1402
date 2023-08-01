@@ -7,10 +7,6 @@ import {useSelector} from 'react-redux';
 import {storeStateTypes} from './util/types';
 
 function App() {
-  const components = useSelector((state: storeStateTypes) => state.builder);
-  useEffect(() => {
-    console.log(components);
-  });
   return (
     <>
       <Router>

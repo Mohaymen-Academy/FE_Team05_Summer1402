@@ -13,7 +13,7 @@ const DesignBox = () => {
       <div className="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
         <div className="bg-white w-full h-full">
           {elementComponents.map((component) => (
-            <ElementBox type={component.type} key={component.id} />
+            <ElementBox id={component.id} type={component.type} key={component.id} />
           ))}
           <Droppable id="droppable">
             <DragBox />
