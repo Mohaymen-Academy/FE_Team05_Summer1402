@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {useNavigate} from 'react-router-dom';
-import state from 'sweetalert/typings/modules/state';
+
 
 type componentType = {
   type: 'btns' | 'txt';
