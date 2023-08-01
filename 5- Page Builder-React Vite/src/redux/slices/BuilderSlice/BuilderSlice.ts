@@ -32,9 +32,17 @@ export const BuilderSlice = createSlice({
     },
     setActive: (state: BuilderSliceTypes, action: {payload: {id: string | number}}) => {
       const {id} = action.payload;
+      console.log(state.component);
       state.component = state.component.map((compo) => ({
         ...compo,
         active: compo.id === id ? true : false,
+      }));
+    },
+    setSettings: (state: BuilderSliceTypes, action: {payload: {id: string | number; setting: Record<string, any>}}) => {
+      const {id, setting} = action.payload;
+      state.component = state.component.map((compo) => ({
+        ...compo,
+        setting: compo.id === id ? {...compo.setting, ...setting} : compo.setting,
       }));
     },
   },

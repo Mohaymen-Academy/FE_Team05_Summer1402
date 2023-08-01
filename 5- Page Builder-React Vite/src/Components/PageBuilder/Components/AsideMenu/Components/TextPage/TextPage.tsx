@@ -6,8 +6,13 @@ import {SettingsTextInput} from '../Inputs/SettingsTextInput';
 import {TextInput} from '../../../../../Common';
 import {SettingsInput} from '../Inputs/SettingsInput';
 import {AiOutlineLink} from 'react-icons/ai';
+import {useDispatch, useSelector} from 'react-redux';
+import {storeStateTypes} from '../../../../../../util/types';
+import {BuilderSlice} from '../../../../../../redux/slices';
 
 const TextPage = () => {
+  const dispatch = useDispatch();
+  const edittingId = useSelector((state: storeStateTypes) => state.aside.edittingComponentId);
   const {
     register,
     handleSubmit,
@@ -19,6 +24,9 @@ const TextPage = () => {
       linkUrl: '',
     },
   });
+  const textColorChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textColor: e.target.value}}));
+  };
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
       <SettingsAlignmentIcons />
@@ -39,7 +47,7 @@ const TextPage = () => {
         placeholder="برای تغییر این متن بر روی دکمه ویرایش کلیک کنید. لورم ایپسورم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
         inputHeight="145px"
       />
-      <ColorsInput text="رنگ" />
+      <ColorsInput onChange={textColorChangeHandler} text="رنگ" />
       <SettingSelectionInput
         inputHeaderName="سایز فونت"
         selectionText="۲۶"
