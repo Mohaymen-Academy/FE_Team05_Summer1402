@@ -13,7 +13,7 @@ import {BuilderSlice} from '../../../../../redux/slices';
 
 const PageButtons = () => {
   const dispatch = useDispatch();
-  const edittingId = useSelector((state: storeStateTypes) => state.aside.edittingComponentId);
+  const edittingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
   const {
     register,
     handleSubmit,
