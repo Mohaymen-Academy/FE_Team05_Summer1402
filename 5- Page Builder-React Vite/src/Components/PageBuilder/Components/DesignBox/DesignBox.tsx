@@ -1,10 +1,10 @@
-import plus from '../../../../assets/body/plus.svg';
-import {DesignBoxSettings} from './Components/DesignBoxSettings';
-import {DragBox} from './Components/DragBox';
-import {ElementBox} from './Components/ElementBox';
-import {Droppable} from './Components/Droppable';
+import {DesignBoxSettings} from './DesignBoxSettings';
+import {DragBox} from './DragBox';
+import {ElementBox} from './ElementBox';
+import {Droppable} from './Droppable';
 import {useSelector} from 'react-redux';
 import {storeStateTypes} from '../../../../util/types';
+import {AiOutlinePlus} from 'react-icons/ai';
 
 const DesignBox = () => {
   const elementComponents = useSelector((state: storeStateTypes) => state.builder.component);
@@ -22,7 +22,7 @@ const DesignBox = () => {
         {/* confirm  */}
         <div className="w-full justify-center items-center pt-3 bg-slate-200">
           <button className="flex justify-center items-center border-2 border-white rounded-lg w-full h-12 bg-white/60">
-            <img className="w-5 h-5 ml-2 mt-1" src={plus} alt="افزودن صفحه" />
+            <AiOutlinePlus color="rgb(59 130 246)" size={24} />
             <p className="text-blue-500 text-lg font-bold">افزودن صفحه</p>
           </button>
         </div>

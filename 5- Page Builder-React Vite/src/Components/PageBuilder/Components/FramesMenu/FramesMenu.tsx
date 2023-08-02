@@ -1,6 +1,6 @@
 import {frameButton} from '../../../../util/Constatnts';
 import {Button} from '../../../Common';
-import DraggableComponent from './Components/DraggableComponent/DraggableComponent';
+import DraggableComponent from './DraggableComponent/DraggableComponent';
 
 type FramesMenu = {
   activeDragId?: string;

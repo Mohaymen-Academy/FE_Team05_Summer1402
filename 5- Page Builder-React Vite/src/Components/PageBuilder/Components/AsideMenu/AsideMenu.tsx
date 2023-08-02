@@ -1,5 +1,5 @@
 import {Outlet} from 'react-router-dom';
-import {SettingsHeader} from './Components/Inputs/SettingsHeader';
+import {SettingsHeader} from './Inputs/SettingsHeader';
 
 const AsideMenu = () => {
   return (

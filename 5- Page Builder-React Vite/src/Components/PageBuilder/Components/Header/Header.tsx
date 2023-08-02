@@ -5,7 +5,7 @@ import eye from '../../../../assets/header/eye.svg';
 import upload from '../../../../assets/header/directbox-send.svg';
 import forward from '../../../../assets/header/undo.svg';
 import slider from '../../../../assets/asideMenu/sliders.svg';
-import {IconAnchor} from './Components/IconAnchor';
+import {IconAnchor} from './IconAnchor';
 
 const Header = () => {
   return (

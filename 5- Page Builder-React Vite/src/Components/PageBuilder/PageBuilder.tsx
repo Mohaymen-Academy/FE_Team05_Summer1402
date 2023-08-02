@@ -19,7 +19,9 @@ const PageBuilder = () => {
   function handleDragEnd(event: DragEndEvent) {
     setActiveDrag(undefined);
     const type = event.active.id as 'btns' | 'txt';
-    dispatch(BuilderSlice.actions.addComponent({id: v4(), setting: {}, type, active: false}));
+    if (event.over) {
+      dispatch(BuilderSlice.actions.addComponent({id: v4(), setting: {}, type, active: false}));
+    }
   }
 
   return (

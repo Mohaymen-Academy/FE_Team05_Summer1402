@@ -1,6 +1,6 @@
-import {PageSetting} from './Components/PageSettings';
-import {PageLayout} from './Components/PageLayout';
-import {TextPage} from './Components/TextPage';
-import {PageButtons} from './Components/PageButtons';
+import {PageSetting} from './PageSettings';
+import {PageLayout} from './PageLayout';
+import {TextPage} from './TextPage';
+import {PageButtons} from './PageButtons';
 
 export {PageSetting, PageLayout, TextPage, PageButtons};
