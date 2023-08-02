@@ -1,49 +1,46 @@
 import {FieldValues, useForm} from 'react-hook-form';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
 import {SettingsInput} from '../Inputs/SettingsInput';
+import {useDispatch, useSelector} from 'react-redux';
+import {BuilderSlice} from '../../../../../redux/slices';
+import {storeStateTypes} from '../../../../../util/types';
 
 const PageSetting = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: {errors},
-  } = useForm<FieldValues>({
-    defaultValues: {
-      gap: '',
-      padding: '',
-      margin: '',
-    },
-  });
+  const dispatch = useDispatch();
+  const onGapChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch(BuilderSlice.actions.setPageSetting({setting: {gap: e.target.value}}));
+  };
+  const gap = useSelector((state: storeStateTypes) => state.builder.pageSetting.gap);
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
       <SettingSelectionInput
-        inputHeaderName="فاصله بین فریم ها"
-        selectionText="پیش فرض"
+        onChange={onGapChangeHandler}
+        inputHeaderName="فاصله بین فریم‌ها"
+        defaultValue={gap}
         options={[
-          {value: '1', text: '۱'},
-          {value: '2', text: '۲'},
-          {value: '3', text: '۳'},
-          {value: '4', text: '۴'},
-          {value: '6', text: '۶'},
-          {value: '8', text: '۸'},
-          {value: '10', text: '۱۰'},
-          {value: '12', text: '۱۲'},
+          {value: '0.25rem', text: '۱'},
+          {value: '0.5rem', text: '۲'},
+          {value: '0.75rem', text: '۳'},
+          {value: '1rem', text: '۴'},
+          {value: '1.25rem', text: '۵'},
+          {value: '1.5rem', text: '۶'},
+          {value: '2rem', text: '۸'},
+          {value: '2.5rem', text: '۱۰'},
+          {value: '3rem', text: '۱۲'},
         ]}
       />
       <SettingsInput
+        onChange={(e) => console.log(e.target.value)}
         inputType="number"
         smallInput
-        register={register}
-        errors={errors}
         formId="padding"
         text="حاشیه"
         placeholder="۱۶"
       />
       <SettingsInput
+        onChange={(e) => console.log(e.target.value)}
         inputType="number"
         smallInput
-        register={register}
-        errors={errors}
         formId="margin"
         text="فاصله از دیوار"
         placeholder="۲۴"

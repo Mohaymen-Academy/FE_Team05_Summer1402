@@ -8,10 +8,12 @@ import {AiOutlinePlus} from 'react-icons/ai';
 
 const DesignBox = () => {
   const elementComponents = useSelector((state: storeStateTypes) => state.builder.component);
+  const settings = useSelector((state: storeStateTypes) => state.builder.pageSetting);
+  console.log(settings);
   return (
-    <main className="lg:w-[calc(100vw-175px-345px)] w-full flex justify-center items-center">
+    <main className="lg:w-[calc(100vw-175px-345px)] w-full flex justify-center items-center ">
       <div className="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
-        <div className="bg-white w-full h-full">
+        <div style={{gap: settings.gap, padding: settings.padding}} className="bg-white w-full h-full flex flex-col">
           {elementComponents.map((component) => (
             <ElementBox id={component.id} type={component.type} key={component.id} />
           ))}
@@ -19,6 +21,7 @@ const DesignBox = () => {
             <DragBox />
           </Droppable>
         </div>
+
         {/* confirm  */}
         <div className="w-full justify-center items-center pt-3 bg-slate-200">
           <button className="flex justify-center items-center border-2 border-white rounded-lg w-full h-12 bg-white/60">

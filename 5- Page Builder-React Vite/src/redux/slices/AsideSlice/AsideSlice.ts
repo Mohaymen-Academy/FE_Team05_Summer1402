@@ -2,21 +2,21 @@ import {createSlice} from '@reduxjs/toolkit';
 
 export type AsideSliceType = {
   header: string;
-  edittingComponentId: string | number;
-  edittingComponentType: 'btns' | 'txt' | string;
+  editingComponentId: string | number;
+  editingComponentType: 'btns' | 'txt' | string;
 };
 export const AsideSlice = createSlice({
   name: 'aside',
   initialState: {
-    edittingComponentId: '',
-    edittingComponentType: '',
+    editingComponentId: '',
+    editingComponentType: '',
     header: '',
   },
   reducers: {
-    setEdittingComponent: (state: AsideSliceType, action: {payload: {id: string | number; type: 'btns' | 'txt'}}) => {
+    setEditingComponent: (state: AsideSliceType, action: {payload: {id: string | number; type: 'btns' | 'txt'}}) => {
       const {id, type} = action.payload;
-      state.edittingComponentId = id;
-      state.edittingComponentType = type;
+      state.editingComponentId = id;
+      state.editingComponentType = type;
     },
   },
 });

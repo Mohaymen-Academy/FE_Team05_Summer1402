@@ -6,19 +6,19 @@ import {storeStateTypes} from '../../../../../../../util/types';
 type ColorPickerProps = {
   width: string;
   height: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   target: 'textColor' | 'bgColor';
 };
 const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange, target}) => {
-  const colorInputref = useRef<HTMLInputElement>(null);
+  const colorInputRef = useRef<HTMLInputElement>(null);
   const handleDivClick = () => {
-    if (colorInputref.current != null) {
-      colorInputref.current.click();
+    if (colorInputRef.current != null) {
+      colorInputRef.current.click();
     }
   };
-  const edittingId = useSelector((state: storeStateTypes) => state.aside.edittingComponentId);
+  const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
   const bgColor = useSelector(
-    (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === edittingId)?.setting[target]
+    (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === editingId)?.setting[target]
   );
 
   return (
@@ -28,7 +28,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange, targe
         className={`${width} rounded-lg ${height}`}
         onClick={handleDivClick}
       ></div>
-      <input ref={colorInputref} type="color" className="opacity-0 absolute top-0 left-0 " onChange={onChange} />
+      <input ref={colorInputRef} type="color" className="opacity-0 absolute top-0 left-0 " onChange={onChange} />
     </div>
   );
 };

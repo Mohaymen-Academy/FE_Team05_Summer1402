@@ -3,17 +3,18 @@ import {TextInput} from '../../../../../Common';
 import {FieldErrors, FieldValues, UseFormRegister} from 'react-hook-form';
 
 type SettingsInputProps = {
-  text: string;
-  placeholder: string;
-  register: UseFormRegister<FieldValues>;
-  formId: string;
-  errors: FieldErrors;
+  text?: string;
+  placeholder?: string;
+  register?: UseFormRegister<FieldValues>;
+  formId?: string;
+  errors?: FieldErrors;
   required?: boolean;
   pattern?: RegExp;
   inputW?: string;
   inputH?: string;
   smallInput?: boolean;
   inputType: 'number' | 'text';
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const SettingsInput: React.FC<SettingsInputProps> = ({
@@ -28,6 +29,7 @@ const SettingsInput: React.FC<SettingsInputProps> = ({
   inputH,
   smallInput,
   inputType,
+  onChange,
 }) => {
   return (
     <div className="flex justify-between w-full items-center">
@@ -45,6 +47,7 @@ const SettingsInput: React.FC<SettingsInputProps> = ({
         height={inputH}
         smallInput={smallInput}
         type={inputType}
+        onChange={onChange}
       />
     </div>
   );
