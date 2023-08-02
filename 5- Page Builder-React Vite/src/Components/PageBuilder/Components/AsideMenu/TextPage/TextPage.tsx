@@ -14,11 +14,30 @@ import {ChangeEvent} from 'react';
 const TextPage = () => {
   const dispatch = useDispatch();
   const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
+  let isBold = useSelector(
+    (state: storeStateTypes) =>
+      state.builder.component.find((compo) => compo.id === editingId)?.setting?.boldTextEditorFunction
+  );
+  let isUnderline = useSelector(
+    (state: storeStateTypes) =>
+      state.builder.component.find((compo) => compo.id === editingId)?.setting?.underlineTextEditorFunction
+  );
+  let isItalic = useSelector(
+    (state: storeStateTypes) =>
+      state.builder.component.find((compo) => compo.id === editingId)?.setting?.italicTextEditorFunction
+  );
   const textColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textColor: e.target?.value}}));
   };
   const changeDivAlignment = (e) => {
-    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {divAlignment: e.target.title}}));
+    const title = e.target?.title;
+    if (title === 'Align-Right' || title === 'Align-Vertically' || title === 'Align-Left') {
+      dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textVerticalDivAlignment: e.target.title}}));
+    } else {
+      dispatch(
+        BuilderSlice.actions.setSettings({id: editingId, setting: {textHorizontalDivAlignment: e.target.title}})
+      );
+    }
   };
   const textLinkChangeHandler = (e) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textLink: e.target?.value}}));
@@ -28,14 +47,33 @@ const TextPage = () => {
   };
   const textEditorChangeHandler = (e) => {
     const title = e.target?.title;
-    const currentTitle = useSelector(
-      (state: storeStateTypes) =>
-        state.builder.component.find((compo) => compo.id === editingId)?.setting?.textEditorFunction
-    );
-    let newTitle;
-    if (title === currentTitle) newTitle = '';
-    if (title !== currentTitle) newTitle = e.target?.title;
-    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textEditorFunction: newTitle}}));
+    if (title === 'bold') {
+      if (isBold) {
+        dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {boldTextEditorFunction: false}}));
+        isBold = false;
+      } else {
+        dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {boldTextEditorFunction: true}}));
+        isBold = true;
+      }
+    } else if (title === 'underline') {
+      if (isUnderline) {
+        dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {underlineTextEditorFunction: false}}));
+        isUnderline = false;
+      } else {
+        isUnderline = true;
+        dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {underlineTextEditorFunction: true}}));
+      }
+    } else if (title === 'italic') {
+      if (isItalic) {
+        dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {italicTextEditorFunction: false}}));
+        isItalic = false;
+      } else {
+        dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {italicTextEditorFunction: true}}));
+        isItalic = true;
+      }
+    } else {
+      dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textEditorFunction: title}}));
+    }
   };
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">

@@ -10,9 +10,6 @@ const TextElement: React.FC<TextElementProps> = ({setting}) => {
   const [divStyle1, setDivStyle1] = useState('center');
   const [divStyle2, setDivStyle2] = useState('center');
   const [textStyle, setTextStyle] = useState();
-  const [bold, setBold] = useState();
-  const [italic, setItalic] = useState();
-  const [underline, setUnderline] = useState();
 
   const defaultText = `لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون
   بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با
@@ -21,18 +18,10 @@ const TextElement: React.FC<TextElementProps> = ({setting}) => {
   useMemo(() => {
     setText(setting?.textElementText);
   }, [setting?.textElementText]);
+
   const func = setting?.textEditorFunction;
   useEffect(() => {
     console.log(func);
-    if (func === 'bold') {
-      bold ? setBold(false) : setBold(true);
-    }
-    if (func === 'underline') {
-      underline ? setUnderline(false) : setUnderline(true);
-    }
-    if (func === 'italic') {
-      italic ? setItalic(false) : setItalic(true);
-    }
     if (func === 'align left') {
       setTextStyle('left');
     }
@@ -46,36 +35,41 @@ const TextElement: React.FC<TextElementProps> = ({setting}) => {
       setTextStyle('justify');
     }
   }, [func]);
-  const align = setting?.divAlignment;
+
+  const align1 = setting?.textVerticalDivAlignment;
   useMemo(() => {
-    if (align === 'Align-Right') {
+    if (align1 === 'Align-Right') {
       setDivStyle1('flex-start');
     }
-    if (align === 'Align-Vertically') {
+    if (align1 === 'Align-Vertically') {
       setDivStyle1('center');
     }
-    if (align === 'Align-Left') {
+    if (align1 === 'Align-Left') {
       setDivStyle1('flex-end');
     }
-    if (align === 'Align') {
+  }, [setting?.textVerticalDivAlignment]);
+
+  const align2 = setting?.textHorizontalDivAlignment;
+  useMemo(() => {
+    if (align2 === 'Align') {
       setDivStyle2('flex-end');
     }
-    if (align === 'Align-Horizontally') {
+    if (align2 === 'Align-Horizontally') {
       setDivStyle2('center');
     }
-    if (align === 'Align-Bottom') {
+    if (align2 === 'Align-Bottom') {
       setDivStyle2('flex-start');
     }
-  }, [setting?.divAlignment]);
+  }, [setting?.textHorizontalDivAlignment]);
   return (
     <div
       style={{
         color: setting?.textColor,
         alignItems: divStyle1,
         justifyContent: divStyle2,
-        fontWeight: bold ? 'bold' : 'normal',
-        fontStyle: italic ? 'italic' : 'normal',
-        textDecoration: underline ? 'underline' : 'none',
+        fontWeight: setting?.boldTextEditorFunction ? 'bold' : 'normal',
+        fontStyle: setting?.italicTextEditorFunction ? 'italic' : 'normal',
+        textDecoration: setting?.underlineTextEditorFunction ? 'underline' : 'none',
         textAlign: textStyle,
       }}
       className="flex text-neutral-main text-[12px]"
