@@ -1,13 +1,19 @@
 import {FieldValues, useForm} from 'react-hook-form';
-import {Switch} from '@chakra-ui/react';
+import {Switch, useDisclosure} from '@chakra-ui/react';
 import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
 import {ColorsInput} from '../Inputs/ColorsInput';
 import {TextInput} from '../../../../Common';
 import {SettingsTextInput} from '../Inputs/SettingsTextInput';
 import {AiOutlineLink} from 'react-icons/ai';
+import {useDispatch, useSelector} from 'react-redux';
+import state from 'sweetalert/typings/modules/state';
+import {storeStateTypes} from '../../../../../util/types';
+import {BuilderSlice} from '../../../../../redux/slices';
 
 const PageButtons = () => {
+  const dispatch = useDispatch();
+  const edittingId = useSelector((state: storeStateTypes) => state.aside.edittingComponentId);
   const {
     register,
     handleSubmit,
@@ -19,9 +25,21 @@ const PageButtons = () => {
       linkUrl: '',
     },
   });
+  const textColorChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textColor: e.target.value}}));
+  };
+
+  const bgColorChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {bgColor: e.target.value}}));
+  };
+  const changeBtnAlignment = (e) => {
+    console.log(e.target.title);
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {divAlignment: e.target.title}}));
+  };
+
   return (
     <div className="w-full flex flex-col justify-start items-center gap-7 mt-3">
-      <SettingsAlignmentIcons />
+      <SettingsAlignmentIcons onClick={changeBtnAlignment} />
       <SettingSelectionInput
         inputHeaderName="اندازه دکمه"
         selectionText="پیش فرض"
@@ -56,8 +74,8 @@ const PageButtons = () => {
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
       />
       <SettingsTextInput text="متن" inputHeight="50px" placeholder="لورم ایپسوم" />
-      <ColorsInput text="رنگ پس زمینه" />
-      <ColorsInput text="رنگ متن" />
+      <ColorsInput onChange={bgColorChangeHandler} target="bgColor" text="رنگ پس زمینه" />
+      <ColorsInput onChange={textColorChangeHandler} target="textColor" text="رنگ متن" />
       <div className="w-full flex justify-between">
         <div className="text-[14px] font-semibold">
           <p>آیکون دار</p>
