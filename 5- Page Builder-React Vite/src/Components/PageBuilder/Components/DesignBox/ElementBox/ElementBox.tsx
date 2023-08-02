@@ -27,7 +27,7 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
   }, [type, component]);
   const onClickHandler = () => {
     dispatch(BuilderSlice.actions.setActive({id}));
-    dispatch(AsideSlice.actions.setEdittingComponent({id, type}));
+    dispatch(AsideSlice.actions.setEditingComponent({id, type}));
 
     if (type === 'btns') navigate('/home/pageButtons');
 
@@ -41,7 +41,7 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
     <div
       onClick={onClickHandler}
       style={style}
-      className={`relative mt-[59px] border-secondary-border-light flex p-2 mx-4 my-8 rounded-l-[8px] rounded-b-[8px] gap-2`}
+      className={`relative border-secondary-border-light flex rounded-l-[8px] rounded-b-[8px] gap-2`}
     >
       <div
         style={{display: isActive ? 'flex' : 'none'}}

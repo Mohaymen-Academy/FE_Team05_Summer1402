@@ -2,7 +2,7 @@ import {ColorPicker} from './ColorPicker';
 
 type SettingsInputProps = {
   text: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   target: 'textColor' | 'bgColor';
 };
 

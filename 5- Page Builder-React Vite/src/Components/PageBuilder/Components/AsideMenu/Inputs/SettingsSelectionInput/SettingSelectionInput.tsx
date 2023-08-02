@@ -2,26 +2,29 @@ import React from 'react';
 
 type SettingSelectionInputProps = {
   inputHeaderName: string;
-  selectionText: string;
+  defaultValue: string;
   options: Array<{value: string | number; text: string | number}>;
   dropMenuStyle?: React.CSSProperties;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const SettingSelectionInput: React.FC<SettingSelectionInputProps> = ({
-  selectionText,
   inputHeaderName,
   options,
   dropMenuStyle,
+  defaultValue,
+  onChange,
 }) => {
   return (
     <div className="flex w-full items-center justify-between">
-      <div className={`w-full text-[14px] font-semibold`}>
+      <div className={`w-full text-[14px] gap-12 font-semibold`}>
         <p>{inputHeaderName}</p>
       </div>
-      <select style={dropMenuStyle} className="input-drop">
-        <option selected>{selectionText}</option>
+      <select onChange={onChange} defaultValue={defaultValue} style={dropMenuStyle} className="input-drop">
         {options.map((opt) => (
-          <option value={opt.value}>{opt.text}</option>
+          <option key={opt.value} value={opt.value}>
+            {opt.text}
+          </option>
         ))}
       </select>
     </div>

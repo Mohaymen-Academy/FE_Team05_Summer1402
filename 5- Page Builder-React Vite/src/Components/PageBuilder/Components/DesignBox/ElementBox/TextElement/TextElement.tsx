@@ -3,7 +3,6 @@ type TextElementProps = {
 };
 
 const TextElement: React.FC<TextElementProps> = ({setting}) => {
-  console.log('in text element', setting);
   return (
     <div style={{color: setting?.textColor}} className="text-neutral-main text-[12px]">
       <p>

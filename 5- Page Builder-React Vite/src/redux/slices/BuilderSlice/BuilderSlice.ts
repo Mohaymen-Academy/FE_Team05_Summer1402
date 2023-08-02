@@ -1,7 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {useNavigate} from 'react-router-dom';
 
-
 type componentType = {
   type: 'btns' | 'txt';
   id: string | number;
@@ -11,17 +10,16 @@ type componentType = {
 
 export type BuilderSliceTypes = {
   component: componentType[];
+  pageSetting: Record<string, any>;
 };
 
 export const BuilderSlice = createSlice({
   name: 'builder',
   initialState: {
     component: [],
+    pageSetting: {gap: '0.75rem', padding: '24px'},
   },
   reducers: {
-    setState: (state: BuilderSliceTypes, action: {payload: string}) => {
-      console.log(action.payload);
-    },
     addComponent: (
       state: BuilderSliceTypes,
       action: {
@@ -32,20 +30,29 @@ export const BuilderSlice = createSlice({
         state.component.push(action.payload);
       }
     },
+
+    //set active component
     setActive: (state: BuilderSliceTypes, action: {payload: {id: string | number}}) => {
       const {id} = action.payload;
-      console.log(state.component);
       state.component = state.component.map((compo) => ({
         ...compo,
         active: compo.id === id ? true : false,
       }));
     },
+
+    //set settings of the selected component
     setSettings: (state: BuilderSliceTypes, action: {payload: {id: string | number; setting: Record<string, any>}}) => {
       const {id, setting} = action.payload;
+
       state.component = state.component.map((compo) => ({
         ...compo,
         setting: compo.id === id ? {...compo.setting, ...setting} : compo.setting,
       }));
+    },
+    setPageSetting: (state: BuilderSliceTypes, action: {payload: {setting: Record<string, any>}}) => {
+      const {setting} = action.payload;
+
+      state.pageSetting = {...state.pageSetting, ...setting};
     },
   },
 });

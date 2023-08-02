@@ -9,23 +9,13 @@ import {AiOutlineLink} from 'react-icons/ai';
 import {useDispatch, useSelector} from 'react-redux';
 import {storeStateTypes} from '../../../../../util/types';
 import {BuilderSlice} from '../../../../../redux/slices';
+import {ChangeEvent} from 'react';
 
 const TextPage = () => {
   const dispatch = useDispatch();
-  const edittingId = useSelector((state: storeStateTypes) => state.aside.edittingComponentId);
-  const {
-    register,
-    handleSubmit,
-    formState: {errors},
-  } = useForm<FieldValues>({
-    defaultValues: {
-      padding: '',
-      margin: '',
-      linkUrl: '',
-    },
-  });
-  const textColorChangeHandler = (e) => {
-    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textColor: e.target.value}}));
+  const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
+  const textColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textColor: e.target?.value}}));
   };
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
@@ -74,30 +64,11 @@ const TextPage = () => {
         ]}
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
       />
-      <SettingsInput
-        inputType="number"
-        text="حاشیه"
-        placeholder="۱۶"
-        formId="margin"
-        register={register}
-        errors={errors}
-        smallInput
-      />
-      <SettingsInput
-        text="فاصله گذاری"
-        placeholder="۱۲"
-        formId="padding"
-        register={register}
-        errors={errors}
-        smallInput
-        inputType="number"
-      />
+      <SettingsInput inputType="number" text="حاشیه" placeholder="۱۶" smallInput />
+      <SettingsInput text="فاصله گذاری" placeholder="۱۲" smallInput inputType="number" />
       <div className="w-full">
         <TextInput
           labelText="لینک دکمه"
-          register={register}
-          formId="linkUrl"
-          errors={errors}
           placeholder="لینک مورد نظر خود را وارد کنید"
           labelStyle={{fontWeight: 'bold', margin: '0 0px'}}
           inputStyle={{margin: '12px 0'}}
