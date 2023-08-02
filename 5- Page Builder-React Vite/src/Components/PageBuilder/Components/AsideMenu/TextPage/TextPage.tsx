@@ -18,11 +18,14 @@ const TextPage = () => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textColor: e.target?.value}}));
   };
   const changeDivAlignment = (e) => {
-    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {divAlignment: e.target.title}}));
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {divAlignment: e.target.title}}));
+  };
+  const textLinkChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textLink: e.target?.value}}));
   };
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
-      <SettingsAlignmentIcons onClick={changeDivAlignment}/>
+      <SettingsAlignmentIcons onClick={changeDivAlignment} />
       <SettingSelectionInput inputHeaderName="نوع متن" selectionText="عنوان" options={[{value: 'متن', text: 'متن'}]} />
       <SettingSelectionInput
         inputHeaderName="نوع عنوان"
@@ -71,7 +74,8 @@ const TextPage = () => {
       <SettingsInput text="فاصله گذاری" placeholder="۱۲" smallInput inputType="number" />
       <div className="w-full">
         <TextInput
-          labelText="لینک دکمه"
+          onChange={textLinkChangeHandler}
+          labelText="لینک متن"
           placeholder="لینک مورد نظر خود را وارد کنید"
           labelStyle={{fontWeight: 'bold', margin: '0 0px'}}
           inputStyle={{margin: '12px 0'}}

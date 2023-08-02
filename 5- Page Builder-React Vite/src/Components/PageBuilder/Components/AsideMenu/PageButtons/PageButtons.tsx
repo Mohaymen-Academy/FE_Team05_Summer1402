@@ -36,6 +36,10 @@ const PageButtons = () => {
     console.log(e.target.title);
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {divAlignment: e.target.title}}));
   };
+  const btnLinkChangeHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnLink: e.target.value}}));
+  };
 
   return (
     <div className="w-full flex flex-col justify-start items-center gap-7 mt-3">
@@ -84,6 +88,7 @@ const PageButtons = () => {
       </div>
       <div className="w-full">
         <TextInput
+          onChange={btnLinkChangeHandler}
           labelText="لینک دکمه"
           register={register}
           formId="linkUrl"

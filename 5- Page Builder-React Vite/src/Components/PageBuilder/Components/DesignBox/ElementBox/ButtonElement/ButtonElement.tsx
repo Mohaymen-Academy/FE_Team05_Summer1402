@@ -34,12 +34,14 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
       style={{alignItems: data1, justifyContent: data2}}
       className="bg-white rounded-lg flex flex-col h-[48px] w-full"
     >
-      <button
-        style={{color: setting?.textColor, backgroundColor: setting?.bgColor}}
-        className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
-      >
-        دکمه
-      </button>
+      <a href={setting?.btnLink}>
+        <button
+          style={{color: setting?.textColor, backgroundColor: setting?.bgColor}}
+          className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
+        >
+          دکمه
+        </button>
+      </a>
     </div>
   );
 };
