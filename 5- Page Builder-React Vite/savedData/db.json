@@ -1,99 +1,23 @@
 {
   "components": [
     {
-      "id": 1,
-      "title": "Create a login form using formik in react js",
-      "body": "Todays article will demonstrate how to develop a login form in react js using formik."
+      "id": "7533193d-d6f5-4916-bc4f-1a4c63ca4c56",
+      "setting": {},
+      "type": "txt",
+      "active": false
     },
     {
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd",
-      "id": 2
+      "id": "daefcdd9-873b-434e-940e-7a837eed641b",
+      "setting": {},
+      "type": "txt",
+      "active": false
     },
     {
-      "id": "d7efce05-05dd-43fd-9130-2cce2128bf70",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "bfe9762b-f349-4802-b72b-dd7b676becca",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "d23f94c6-14e6-4e92-9771-52efa56bf4fa",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "2d6ab96a-4d06-4c30-be71-8f7d5d8ea3d9",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "98b7951d-9c5a-4fad-9e75-3b94cf45dcd1",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "3c55150e-af77-4ae7-adca-47132417e49f",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "3acdbe7c-a7f7-44a2-ba64-b6f15c70dc21",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "5f4cd52b-4415-4025-bd1d-5889b26036af",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "b4077729-da42-4953-8e9e-59651c9df2bd",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "ed86277e-8d1f-4333-81a7-46fc2837dd69",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "df09229d-7333-4242-8956-4f1ce04be6b4",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "366abdbf-28ae-4969-b908-ec0e6d871f88",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "id": "447b52e7-8843-404b-b6eb-b0dfd884859a",
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd"
-    },
-    {
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd",
-      "id": 3
-    },
-    {
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd",
-      "id": 4
-    },
-    {
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd",
-      "id": 5
-    },
-    {
-      "title": "sdfgvdsfgsdg",
-      "body": "sdgsdgsdfgsfd",
-      "id": 6
+      "id": "116ce0f5-97d4-4b9e-8263-04cf05d59a8c",
+      "setting": {},
+      "type": "btns",
+      "active": false
     }
-  ]
+  ],
+  "pageSetting": []
 }

@@ -47,7 +47,7 @@ const TextPage = () => {
         placeholder="برای تغییر این متن بر روی دکمه ویرایش کلیک کنید. لورم ایپسورم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
         inputHeight="145px"
       />
-      <ColorsInput onChange={textColorChangeHandler} text="رنگ" />
+      <ColorsInput target="textColor" onChange={textColorChangeHandler} text="رنگ" />
       <SettingSelectionInput
         inputHeaderName="سایز فونت"
         selectionText="۲۶"
