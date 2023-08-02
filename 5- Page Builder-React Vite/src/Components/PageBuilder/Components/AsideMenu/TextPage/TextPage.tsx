@@ -27,9 +27,12 @@ const TextPage = () => {
   const textColorChangeHandler = (e) => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textColor: e.target.value}}));
   };
+  const changeDivAlignment = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {divAlignment: e.target.title}}));
+  };
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
-      <SettingsAlignmentIcons />
+      <SettingsAlignmentIcons onClick={changeDivAlignment}/>
       <SettingSelectionInput inputHeaderName="نوع متن" selectionText="عنوان" options={[{value: 'متن', text: 'متن'}]} />
       <SettingSelectionInput
         inputHeaderName="نوع عنوان"
