@@ -9,8 +9,8 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   const [data1, setData1] = useState('center');
   const [data2, setData2] = useState('center');
   const [textStyle, setTextStyle] = useState();
-
-  useMemo(() => {
+  const [heigth, setHeigth] = useState('متوسط');
+  useEffect(() => {
     setbtnText(setting?.btnText);
   }, [setting?.btnText]);
   const func = setting?.textEditorFunction;
@@ -31,7 +31,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   }, [func]);
 
   const align1 = setting?.btnVerticalDivAlignment;
-  useMemo(() => {
+  useEffect(() => {
     if (align1 === 'Align-Right') {
       setData1('flex-start');
     }
@@ -44,7 +44,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   }, [setting?.btnVerticalDivAlignment]);
 
   const align2 = setting?.btnHorizontalDivAlignment;
-  useMemo(() => {
+  useEffect(() => {
     if (align2 === 'Align') {
       setData2('flex-end');
     }
@@ -55,7 +55,19 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
       setData2('flex-start');
     }
   }, [setting?.btnHorizontalDivAlignment]);
-
+  const btnHeight = setting?.btnHeight;
+  useEffect(() => {
+    if (btnHeight === 'lg') {
+      console.log('lg');
+      setHeigth('44px');
+    }
+    if (btnHeight === 'md') {
+      setHeigth('36px');
+    }
+    if (btnHeight === 'sm') {
+      setHeigth('30px');
+    }
+  }, [setting?.btnHeight]);
   return (
     <div
       style={{alignItems: data1, justifyContent: data2}}
@@ -70,6 +82,8 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
             fontStyle: setting?.italicTextEditorFunction ? 'italic' : 'normal',
             textDecoration: setting?.underlineTextEditorFunction ? 'underline' : 'none',
             textAlign: textStyle,
+            borderRadius: setting?.btnBorderRadius + 'px',
+            height: heigth ? heigth : '48px',
           }}
           className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
         >

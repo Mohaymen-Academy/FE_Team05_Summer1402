@@ -75,14 +75,29 @@ const TextPage = () => {
       dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textEditorFunction: title}}));
     }
   };
+  const textSizeChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textSize: e.target.value}}));
+  };
+  const lineHeightChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {lineHeight: e.target.value}}));
+  };
+  const paddingChangeHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {padding: e.target.value}}));
+  };
+  const wordSpaceChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {wordSpace: e.target.value}}));
+  }
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
       <SettingsAlignmentIcons onClick={changeDivAlignment} />
       <SettingSelectionInput inputHeaderName="نوع متن" selectionText="عنوان" options={[{value: 'متن', text: 'متن'}]} />
       <SettingSelectionInput
+        onChange={textSizeChangeHandler}
         inputHeaderName="نوع عنوان"
         selectionText="H1"
         options={[
+          {value: 'H1', text: 'H1'},
           {value: 'H2', text: 'H2'},
           {value: 'H3', text: 'H3'},
           {value: 'H4', text: 'H4'},
@@ -99,33 +114,34 @@ const TextPage = () => {
       />
       <ColorsInput target="textColor" onChange={textColorChangeHandler} text="رنگ" />
       <SettingSelectionInput
+        onChange={textSizeChangeHandler}
         inputHeaderName="سایز فونت"
         selectionText="۲۶"
         options={[
+          {value: '8', text: '۸'},
+          {value: '11', text: '۱۱'},
           {value: '12', text: '۱۲'},
           {value: '14', text: '۱۴'},
           {value: '16', text: '۱۶'},
           {value: '18', text: '۱۸'},
-          {value: '20', text: '۲۰'},
-          {value: '24', text: '۲۴'},
         ]}
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
       />
       <SettingSelectionInput
+        onChange={lineHeightChangeHandler}
         inputHeaderName="ارتفاع خطوط"
         selectionText="۲۶"
         options={[
-          {value: '12', text: '۱۲'},
-          {value: '16', text: '۱۶'},
-          {value: '20', text: '۲۰'},
-          {value: '24', text: '۲۴'},
-          {value: '28', text: '۲۸'},
-          {value: '32', text: '۳۲'},
+          {value: '1', text: '۱'},
+          {value: '2', text: '۲'},
+          {value: '4', text: '۴'},
+          {value: '6', text: '۶'},
+          {value: '8', text: '۸'},
         ]}
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
       />
-      <SettingsInput inputType="number" text="حاشیه" placeholder="۱۶" smallInput />
-      <SettingsInput text="فاصله گذاری" placeholder="۱۲" smallInput inputType="number" />
+      <SettingsInput onChange={paddingChangeHandler} inputType="number" text="حاشیه" placeholder="۱۶" smallInput />
+      <SettingsInput onChange={wordSpaceChangeHandler} text="فاصله گذاری" placeholder="۱۲" smallInput inputType="number" />
       <div className="w-full">
         <TextInput
           onChange={textLinkChangeHandler}

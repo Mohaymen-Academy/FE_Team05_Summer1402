@@ -93,10 +93,21 @@ const PageButtons = () => {
     }
   };
 
+  const borderRadiusChangeHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnBorderRadius: e.target?.value}}));
+  };
+
+  const btnHeightChangeHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnHeight: e.target?.value}}));
+  };
+
   return (
     <div className="w-full flex flex-col justify-start items-center gap-7 mt-3">
       <SettingsAlignmentIcons onClick={changeBtnAlignment} />
       <SettingSelectionInput
+        onChange={btnHeightChangeHandler}
         inputHeaderName="اندازه دکمه"
         selectionText="پیش فرض"
         options={[
@@ -115,6 +126,7 @@ const PageButtons = () => {
         ]}
       />
       <SettingSelectionInput
+        onChange={borderRadiusChangeHandler}
         inputHeaderName="گوشه‌ها"
         selectionText="۴"
         options={[
