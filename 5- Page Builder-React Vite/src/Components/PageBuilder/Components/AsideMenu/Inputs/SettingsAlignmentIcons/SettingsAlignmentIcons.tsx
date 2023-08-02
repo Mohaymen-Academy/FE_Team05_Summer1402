@@ -8,16 +8,38 @@ import {
   align,
 } from '../../../../../../assets/asideMenu';
 
-const SettingsAlignmentIcons = () => {
+type SettingsAlignmentIconsProps = {
+  onClick: () => void;
+};
+
+const SettingsAlignmentIcons: React.FC<SettingsAlignmentIconsProps> = ({onClick}) => {
   return (
     <>
       <div className="grid grid-cols-6 gap-6 justify-center items-center w-full">
-        <IconButton btnStyle="" iconStyle="w-[24px]" src={align} alt="align6" title="align6" />
-        <IconButton btnStyle="" iconStyle="w-[24px]" src={alignHorizontally} alt="align5" title="align5" />
-        <IconButton btnStyle="" iconStyle="w-[24px]" src={alignBottom} alt="align4" title="align4" />
-        <IconButton btnStyle="" iconStyle="w-[24px]" src={alignRight} alt="align3" title="align3" />
-        <IconButton btnStyle="" iconStyle="w-[24px]" src={alignVertically} alt="align2" title="align2" />
-        <IconButton btnStyle="" iconStyle="w-[24px]" src={alignLeft} alt="align1" title="align1" />
+        <IconButton onClick={onClick} iconStyle="w-[24px]" src={align} alt="Align" title="Align" />
+        <IconButton
+          onClick={onClick}
+          iconStyle="w-[24px]"
+          src={alignHorizontally}
+          alt="Align-Horizontally"
+          title="Align-Horizontally"
+        />
+        <IconButton
+          onClick={onClick}
+          iconStyle="w-[24px]"
+          src={alignBottom}
+          alt="Align-Bottom"
+          title="Align-Bottom"
+        />
+        <IconButton onClick={onClick} iconStyle="w-[24px]" src={alignRight} alt="Align-Right" title="Align-Right" />
+        <IconButton
+          onClick={onClick}
+          iconStyle="w-[24px]"
+          src={alignVertically}
+          alt="Align-Vertically"
+          title="Align-Vertically"
+        />
+        <IconButton onClick={onClick} iconStyle="w-[24px]" src={alignLeft} alt="Align-Left" title="Align-Left" />
       </div>
     </>
   );

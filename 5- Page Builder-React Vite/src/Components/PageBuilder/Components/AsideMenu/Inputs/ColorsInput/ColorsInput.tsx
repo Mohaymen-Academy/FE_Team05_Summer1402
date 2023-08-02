@@ -12,7 +12,7 @@ const ColorsInput: React.FC<SettingsInputProps> = ({text, onChange, target}) => 
       <div className="text-[14px] font-semibold">
         <p>{text}</p>
       </div>
-
+      
       <ColorPicker target={target} onChange={onChange} width="w-[28px]" height="h-[28px]" />
     </div>
   );
