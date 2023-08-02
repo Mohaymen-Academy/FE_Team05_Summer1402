@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {useRef} from 'react';
 import {useSelector} from 'react-redux';
-import {storeStateTypes} from '../../../../../../../../util/types';
+import {storeStateTypes} from '../../../../../../../util/types';
 
 type ColorPickerProps = {
   width: string;
   height: string;
   onChange: () => void;
+  target: 'textColor' | 'bgColor';
 };
-const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange}) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange, target}) => {
   const colorInputref = useRef<HTMLInputElement>(null);
   const handleDivClick = () => {
     if (colorInputref.current != null) {
@@ -17,7 +18,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange}) => {
   };
   const edittingId = useSelector((state: storeStateTypes) => state.aside.edittingComponentId);
   const bgColor = useSelector(
-    (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === edittingId)?.setting.textColor
+    (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === edittingId)?.setting[target]
   );
 
   return (

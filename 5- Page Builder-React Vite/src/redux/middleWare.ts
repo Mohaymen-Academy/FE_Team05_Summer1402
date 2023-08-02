@@ -3,10 +3,9 @@ import {storeStateTypes} from '../util/types';
 import axios from 'axios';
 
 const serverRequestMiddleware: Middleware<{}, storeStateTypes> = () => (next) => async (action) => {
-  if (['builder/addComponent'].includes(action.type)) {
-    // const {data} = await axios.get('http://localhost:3030/components');
+  if (action.type === 'builder/addComponent') {
+    axios.post(`http://localhost:3000/components/`, action.payload);
   }
-
   const result = next(action);
   return result;
 };
