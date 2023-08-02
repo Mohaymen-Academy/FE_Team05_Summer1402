@@ -23,6 +23,20 @@ const TextPage = () => {
   const textLinkChangeHandler = (e) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textLink: e.target?.value}}));
   };
+  const textChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textElementText: e.target?.value}}));
+  };
+  const textEditorChangeHandler = (e) => {
+    const title = e.target?.title;
+    const currentTitle = useSelector(
+      (state: storeStateTypes) =>
+        state.builder.component.find((compo) => compo.id === editingId)?.setting?.textEditorFunction
+    );
+    let newTitle;
+    if (title === currentTitle) newTitle = '';
+    if (title !== currentTitle) newTitle = e.target?.title;
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textEditorFunction: newTitle}}));
+  };
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
       <SettingsAlignmentIcons onClick={changeDivAlignment} />
@@ -39,6 +53,8 @@ const TextPage = () => {
         ]}
       />
       <SettingsTextInput
+        onChange={textChangeHandler}
+        onClick={textEditorChangeHandler}
         text="متن مورد نظر خود را وارد کنید"
         placeholder="برای تغییر این متن بر روی دکمه ویرایش کلیک کنید. لورم ایپسورم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
         inputHeight="145px"

@@ -40,6 +40,10 @@ const PageButtons = () => {
     console.log(e.target.value);
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnLink: e.target.value}}));
   };
+  const btnTextChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnText: e.target.value}}));
+  }
+  
 
   return (
     <div className="w-full flex flex-col justify-start items-center gap-7 mt-3">
@@ -77,7 +81,7 @@ const PageButtons = () => {
         ]}
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
       />
-      <SettingsTextInput text="متن" inputHeight="50px" placeholder="لورم ایپسوم" />
+      <SettingsTextInput onChange={btnTextChangeHandler} text="متن" inputHeight="50px" placeholder="لورم ایپسوم" />
       <ColorsInput onChange={bgColorChangeHandler} target="bgColor" text="رنگ پس زمینه" />
       <ColorsInput onChange={textColorChangeHandler} target="textColor" text="رنگ متن" />
       <div className="w-full flex justify-between">

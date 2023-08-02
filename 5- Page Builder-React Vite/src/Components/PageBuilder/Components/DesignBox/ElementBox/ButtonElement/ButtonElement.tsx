@@ -5,9 +5,13 @@ type ButtonElementProps = {
 };
 
 const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
+  const [btnText, setbtnText] = useState('دکمه');
   const [data1, setData1] = useState('center');
   const [data2, setData2] = useState('center');
   const align = setting?.divAlignment;
+  useMemo(() => {
+    setbtnText(setting?.btnText);
+  }, [setting?.btnText]);
   useMemo(() => {
     if (align === 'Align-Right') {
       setData1('flex-start');
@@ -39,7 +43,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
           style={{color: setting?.textColor, backgroundColor: setting?.bgColor}}
           className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
         >
-          دکمه
+          {btnText ? btnText : 'دکمه'}
         </button>
       </a>
     </div>

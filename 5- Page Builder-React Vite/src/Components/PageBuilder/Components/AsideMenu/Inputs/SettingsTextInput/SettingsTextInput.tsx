@@ -13,56 +13,78 @@ type SettingsTextInputProps = {
   text: string;
   placeholder: string;
   inputHeight: string;
+  onChange: () => void;
+  onClick: () => void;
 };
 
-const SettingsTextInput: React.FC<SettingsTextInputProps> = ({text, placeholder, inputHeight}) => {
+const SettingsTextInput: React.FC<SettingsTextInputProps> = ({text, placeholder, inputHeight, onChange, onClick}) => {
   return (
     <div className={`flex flex-col justify-start w-full gap-[12px]`}>
       <div className="text-[14px] font-semibold">
         <p>{text}</p>
       </div>
       <textarea
+        onChange={onChange}
         style={{height: inputHeight}}
         className={`input placeholder:text-[14px] resize-none`}
         placeholder={placeholder}
       />
       <div className="grid grid-cols-7 gap-3 justify-center items-center">
         <IconButton
+          onClick={onClick}
           btnStyle="flex justify-center"
           iconStyle="w-[16px]"
           src={textAlignJustifyCenter}
-          alt="align7"
-          title="align7"
+          alt="justify center"
+          title="justify center"
         />
         <IconButton
+          onClick={onClick}
           btnStyle="flex justify-center"
           iconStyle="w-[16px]"
           src={textAlignRight}
-          alt="align6"
-          title="align6"
+          alt="align right"
+          title="align right"
         />
         <IconButton
+          onClick={onClick}
           btnStyle="flex justify-center"
           iconStyle="w-[16px]"
           src={textAlignCenter}
-          alt="align5"
-          title="align5"
+          alt="align center"
+          title="align center"
         />
         <IconButton
+          onClick={onClick}
           btnStyle="flex justify-center"
           iconStyle="w-[16px]"
           src={textAlignLeft}
-          alt="align4"
-          title="align4"
+          alt="align left"
+          title="align left"
         />
-        <IconButton btnStyle="flex justify-center" iconStyle="w-[16px]" src={textBold} alt="align3" title="align3" />
-        <IconButton btnStyle="flex justify-center" iconStyle="w-[16px]" src={textItalic} alt="align2" title="align2" />
         <IconButton
+          onClick={onClick}
+          btnStyle="flex justify-center"
+          iconStyle="w-[16px]"
+          src={textBold}
+          alt="bold"
+          title="bold"
+        />
+        <IconButton
+          onClick={onClick}
+          btnStyle="flex justify-center"
+          iconStyle="w-[16px]"
+          src={textItalic}
+          alt="italic"
+          title="italic"
+        />
+        <IconButton
+          onClick={onClick}
           btnStyle="flex justify-center"
           iconStyle="w-[16px]"
           src={textUnderline}
-          alt="align1"
-          title="align1"
+          alt="underline"
+          title="underline"
         />
       </div>
     </div>
