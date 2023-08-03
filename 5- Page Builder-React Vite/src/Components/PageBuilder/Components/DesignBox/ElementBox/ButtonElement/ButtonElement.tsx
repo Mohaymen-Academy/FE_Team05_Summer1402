@@ -1,4 +1,8 @@
 import {useEffect, useMemo, useState} from 'react';
+import {AiFillAccountBook, AiOutlineAim} from 'react-icons/ai';
+import {icons} from '../../../../../../util/Constatnts';
+import {useSelector} from 'react-redux';
+import {storeStateTypes} from '../../../../../../util/types';
 
 type ButtonElementProps = {
   setting?: Record<string, any>;
@@ -15,7 +19,6 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   }, [setting?.btnText]);
   const func = setting?.textEditorFunction;
   useEffect(() => {
-    console.log(func);
     if (func === 'align left') {
       setTextStyle('left');
     }
@@ -70,7 +73,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   }, [setting?.btnHeight]);
   return (
     <div
-      style={{alignItems: data1, justifyContent: data2}}
+      style={{alignItems: verticalAlignment, justifyContent: horizontalAlignment}}
       className="bg-white rounded-lg flex flex-col h-[48px] w-full"
     >
       <a href={setting?.btnLink}>
@@ -83,7 +86,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
             textDecoration: setting?.underlineTextEditorFunction ? 'underline' : 'none',
             textAlign: textStyle,
             borderRadius: setting?.btnBorderRadius + 'px',
-            height: heigth ? heigth : '48px',
+            height: heigth ? heigth : '48px',width.
           }}
           className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
         >

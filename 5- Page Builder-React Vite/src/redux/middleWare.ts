@@ -3,9 +3,8 @@ import {storeStateTypes} from '../util/types';
 import axios from 'axios';
 
 const serverRequestMiddleware: Middleware<{}, storeStateTypes> = (store) => (next) => async (action) => {
-  
   if (action.type === 'builder/addComponent') {
-    axios.post(`http://localhost:3000/components/`, action.payload);
+    axios.post(`http://localhost:3000/components/`, {...action.payload, active: false});
   }
 
   if (action.type === 'builder/setSettings') {
@@ -15,6 +14,15 @@ const serverRequestMiddleware: Middleware<{}, storeStateTypes> = (store) => (nex
     axios.put(`http://localhost:3000/components/${editingId}`, {
       ...editingComponent,
       setting: {...editingComponent?.setting, ...action.payload.setting},
+    });
+  }
+  if (action.type === 'builder/setPageSetting') {
+    const pageSetting = store.getState().builder.pageSetting;
+    console.log(action.payload);
+
+    axios.put(`http://localhost:3000/pageSetting`, {
+      ...pageSetting,
+      ...action.payload.setting,
     });
   }
   const result = next(action);
