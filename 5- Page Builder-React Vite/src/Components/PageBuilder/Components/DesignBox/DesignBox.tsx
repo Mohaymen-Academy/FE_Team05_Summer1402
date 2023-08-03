@@ -31,7 +31,7 @@ const DesignBox = () => {
         {/* <!--icons column--> */}
         <DesignBoxSettings />
       </div>
-    </main>
+      </main>
   );
 };
 

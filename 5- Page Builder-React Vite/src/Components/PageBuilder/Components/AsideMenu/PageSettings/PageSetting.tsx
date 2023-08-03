@@ -30,7 +30,7 @@ const PageSetting = () => {
         ]}
       />
       <SettingsInput
-        onChange={(e) => console.log(e.target.value)}
+        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {padding: `${e.target.value}px`}}))}
         inputType="number"
         smallInput
         formId="padding"
@@ -38,7 +38,7 @@ const PageSetting = () => {
         placeholder="۱۶"
       />
       <SettingsInput
-        onChange={(e) => console.log(e.target.value)}
+        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {margin: `${e.target.value}px`}}))}
         inputType="number"
         smallInput
         formId="margin"

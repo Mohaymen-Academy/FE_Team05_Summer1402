@@ -16,7 +16,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        neutral: {border: {light: '#ebebee'}, main: '#9a9dab', light: '#d7d8dd', dark: '#37383e', hover: '#6C6E78'},
+        neutral: {
+          border: {light: '#ebebee'},
+          main: '#9a9dab',
+          light: '#d7d8dd',
+          light2: '#F5F5F7',
+          dark: '#37383e',
+          hover: '#6C6E78',
+        },
         primary: {
           border: {
             light: '#9bb8ff',

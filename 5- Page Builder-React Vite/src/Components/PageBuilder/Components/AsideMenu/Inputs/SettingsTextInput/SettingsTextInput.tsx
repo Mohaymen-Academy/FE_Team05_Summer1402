@@ -13,8 +13,8 @@ type SettingsTextInputProps = {
   text: string;
   placeholder: string;
   inputHeight: string;
-  onChange: () => void;
-  onClick: () => void;
+  onChange: (e: any) => void;
+  onClick: (e: any) => void;
 };
 
 const SettingsTextInput: React.FC<SettingsTextInputProps> = ({text, placeholder, inputHeight, onChange, onClick}) => {

@@ -9,7 +9,7 @@ import {
 } from '../../../../../../assets/asideMenu';
 
 type SettingsAlignmentIconsProps = {
-  onClick: () => void;
+  onClick: (e: any) => void;
 };
 
 const SettingsAlignmentIcons: React.FC<SettingsAlignmentIconsProps> = ({onClick}) => {
@@ -24,13 +24,7 @@ const SettingsAlignmentIcons: React.FC<SettingsAlignmentIconsProps> = ({onClick}
           alt="Align-Horizontally"
           title="Align-Horizontally"
         />
-        <IconButton
-          onClick={onClick}
-          iconStyle="w-[24px]"
-          src={alignBottom}
-          alt="Align-Bottom"
-          title="Align-Bottom"
-        />
+        <IconButton onClick={onClick} iconStyle="w-[24px]" src={alignBottom} alt="Align-Bottom" title="Align-Bottom" />
         <IconButton onClick={onClick} iconStyle="w-[24px]" src={alignRight} alt="Align-Right" title="Align-Right" />
         <IconButton
           onClick={onClick}
