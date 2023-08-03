@@ -1,27 +1,74 @@
 {
   "components": [
     {
-      "id": "b49c9d0f-0cad-4e20-b84d-01e17330c35f",
+      "id": "237887a4-891d-4d96-b88d-178390e1b977",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "d17ca90f-ddf8-4530-ab3b-a9912f75a507",
       "setting": {
-        "withIcon": true,
-        "iconIndex": 6
+        "width": "50%",
+        "btnHeight": "25%",
+        "btnVerticalDivAlignment": "Align-Left",
+        "btnHorizontalDivAlignment": "Align-Bottom"
       },
       "type": "btns",
       "active": true
     },
     {
-      "id": "071411c0-6acb-42df-9fff-73669960b4a2",
+      "id": "6414e9ed-476c-477b-8a64-f5452b4dbd41",
       "setting": {
-        "withIcon": true,
-        "iconIndex": 21
+        "btnVerticalDivAlignment": "Align-Right",
+        "btnHorizontalDivAlignment": "Align-Horizontally",
+        "width": "100%",
+        "bgColor": "#b32929",
+        "textColor": "#000000",
+        "btnLink": "www.google.com"
       },
       "type": "btns",
       "active": true
     },
     {
-      "id": "28fee944-77d2-4ef8-a94d-8cb93b086e12",
+      "id": "57ab148b-5f27-4a66-82d9-32d98cf381ef",
       "setting": {
-        "withIcon": true
+        "btnLink": "http://google.com"
+      },
+      "type": "btns",
+      "active": true
+    },
+    {
+      "id": "618d1148-7aaf-4359-bfed-93d8c1de54e1",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "eb722d12-56f5-4d2d-83ac-a2d5a5c92391",
+      "setting": {},
+      "type": "img",
+      "active": false
+    },
+    {
+      "id": "4e6cbe15-11c4-4edf-bdc7-1be2002a1996",
+      "setting": {
+        "withIcon": true,
+        "iconIndex": 14
+      },
+      "type": "btns",
+      "active": true
+    },
+    {
+      "id": "ef3097dc-327d-41ed-a46d-a9842228cb71",
+      "setting": {
+        "width": "25%",
+        "btnText": "fdg",
+        "textEditorFunction": "",
+        "boldTextEditorFunction": false,
+        "italicTextEditorFunction": false,
+        "underlineTextEditorFunction": false,
+        "btnHeight": "50%"
       },
       "type": "btns",
       "active": true

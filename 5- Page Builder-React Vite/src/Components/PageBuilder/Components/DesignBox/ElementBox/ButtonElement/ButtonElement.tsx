@@ -10,10 +10,10 @@ type ButtonElementProps = {
 
 const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   const [btnText, setbtnText] = useState('دکمه');
-  const [data1, setData1] = useState('center');
-  const [data2, setData2] = useState('center');
-  const [textStyle, setTextStyle] = useState();
-  const [heigth, setHeigth] = useState('متوسط');
+  const [verticalAlignment, setVerticalAlignment] = useState('center');
+  const [horizontalAlignment, setHorizontalAlignment] = useState('center');
+  const [textStyle, setTextStyle] = useState<TextAlign | undefined>();
+  const [height, setHeight] = useState('متوسط');
   useEffect(() => {
     setbtnText(setting?.btnText);
   }, [setting?.btnText]);
@@ -36,39 +36,39 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   const align1 = setting?.btnVerticalDivAlignment;
   useEffect(() => {
     if (align1 === 'Align-Right') {
-      setData1('flex-start');
+      setVerticalAlignment('flex-start');
     }
     if (align1 === 'Align-Vertically') {
-      setData1('center');
+      setVerticalAlignment('center');
     }
     if (align1 === 'Align-Left') {
-      setData1('flex-end');
+      setVerticalAlignment('flex-end');
     }
   }, [setting?.btnVerticalDivAlignment]);
 
   const align2 = setting?.btnHorizontalDivAlignment;
   useEffect(() => {
     if (align2 === 'Align') {
-      setData2('flex-end');
+      setHorizontalAlignment('flex-end');
     }
     if (align2 === 'Align-Horizontally') {
-      setData2('center');
+      setHorizontalAlignment('center');
     }
     if (align2 === 'Align-Bottom') {
-      setData2('flex-start');
+      setHorizontalAlignment('flex-start');
     }
   }, [setting?.btnHorizontalDivAlignment]);
   const btnHeight = setting?.btnHeight;
   useEffect(() => {
     if (btnHeight === 'lg') {
       console.log('lg');
-      setHeigth('44px');
+      setHeight('44px');
     }
     if (btnHeight === 'md') {
-      setHeigth('36px');
+      setHeight('36px');
     }
     if (btnHeight === 'sm') {
-      setHeigth('30px');
+      setHeight('30px');
     }
   }, [setting?.btnHeight]);
   return (
@@ -76,7 +76,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
       style={{alignItems: verticalAlignment, justifyContent: horizontalAlignment}}
       className="bg-white rounded-lg flex flex-col h-[48px] w-full"
     >
-      <a href={setting?.btnLink}>
+      <a style={{width: setting?.width}} href={setting?.btnLink}>
         <button
           style={{
             color: setting?.textColor,
@@ -86,9 +86,9 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
             textDecoration: setting?.underlineTextEditorFunction ? 'underline' : 'none',
             textAlign: textStyle,
             borderRadius: setting?.btnBorderRadius + 'px',
-            height: heigth ? heigth : '48px',width.
+            height: height ? height : '48px',
           }}
-          className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
+          className="h-9 w-full bg-neutral-main text-white rounded-[14px]"
         >
           {btnText ? btnText : 'دکمه'}
         </button>
