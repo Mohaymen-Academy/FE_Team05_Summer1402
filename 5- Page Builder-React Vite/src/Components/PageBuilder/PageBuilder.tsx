@@ -11,11 +11,12 @@ import {v4} from 'uuid';
 const PageBuilder = () => {
   const [activeDrag, setActiveDrag] = useState<string>();
   const dispatch = useDispatch();
-
+  // handle for starting drag & drop frame buttons
   function handleDragStart(event: DragStartEvent) {
     setActiveDrag(event.active.id as string);
   }
-
+  
+  // handle for ending drag & drop frame buttons
   function handleDragEnd(event: DragEndEvent) {
     setActiveDrag(undefined);
     const type = event.active.id as 'btns' | 'txt';

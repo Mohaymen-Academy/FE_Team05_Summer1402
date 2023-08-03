@@ -11,6 +11,7 @@ import {storeStateTypes} from '../../../../../util/types';
 import {BuilderSlice} from '../../../../../redux/slices';
 import {IconModal} from './IconModal';
 import {icons} from '../../../../../util/Constatnts';
+import {SettingsInput} from '../Inputs/SettingsInput';
 
 const PageButtons = () => {
   //for modal
@@ -70,12 +71,12 @@ const PageButtons = () => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnLink: e.target.value}}));
   };
 
-  //
+  // handler to change button text
   const btnTextChangeHandler = (e: any) => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnText: e.target.value}}));
   };
 
-  //
+  // handler to change button text properties such as italic,bold,underline,alignment
   const btnTextEditorChangeHandler = (e: any) => {
     const title = e.target?.title;
     if (title === 'bold') {
@@ -104,6 +105,7 @@ const PageButtons = () => {
         isItalic = true;
       }
     } else {
+      console.log(title);
       dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textEditorFunction: title}}));
     }
   };
@@ -126,12 +128,21 @@ const PageButtons = () => {
   const withIconCheckHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {withIcon: e.target.checked}}));
   };
+  // handler to change button padding
+  const paddingBtnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnPadding: e.target.value}}));
+  };
+  // handler to change button word space
+  const wordSpaceBtnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnWordSpace: e.target.value}}));
+  };
 
   return (
-    <div className="w-full flex flex-col justify-start items-center gap-7 mt-3">
+    <div className="w-full flex flex-col justify-start items-center gap-6 mt-3">
       <SettingsAlignmentIcons onClick={changeBtnAlignment} />
       <SettingSelectionInput
-        defaultValue="25%"
+        target="btnHeight"
+        defaultValue="50%"
         onChange={btnHeightChangeHandler}
         inputHeaderName="اندازه دکمه"
         options={[
@@ -141,7 +152,8 @@ const PageButtons = () => {
         ]}
       />
       <SettingSelectionInput
-        defaultValue="25%"
+        target="width"
+        defaultValue="50%"
         inputHeaderName="عرض دکمه"
         onChange={onButtonWidthChangeHandler}
         options={[
@@ -150,8 +162,25 @@ const PageButtons = () => {
           {value: '25%', text: 'کوچک'},
         ]}
       />
+      <SettingsInput
+        target="btnPadding"
+        onChange={paddingBtnChangeHandler}
+        inputType="number"
+        text="حاشیه"
+        placeholder="۱۶"
+        smallInput
+      />
+      <SettingsInput
+        target="btnWordSpace"
+        onChange={wordSpaceBtnChangeHandler}
+        text="فاصله گذاری"
+        placeholder="۱۲"
+        smallInput
+        inputType="number"
+      />
       <SettingSelectionInput
         onChange={borderRadiusChangeHandler}
+        target="btnBorderRadius"
         inputHeaderName="گوشه‌ها"
         defaultValue="6px"
         options={[
@@ -167,14 +196,15 @@ const PageButtons = () => {
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
       />
       <SettingsTextInput
+        target="btnText"
         onClick={btnTextEditorChangeHandler}
         onChange={btnTextChangeHandler}
         text="متن"
         inputHeight="50px"
         placeholder="لورم ایپسوم"
       />
-      <ColorsInput onChange={bgColorChangeHandler} target="bgColor" text="رنگ پس زمینه" />
-      <ColorsInput onChange={textColorChangeHandler} target="textColor" text="رنگ متن" />
+      <ColorsInput defaultValue="#9A9DAB" onChange={bgColorChangeHandler} target="bgColor" text="رنگ پس زمینه" />
+      <ColorsInput defaultValue="#FFFFFF" onChange={textColorChangeHandler} target="textColor" text="رنگ متن" />
       <div className="w-full flex justify-between">
         <div className="text-[14px] font-semibold">
           <p>آیکون دار</p>
@@ -193,6 +223,7 @@ const PageButtons = () => {
       )}
       <div className="w-full">
         <TextInput
+          target="btnLink"
           onChange={btnLinkChangeHandler}
           labelText="لینک دکمه"
           formId="linkUrl"

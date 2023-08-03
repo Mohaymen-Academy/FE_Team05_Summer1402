@@ -12,9 +12,6 @@ const FramesMenu: React.FC<FramesMenu> = ({activeDragId}) => {
         <h1 className="py-[8px] px-2 font-bold">قالب‌ها</h1>
       </div>
       <div className="text-sm w-full flex flex-col gap-2 justify-start items-center">
-        {/* {frameButton.map((btn) => (
-          <Button text={btn.text} style="frame" key={btn.id} onClick={() => console.log(btn.id)} />
-        ))} */}
         {frameButton.map((btn) => (
           <DraggableComponent id={btn.id} key={btn.id}>
             <Button style="frame" text={btn.text} />

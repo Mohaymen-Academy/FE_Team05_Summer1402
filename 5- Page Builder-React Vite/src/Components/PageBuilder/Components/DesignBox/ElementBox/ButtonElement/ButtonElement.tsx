@@ -9,14 +9,15 @@ type ButtonElementProps = {
 };
 
 const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
+  // states for saving properties
   const [verticalAlignment, setVerticalAlignment] = useState('center');
   const [horizontalAlignment, setHorizontalAlignment] = useState('center');
-  const [textStyle, setTextStyle] = useState<'left' | 'center' | 'right' | 'justify'>();
+  const [textStyle, setTextStyle] = useState<'left' | 'center' | 'right' | 'justify'>('center');
   const [height, setHeight] = useState('متوسط');
-
+  // variables for icon
   const haveIcon = setting?.withIcon;
   const IconOfEditingBtn = icons[setting?.iconIndex || 7];
-
+  // handle text style
   const textStyleDB = setting?.textEditorFunction;
   useEffect(() => {
     if (textStyleDB === 'align left') {
@@ -29,10 +30,10 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
       setTextStyle('right');
     }
     if (textStyleDB === 'justify center') {
-      setTextStyle('justify');
+      setTextStyle('center');
     }
-  }, [textStyle]);
-
+  }, [textStyleDB]);
+  // handle vertical alignment in box
   const vAlignMent = setting?.btnVerticalDivAlignment;
   useEffect(() => {
     if (vAlignMent === 'Align-Right') {
@@ -45,7 +46,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
       setVerticalAlignment('flex-end');
     }
   }, [setting?.btnVerticalDivAlignment]);
-
+  // handle horizontal alignment in box
   const hAlignMent = setting?.btnHorizontalDivAlignment;
   useEffect(() => {
     if (hAlignMent === 'Align') {
@@ -58,21 +59,20 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
       setHorizontalAlignment('flex-start');
     }
   }, [setting?.btnHorizontalDivAlignment]);
-
+  // handle button height
   const btnHeight = setting?.btnHeight;
   useEffect(() => {
-    if (btnHeight === 'lg') {
+    if (btnHeight === '100%') {
       console.log('lg');
       setHeight('44px');
     }
-    if (btnHeight === 'md') {
+    if (btnHeight === '50%') {
       setHeight('36px');
     }
-    if (btnHeight === 'sm') {
+    if (btnHeight === '25%') {
       setHeight('30px');
     }
   }, [setting?.btnHeight]);
-
   return (
     <div
       style={{alignItems: verticalAlignment, justifyContent: horizontalAlignment}}
@@ -86,11 +86,13 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
             fontWeight: setting?.boldTextEditorFunction ? 'bold' : 'normal',
             fontStyle: setting?.italicTextEditorFunction ? 'italic' : 'normal',
             textDecoration: setting?.underlineTextEditorFunction ? 'underline' : 'none',
-            textAlign: textStyle,
+            justifyContent: textStyle,
             borderRadius: setting?.btnBorderRadius ? setting?.btnBorderRadius : '6px',
             height: height ? height : '48px',
+            padding: setting?.btnPadding + 'px',
+            wordSpacing: setting?.btnWordSpace + 'px',
           }}
-          className="h-9 w-full bg-neutral-main text-white rounded-[14px] flex justify-center items-center gap-2"
+          className="h-9 w-full bg-neutral-main text-white rounded-[14px] flex flex-row items-center gap-2"
         >
           {haveIcon && <IconOfEditingBtn size={16} />}
           {setting?.btnText ? setting?.btnText : 'دکمه'}

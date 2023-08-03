@@ -7,6 +7,7 @@ import {storeStateTypes} from '../../../../../util/types';
 
 const PageSetting = () => {
   const dispatch = useDispatch();
+  // handle elements gap
   const onGapChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(BuilderSlice.actions.setPageSetting({setting: {gap: e.target.value}}));
   };
@@ -14,6 +15,7 @@ const PageSetting = () => {
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
       <SettingSelectionInput
+        target='gap'
         onChange={onGapChangeHandler}
         inputHeaderName="فاصله بین فریم‌ها"
         defaultValue={gap}
@@ -30,6 +32,7 @@ const PageSetting = () => {
         ]}
       />
       <SettingsInput
+        target='padding'
         onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {padding: `${e.target.value}px`}}))}
         inputType="number"
         smallInput
@@ -38,6 +41,7 @@ const PageSetting = () => {
         placeholder="۱۶"
       />
       <SettingsInput
+        target='margin'
         onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {margin: `${e.target.value}px`}}))}
         inputType="number"
         smallInput

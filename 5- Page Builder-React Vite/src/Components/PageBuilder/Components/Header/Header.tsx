@@ -16,6 +16,7 @@ const Header = () => {
         <div className="h-[32px] w-[32px]">
           <img className="h-[32px] w-[32px]" src={logo} alt="Logo" />
         </div>
+        {/* right icons */}
         <IconAnchor anchorStyle="lg:hidden" imgStyle="w-[24px] cursor-pointer" src={asideMenu} alt="asideMenu" />
 
         <IconAnchor anchorStyle="" imgStyle="w-[24px]" src={home} alt="Home" />
@@ -32,7 +33,6 @@ const Header = () => {
       <div className="flex justify-end items-center w-full px-6 py-2 gap-5">
         <IconAnchor anchorStyle="w-[24px] h-[24px]" imgStyle="w-[24px] scale-x-[-1]" src={forward} alt="undo left" />
         <IconAnchor anchorStyle="w-[24px] h-[24px]" imgStyle="w-[24px]" src={forward} alt="undo right" />
-
         <IconAnchor anchorStyle="w-6 h-6 lg:hidden" imgStyle="" src={slider} alt="slider" />
       </div>
     </header>
