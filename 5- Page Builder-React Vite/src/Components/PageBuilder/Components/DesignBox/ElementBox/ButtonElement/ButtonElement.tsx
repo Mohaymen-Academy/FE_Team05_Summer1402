@@ -1,44 +1,53 @@
-import {useMemo, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
+import {AiFillAccountBook, AiOutlineAim} from 'react-icons/ai';
+import {icons} from '../../../../../../util/Constatnts';
+import {useSelector} from 'react-redux';
+import {storeStateTypes} from '../../../../../../util/types';
 
 type ButtonElementProps = {
   setting?: Record<string, any>;
 };
 
 const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
-  const [data1, setData1] = useState('center');
-  const [data2, setData2] = useState('center');
+  const [verticalAlignment, setVerticalAlignment] = useState('center');
+  const [horizontalAlignment, setHorizontalAlignment] = useState('center');
   const align = setting?.divAlignment;
-  useMemo(() => {
+  const width = setting?.width;
+  const withIcon = setting?.withIcon;
+  const IconOfEditingBtn = icons[setting?.iconIndex || 7];
+
+  useEffect(() => {
     if (align === 'Align-Right') {
-      setData1('flex-start');
+      setVerticalAlignment('flex-start');
     }
     if (align === 'Align-Vertically') {
-      setData1('center');
+      setVerticalAlignment('center');
     }
     if (align === 'Align-Left') {
-      setData1('flex-end');
+      setVerticalAlignment('flex-end');
     }
     if (align === 'Align') {
-      setData2('flex-end');
+      setHorizontalAlignment('flex-end');
     }
     if (align === 'Align-Horizontally') {
-      setData2('center');
+      setHorizontalAlignment('center');
     }
     if (align === 'Align-Bottom') {
-      setData2('flex-start');
+      setHorizontalAlignment('flex-start');
     }
-  }, [setting?.divAlignment]);
+  }, [align]);
 
   return (
     <div
-      style={{alignItems: data1, justifyContent: data2}}
+      style={{alignItems: verticalAlignment, justifyContent: horizontalAlignment}}
       className="bg-white rounded-lg flex flex-col h-[48px] w-full"
     >
       <button
-        style={{color: setting?.textColor, backgroundColor: setting?.bgColor}}
-        className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
+        style={{color: setting?.textColor, backgroundColor: setting?.bgColor, width}}
+        className="h-9 w-1/4 bg-neutral-main text-white rounded-[14px] flex justify-center items-center gap-2"
       >
-        دکمه
+        {withIcon && <IconOfEditingBtn />}
+        <div>دکمه</div>
       </button>
     </div>
   );

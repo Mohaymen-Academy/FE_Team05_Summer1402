@@ -1,19 +1,33 @@
+import {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {FieldValues, useForm} from 'react-hook-form';
 import {Switch, useDisclosure} from '@chakra-ui/react';
+import {AiOutlineLink, AiOutlinePlus} from 'react-icons/ai';
+
 import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
 import {ColorsInput} from '../Inputs/ColorsInput';
-import {TextInput} from '../../../../Common';
+import {IconButton, TextInput} from '../../../../Common';
 import {SettingsTextInput} from '../Inputs/SettingsTextInput';
-import {AiOutlineLink} from 'react-icons/ai';
-import {useDispatch, useSelector} from 'react-redux';
-import state from 'sweetalert/typings/modules/state';
 import {storeStateTypes} from '../../../../../util/types';
 import {BuilderSlice} from '../../../../../redux/slices';
+import {IconModal} from './IconModal';
+import {icons} from '../../../../../util/Constatnts';
 
 const PageButtons = () => {
+  //for modal
+  const {isOpen, onClose, onOpen} = useDisclosure();
   const dispatch = useDispatch();
-  const edittingId = useSelector((state: storeStateTypes) => state.aside.edittingComponentId);
+  const edittingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
+  const haveIcon = useSelector(
+    (state: storeStateTypes) => state.builder.component.find((compo) => compo.id === edittingId)?.setting?.withIcon
+  );
+  const IconOfEditingBtn =
+    icons[
+      useSelector(
+        (state: storeStateTypes) => state.builder.component.find((compo) => compo.id === edittingId)?.setting?.iconIndex
+      ) || 7
+    ];
   const {
     register,
     handleSubmit,
@@ -33,29 +47,37 @@ const PageButtons = () => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {bgColor: e.target.value}}));
   };
   const changeBtnAlignment = (e) => {
-    console.log(e.target.title);
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {divAlignment: e.target.title}}));
+  };
+
+  const onButtonWidthChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {width: e.target.value}}));
+  };
+
+  const withIconCheckHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {withIcon: e.target.checked}}));
   };
 
   return (
     <div className="w-full flex flex-col justify-start items-center gap-7 mt-3">
       <SettingsAlignmentIcons onClick={changeBtnAlignment} />
       <SettingSelectionInput
+        defaultValue="25%"
         inputHeaderName="اندازه دکمه"
-        selectionText="پیش فرض"
         options={[
-          {value: 'lg', text: 'بزرگ'},
-          {value: 'md', text: 'متوسط'},
-          {value: 'sm', text: 'کوچک'},
+          {value: '100%', text: 'بزرگ'},
+          {value: '50%', text: 'متوسط'},
+          {value: '25%', text: 'کوچک'},
         ]}
       />
       <SettingSelectionInput
+        defaultValue="25%"
         inputHeaderName="عرض دکمه"
-        selectionText="پیش فرض"
+        onChange={onButtonWidthChangeHandler}
         options={[
-          {value: 'lg', text: 'بزرگ'},
-          {value: 'md', text: 'متوسط'},
-          {value: 'sm', text: 'کوچک'},
+          {value: '100%', text: 'بزرگ'},
+          {value: '50%', text: 'متوسط'},
+          {value: '25%', text: 'کوچک'},
         ]}
       />
       <SettingSelectionInput
@@ -80,8 +102,18 @@ const PageButtons = () => {
         <div className="text-[14px] font-semibold">
           <p>آیکون دار</p>
         </div>
-        <Switch />
+        <Switch onChange={withIconCheckHandler} checked={haveIcon} />
       </div>
+      {haveIcon && (
+        <div className="w-full flex justify-between">
+          <div className="text-[14px] font-semibold">
+            <p>انتخاب آیکون</p>
+          </div>
+          <button className="h-10 w-10 rounded-lg flex justify-center items-center bg-primary-light" onClick={onOpen}>
+            <IconOfEditingBtn size={24} />
+          </button>
+        </div>
+      )}
       <div className="w-full">
         <TextInput
           labelText="لینک دکمه"
@@ -94,6 +126,7 @@ const PageButtons = () => {
           leftIcon={AiOutlineLink}
         />
       </div>
+      <IconModal isOpen={isOpen} onClose={onClose} />
     </div>
   );
 };

@@ -9,7 +9,6 @@ import {AiOutlinePlus} from 'react-icons/ai';
 const DesignBox = () => {
   const elementComponents = useSelector((state: storeStateTypes) => state.builder.component);
   const settings = useSelector((state: storeStateTypes) => state.builder.pageSetting);
-  console.log(settings);
   return (
     <main className="lg:w-[calc(100vw-175px-345px)] w-full flex justify-center items-center ">
       <div className="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
@@ -32,7 +31,7 @@ const DesignBox = () => {
         {/* <!--icons column--> */}
         <DesignBoxSettings />
       </div>
-    </main>
+      </main>
   );
 };
 
