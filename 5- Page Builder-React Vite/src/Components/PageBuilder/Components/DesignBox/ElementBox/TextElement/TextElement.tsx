@@ -99,7 +99,7 @@ const TextElement: React.FC<TextElementProps> = ({setting}) => {
         textAlign: textStyle,
         fontSize: txtSize,
         lineHeight: setting?.lineHeight,
-        padding: setting?.padding + 'px',
+        padding: setting?.textPadding + 'px',
         wordSpacing: setting?.wordSpace + 'px',
       }}
       className="flex text-neutral-main text-[12px]"

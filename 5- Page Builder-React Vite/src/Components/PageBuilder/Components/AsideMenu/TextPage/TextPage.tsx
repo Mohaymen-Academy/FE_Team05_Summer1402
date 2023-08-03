@@ -98,7 +98,7 @@ const TextPage = () => {
   };
   // handler to change text padding
   const paddingChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {padding: e.target.value}}));
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textPadding: e.target.value}}));
   };
   // handler to change word space
   const wordSpaceChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -188,7 +188,7 @@ const TextPage = () => {
         disable={textDisable}
       />
       <SettingsInput
-        target="padding"
+        target="textPadding"
         onChange={paddingChangeHandler}
         inputType="number"
         text="حاشیه"

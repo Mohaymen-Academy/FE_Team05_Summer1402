@@ -19,7 +19,7 @@ type TextInputProps = {
   inputStyle?: React.CSSProperties;
   labelStyle?: React.CSSProperties;
   smallInput?: boolean;
-  target: string;
+  target?: string;
   leftIcon?: IconType;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -45,14 +45,16 @@ const TextInput: React.FC<TextInputProps> = ({
 
   const smallInputPadding =
     text.length === 1 ? 15 : text.length === 0 || text.length === 2 ? 12 : text.length > 2 ? 9 : 12;
-
+  // register input
   const registerValidator = useMemo(() => {
     if (register && formId) return register(formId, {required, pattern});
     return {register: 'no Register'};
   }, [register]);
+  // get id of active element box
   const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
   const selection = useSelector(
-    (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === editingId)?.setting[target]
+    (state: storeStateTypes) =>
+      state.builder.component.find((comp) => comp.id === editingId)?.setting[target ? target : '']
   );
 
   return (
