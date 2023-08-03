@@ -1,27 +1,16 @@
 {
   "components": [
     {
-      "id": "b49c9d0f-0cad-4e20-b84d-01e17330c35f",
+      "id": "fa3b3a33-dac8-4cfb-a0d5-27190c59a831",
       "setting": {
+        "btnBorderRadius": "12px",
+        "width": "50%",
+        "btnText": "ذخیره اطلاعات",
+        "bgColor": "#0bf207",
+        "textColor": "#030303",
         "withIcon": true,
-        "iconIndex": 6
-      },
-      "type": "btns",
-      "active": true
-    },
-    {
-      "id": "071411c0-6acb-42df-9fff-73669960b4a2",
-      "setting": {
-        "withIcon": true,
-        "iconIndex": 21
-      },
-      "type": "btns",
-      "active": true
-    },
-    {
-      "id": "28fee944-77d2-4ef8-a94d-8cb93b086e12",
-      "setting": {
-        "withIcon": true
+        "iconIndex": 15,
+        "btnLink": ""
       },
       "type": "btns",
       "active": true

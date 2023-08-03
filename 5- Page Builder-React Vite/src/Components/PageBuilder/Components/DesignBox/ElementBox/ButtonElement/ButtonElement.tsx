@@ -9,74 +9,76 @@ type ButtonElementProps = {
 };
 
 const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
-  const [btnText, setbtnText] = useState('دکمه');
-  const [data1, setData1] = useState('center');
-  const [data2, setData2] = useState('center');
-  const [textStyle, setTextStyle] = useState();
-  const [heigth, setHeigth] = useState('متوسط');
+  const [verticalAlignment, setVerticalAlignment] = useState('center');
+  const [horizontalAlignment, setHorizontalAlignment] = useState('center');
+  const [textStyle, setTextStyle] = useState<'left' | 'center' | 'right' | 'justify'>();
+  const [height, setHeight] = useState('متوسط');
+
+  const haveIcon = setting?.withIcon;
+  const IconOfEditingBtn = icons[setting?.iconIndex || 7];
+
+  const textStyleDB = setting?.textEditorFunction;
   useEffect(() => {
-    setbtnText(setting?.btnText);
-  }, [setting?.btnText]);
-  const func = setting?.textEditorFunction;
-  useEffect(() => {
-    if (func === 'align left') {
+    if (textStyleDB === 'align left') {
       setTextStyle('left');
     }
-    if (func === 'align center') {
+    if (textStyleDB === 'align center') {
       setTextStyle('center');
     }
-    if (func === 'align right') {
+    if (textStyleDB === 'align right') {
       setTextStyle('right');
     }
-    if (func === 'justify center') {
+    if (textStyleDB === 'justify center') {
       setTextStyle('justify');
     }
-  }, [func]);
+  }, [textStyle]);
 
-  const align1 = setting?.btnVerticalDivAlignment;
+  const vAlignMent = setting?.btnVerticalDivAlignment;
   useEffect(() => {
-    if (align1 === 'Align-Right') {
-      setData1('flex-start');
+    if (vAlignMent === 'Align-Right') {
+      setVerticalAlignment('flex-start');
     }
-    if (align1 === 'Align-Vertically') {
-      setData1('center');
+    if (vAlignMent === 'Align-Vertically') {
+      setVerticalAlignment('center');
     }
-    if (align1 === 'Align-Left') {
-      setData1('flex-end');
+    if (vAlignMent === 'Align-Left') {
+      setVerticalAlignment('flex-end');
     }
   }, [setting?.btnVerticalDivAlignment]);
 
-  const align2 = setting?.btnHorizontalDivAlignment;
+  const hAlignMent = setting?.btnHorizontalDivAlignment;
   useEffect(() => {
-    if (align2 === 'Align') {
-      setData2('flex-end');
+    if (hAlignMent === 'Align') {
+      setHorizontalAlignment('flex-end');
     }
-    if (align2 === 'Align-Horizontally') {
-      setData2('center');
+    if (hAlignMent === 'Align-Horizontally') {
+      setHorizontalAlignment('center');
     }
-    if (align2 === 'Align-Bottom') {
-      setData2('flex-start');
+    if (hAlignMent === 'Align-Bottom') {
+      setHorizontalAlignment('flex-start');
     }
   }, [setting?.btnHorizontalDivAlignment]);
+
   const btnHeight = setting?.btnHeight;
   useEffect(() => {
     if (btnHeight === 'lg') {
       console.log('lg');
-      setHeigth('44px');
+      setHeight('44px');
     }
     if (btnHeight === 'md') {
-      setHeigth('36px');
+      setHeight('36px');
     }
     if (btnHeight === 'sm') {
-      setHeigth('30px');
+      setHeight('30px');
     }
   }, [setting?.btnHeight]);
+
   return (
     <div
       style={{alignItems: verticalAlignment, justifyContent: horizontalAlignment}}
       className="bg-white rounded-lg flex flex-col h-[48px] w-full"
     >
-      <a href={setting?.btnLink}>
+      <a style={{width: setting?.width ? setting?.width : '25%'}} href={setting?.btnLink}>
         <button
           style={{
             color: setting?.textColor,
@@ -85,12 +87,13 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
             fontStyle: setting?.italicTextEditorFunction ? 'italic' : 'normal',
             textDecoration: setting?.underlineTextEditorFunction ? 'underline' : 'none',
             textAlign: textStyle,
-            borderRadius: setting?.btnBorderRadius + 'px',
-            height: heigth ? heigth : '48px',width.
+            borderRadius: setting?.btnBorderRadius ? setting?.btnBorderRadius : '6px',
+            height: height ? height : '48px',
           }}
-          className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
+          className="h-9 w-full bg-neutral-main text-white rounded-[14px] flex justify-center items-center gap-2"
         >
-          {btnText ? btnText : 'دکمه'}
+          {haveIcon && <IconOfEditingBtn size={16} />}
+          {setting?.btnText ? setting?.btnText : 'دکمه'}
         </button>
       </a>
     </div>

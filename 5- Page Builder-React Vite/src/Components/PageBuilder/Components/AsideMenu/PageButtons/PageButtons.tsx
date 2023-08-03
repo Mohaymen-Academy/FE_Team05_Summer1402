@@ -1,13 +1,11 @@
-import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {FieldValues, useForm} from 'react-hook-form';
 import {Switch, useDisclosure} from '@chakra-ui/react';
-import {AiOutlineLink, AiOutlinePlus} from 'react-icons/ai';
+import {AiOutlineLink} from 'react-icons/ai';
 
 import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
 import {ColorsInput} from '../Inputs/ColorsInput';
-import {IconButton, TextInput} from '../../../../Common';
+import {TextInput} from '../../../../Common';
 import {SettingsTextInput} from '../Inputs/SettingsTextInput';
 import {storeStateTypes} from '../../../../../util/types';
 import {BuilderSlice} from '../../../../../redux/slices';
@@ -28,17 +26,8 @@ const PageButtons = () => {
         (state: storeStateTypes) => state.builder.component.find((compo) => compo.id === edittingId)?.setting?.iconIndex
       ) || 7
     ];
-  const {
-    register,
-    handleSubmit,
-    formState: {errors},
-  } = useForm<FieldValues>({
-    defaultValues: {
-      padding: '',
-      margin: '',
-      linkUrl: '',
-    },
-  });
+
+  //button text style, select from redux
   let isBold = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === edittingId)?.setting?.boldTextEditorFunction
@@ -51,14 +40,20 @@ const PageButtons = () => {
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === edittingId)?.setting?.italicTextEditorFunction
   );
-  const textColorChangeHandler = (e) => {
-    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textColor: e.target.value}}));
-  };
 
-  const bgColorChangeHandler = (e) => {
+  //**all the handler down here will affect the redux store, button components selected styles all saved in redux */
+
+  //handler for changing button text color
+  const textColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textColor: e.target.value}}));
+
+  //handler for changing button background color
+  const bgColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {bgColor: e.target.value}}));
   };
-  const changeBtnAlignment = (e) => {
+
+  //handler to change button horizontal or vertical alignment
+  const changeBtnAlignment = (e: any) => {
     const title = e.target?.title;
     if (title === 'Align-Right' || title === 'Align-Vertically' || title === 'Align-Left') {
       dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnVerticalDivAlignment: e.target.title}}));
@@ -68,14 +63,20 @@ const PageButtons = () => {
       );
     }
   };
-  const btnLinkChangeHandler = (e) => {
+
+  //handler to add href to button
+  const btnLinkChangeHandler = (e: any) => {
     console.log(e.target.value);
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnLink: e.target.value}}));
   };
-  const btnTextChangeHandler = (e) => {
+
+  //
+  const btnTextChangeHandler = (e: any) => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnText: e.target.value}}));
   };
-  const btnTextEditorChangeHandler = (e) => {
+
+  //
+  const btnTextEditorChangeHandler = (e: any) => {
     const title = e.target?.title;
     if (title === 'bold') {
       if (isBold === null) isBold = true;
@@ -107,20 +108,21 @@ const PageButtons = () => {
     }
   };
 
-  const borderRadiusChangeHandler = (e) => {
-    console.log(e.target.value);
+  //handler to change border radius
+  const borderRadiusChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnBorderRadius: e.target?.value}}));
-  };
 
-  const btnHeightChangeHandler = (e) => {
+  //handler to change button height
+  const btnHeightChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e.target.value);
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnHeight: e.target?.value}}));
   };
 
-  const onButtonWidthChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //handler to change button width
+  const onButtonWidthChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {width: e.target.value}}));
-  };
 
+  //handler active icon of the button
   const withIconCheckHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {withIcon: e.target.checked}}));
   };
@@ -151,16 +153,16 @@ const PageButtons = () => {
       <SettingSelectionInput
         onChange={borderRadiusChangeHandler}
         inputHeaderName="گوشه‌ها"
-        selectionText="۴"
+        defaultValue="6px"
         options={[
-          {value: '1', text: '۱'},
-          {value: '2', text: '۲'},
-          {value: '3', text: '۳'},
-          {value: '4', text: '۴'},
-          {value: '6', text: '۶'},
-          {value: '8', text: '۸'},
-          {value: '10', text: '۱۰'},
-          {value: '12', text: '۱۲'},
+          {value: '1px', text: '۱'},
+          {value: '2px', text: '۲'},
+          {value: '3px', text: '۳'},
+          {value: '4px', text: '۴'},
+          {value: '6px', text: '۶'},
+          {value: '8px', text: '۸'},
+          {value: '10px', text: '۱۰'},
+          {value: '12px', text: '۱۲'},
         ]}
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
       />
@@ -193,9 +195,7 @@ const PageButtons = () => {
         <TextInput
           onChange={btnLinkChangeHandler}
           labelText="لینک دکمه"
-          register={register}
           formId="linkUrl"
-          errors={errors}
           placeholder="لینک مورد نظر خود را وارد کنید"
           labelStyle={{fontWeight: 'bold', margin: '0 0px'}}
           inputStyle={{margin: '12px 0'}}
