@@ -8,8 +8,9 @@ type ColorPickerProps = {
   height: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   target: 'textColor' | 'bgColor';
+  defaultValue: string;
 };
-const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange, target}) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange, target,defaultValue}) => {
   const colorInputRef = useRef<HTMLInputElement>(null);
   const handleDivClick = () => {
     if (colorInputRef.current != null) {
@@ -24,7 +25,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange, targe
   return (
     <div className="relative">
       <div
-        style={{backgroundColor: bgColor ? bgColor : '#000'}}
+        style={{backgroundColor: bgColor ? bgColor : defaultValue}}
         className={`${width} rounded-lg ${height}`}
         onClick={handleDivClick}
       ></div>

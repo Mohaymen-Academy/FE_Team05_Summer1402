@@ -9,27 +9,36 @@ import {AiOutlineLink} from 'react-icons/ai';
 import {useDispatch, useSelector} from 'react-redux';
 import {storeStateTypes} from '../../../../../util/types';
 import {BuilderSlice} from '../../../../../redux/slices';
-import {ChangeEvent} from 'react';
+import {ChangeEvent, useState} from 'react';
 
 const TextPage = () => {
+  // state for disable selection inputs
+  const [headerDisable, setHeaderDisable] = useState(false);
+  const [textDisable, setTextDisable] = useState(true);
+
   const dispatch = useDispatch();
   const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
+  // get bold property from store state
   let isBold = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === editingId)?.setting?.boldTextEditorFunction
   );
+  // get underline property from store state
   let isUnderline = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === editingId)?.setting?.underlineTextEditorFunction
   );
+  // get italic property from store state
   let isItalic = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === editingId)?.setting?.italicTextEditorFunction
   );
+  // handler to change text color
   const textColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textColor: e.target?.value}}));
   };
-  const changeDivAlignment = (e) => {
+  // handler to change alignment in div tag
+  const changeDivAlignment = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const title = e.target?.title;
     if (title === 'Align-Right' || title === 'Align-Vertically' || title === 'Align-Left') {
       dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textVerticalDivAlignment: e.target.title}}));
@@ -39,13 +48,17 @@ const TextPage = () => {
       );
     }
   };
-  const textLinkChangeHandler = (e) => {
+  // handler to set link for text
+  const textLinkChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textLink: e.target?.value}}));
   };
-  const textChangeHandler = (e) => {
+  // handler to change text
+  const textChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textElementText: e.target?.value}}));
   };
-  const textEditorChangeHandler = (e) => {
+  // handler to change properties of text
+  // properties: bold,underline,italic,alignment
+  const textEditorChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const title = e.target?.title;
     if (title === 'bold') {
       if (isBold) {
@@ -75,27 +88,55 @@ const TextPage = () => {
       dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textEditorFunction: title}}));
     }
   };
-  const textSizeChangeHandler = (e) => {
+  // handler to change text size
+  const textSizeChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textSize: e.target.value}}));
   };
-  const lineHeightChangeHandler = (e) => {
+  // handler to change line height
+  const lineHeightChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {lineHeight: e.target.value}}));
   };
-  const paddingChangeHandler = (e) => {
-    console.log(e.target.value);
+  // handler to change text padding
+  const paddingChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {padding: e.target.value}}));
   };
-  const wordSpaceChangeHandler = (e) => {
+  // handler to change word space
+  const wordSpaceChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {wordSpace: e.target.value}}));
-  }
+  };
+  // handler to disable or enable selection input
+  const textTypeChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target?.value;
+    console.log(value);
+    if (value === 'متن') {
+      setHeaderDisable(true);
+      setTextDisable(false);
+    }
+    if (value === 'عنوان') {
+      setHeaderDisable(false);
+      setTextDisable(true);
+    }
+    dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textType: e.target.value}}));
+  };
+
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
       <SettingsAlignmentIcons onClick={changeDivAlignment} />
-      <SettingSelectionInput inputHeaderName="نوع متن" selectionText="عنوان" options={[{value: 'متن', text: 'متن'}]} />
+      <SettingSelectionInput
+        onChange={textTypeChangeHandler}
+        inputHeaderName="نوع متن"
+        target="textType"
+        defaultValue="متن"
+        options={[
+          {value: 'عنوان', text: 'عنوان'},
+          {value: 'متن', text: 'متن'},
+        ]}
+      />
       <SettingSelectionInput
         onChange={textSizeChangeHandler}
         inputHeaderName="نوع عنوان"
-        selectionText="H1"
+        target="textSize"
+        defaultValue="H5"
         options={[
           {value: 'H1', text: 'H1'},
           {value: 'H2', text: 'H2'},
@@ -104,19 +145,22 @@ const TextPage = () => {
           {value: 'H5', text: 'H5'},
           {value: 'H6', text: 'H6'},
         ]}
+        disable={headerDisable}
       />
       <SettingsTextInput
         onChange={textChangeHandler}
         onClick={textEditorChangeHandler}
+        target="textElementText"
         text="متن مورد نظر خود را وارد کنید"
         placeholder="برای تغییر این متن بر روی دکمه ویرایش کلیک کنید. لورم ایپسورم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
         inputHeight="145px"
       />
-      <ColorsInput target="textColor" onChange={textColorChangeHandler} text="رنگ" />
+      <ColorsInput defaultValue="#6C6E78" target="textColor" onChange={textColorChangeHandler} text="رنگ" />
       <SettingSelectionInput
         onChange={textSizeChangeHandler}
         inputHeaderName="سایز فونت"
-        selectionText="۲۶"
+        target="textSize"
+        defaultValue="۲۶"
         options={[
           {value: '8', text: '۸'},
           {value: '11', text: '۱۱'},
@@ -126,11 +170,13 @@ const TextPage = () => {
           {value: '18', text: '۱۸'},
         ]}
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
+        disable={textDisable}
       />
       <SettingSelectionInput
         onChange={lineHeightChangeHandler}
         inputHeaderName="ارتفاع خطوط"
-        selectionText="۲۶"
+        target="lineHeight"
+        defaultValue="۲۶"
         options={[
           {value: '1', text: '۱'},
           {value: '2', text: '۲'},
@@ -139,11 +185,27 @@ const TextPage = () => {
           {value: '8', text: '۸'},
         ]}
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
+        disable={textDisable}
       />
-      <SettingsInput onChange={paddingChangeHandler} inputType="number" text="حاشیه" placeholder="۱۶" smallInput />
-      <SettingsInput onChange={wordSpaceChangeHandler} text="فاصله گذاری" placeholder="۱۲" smallInput inputType="number" />
+      <SettingsInput
+        target="padding"
+        onChange={paddingChangeHandler}
+        inputType="number"
+        text="حاشیه"
+        placeholder="۱۶"
+        smallInput
+      />
+      <SettingsInput
+        target="wordSpace"
+        onChange={wordSpaceChangeHandler}
+        text="فاصله گذاری"
+        placeholder="۱۲"
+        smallInput
+        inputType="number"
+      />
       <div className="w-full">
         <TextInput
+          target="textLink"
           onChange={textLinkChangeHandler}
           labelText="لینک متن"
           placeholder="لینک مورد نظر خود را وارد کنید"

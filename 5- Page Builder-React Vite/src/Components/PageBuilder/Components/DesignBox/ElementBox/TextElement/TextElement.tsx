@@ -7,18 +7,20 @@ type TextElementProps = {
 
 const TextElement: React.FC<TextElementProps> = ({setting}) => {
   const [text, setText] = useState('');
-  const [divStyle1, setDivStyle1] = useState('center');
-  const [divStyle2, setDivStyle2] = useState('center');
-  const [textStyle, setTextStyle] = useState();
+  const [vAlignment, setVAlignment] = useState('center');
+  const [hAlignment, setHAlignment] = useState('center');
+  const [textStyle, setTextStyle] = useState<'left' | 'center' | 'right' | 'justify'>();
   const [txtSize, setTextSize] = useState('12px');
   const defaultText = `لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون
   بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با
   هدف بهبود ابزارهای کاربردی می باشد.`;
 
+  // set text of element
   useEffect(() => {
     setText(setting?.textElementText);
   }, [setting?.textElementText]);
 
+  // handle text align
   const func = setting?.textEditorFunction;
   useEffect(() => {
     console.log(func);
@@ -36,32 +38,35 @@ const TextElement: React.FC<TextElementProps> = ({setting}) => {
     }
   }, [func]);
 
-  const align1 = setting?.textVerticalDivAlignment;
+  // handle vertical alignment in box
+  const vAlign = setting?.textVerticalDivAlignment;
   useEffect(() => {
-    if (align1 === 'Align-Right') {
-      setDivStyle1('flex-start');
+    if (vAlign === 'Align-Right') {
+      setVAlignment('flex-start');
     }
-    if (align1 === 'Align-Vertically') {
-      setDivStyle1('center');
+    if (vAlign === 'Align-Vertically') {
+      setVAlignment('center');
     }
-    if (align1 === 'Align-Left') {
-      setDivStyle1('flex-end');
+    if (vAlign === 'Align-Left') {
+      setVAlignment('flex-end');
     }
   }, [setting?.textVerticalDivAlignment]);
 
-  const align2 = setting?.textHorizontalDivAlignment;
+  // handle horizontal alignment in box
+  const hAlign = setting?.textHorizontalDivAlignment;
   useEffect(() => {
-    if (align2 === 'Align') {
-      setDivStyle2('flex-end');
+    if (hAlign === 'Align') {
+      setHAlignment('flex-end');
     }
-    if (align2 === 'Align-Horizontally') {
-      setDivStyle2('center');
+    if (hAlign === 'Align-Horizontally') {
+      setHAlignment('center');
     }
-    if (align2 === 'Align-Bottom') {
-      setDivStyle2('flex-start');
+    if (hAlign === 'Align-Bottom') {
+      setHAlignment('flex-start');
     }
   }, [setting?.textHorizontalDivAlignment]);
 
+  // handle header size
   const textSize = setting?.textSize;
   useEffect(() => {
     console.log(textSize);
@@ -81,12 +86,13 @@ const TextElement: React.FC<TextElementProps> = ({setting}) => {
       setTextSize(textSize + 'px');
     }
   }, [setting?.textSize]);
+
   return (
     <div
       style={{
         color: setting?.textColor,
-        alignItems: divStyle1,
-        justifyContent: divStyle2,
+        alignItems: vAlignment,
+        justifyContent: hAlignment,
         fontWeight: setting?.boldTextEditorFunction ? 'bold' : 'normal',
         fontStyle: setting?.italicTextEditorFunction ? 'italic' : 'normal',
         textDecoration: setting?.underlineTextEditorFunction ? 'underline' : 'none',

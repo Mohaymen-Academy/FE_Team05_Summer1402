@@ -14,6 +14,7 @@ type SettingsInputProps = {
   inputH?: string;
   smallInput?: boolean;
   inputType: 'number' | 'text';
+  target: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -28,6 +29,7 @@ const SettingsInput: React.FC<SettingsInputProps> = ({
   inputW,
   inputH,
   smallInput,
+  target,
   inputType,
   onChange,
 }) => {
@@ -48,6 +50,7 @@ const SettingsInput: React.FC<SettingsInputProps> = ({
         smallInput={smallInput}
         type={inputType}
         onChange={onChange}
+        target={target}
       />
     </div>
   );

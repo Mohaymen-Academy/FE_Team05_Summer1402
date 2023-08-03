@@ -8,6 +8,8 @@ import {
   textItalic,
   textUnderline,
 } from '../../../../../../assets/textEditor';
+import {useSelector} from 'react-redux';
+import {storeStateTypes} from '../../../../../../util/types';
 
 type SettingsTextInputProps = {
   text: string;
@@ -15,9 +17,21 @@ type SettingsTextInputProps = {
   inputHeight: string;
   onChange: (e: any) => void;
   onClick: (e: any) => void;
+  target: string;
 };
 
-const SettingsTextInput: React.FC<SettingsTextInputProps> = ({text, placeholder, inputHeight, onChange, onClick}) => {
+const SettingsTextInput: React.FC<SettingsTextInputProps> = ({
+  text,
+  placeholder,
+  inputHeight,
+  onChange,
+  onClick,
+  target,
+}) => {
+  const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
+  const selection = useSelector(
+    (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === editingId)?.setting[target]
+  );
   return (
     <div className={`flex flex-col justify-start w-full gap-[12px]`}>
       <div className="text-[14px] font-semibold">
@@ -28,6 +42,7 @@ const SettingsTextInput: React.FC<SettingsTextInputProps> = ({text, placeholder,
         style={{height: inputHeight}}
         className={`input placeholder:text-[14px] resize-none`}
         placeholder={placeholder}
+        value={selection ? selection : ''}
       />
       <div className="grid grid-cols-7 gap-3 justify-center items-center">
         <IconButton

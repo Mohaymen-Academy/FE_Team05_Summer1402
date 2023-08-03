@@ -1,6 +1,8 @@
 import {useMemo, useState} from 'react';
 import {FieldErrors, FieldValues, UseFormRegister} from 'react-hook-form';
 import {IconType} from 'react-icons';
+import {useSelector} from 'react-redux';
+import {storeStateTypes} from '../../../util/types';
 
 type TextInputProps = {
   placeholder?: string;
@@ -17,6 +19,7 @@ type TextInputProps = {
   inputStyle?: React.CSSProperties;
   labelStyle?: React.CSSProperties;
   smallInput?: boolean;
+  target: string;
   leftIcon?: IconType;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -35,6 +38,7 @@ const TextInput: React.FC<TextInputProps> = ({
   labelStyle,
   smallInput,
   leftIcon: LeftIcon,
+  target,
   onChange,
 }) => {
   const [text, setText] = useState('');
@@ -46,6 +50,10 @@ const TextInput: React.FC<TextInputProps> = ({
     if (register && formId) return register(formId, {required, pattern});
     return {register: 'no Register'};
   }, [register]);
+  const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
+  const selection = useSelector(
+    (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === editingId)?.setting[target]
+  );
 
   return (
     <div>
@@ -73,6 +81,7 @@ const TextInput: React.FC<TextInputProps> = ({
             setText(e.target.value);
             onChange(e);
           }}
+          value={selection ? selection : ''}
         />
         {LeftIcon && <LeftIcon size={18} className="absolute left-2 bottom-1/2 translate-y-1/2 text-neutral-hover" />}
       </div>
