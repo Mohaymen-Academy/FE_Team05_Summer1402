@@ -13,7 +13,7 @@ import {BuilderSlice} from '../../../../../redux/slices';
 
 const PageButtons = () => {
   const dispatch = useDispatch();
-  const edittingId = useSelector((state: storeStateTypes) => state.aside.edittingComponentId);
+  const edittingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
   const {
     register,
     handleSubmit,
@@ -25,6 +25,18 @@ const PageButtons = () => {
       linkUrl: '',
     },
   });
+  let isBold = useSelector(
+    (state: storeStateTypes) =>
+      state.builder.component.find((compo) => compo.id === edittingId)?.setting?.boldTextEditorFunction
+  );
+  let isUnderline = useSelector(
+    (state: storeStateTypes) =>
+      state.builder.component.find((compo) => compo.id === edittingId)?.setting?.underlineTextEditorFunction
+  );
+  let isItalic = useSelector(
+    (state: storeStateTypes) =>
+      state.builder.component.find((compo) => compo.id === edittingId)?.setting?.italicTextEditorFunction
+  );
   const textColorChangeHandler = (e) => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textColor: e.target.value}}));
   };
@@ -33,14 +45,69 @@ const PageButtons = () => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {bgColor: e.target.value}}));
   };
   const changeBtnAlignment = (e) => {
-    console.log(e.target.title);
-    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {divAlignment: e.target.title}}));
+    const title = e.target?.title;
+    if (title === 'Align-Right' || title === 'Align-Vertically' || title === 'Align-Left') {
+      dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnVerticalDivAlignment: e.target.title}}));
+    } else {
+      dispatch(
+        BuilderSlice.actions.setSettings({id: edittingId, setting: {btnHorizontalDivAlignment: e.target.title}})
+      );
+    }
+  };
+  const btnLinkChangeHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnLink: e.target.value}}));
+  };
+  const btnTextChangeHandler = (e) => {
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnText: e.target.value}}));
+  };
+  const btnTextEditorChangeHandler = (e) => {
+    const title = e.target?.title;
+    if (title === 'bold') {
+      if (isBold === null) isBold = true;
+      if (isBold) {
+        dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {boldTextEditorFunction: false}}));
+        isBold = false;
+      } else {
+        dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {boldTextEditorFunction: true}}));
+        isBold = true;
+      }
+    } else if (title === 'underline') {
+      if (isUnderline) {
+        dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {underlineTextEditorFunction: false}}));
+        isUnderline = false;
+      } else {
+        isUnderline = true;
+        dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {underlineTextEditorFunction: true}}));
+      }
+    } else if (title === 'italic') {
+      if (isItalic) {
+        dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {italicTextEditorFunction: false}}));
+        isItalic = false;
+      } else {
+        dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {italicTextEditorFunction: true}}));
+        isItalic = true;
+      }
+    } else {
+      dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textEditorFunction: title}}));
+    }
+  };
+
+  const borderRadiusChangeHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnBorderRadius: e.target?.value}}));
+  };
+
+  const btnHeightChangeHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnHeight: e.target?.value}}));
   };
 
   return (
     <div className="w-full flex flex-col justify-start items-center gap-7 mt-3">
       <SettingsAlignmentIcons onClick={changeBtnAlignment} />
       <SettingSelectionInput
+        onChange={btnHeightChangeHandler}
         inputHeaderName="اندازه دکمه"
         selectionText="پیش فرض"
         options={[
@@ -59,6 +126,7 @@ const PageButtons = () => {
         ]}
       />
       <SettingSelectionInput
+        onChange={borderRadiusChangeHandler}
         inputHeaderName="گوشه‌ها"
         selectionText="۴"
         options={[
@@ -73,7 +141,13 @@ const PageButtons = () => {
         ]}
         dropMenuStyle={{width: '25%', padding: '0 4px'}}
       />
-      <SettingsTextInput text="متن" inputHeight="50px" placeholder="لورم ایپسوم" />
+      <SettingsTextInput
+        onClick={btnTextEditorChangeHandler}
+        onChange={btnTextChangeHandler}
+        text="متن"
+        inputHeight="50px"
+        placeholder="لورم ایپسوم"
+      />
       <ColorsInput onChange={bgColorChangeHandler} target="bgColor" text="رنگ پس زمینه" />
       <ColorsInput onChange={textColorChangeHandler} target="textColor" text="رنگ متن" />
       <div className="w-full flex justify-between">
@@ -84,6 +158,7 @@ const PageButtons = () => {
       </div>
       <div className="w-full">
         <TextInput
+          onChange={btnLinkChangeHandler}
           labelText="لینک دکمه"
           register={register}
           formId="linkUrl"
