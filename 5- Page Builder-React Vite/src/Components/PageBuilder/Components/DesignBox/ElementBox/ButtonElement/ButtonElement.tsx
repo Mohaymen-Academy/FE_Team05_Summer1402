@@ -9,46 +9,90 @@ type ButtonElementProps = {
 };
 
 const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
-  const [verticalAlignment, setVerticalAlignment] = useState('center');
-  const [horizontalAlignment, setHorizontalAlignment] = useState('center');
-  const align = setting?.divAlignment;
-  const width = setting?.width;
-  const withIcon = setting?.withIcon;
-  const IconOfEditingBtn = icons[setting?.iconIndex || 7];
-
+  const [btnText, setbtnText] = useState('دکمه');
+  const [data1, setData1] = useState('center');
+  const [data2, setData2] = useState('center');
+  const [textStyle, setTextStyle] = useState();
+  const [heigth, setHeigth] = useState('متوسط');
   useEffect(() => {
-    if (align === 'Align-Right') {
-      setVerticalAlignment('flex-start');
+    setbtnText(setting?.btnText);
+  }, [setting?.btnText]);
+  const func = setting?.textEditorFunction;
+  useEffect(() => {
+    if (func === 'align left') {
+      setTextStyle('left');
     }
-    if (align === 'Align-Vertically') {
-      setVerticalAlignment('center');
+    if (func === 'align center') {
+      setTextStyle('center');
     }
-    if (align === 'Align-Left') {
-      setVerticalAlignment('flex-end');
+    if (func === 'align right') {
+      setTextStyle('right');
     }
-    if (align === 'Align') {
-      setHorizontalAlignment('flex-end');
+    if (func === 'justify center') {
+      setTextStyle('justify');
     }
-    if (align === 'Align-Horizontally') {
-      setHorizontalAlignment('center');
-    }
-    if (align === 'Align-Bottom') {
-      setHorizontalAlignment('flex-start');
-    }
-  }, [align]);
+  }, [func]);
 
+  const align1 = setting?.btnVerticalDivAlignment;
+  useEffect(() => {
+    if (align1 === 'Align-Right') {
+      setData1('flex-start');
+    }
+    if (align1 === 'Align-Vertically') {
+      setData1('center');
+    }
+    if (align1 === 'Align-Left') {
+      setData1('flex-end');
+    }
+  }, [setting?.btnVerticalDivAlignment]);
+
+  const align2 = setting?.btnHorizontalDivAlignment;
+  useEffect(() => {
+    if (align2 === 'Align') {
+      setData2('flex-end');
+    }
+    if (align2 === 'Align-Horizontally') {
+      setData2('center');
+    }
+    if (align2 === 'Align-Bottom') {
+      setData2('flex-start');
+    }
+  }, [setting?.btnHorizontalDivAlignment]);
+  const btnHeight = setting?.btnHeight;
+  useEffect(() => {
+    if (btnHeight === 'lg') {
+      console.log('lg');
+      setHeigth('44px');
+    }
+    if (btnHeight === 'md') {
+      setHeigth('36px');
+    }
+    if (btnHeight === 'sm') {
+      setHeigth('30px');
+    }
+  }, [setting?.btnHeight]);
   return (
     <div
       style={{alignItems: verticalAlignment, justifyContent: horizontalAlignment}}
       className="bg-white rounded-lg flex flex-col h-[48px] w-full"
     >
-      <button
-        style={{color: setting?.textColor, backgroundColor: setting?.bgColor, width}}
-        className="h-9 w-1/4 bg-neutral-main text-white rounded-[14px] flex justify-center items-center gap-2"
-      >
-        {withIcon && <IconOfEditingBtn />}
-        <div>دکمه</div>
-      </button>
+      <a href={setting?.btnLink}>
+        <button
+          style={{
+            color: setting?.textColor,
+            backgroundColor: setting?.bgColor,
+            fontWeight: setting?.boldTextEditorFunction ? 'bold' : 'normal',
+            fontStyle: setting?.italicTextEditorFunction ? 'italic' : 'normal',
+            textDecoration: setting?.underlineTextEditorFunction ? 'underline' : 'none',
+            textAlign: textStyle,
+            borderRadius: setting?.btnBorderRadius + 'px',
+            height: heigth ? heigth : '48px',width.
+          }}
+          className="h-9 w-[105px] bg-neutral-main text-white rounded-[14px]"
+        >
+          {btnText ? btnText : 'دکمه'}
+        </button>
+      </a>
     </div>
   );
 };

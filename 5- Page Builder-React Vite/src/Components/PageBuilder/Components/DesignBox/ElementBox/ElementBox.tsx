@@ -6,7 +6,9 @@ import {ButtonElement} from '.';
 import {TextElement} from './TextElement';
 import {AsideSlice, BuilderSlice} from '../../../../../redux/slices';
 import {storeStateTypes} from '../../../../../util/types';
-import {pen, trash, yellowHand} from '../../../../../assets/body';
+import {yellowHand} from '../../../../../assets/body';
+import yellowPen from '../../../../../assets/body/yellow pen.svg';
+import yellowTrash from '../../../../../assets/body/yellow trash.svg';
 
 type ElementBoxProps = {
   id: string | number;
@@ -47,8 +49,8 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
         style={{display: isActive ? 'flex' : 'none'}}
         className="absolute w-[88px] h-[32px] flex justify-center items-center gap-2 top-0 -translate-y-full right-[-0.5px] border rounded-t-[12px] rounded-l-[12px] border-solid border-secondary-border-light"
       >
-        <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={pen} alt="pen" title="pen" />
-        <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={trash} alt="trash" title="trash" />
+        <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={yellowPen} alt="pen" title="pen" />
+        <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={yellowTrash} alt="trash" title="trash" />
         <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={yellowHand} alt="hand" title="hand" />
       </div>
       {data}
