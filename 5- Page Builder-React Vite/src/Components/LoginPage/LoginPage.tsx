@@ -29,7 +29,7 @@ const LoginPage = () => {
           <img className="w-12 h-12 mr-2" src={logo} alt="logo" />
           صفحه ساز سروش پلاس
         </a>
-        <div className="w-[566px] p-4 rounded-[16px] bg-white shadow">
+        <div className="w-[340px] md:w-[566px] p-4 rounded-[16px] bg-white shadow">
           <div className="flex flex-col justify-center items-center w-full gap-6 mt-6">
             {/* <!--title--> */}
             <div className="flex justify-center items-center text-center font-semibold w-full text-gray-700">
@@ -53,7 +53,7 @@ const LoginPage = () => {
                 <label className="subLabel">عنوان صفحه ، تگ عنوان HTML است </label>
               </div>
               <div className="w-full flex-col">
-                <div className="flex flex-row justify-center w-full gap-4">
+                <div className="flex flex-col md:flex-row justify-center w-full gap-4">
                   <div className="w-full">
                     <TextInput
                       labelText="نام صفحه خود را وارد کنید (انگلیسی)"
