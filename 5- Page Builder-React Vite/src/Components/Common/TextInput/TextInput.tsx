@@ -42,7 +42,7 @@ const TextInput: React.FC<TextInputProps> = ({
   onChange,
 }) => {
   const [text, setText] = useState('');
-  
+
   // get id of active element box
   const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
   const selection =
@@ -50,6 +50,7 @@ const TextInput: React.FC<TextInputProps> = ({
     useSelector(
       (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === editingId)?.setting[target]
     );
+  const pageSetting = target && useSelector((state: storeStateTypes) => state.builder.pageSetting[target]);
 
   const typedText = selection ? selection : text;
   const smallInputPadding =
@@ -89,7 +90,7 @@ const TextInput: React.FC<TextInputProps> = ({
               onChange(e);
             }
           }}
-          value={selection ? selection : text}
+          value={selection ? selection : pageSetting}
         />
         {LeftIcon && <LeftIcon size={18} className="absolute left-2 bottom-1/2 translate-y-1/2 text-neutral-hover" />}
       </div>
