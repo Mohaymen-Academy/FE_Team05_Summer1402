@@ -19,6 +19,7 @@ const Header: React.FC<HeaderProps> = ({onClick}) => {
     return state.builder.pageHeader;
   });
   const dispatch = useDispatch();
+  // show layout page settings by click on home icon
   const showLayoutPage = () => {
     dispatch(AsideSlice.actions.setEditingComponentType({type: 'layout'}));
     dispatch(BuilderSlice.actions.setActive({id: '1'}));
