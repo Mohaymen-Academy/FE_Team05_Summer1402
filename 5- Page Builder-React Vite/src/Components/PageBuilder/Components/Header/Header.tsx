@@ -6,8 +6,13 @@ import upload from '../../../../assets/header/directbox-send.svg';
 import forward from '../../../../assets/header/undo.svg';
 import slider from '../../../../assets/asideMenu/sliders.svg';
 import {IconAnchor} from './IconAnchor';
+import {useSelector} from 'react-redux';
+import {storeStateTypes} from '../../../../util/types';
 
 const Header = () => {
+  const pageName = useSelector((state: storeStateTypes) => {
+    return state.builder.pageHeader;
+  });
   return (
     <header className="bg-white flex items-center justify-between w-full h-14">
       {/* right icons */}
@@ -27,7 +32,7 @@ const Header = () => {
       </div>
       {/* <!--page name--> */}
       <div className="w-full text-center p-2">
-        <h4 className="text-blue-600">نام صفحه</h4>
+        <h4 className="text-blue-600">{pageName}</h4>
       </div>
       {/* <!--left icons--> */}
       <div className="flex justify-end items-center w-full px-6 py-2 gap-5">

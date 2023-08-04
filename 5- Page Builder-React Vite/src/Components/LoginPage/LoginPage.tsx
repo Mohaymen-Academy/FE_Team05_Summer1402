@@ -2,6 +2,10 @@ import {useForm, SubmitHandler, FieldValues} from 'react-hook-form';
 import logo from '../../assets/logo.png';
 import {Button, TextInput} from '../Common';
 import {useNavigate} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import state from 'sweetalert/typings/modules/state';
+import {storeStateTypes} from '../../util/types';
+import {BuilderSlice} from '../../redux/slices';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -17,7 +21,10 @@ const LoginPage = () => {
     },
   });
 
+  const dispatch = useDispatch();
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    dispatch(BuilderSlice.actions.setPageHeader(data.pageNameEnglish));
     navigate('/home');
   };
 

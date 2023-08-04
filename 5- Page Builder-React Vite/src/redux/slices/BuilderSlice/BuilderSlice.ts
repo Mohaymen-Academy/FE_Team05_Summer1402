@@ -10,6 +10,7 @@ type componentType = {
 export type BuilderSliceTypes = {
   component: componentType[];
   pageSetting: Record<string, any>;
+  pageHeader: string;
 };
 
 export const BuilderSlice = createSlice({
@@ -17,8 +18,14 @@ export const BuilderSlice = createSlice({
   initialState: {
     component: [],
     pageSetting: {gap: '0.75rem', padding: '16px'},
+    pageHeader: 'نام صفحه',
   },
   reducers: {
+    // set page header
+    setPageHeader: (state: BuilderSliceTypes, action: {payload: {header: string}}) => {
+      const {header} = action.payload;
+      state.pageHeader = header;
+    },
     addComponent: (
       state: BuilderSliceTypes,
       action: {
