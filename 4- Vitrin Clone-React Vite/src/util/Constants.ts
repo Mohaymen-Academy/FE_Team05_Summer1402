@@ -6,7 +6,7 @@ import CarouselImage3 from '../assets/carousel/img4.jpg';
 import CarouselImage4 from '../assets/carousel/img5.jpg';
 import CarouselImage5 from '../assets/carousel/img6.jpg';
 import CarouselImage6 from '../assets/carousel/img7.jpg';
-
+// banner images
 import bannerImg1 from '../assets/Banner/quran.svg';
 import bannerImg2 from '../assets/Banner/book.svg';
 import bannerImg3 from '../assets/Banner/game.svg';

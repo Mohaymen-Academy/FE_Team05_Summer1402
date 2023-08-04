@@ -8,6 +8,7 @@ function getWindowDimensions() {
   };
 }
 
+// this hook get and save window dimensions
 const useWindowDimensions = () => {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 

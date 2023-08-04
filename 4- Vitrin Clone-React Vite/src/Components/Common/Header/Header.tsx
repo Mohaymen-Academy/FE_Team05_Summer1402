@@ -15,6 +15,10 @@ const Header = () => {
         }, time);
       });
     }
+
+    // event listener for scrolling page 
+    //in scroll down: header moves up 
+    //in scroll up: header moves down 
     document.addEventListener('scroll', async () => {
       if (!headerElement.current) return;
 
@@ -44,7 +48,10 @@ const Header = () => {
       ref={headerElement}
       className="bg-[#f2f1f6] fixed z-[999] top-0 flex-col w-screen h-[80px] md:h-[120px] justify-center drop-shadow-md transition-all flex"
     >
+      {/* upper header that includes logo,search bar,links */}
       <UpperHeader />
+      {/* lower menu that includes category */}
+      {/* it is just for desktop menu */}
       <LowerHeader />
     </header>
   );

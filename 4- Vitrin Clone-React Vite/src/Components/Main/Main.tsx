@@ -3,6 +3,7 @@ import {CategoryContainer} from '../Main/Components/CategoryContainer';
 import {ChannelContainer} from '../Main/Components/ChannelContainer';
 import {Banner} from '..';
 import {sectionArray} from '../../util/Constants';
+
 const Main = () => {
   return (
     <main className="m-auto overflow-hidden flex flex-col gap-4 mb-10">

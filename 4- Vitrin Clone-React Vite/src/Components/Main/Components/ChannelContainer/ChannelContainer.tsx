@@ -13,6 +13,7 @@ const ChannelContainer: React.FC<ChannelCardProps> = ({headerText}) => {
   let scrollLeft = useRef(0);
   useEffect(() => {
     if (slider.current != null) {
+      // handler for when we click on container
       const mouseDownHandler: EventListenerOrEventListenerObject = (e: any) => {
         isDown.current = true;
         if (slider.current != null) {
@@ -25,7 +26,7 @@ const ChannelContainer: React.FC<ChannelCardProps> = ({headerText}) => {
           a.classList.remove('pointer-events-none');
         });
       };
-
+      // handler for when we leave container
       const mouseLeaveHandler: EventListenerOrEventListenerObject = () => {
         isDown.current = false;
         if (slider.current != null) {
@@ -36,7 +37,7 @@ const ChannelContainer: React.FC<ChannelCardProps> = ({headerText}) => {
           a.classList.remove('pointer-events-none');
         });
       };
-
+      // handler for when we are on container
       const mouseUpHandler: EventListenerOrEventListenerObject = () => {
         isDown.current = false;
         if (slider.current != null) {
@@ -47,9 +48,8 @@ const ChannelContainer: React.FC<ChannelCardProps> = ({headerText}) => {
           a.classList.remove('pointer-events-none');
         });
       };
-
+      // handler for move container to right and left
       const mouseMoveHandler: EventListenerOrEventListenerObject = (e: any) => {
-        // console.log(isDown.current);
         if (!isDown.current) return;
         e.preventDefault();
         const anchors = document.querySelectorAll('a');
@@ -92,7 +92,7 @@ const ChannelContainer: React.FC<ChannelCardProps> = ({headerText}) => {
         >
           <div id="conatainer" className="flex gap-[1rem] py-2">
             {channelContainerInfo.map((card) => (
-              <ChannelCard imgUrl={card.imgUrl} link={card.link} title={card.title} key={card.id}/>
+              <ChannelCard imgUrl={card.imgUrl} link={card.link} title={card.title} key={card.id} />
             ))}
           </div>
         </div>

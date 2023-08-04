@@ -5,6 +5,7 @@ const SearchBar = () => {
   const searchSVG = useRef<HTMLElement>(null);
   const searchBtn = useRef<HTMLButtonElement>(null);
   let flag = false;
+  // hide and show search icon
   useEffect(() => {
     if (searchBtn.current != null) {
       searchBtn.current.addEventListener('click', (e: Event) => {
@@ -33,7 +34,7 @@ const SearchBar = () => {
         e.stopPropagation();
       });
     }
-
+    // close search bar by click on another parts except search bar
     document.addEventListener('click', (e: Event) => {
       e.stopPropagation();
       if (flag) {
