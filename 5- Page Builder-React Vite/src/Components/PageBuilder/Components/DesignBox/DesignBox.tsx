@@ -17,8 +17,10 @@ const DesignBox = () => {
   return (
     <main className="lg:w-[calc(100vw-175px-345px)] w-full flex justify-center items-center">
       <div className="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
+        {/* element boxes */}
         <div
           style={{
+            display: showDesignBox ? 'none' : 'flex',
             gap: settings.gap + 'px',
             paddingLeft: settings?.paddingX ? settings?.paddingX + 'px' : '15px',
             paddingRight: settings?.paddingX ? settings?.paddingX + 'px' : '15px',
