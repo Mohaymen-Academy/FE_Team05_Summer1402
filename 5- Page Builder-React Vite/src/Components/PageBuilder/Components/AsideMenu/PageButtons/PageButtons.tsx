@@ -29,15 +29,15 @@ const PageButtons = () => {
     ];
 
   //button text style, select from redux
-  let isBold = useSelector(
+  const isBold = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === edittingId)?.setting?.boldTextEditorFunction
   );
-  let isUnderline = useSelector(
+  const isUnderline = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === edittingId)?.setting?.underlineTextEditorFunction
   );
-  let isItalic = useSelector(
+  const isItalic = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === edittingId)?.setting?.italicTextEditorFunction
   );
@@ -66,47 +66,41 @@ const PageButtons = () => {
   };
 
   //handler to add href to button
-  const btnLinkChangeHandler = (e: any) => {
-    console.log(e.target.value);
+  const btnLinkChangeHandler = (e: any) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnLink: e.target.value}}));
-  };
 
   // handler to change button text
-  const btnTextChangeHandler = (e: any) => {
+  const btnTextChangeHandler = (e: any) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnText: e.target.value}}));
-  };
 
   // handler to change button text properties such as italic,bold,underline,alignment
   const btnTextEditorChangeHandler = (e: any) => {
     const title = e.target?.title;
+    ///
     if (title === 'bold') {
-      if (isBold === null) isBold = true;
       if (isBold) {
         dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {boldTextEditorFunction: false}}));
-        isBold = false;
       } else {
         dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {boldTextEditorFunction: true}}));
-        isBold = true;
       }
-    } else if (title === 'underline') {
+    }
+
+    ///
+    if (title === 'underline') {
       if (isUnderline) {
         dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {underlineTextEditorFunction: false}}));
-        isUnderline = false;
       } else {
-        isUnderline = true;
         dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {underlineTextEditorFunction: true}}));
       }
-    } else if (title === 'italic') {
+    }
+
+    ///
+    if (title === 'italic') {
       if (isItalic) {
         dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {italicTextEditorFunction: false}}));
-        isItalic = false;
       } else {
         dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {italicTextEditorFunction: true}}));
-        isItalic = true;
       }
-    } else {
-      console.log(title);
-      dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {textEditorFunction: title}}));
     }
   };
 
@@ -115,27 +109,24 @@ const PageButtons = () => {
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnBorderRadius: e.target?.value}}));
 
   //handler to change button height
-  const btnHeightChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
+  const btnHeightChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnHeight: e.target?.value}}));
-  };
 
   //handler to change button width
   const onButtonWidthChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {width: e.target.value}}));
 
   //handler active icon of the button
-  const withIconCheckHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const withIconCheckHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {withIcon: e.target.checked}}));
-  };
+
   // handler to change button padding
-  const paddingBtnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const paddingBtnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnPadding: e.target.value}}));
-  };
+
   // handler to change button word space
-  const wordSpaceBtnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const wordSpaceBtnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: edittingId, setting: {btnWordSpace: e.target.value}}));
-  };
 
   return (
     <div className="w-full flex flex-col justify-start items-center gap-6 mt-3">

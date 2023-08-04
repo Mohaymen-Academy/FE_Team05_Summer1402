@@ -36,7 +36,14 @@ export const BuilderSlice = createSlice({
         state.component.push(action.payload);
       }
     },
-
+    removeComponent: (
+      state: BuilderSliceTypes,
+      action: {
+        payload: {id: string | number};
+      }
+    ) => {
+      state.component = state.component.filter((compo) => compo.id !== action.payload.id);
+    },
     //set active component
     setActive: (state: BuilderSliceTypes, action: {payload: {id: string | number}}) => {
       const {id} = action.payload;
