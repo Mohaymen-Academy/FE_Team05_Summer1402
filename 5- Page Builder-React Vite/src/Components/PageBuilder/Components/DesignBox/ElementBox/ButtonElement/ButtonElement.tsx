@@ -1,8 +1,5 @@
-import {useEffect, useMemo, useState} from 'react';
-import {AiFillAccountBook, AiOutlineAim} from 'react-icons/ai';
+import {useEffect, useState} from 'react';
 import {icons} from '../../../../../../util/Constatnts';
-import {useSelector} from 'react-redux';
-import {storeStateTypes} from '../../../../../../util/types';
 
 type ButtonElementProps = {
   setting?: Record<string, any>;

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {v4} from 'uuid';
 import {Header} from './Components/Header';
@@ -11,8 +11,8 @@ import axios from 'axios';
 import {storeStateTypes} from '../../util/types';
 
 const PageBuilder = () => {
-  const [loading, setLoading] = useState(true);
-  const [activeDrag, setActiveDrag] = useState<string>();
+  // const [loading, setLoading] = useState(true);
+  // const [activeDrag, setActiveDrag] = useState<string>();
   const dispatch = useDispatch();
 
   const components = useSelector((state: storeStateTypes) => state.builder.component);
@@ -22,7 +22,7 @@ const PageBuilder = () => {
       const {data: components} = await axios.get('http://localhost:3000/components');
       const {data: pageSetting} = await axios.get('http://localhost:3000/pageSetting');
       dispatch(BuilderSlice.actions.setAppData({components, pageSetting}));
-      setLoading(false);
+      // setLoading(false);
     };
     setPrevData();
   }, []);
@@ -47,12 +47,12 @@ const PageBuilder = () => {
     if (['btns', 'txt'].includes(event.active.id as string)) {
       dispatch(BuilderSlice.actions.setShowDropZone({show: true}));
     }
-    setActiveDrag(event.active.id as string);
+    // setActiveDrag(event.active.id as string);
   }
 
   // handle for ending drag & drop frame buttons
   function handleDragEnd(event: DragEndEvent) {
-    setActiveDrag(undefined);
+    // setActiveDrag(undefined);
     const type = ['btns', 'txt'].includes(event.active.id as string) && (event.active.id as 'btns' | 'txt');
     if (event.over) {
       if (type) {
