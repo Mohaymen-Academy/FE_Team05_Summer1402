@@ -70,7 +70,7 @@ const ElementBox: React.FC<ElementBoxProps> = ({
     >
       <div
         style={{display: isActive ? 'flex' : 'none'}}
-        className="absolute w-[88px] h-[32px] flex justify-center items-center gap-2 top-0 -translate-y-full right-[-0.5px] border rounded-t-[12px] rounded-l-[12px] border-solid border-secondary-border-light z-50"
+        className="absolute w-[88px] h-[32px] flex justify-center items-center gap-2 top-0 -translate-y-full right-[-0.5px] border rounded-t-[12px] rounded-l-[12px] border-solid border-secondary-border-light z-50 bg-white"
       >
         <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={yellowPen} alt="pen" title="pen" />
         <IconButton
