@@ -76,7 +76,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   return (
     <div
       style={{alignItems: verticalAlignment, justifyContent: horizontalAlignment}}
-      className="bg-white rounded-lg flex flex-col h-[48px] w-full"
+      className="rounded-lg flex flex-col h-[48px] w-full"
     >
       <a style={{width: setting?.width ? setting?.width : '25%'}} href={setting?.btnLink}>
         <button

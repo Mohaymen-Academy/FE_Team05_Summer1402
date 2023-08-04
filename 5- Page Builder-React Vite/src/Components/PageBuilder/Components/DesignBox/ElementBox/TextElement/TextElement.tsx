@@ -1,5 +1,4 @@
-import {textDecoration} from '@chakra-ui/react';
-import {useState, useMemo, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 
 type TextElementProps = {
   setting?: Record<string, any>;
@@ -23,7 +22,6 @@ const TextElement: React.FC<TextElementProps> = ({setting}) => {
   // handle text align
   const func = setting?.textEditorFunction;
   useEffect(() => {
-    console.log(func);
     if (func === 'align left') {
       setTextStyle('left');
     }
@@ -69,7 +67,6 @@ const TextElement: React.FC<TextElementProps> = ({setting}) => {
   // handle header size
   const textSize = setting?.textSize;
   useEffect(() => {
-    console.log(textSize);
     if (textSize === 'H1') {
       setTextSize('32px');
     } else if (textSize === 'H2') {

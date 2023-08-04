@@ -6,7 +6,7 @@ import {PageButtons, PageSetting, TextPage} from '.';
 
 const AsideMenu = () => {
   const settingType = useSelector((state: storeStateTypes) => state.aside.editingComponentType);
-  console.log(settingType);
+  
   // data of aside menu that changes by frames
   const setting = useMemo(() => {
     if (settingType === 'btns') return <PageButtons />;

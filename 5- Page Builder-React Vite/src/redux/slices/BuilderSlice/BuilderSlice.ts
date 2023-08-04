@@ -1,16 +1,18 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-type componentType = {
+export type componentType = {
   type: 'btns' | 'txt';
   id: string | number;
   setting: Record<string, any>;
   active: boolean;
+  order: number;
 };
 
 export type BuilderSliceTypes = {
   component: componentType[];
   pageSetting: Record<string, any>;
   pageHeader: string;
+  showDropZone: boolean;
 };
 
 export const BuilderSlice = createSlice({
@@ -19,6 +21,7 @@ export const BuilderSlice = createSlice({
     component: [],
     pageSetting: {gap: '0.75rem', padding: '16px'},
     pageHeader: 'نام صفحه',
+    showDropZone: false,
   },
   reducers: {
     //set components and page setting on app start
@@ -82,6 +85,26 @@ export const BuilderSlice = createSlice({
       const {setting} = action.payload;
 
       state.pageSetting = {...state.pageSetting, ...setting};
+    },
+    setShowDropZone: (state: BuilderSliceTypes, action: {payload: {show: boolean}}) => {
+      state.showDropZone = action.payload.show;
+    },
+    setOrder: (
+      state: BuilderSliceTypes,
+      action: {
+        payload: {
+          overOrder: number;
+          activeOrder: number;
+          activeId: string;
+          overId: string;
+        };
+      }
+    ) => {
+      const {activeOrder, overOrder, activeId, overId} = action.payload;
+      state.component = state.component.map((compo) => ({
+        ...compo,
+        order: compo.id === activeId ? overOrder : compo.id === overId ? activeOrder : compo.order,
+      }));
     },
   },
 });
