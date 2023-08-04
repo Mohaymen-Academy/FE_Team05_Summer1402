@@ -14,6 +14,30 @@
       },
       "type": "btns",
       "active": true
+    },
+    {
+      "id": "2a608c75-05b6-4c15-83ba-f7c0c88a3ead",
+      "setting": {
+        "withIcon": true,
+        "iconIndex": 27,
+        "textColor": "#ba1212"
+      },
+      "type": "btns",
+      "active": true
+    },
+    {
+      "id": "6af130ce-d3ad-41af-8083-f4adf7bc5908",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "148d8b67-9503-46b5-94bf-ea94d0ecc40c",
+      "setting": {
+        "textColor": "#1d1b1b"
+      },
+      "type": "btns",
+      "active": true
     }
   ],
   "pageSetting": {
