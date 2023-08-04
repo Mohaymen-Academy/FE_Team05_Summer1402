@@ -2,10 +2,7 @@ import {frameButton} from '../../../../util/Constatnts';
 import {Button} from '../../../Common';
 import DraggableComponent from './DraggableComponent/DraggableComponent';
 
-type FramesMenu = {
-  activeDragId?: string;
-};
-const FramesMenu: React.FC<FramesMenu> = ({activeDragId}) => {
+const FramesMenu: React.FC = () => {
   return (
     <aside className="bg-white h-full w-[175px] px-[12px] absolute lg:static -right-[175px] transition-all z-50 shadow-lg">
       <div className="justify-center items-center w-full my-[8px]">

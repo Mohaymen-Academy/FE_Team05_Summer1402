@@ -13,13 +13,13 @@ import yellowTrash from '../../../../../assets/body/yellow trash.svg';
 type ElementBoxProps = {
   id: string | number;
   type: 'btns' | 'txt';
-  active?: boolean;
 };
-const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
-  const navigate = useNavigate();
+const ElementBox: React.FC<ElementBoxProps> = ({type, id}) => {
   const dispatch = useDispatch();
   const component = useSelector((state: storeStateTypes) => state.builder.component.find((comp) => comp.id === id));
-  const data = useMemo(() => {
+  const isActive = component?.active;
+
+  const Element = useMemo(() => {
     if (type === 'btns') {
       return <ButtonElement setting={component?.setting} />;
     }
@@ -27,16 +27,17 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
       return <TextElement setting={component?.setting} />;
     }
   }, [type, component]);
+
   const onClickHandler = () => {
     dispatch(BuilderSlice.actions.setActive({id}));
     dispatch(AsideSlice.actions.setEditingComponent({id, type}));
-
-    if (type === 'btns') navigate('/home/pageButtons');
-
-    if (type === 'txt') navigate('/home/textPage');
+  };
+  const onDeleteHandler = (e: any) => {
+    e.stopPropagation();
+    dispatch(BuilderSlice.actions.removeComponent({id}));
+    dispatch(AsideSlice.actions.setEditingComponentType({type: 'layout'}));
   };
 
-  const isActive = component?.active;
   const style = {border: isActive ? 'rgb(255,209,161) 1px solid' : ''};
 
   return (
@@ -47,13 +48,20 @@ const ElementBox: React.FC<ElementBoxProps> = ({type, active, id}) => {
     >
       <div
         style={{display: isActive ? 'flex' : 'none'}}
-        className="absolute w-[88px] h-[32px] flex justify-center items-center gap-2 top-0 -translate-y-full right-[-0.5px] border rounded-t-[12px] rounded-l-[12px] border-solid border-secondary-border-light"
+        className="absolute w-[88px] h-[32px] flex justify-center items-center gap-2 top-0 -translate-y-full right-[-0.5px] border rounded-t-[12px] rounded-l-[12px] border-solid border-secondary-border-light bg-white z-50"
       >
         <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={yellowPen} alt="pen" title="pen" />
-        <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={yellowTrash} alt="trash" title="trash" />
+        <IconButton
+          onClick={onDeleteHandler}
+          btnStyle="h-[16px] w-[16px]"
+          iconStyle=""
+          src={yellowTrash}
+          alt="trash"
+          title="trash"
+        />
         <IconButton btnStyle="h-[16px] w-[16px]" iconStyle="" src={yellowHand} alt="hand" title="hand" />
       </div>
-      {data}
+      {Element}
     </div>
   );
 };

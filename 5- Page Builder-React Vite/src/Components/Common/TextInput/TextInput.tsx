@@ -21,7 +21,7 @@ type TextInputProps = {
   smallInput?: boolean;
   target?: string;
   leftIcon?: IconType;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 const TextInput: React.FC<TextInputProps> = ({
   placeholder,
@@ -42,20 +42,24 @@ const TextInput: React.FC<TextInputProps> = ({
   onChange,
 }) => {
   const [text, setText] = useState('');
+  
+  // get id of active element box
+  const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
+  const selection =
+    target &&
+    useSelector(
+      (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === editingId)?.setting[target]
+    );
 
+  const typedText = selection ? selection : text;
   const smallInputPadding =
-    text.length === 1 ? 15 : text.length === 0 || text.length === 2 ? 12 : text.length > 2 ? 9 : 12;
+    typedText.length === 1 ? 15 : typedText.length === 0 || typedText.length === 2 ? 12 : typedText.length > 2 ? 9 : 12;
+
   // register input
   const registerValidator = useMemo(() => {
     if (register && formId) return register(formId, {required, pattern});
     return {register: 'no Register'};
   }, [register]);
-  // get id of active element box
-  const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
-  const selection = useSelector(
-    (state: storeStateTypes) =>
-      state.builder.component.find((comp) => comp.id === editingId)?.setting[target ? target : '']
-  );
 
   return (
     <div>
@@ -81,9 +85,11 @@ const TextInput: React.FC<TextInputProps> = ({
           type={type}
           onChange={(e) => {
             setText(e.target.value);
-            onChange(e);
+            if (onChange) {
+              onChange(e);
+            }
           }}
-          value={selection ? selection : ''}
+          value={selection ? selection : text}
         />
         {LeftIcon && <LeftIcon size={18} className="absolute left-2 bottom-1/2 translate-y-1/2 text-neutral-hover" />}
       </div>

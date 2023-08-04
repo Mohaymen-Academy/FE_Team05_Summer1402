@@ -18,6 +18,10 @@ export const AsideSlice = createSlice({
       state.editingComponentId = id;
       state.editingComponentType = type;
     },
+    setEditingComponentType: (state: AsideSliceType, action: {payload: {type: 'btns' | 'txt' | 'layout'}}) => {
+      const {type} = action.payload;
+      state.editingComponentType = type;
+    },
   },
 });
 

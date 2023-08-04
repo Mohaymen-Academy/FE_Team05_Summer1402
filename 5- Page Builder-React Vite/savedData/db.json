@@ -14,10 +14,274 @@
       },
       "type": "btns",
       "active": true
+    },
+    {
+      "id": "2a608c75-05b6-4c15-83ba-f7c0c88a3ead",
+      "setting": {
+        "withIcon": true,
+        "iconIndex": 27,
+        "textColor": "#ba1212"
+      },
+      "type": "btns",
+      "active": true
+    },
+    {
+      "id": "6af130ce-d3ad-41af-8083-f4adf7bc5908",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "148d8b67-9503-46b5-94bf-ea94d0ecc40c",
+      "setting": {
+        "textColor": "#1d1b1b"
+      },
+      "type": "btns",
+      "active": true
+    },
+    {
+      "id": "962dc82d-f2d8-432a-aa2c-019cbc46b685",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "714b301a-4ad5-43f1-abed-16c65ed964d0",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "b9fc4c07-f299-41ad-986b-439a30c8d5ed",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "2c421480-24b3-4d2d-af8f-b8b7e8c677b3",
+      "setting": {
+        "textSize": "14",
+        "textColor": "#8f2d2d",
+        "textType": "متن",
+        "textHorizontalDivAlignment": "",
+        "textVerticalDivAlignment": "Align-Left",
+        "textEditorFunction": "",
+        "boldTextEditorFunction": false,
+        "italicTextEditorFunction": false,
+        "underlineTextEditorFunction": false
+      },
+      "type": "txt",
+      "active": true
+    },
+    {
+      "id": "6bbfa644-4763-46eb-97cc-1014ccae4bc9",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "e9bc72a3-bade-4205-8b47-f6ba1fac10e5",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "23df985d-141b-4ec3-91c2-e4a93be80d95",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "e774c085-4358-476a-81d2-c40685070376",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "3341eef0-bd3e-4283-a586-09e6d1ae3b61",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "f3ccfd7b-9ce9-4253-9cd4-7104857e7da2",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "c39f3604-8140-47ce-a3dc-6db3feaa914d",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "d451f992-816e-47d4-b90c-496e7f512897",
+      "setting": {},
+      "type": "img",
+      "active": false
+    },
+    {
+      "id": "29024822-77b9-4854-a828-3f3f6ae9b97d",
+      "setting": {},
+      "type": "img",
+      "active": false
+    },
+    {
+      "id": "a53457f8-d27f-4bf8-9e66-03131e5a2e00",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "dfdc5aef-8df4-48c5-9187-100f06c494e3",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "eb8a1d00-1b00-4fc2-8b11-b3c8c894439b",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "870eeb37-3fce-4a7f-98d9-451dcccd9f82",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "2583eaff-d930-49eb-9130-6824b58155c4",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "702cf558-5a07-42aa-97bd-e677f54c3e93",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "147776da-7ed9-4fc9-8d23-6fdecb6ddbc1",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "afed6755-1d7e-4f81-9d09-089e4f024775",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "15d40057-7d2e-4d02-b7da-ba41b3198780",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "a753fb26-89e0-4892-9e74-1b786a7fb13f",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "d13acd96-5928-498e-a574-3a1705b2e686",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "1158bd48-8e6e-4990-836d-9bb6620ff6a1",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "00631ec3-47ca-488c-b849-c96d1b3ff4fa",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "46471edd-8871-438d-98cd-a87db0fcc756",
+      "setting": {
+        "bgColor": "#c61010",
+        "withIcon": false,
+        "iconIndex": 21,
+        "btnText": "",
+        "btnBorderRadius": "6px"
+      },
+      "type": "btns",
+      "active": true
+    },
+    {
+      "id": "44d1338f-0da7-434c-a17f-720061b38216",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "e30ffd54-33d1-4f4f-a6aa-b79c0ad6c9c1",
+      "setting": {
+        "boldTextEditorFunction": false,
+        "textEditorFunction": "align right"
+      },
+      "type": "txt",
+      "active": true
+    },
+    {
+      "id": "2c976b74-8f62-454b-95f1-b25b99f27d39",
+      "setting": {
+        "boldTextEditorFunction": true,
+        "italicTextEditorFunction": true,
+        "underlineTextEditorFunction": true,
+        "textEditorFunction": "justify center",
+        "textType": "متن",
+        "lineHeight": "2"
+      },
+      "type": "txt",
+      "active": true
+    },
+    {
+      "id": "5b01959a-f1b2-49a5-ba62-bd917ed2856f",
+      "setting": {
+        "textType": "title",
+        "textSize": "12"
+      },
+      "type": "txt",
+      "active": true
+    },
+    {
+      "id": "c80f945a-fc6f-432b-93d5-8a3b4d49ae04",
+      "setting": {
+        "btnText": "sdf",
+        "italicTextEditorFunction": true,
+        "boldTextEditorFunction": true,
+        "underlineTextEditorFunction": true
+      },
+      "type": "btns",
+      "active": true
+    },
+    {
+      "id": "0e594f87-08ca-409d-9fff-422acc00a8c3",
+      "setting": {},
+      "type": "btns",
+      "active": false
+    },
+    {
+      "id": "96efbf64-a441-4b52-8ef5-24585473b3c3",
+      "setting": {
+        "boldTextEditorFunction": false
+      },
+      "type": "txt",
+      "active": true
     }
   ],
   "pageSetting": {
     "gap": "0.75rem",
-    "padding": "px"
+    "padding": "16px"
   }
 }

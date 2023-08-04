@@ -1,4 +1,4 @@
-import {FieldValues, useForm} from 'react-hook-form';
+import {useState} from 'react';
 import {ColorsInput} from '../Inputs/ColorsInput';
 import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
@@ -9,34 +9,33 @@ import {AiOutlineLink} from 'react-icons/ai';
 import {useDispatch, useSelector} from 'react-redux';
 import {storeStateTypes} from '../../../../../util/types';
 import {BuilderSlice} from '../../../../../redux/slices';
-import {ChangeEvent, useState} from 'react';
 
 const TextPage = () => {
   // state for disable selection inputs
   const [headerDisable, setHeaderDisable] = useState(false);
   const [textDisable, setTextDisable] = useState(true);
-
   const dispatch = useDispatch();
+
   const editingId = useSelector((state: storeStateTypes) => state.aside.editingComponentId);
-  // get bold property from store state
-  let isBold = useSelector(
+
+  // get button text style property from redux
+  const isBold = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === editingId)?.setting?.boldTextEditorFunction
   );
-  // get underline property from store state
-  let isUnderline = useSelector(
+  const isUnderline = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === editingId)?.setting?.underlineTextEditorFunction
   );
-  // get italic property from store state
-  let isItalic = useSelector(
+  const isItalic = useSelector(
     (state: storeStateTypes) =>
       state.builder.component.find((compo) => compo.id === editingId)?.setting?.italicTextEditorFunction
   );
+
   // handler to change text color
-  const textColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const textColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textColor: e.target?.value}}));
-  };
+
   // handler to change alignment in div tag
   const changeDivAlignment = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const title = e.target?.title;
@@ -48,14 +47,15 @@ const TextPage = () => {
       );
     }
   };
+
   // handler to set link for text
-  const textLinkChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const textLinkChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textLink: e.target?.value}}));
-  };
+
   // handler to change text
-  const textChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const textChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textElementText: e.target?.value}}));
-  };
+
   // handler to change properties of text
   // properties: bold,underline,italic,alignment
   const textEditorChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -63,56 +63,54 @@ const TextPage = () => {
     if (title === 'bold') {
       if (isBold) {
         dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {boldTextEditorFunction: false}}));
-        isBold = false;
       } else {
         dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {boldTextEditorFunction: true}}));
-        isBold = true;
       }
-    } else if (title === 'underline') {
+    }
+    if (title === 'underline') {
       if (isUnderline) {
         dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {underlineTextEditorFunction: false}}));
-        isUnderline = false;
       } else {
-        isUnderline = true;
         dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {underlineTextEditorFunction: true}}));
       }
-    } else if (title === 'italic') {
+    }
+    if (title === 'italic') {
       if (isItalic) {
         dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {italicTextEditorFunction: false}}));
-        isItalic = false;
       } else {
         dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {italicTextEditorFunction: true}}));
-        isItalic = true;
       }
-    } else {
-      dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textEditorFunction: title}}));
     }
   };
+
   // handler to change text size
   const textSizeChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textSize: e.target.value}}));
   };
+
   // handler to change line height
   const lineHeightChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {lineHeight: e.target.value}}));
   };
+
   // handler to change text padding
   const paddingChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {textPadding: e.target.value}}));
   };
+
   // handler to change word space
   const wordSpaceChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(BuilderSlice.actions.setSettings({id: editingId, setting: {wordSpace: e.target.value}}));
   };
+
   // handler to disable or enable selection input
   const textTypeChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target?.value;
-    console.log(value);
-    if (value === 'متن') {
+    if (value === 'text') {
       setHeaderDisable(true);
       setTextDisable(false);
     }
-    if (value === 'عنوان') {
+    if (value === 'title') {
       setHeaderDisable(false);
       setTextDisable(true);
     }
@@ -126,10 +124,10 @@ const TextPage = () => {
         onChange={textTypeChangeHandler}
         inputHeaderName="نوع متن"
         target="textType"
-        defaultValue="متن"
+        defaultValue="text"
         options={[
-          {value: 'عنوان', text: 'عنوان'},
-          {value: 'متن', text: 'متن'},
+          {value: 'title', text: 'عنوان'},
+          {value: 'text', text: 'متن'},
         ]}
       />
       <SettingSelectionInput
