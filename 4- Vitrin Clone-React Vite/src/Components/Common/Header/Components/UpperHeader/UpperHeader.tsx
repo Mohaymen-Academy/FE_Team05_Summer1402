@@ -5,7 +5,6 @@ import {SearchBar} from '../Searchbar';
 const UpperHeader = () => {
   return (
     <header>
-      {/* header for desktop */}
       <div className="flex justify-between items-center w-full bg-blue-600 box-border h-[80px]">
         <div className="w-full flex justify-between items-center h-full">
           {/* logo */}
