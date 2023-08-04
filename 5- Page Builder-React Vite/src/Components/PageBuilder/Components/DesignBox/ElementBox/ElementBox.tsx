@@ -56,7 +56,7 @@ const ElementBox: React.FC<ElementBoxProps> = ({
   const style = {
     border: isActive ? 'rgb(255,209,161) 1px solid' : '',
     transition: dndTransition,
-    transform: CSS.Transform.toString(dndTransform ? dndTransform : ''),
+    transform: dndTransform ? CSS.Transform.toString(dndTransform)?.split(')')[0] + ')' : undefined,
   };
 
   return (
