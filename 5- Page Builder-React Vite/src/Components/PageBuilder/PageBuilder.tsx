@@ -21,7 +21,7 @@ const PageBuilder = () => {
       dispatch(BuilderSlice.actions.addComponent({id: v4(), setting: {}, type, active: false}));
     }
   }
-
+  // getting data from json server
   useEffect(() => {
     const setPrevData = async () => {
       const {data: components} = await axios.get('http://localhost:3000/components');
@@ -33,8 +33,9 @@ const PageBuilder = () => {
   }, []);
   const slider = useSelector((state: storeStateTypes) => state.builder.pageSetting.slider);
   const asideMenu = useSelector((state: storeStateTypes) => state.builder.pageSetting.asideMenu);
-
+  // handler for hide and show aside menues
   const showAsides = (e: React.MouseEvent) => {
+    // @ts-ignore
     const title = e.target.alt;
     if (title === 'slider') {
       if (slider) dispatch(BuilderSlice.actions.setPageSetting({setting: {slider: false}}));
