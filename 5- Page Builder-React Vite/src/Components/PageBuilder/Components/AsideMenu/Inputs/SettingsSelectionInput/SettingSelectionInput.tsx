@@ -25,6 +25,7 @@ const SettingSelectionInput: React.FC<SettingSelectionInputProps> = ({
   const selection = useSelector(
     (state: storeStateTypes) => state.builder.component.find((comp) => comp.id === editingId)?.setting[target]
   );
+  const pageSetting = useSelector((state: storeStateTypes) => state.builder.pageSetting[target]);
 
   return (
     <div className="flex w-full items-center justify-between">
@@ -33,7 +34,7 @@ const SettingSelectionInput: React.FC<SettingSelectionInputProps> = ({
       </div>
       <select
         onChange={onChange}
-        value={selection ? selection : '50%'}
+        value={selection ? selection : pageSetting ? pageSetting : '50%'}
         defaultValue={defaultValue}
         style={dropMenuStyle}
         className="input-drop"

@@ -6,13 +6,20 @@ import upload from '../../../../assets/header/directbox-send.svg';
 import forward from '../../../../assets/header/undo.svg';
 import slider from '../../../../assets/asideMenu/sliders.svg';
 import {IconAnchor} from './IconAnchor';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {storeStateTypes} from '../../../../util/types';
+import {AsideSlice, BuilderSlice} from '../../../../redux/slices';
+import { Action } from '@dnd-kit/core/dist/store';
 
 const Header = () => {
   const pageName = useSelector((state: storeStateTypes) => {
     return state.builder.pageHeader;
   });
+  const dispatch = useDispatch();
+  const showLayoutPage = () => {
+    dispatch(AsideSlice.actions.setEditingComponentType({type: 'layout'}));
+    dispatch(BuilderSlice.actions.setActive({id: '1'}));
+  };
   return (
     <header className="bg-white flex items-center justify-between w-full h-14">
       {/* right icons */}
@@ -24,7 +31,7 @@ const Header = () => {
         {/* right icons */}
         <IconAnchor anchorStyle="lg:hidden" imgStyle="w-[24px] cursor-pointer" src={asideMenu} alt="asideMenu" />
 
-        <IconAnchor anchorStyle="" imgStyle="w-[24px]" src={home} alt="Home" />
+        <IconAnchor onClick={showLayoutPage} anchorStyle="" imgStyle="w-[24px]" src={home} alt="Home" />
 
         <IconAnchor anchorStyle="" imgStyle="w-[24px]" src={eye} alt="eye" />
 

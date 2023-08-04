@@ -1,26 +1,31 @@
 {
   "components": [
     {
-      "id": "e34a499f-4108-4bea-b317-3ee3250ce670",
-      "setting": {
-        "bgColor": "#501111",
-        "withIcon": false
-      },
-      "type": "btns",
+      "id": "08160935-878b-4d8c-a871-701fcd2e6438",
+      "setting": {},
+      "type": "icn",
       "active": false
     },
     {
-      "id": "e77aa632-80fd-4c85-b250-5662bb31db83",
+      "id": "f00a117d-850d-496c-94cc-de70d2d65a72",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "d35c0b15-79a2-4724-8713-4a1886f77529",
       "setting": {
-        "bgColor": "#a34d4d",
-        "textColor": "#d81313"
+        "textElementText": "n flkflbklfblk"
       },
-      "type": "btns",
+      "type": "txt",
       "active": false
     }
   ],
   "pageSetting": {
-    "gap": "0.5rem",
-    "padding": "2px"
+    "gap": "0.25rem",
+    "padding": "12px",
+    "margin": "21px",
+    "paddingY": "25",
+    "paddingX": "22"
   }
 }

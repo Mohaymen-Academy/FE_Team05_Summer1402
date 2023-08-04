@@ -12,7 +12,16 @@ const DesignBox = () => {
   return (
     <main className="lg:w-[calc(100vw-175px-345px)] w-full flex justify-center items-center ">
       <div className="w-[360px] flex flex-col h-[90%] max-h-[800px] relative">
-        <div style={{gap: settings.gap, padding: settings.padding}} className="bg-white w-full h-full flex flex-col overflow-auto">
+        <div
+          style={{
+            gap: settings.gap,
+            paddingLeft: settings?.paddingX + 'px',
+            paddingRight: settings?.paddingX + 'px',
+            paddingBottom: settings?.paddingY + 'px',
+            paddingTop: settings?.paddingY ? settings?.paddingY + 'px' : '25px',
+          }}
+          className="bg-white w-full h-full flex flex-col overflow-auto"
+        >
           {elementComponents.map((component) => (
             <ElementBox id={component.id} type={component.type} key={component.id} />
           ))}

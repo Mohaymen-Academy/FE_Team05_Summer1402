@@ -15,7 +15,7 @@ const PageSetting = () => {
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
       <SettingSelectionInput
-        target='gap'
+        target="gap"
         onChange={onGapChangeHandler}
         inputHeaderName="فاصله بین فریم‌ها"
         defaultValue={gap}
@@ -32,8 +32,8 @@ const PageSetting = () => {
         ]}
       />
       <SettingsInput
-        target='padding'
-        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {padding: `${e.target.value}px`}}))}
+        target="paddingY"
+        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {paddingY: `${e.target.value}`}}))}
         inputType="number"
         smallInput
         formId="padding"
@@ -41,8 +41,8 @@ const PageSetting = () => {
         placeholder="۱۶"
       />
       <SettingsInput
-        target='margin'
-        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {margin: `${e.target.value}px`}}))}
+        target="paddingX"
+        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {paddingX: `${e.target.value}`}}))}
         inputType="number"
         smallInput
         formId="margin"
