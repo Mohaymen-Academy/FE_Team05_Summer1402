@@ -7,20 +7,6 @@
       "active": false
     },
     {
-      "id": "f00a117d-850d-496c-94cc-de70d2d65a72",
-      "setting": {},
-      "type": "txt",
-      "active": false
-    },
-    {
-      "id": "d35c0b15-79a2-4724-8713-4a1886f77529",
-      "setting": {
-        "textElementText": "n flkflbklfblk"
-      },
-      "type": "txt",
-      "active": false
-    },
-    {
       "id": "3c343c4b-36ba-41c5-bdc0-5a3133612f42",
       "setting": {},
       "type": "card",
@@ -33,19 +19,38 @@
       "active": false
     },
     {
-      "id": "6dfe2263-07e8-43ca-8104-0d6f94774303",
+      "id": "2c0f76e9-0139-4691-9a17-06bd1dfb3ca8",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "1af911cd-7d0c-48c0-986e-e019df0b0394",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "0e642337-99cb-4ff2-b9a4-57d7bbb15a9c",
+      "setting": {},
+      "type": "txt",
+      "active": false
+    },
+    {
+      "id": "40e50ecc-8f48-4952-b984-7e9078fd02ca",
       "setting": {},
       "type": "btns",
       "active": false
     }
   ],
   "pageSetting": {
-    "gap": "1rem",
+    "gap": "0.25rem",
     "padding": "12px",
     "margin": "21px",
-    "paddingY": "25",
+    "paddingY": "",
     "paddingX": "22",
     "slider": true,
-    "asideMenu": true
+    "asideMenu": true,
+    "spoiler": false
   }
 }
