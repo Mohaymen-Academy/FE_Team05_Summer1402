@@ -1,10 +1,17 @@
+import {useSelector} from 'react-redux';
 import {frameButton} from '../../../../util/Constatnts';
 import {Button} from '../../../Common';
 import DraggableComponent from './DraggableComponent/DraggableComponent';
+import {storeStateTypes} from '../../../../util/types';
 
 const FramesMenu: React.FC = () => {
+  const asideMenu = useSelector((state: storeStateTypes) => state.builder.pageSetting.asideMenu);
+
   return (
-    <aside className="bg-white h-full w-[175px] px-[12px] absolute lg:static -right-[175px] transition-all z-50 shadow-lg">
+    <aside
+      style={{right: asideMenu ? '-345px' : '0px'}}
+      className="bg-white h-full w-[175px] px-[12px] absolute lg:static transition-all z-50 shadow-lg"
+    >
       <div className="justify-center items-center w-full my-[8px]">
         <h1 className="py-[8px] px-2 font-bold">قالب‌ها</h1>
       </div>

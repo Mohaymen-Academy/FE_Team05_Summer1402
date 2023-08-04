@@ -19,13 +19,33 @@
       },
       "type": "txt",
       "active": false
+    },
+    {
+      "id": "3c343c4b-36ba-41c5-bdc0-5a3133612f42",
+      "setting": {},
+      "type": "card",
+      "active": false
+    },
+    {
+      "id": "8f542e81-c241-4d7e-b84a-e3c0bee73fdf",
+      "setting": {},
+      "type": "card",
+      "active": false
+    },
+    {
+      "id": "6dfe2263-07e8-43ca-8104-0d6f94774303",
+      "setting": {},
+      "type": "btns",
+      "active": false
     }
   ],
   "pageSetting": {
-    "gap": "0.25rem",
+    "gap": "1rem",
     "padding": "12px",
     "margin": "21px",
     "paddingY": "25",
-    "paddingX": "22"
+    "paddingX": "22",
+    "slider": true,
+    "asideMenu": true
   }
 }
