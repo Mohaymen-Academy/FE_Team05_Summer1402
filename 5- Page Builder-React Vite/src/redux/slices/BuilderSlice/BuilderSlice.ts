@@ -21,11 +21,22 @@ export const BuilderSlice = createSlice({
     pageHeader: 'نام صفحه',
   },
   reducers: {
+    //set components and page setting on app start
+    setAppData: (
+      state: BuilderSliceTypes,
+      action: {payload: {components: componentType[]; pageSetting: Record<string, any>}}
+    ) => {
+      const {components, pageSetting} = action.payload;
+      state.component = components;
+      state.pageSetting = pageSetting;
+    },
     // set page header
     setPageHeader: (state: BuilderSliceTypes, action: {payload: {header: string}}) => {
       const {header} = action.payload;
       state.pageHeader = header;
     },
+
+    ///
     addComponent: (
       state: BuilderSliceTypes,
       action: {
@@ -36,6 +47,8 @@ export const BuilderSlice = createSlice({
         state.component.push(action.payload);
       }
     },
+
+    ///
     removeComponent: (
       state: BuilderSliceTypes,
       action: {
@@ -44,6 +57,7 @@ export const BuilderSlice = createSlice({
     ) => {
       state.component = state.component.filter((compo) => compo.id !== action.payload.id);
     },
+
     //set active component
     setActive: (state: BuilderSliceTypes, action: {payload: {id: string | number}}) => {
       const {id} = action.payload;
@@ -62,6 +76,8 @@ export const BuilderSlice = createSlice({
         setting: compo.id === id ? {...compo.setting, ...setting} : compo.setting,
       }));
     },
+
+    //set page setting
     setPageSetting: (state: BuilderSliceTypes, action: {payload: {setting: Record<string, any>}}) => {
       const {setting} = action.payload;
 

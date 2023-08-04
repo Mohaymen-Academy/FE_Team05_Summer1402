@@ -1,36 +1,42 @@
+import {useEffect, useState} from 'react';
+import {DndContext, DragEndEvent} from '@dnd-kit/core';
+import {useDispatch} from 'react-redux';
+import {v4} from 'uuid';
 import {Header} from './Components/Header';
 import {FramesMenu} from './Components/FramesMenu';
 import DesignBox from './Components/DesignBox/DesignBox';
 import AsideMenu from './Components/AsideMenu/AsideMenu';
-import {DndContext, DragEndEvent, DragStartEvent} from '@dnd-kit/core';
-import {useState} from 'react';
-import {useDispatch} from 'react-redux';
 import {BuilderSlice} from '../../redux/slices';
-import {v4} from 'uuid';
+import axios from 'axios';
 
 const PageBuilder = () => {
-  const [activeDrag, setActiveDrag] = useState<string>();
   const dispatch = useDispatch();
-  // handle for starting drag & drop frame buttons
-  function handleDragStart(event: DragStartEvent) {
-    setActiveDrag(event.active.id as string);
-  }
-  
+  const [loading, setLoading] = useState(true);
+
   // handle for ending drag & drop frame buttons
   function handleDragEnd(event: DragEndEvent) {
-    setActiveDrag(undefined);
     const type = event.active.id as 'btns' | 'txt';
     if (event.over) {
       dispatch(BuilderSlice.actions.addComponent({id: v4(), setting: {}, type, active: false}));
     }
   }
 
+  useEffect(() => {
+    const setPrevData = async () => {
+      const {data: components} = await axios.get('http://localhost:3000/components');
+      const {data: pageSetting} = await axios.get('http://localhost:3000/pageSetting');
+      dispatch(BuilderSlice.actions.setAppData({components, pageSetting}));
+      setLoading(false);
+    };
+    setPrevData();
+  }, []);
+
   return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DndContext onDragEnd={handleDragEnd}>
       <div className="bg-neutral-light h-screen flex flex-col w-full">
         <Header />
-        <div className="flex w-screen h-[calc(100vh-56px)] reltive">
-          <FramesMenu activeDragId={activeDrag} />
+        <div className="flex w-screen h-[calc(100vh-56px)]">
+          <FramesMenu />
           <DesignBox />
           <AsideMenu />
         </div>
