@@ -4,7 +4,7 @@ import {AiOutlineLink} from 'react-icons/ai';
 
 import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
-import {ColorsInput} from '../Inputs/ColorsInput';
+import {ColorsInput} from '../../../../Common';
 import {TextInput} from '../../../../Common';
 import {SettingsTextInput} from '../Inputs/SettingsTextInput';
 import {storeStateTypes} from '../../../../../util/types';

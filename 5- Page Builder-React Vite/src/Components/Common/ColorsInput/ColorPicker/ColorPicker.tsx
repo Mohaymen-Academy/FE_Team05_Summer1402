@@ -1,16 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useRef} from 'react';
 import {useSelector} from 'react-redux';
-import {storeStateTypes} from '../../../../../../../util/types';
+import {storeStateTypes} from '../../../../util/types';
 
 type ColorPickerProps = {
-  width: string;
-  height: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   target: 'textColor' | 'bgColor';
   defaultValue: string;
 };
-const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange, target,defaultValue}) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({onChange, target, defaultValue}) => {
   const colorInputRef = useRef<HTMLInputElement>(null);
   const handleDivClick = () => {
     if (colorInputRef.current != null) {
@@ -26,7 +24,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({width, height, onChange, targe
     <div className="relative">
       <div
         style={{backgroundColor: bgColor ? bgColor : defaultValue}}
-        className={`${width} rounded-lg ${height}`}
+        className="w-[28px] h-[28px] rounded-lg border border-neutral-300"
         onClick={handleDivClick}
       ></div>
       <input ref={colorInputRef} type="color" className="opacity-0 absolute top-0 left-0 " onChange={onChange} />

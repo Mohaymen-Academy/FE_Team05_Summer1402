@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {ColorsInput} from '../Inputs/ColorsInput';
+import {ColorsInput} from '../../../../Common/ColorsInput';
 import {SettingsAlignmentIcons} from '../Inputs/SettingsAlignmentIcons';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
 import {SettingsTextInput} from '../Inputs/SettingsTextInput';
