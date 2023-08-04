@@ -13,7 +13,7 @@ export const AsideSlice = createSlice({
     header: '',
   },
   reducers: {
-    setEditingComponent: (state: AsideSliceType, action: {payload: {id: string | number; type: 'btns' | 'txt'}}) => {
+    setEditingComponent: (state: AsideSliceType, action: {payload: {id: string | number; type: 'btns' | 'txt' | 'layout'}}) => {
       const {id, type} = action.payload;
       state.editingComponentId = id;
       state.editingComponentType = type;

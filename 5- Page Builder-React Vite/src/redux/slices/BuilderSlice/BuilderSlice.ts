@@ -19,7 +19,7 @@ export const BuilderSlice = createSlice({
   name: 'builder',
   initialState: {
     component: [],
-    pageSetting: {gap: '0.75rem', padding: '16px'},
+    pageSetting: {gap: '0.75rem', paddingY: '25px'},
     pageHeader: 'نام صفحه',
     showDropZone: false,
   },
@@ -39,7 +39,7 @@ export const BuilderSlice = createSlice({
       state.pageHeader = header;
     },
 
-    ///
+    // add component to design box
     addComponent: (
       state: BuilderSliceTypes,
       action: {
@@ -51,7 +51,7 @@ export const BuilderSlice = createSlice({
       }
     },
 
-    ///
+    // remove component from design box
     removeComponent: (
       state: BuilderSliceTypes,
       action: {

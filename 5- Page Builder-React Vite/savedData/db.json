@@ -1,20 +1,6 @@
 {
   "components": [
     {
-      "id": "7dec44cf-c428-40c1-94cf-1ee414d16149",
-      "setting": {},
-      "type": "btns",
-      "active": false,
-      "order": 2
-    },
-    {
-      "id": "e194ec00-56e2-4d28-b66e-5b7dbbdc6289",
-      "setting": {},
-      "type": "txt",
-      "active": false,
-      "order": 3
-    },
-    {
       "id": "fbe7f491-ae51-446f-b428-27e4e55e8b55",
       "setting": {},
       "type": "btns",
@@ -22,15 +8,29 @@
       "order": 1
     },
     {
-      "id": "2c785b1a-6965-41f9-bc65-e0b4712ed47c",
+      "id": "b5935e9c-5c48-4c43-898d-4dd32fe1a120",
       "setting": {},
+      "type": "btns",
+      "active": false,
+      "order": 2
+    },
+    {
+      "id": "4afd99dd-7701-462f-9b57-e34467e0286c",
+      "setting": {
+        "textType": "text",
+        "textSize": "16",
+        "textColor": "#be5050"
+      },
       "type": "txt",
       "active": false,
-      "order": 4
+      "order": 3
     }
   ],
   "pageSetting": {
-    "gap": "0.5rem",
-    "padding": "5px"
+    "gap": "40",
+    "padding": "5px",
+    "spoiler": false,
+    "paddingY": "",
+    "paddingX": "12"
   }
 }

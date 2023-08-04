@@ -24,7 +24,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    dispatch(BuilderSlice.actions.setPageHeader(data.pageNameEnglish));
+    dispatch(BuilderSlice.actions.setPageHeader({header: data.pageNameEnglish}));
     navigate('/home');
   };
 

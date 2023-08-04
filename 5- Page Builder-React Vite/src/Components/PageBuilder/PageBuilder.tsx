@@ -1,12 +1,12 @@
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {v4} from 'uuid';
 import {Header} from './Components/Header';
 import {FramesMenu} from './Components/FramesMenu';
 import DesignBox from './Components/DesignBox/DesignBox';
 import AsideMenu from './Components/AsideMenu/AsideMenu';
 import {DndContext, DragEndEvent, DragStartEvent, MouseSensor, TouchSensor, useSensor, useSensors} from '@dnd-kit/core';
-import {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import {BuilderSlice} from '../../redux/slices';
-import {v4} from 'uuid';
 import axios from 'axios';
 import {storeStateTypes} from '../../util/types';
 
@@ -16,7 +16,7 @@ const PageBuilder = () => {
   const dispatch = useDispatch();
 
   const components = useSelector((state: storeStateTypes) => state.builder.component);
-
+  // getting data from json server
   useEffect(() => {
     const setPrevData = async () => {
       const {data: components} = await axios.get('http://localhost:3000/components');
@@ -26,6 +26,21 @@ const PageBuilder = () => {
     };
     setPrevData();
   }, []);
+  const slider = useSelector((state: storeStateTypes) => state.builder.pageSetting.slider);
+  const asideMenu = useSelector((state: storeStateTypes) => state.builder.pageSetting.asideMenu);
+  // handler for hide and show aside menues
+  const showAsides = (e: React.MouseEvent) => {
+    // @ts-ignore
+    const title = e.target.alt;
+    if (title === 'slider') {
+      if (slider) dispatch(BuilderSlice.actions.setPageSetting({setting: {slider: false}}));
+      if (!slider) dispatch(BuilderSlice.actions.setPageSetting({setting: {slider: true}}));
+    }
+    if (title === 'asideMenu') {
+      if (asideMenu) dispatch(BuilderSlice.actions.setPageSetting({setting: {asideMenu: false}}));
+      if (!asideMenu) dispatch(BuilderSlice.actions.setPageSetting({setting: {asideMenu: true}}));
+    }
+  };
 
   // handle for starting drag & drop frame buttons
   function handleDragStart(event: DragStartEvent) {
@@ -73,7 +88,7 @@ const PageBuilder = () => {
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd} sensors={sensors}>
       <div className="bg-neutral-light h-screen flex flex-col w-full">
-        <Header />
+        <Header onClick={showAsides} />
         <div className="flex w-screen h-[calc(100vh-56px)]">
           <FramesMenu />
           <DesignBox />

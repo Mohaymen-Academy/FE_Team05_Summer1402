@@ -5,11 +5,12 @@ type IconAnchorProps = {
   alt: string;
   imgStyle: string;
   anchorStyle: string;
+  onClick?: (e: React.MouseEvent) => void;
 };
 
-const IconAnchor: React.FC<IconAnchorProps> = ({src, alt, imgStyle, anchorStyle}) => {
+const IconAnchor: React.FC<IconAnchorProps> = ({src, alt, imgStyle, anchorStyle, onClick}) => {
   return (
-    <a className={anchorStyle}>
+    <a onClick={onClick} className={anchorStyle}>
       <img className={imgStyle} src={src} alt={alt} />
     </a>
   );

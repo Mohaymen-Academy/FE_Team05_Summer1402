@@ -15,25 +15,25 @@ const PageSetting = () => {
   return (
     <div className="w-full flex flex-col justify-start items-center gap-5 mt-3">
       <SettingSelectionInput
-        target='gap'
+        target="gap"
         onChange={onGapChangeHandler}
         inputHeaderName="فاصله بین فریم‌ها"
         defaultValue={gap}
         options={[
-          {value: '0.25rem', text: '۱'},
-          {value: '0.5rem', text: '۲'},
-          {value: '0.75rem', text: '۳'},
-          {value: '1rem', text: '۴'},
-          {value: '1.25rem', text: '۵'},
-          {value: '1.5rem', text: '۶'},
-          {value: '2rem', text: '۸'},
-          {value: '2.5rem', text: '۱۰'},
-          {value: '3rem', text: '۱۲'},
+          {value: '4', text: '۱'},
+          {value: '8', text: '۲'},
+          {value: '12', text: '۳'},
+          {value: '16', text: '۴'},
+          {value: '20', text: '۵'},
+          {value: '24', text: '۶'},
+          {value: '32', text: '۸'},
+          {value: '40', text: '۱۰'},
+          {value: '48', text: '۱۲'},
         ]}
       />
       <SettingsInput
-        target='padding'
-        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {padding: `${e.target.value}px`}}))}
+        target="paddingY"
+        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {paddingY: `${e.target.value}`}}))}
         inputType="number"
         smallInput
         formId="padding"
@@ -41,8 +41,8 @@ const PageSetting = () => {
         placeholder="۱۶"
       />
       <SettingsInput
-        target='margin'
-        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {margin: `${e.target.value}px`}}))}
+        target="paddingX"
+        onChange={(e) => dispatch(BuilderSlice.actions.setPageSetting({setting: {paddingX: `${e.target.value}`}}))}
         inputType="number"
         smallInput
         formId="margin"
