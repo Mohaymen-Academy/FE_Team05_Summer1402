@@ -120,7 +120,6 @@ class Carousel {
         const correspondingSlide = this.carouselArray.find((el) => el.dataset.index === target.dataset.index);
 
         const correspondingSlideIndex = correspondingSlide?.dataset.index;
-        console.log(correspondingSlideIndex);
 
         if (!correspondingSlideIndex) return;
 

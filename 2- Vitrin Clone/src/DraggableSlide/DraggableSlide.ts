@@ -1,7 +1,6 @@
 // map card container
 let myCardContainer = document.getElementById('conatainer1');
 window.onload = () => {
-  console.log(1);
   let element: string = `<div class="w-full h-full flex flex-col rounded-lg shadow">
   <div class="flex justify-center items-center py-2 px-1">
     <a href="#">
