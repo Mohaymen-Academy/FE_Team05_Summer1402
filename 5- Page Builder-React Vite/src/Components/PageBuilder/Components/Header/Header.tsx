@@ -15,9 +15,7 @@ type HeaderProps = {
   onClick: (e: React.MouseEvent) => void;
 };
 const Header: React.FC<HeaderProps> = ({onClick}) => {
-  const pageName = useSelector((state: storeStateTypes) => {
-    return state.builder.pageHeader;
-  });
+  const pageName = useSelector((state: storeStateTypes) => state.builder.pageHeader);
   const dispatch = useDispatch();
   // show layout page settings by click on home icon
   const showLayoutPage = () => {
