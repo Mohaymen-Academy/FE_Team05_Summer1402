@@ -1,5 +1,5 @@
-import {BuilderSlice, BuilderSliceTypes} from './BuilderSlice';
+import {BuilderSlice, BuilderSliceTypes, componentType} from './BuilderSlice';
 
 export {BuilderSlice};
 
-export type {BuilderSliceTypes};
+export type {BuilderSliceTypes, componentType};

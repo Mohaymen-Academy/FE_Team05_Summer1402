@@ -1,56 +1,36 @@
 {
   "components": [
     {
-      "id": "08160935-878b-4d8c-a871-701fcd2e6438",
-      "setting": {},
-      "type": "icn",
-      "active": false
-    },
-    {
-      "id": "3c343c4b-36ba-41c5-bdc0-5a3133612f42",
-      "setting": {},
-      "type": "card",
-      "active": false
-    },
-    {
-      "id": "8f542e81-c241-4d7e-b84a-e3c0bee73fdf",
-      "setting": {},
-      "type": "card",
-      "active": false
-    },
-    {
-      "id": "2c0f76e9-0139-4691-9a17-06bd1dfb3ca8",
-      "setting": {},
-      "type": "txt",
-      "active": false
-    },
-    {
-      "id": "1af911cd-7d0c-48c0-986e-e019df0b0394",
-      "setting": {},
-      "type": "txt",
-      "active": false
-    },
-    {
-      "id": "0e642337-99cb-4ff2-b9a4-57d7bbb15a9c",
-      "setting": {},
-      "type": "txt",
-      "active": false
-    },
-    {
-      "id": "40e50ecc-8f48-4952-b984-7e9078fd02ca",
+      "id": "fbe7f491-ae51-446f-b428-27e4e55e8b55",
       "setting": {},
       "type": "btns",
-      "active": false
+      "active": false,
+      "order": 1
+    },
+    {
+      "id": "b5935e9c-5c48-4c43-898d-4dd32fe1a120",
+      "setting": {},
+      "type": "btns",
+      "active": false,
+      "order": 2
+    },
+    {
+      "id": "4afd99dd-7701-462f-9b57-e34467e0286c",
+      "setting": {
+        "textType": "text",
+        "textSize": "16",
+        "textColor": "#be5050"
+      },
+      "type": "txt",
+      "active": false,
+      "order": 3
     }
   ],
   "pageSetting": {
-    "gap": "0.25rem",
-    "padding": "12px",
-    "margin": "21px",
+    "gap": "40",
+    "padding": "5px",
+    "spoiler": false,
     "paddingY": "",
-    "paddingX": "22",
-    "slider": true,
-    "asideMenu": true,
-    "spoiler": false
+    "paddingX": "12"
   }
 }

@@ -19,7 +19,7 @@
     @apply bg-white/60 w-8 h-8 border-2 border-white rounded-lg flex justify-center items-center cursor-pointer select-none;
   }
   .btn-frame {
-    @apply border-2 border-neutral-light w-full h-[50px] rounded-[12px] active:bg-neutral-light font-bold cursor-pointer select-none;
+    @apply border-2 border-neutral-light w-full h-[50px] rounded-[12px] active:bg-black/20 backdrop-blur-xl font-bold cursor-pointer select-none z-50;
   }
   .input-drop {
     @apply border border-neutral-border-light bg-white rounded-[10px] text-gray-400 text-sm h-[40px] w-[200px] font-bold outline-none;
@@ -28,4 +28,23 @@
   .settings-header {
     @apply flex justify-start items-center w-full font-semibold mb-[16px];
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bec4c4;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

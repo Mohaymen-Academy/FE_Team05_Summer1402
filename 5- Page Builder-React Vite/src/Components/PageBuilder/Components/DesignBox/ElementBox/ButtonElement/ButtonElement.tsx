@@ -1,8 +1,5 @@
-import {useEffect, useMemo, useState} from 'react';
-import {AiFillAccountBook, AiOutlineAim} from 'react-icons/ai';
+import {useEffect, useState} from 'react';
 import {icons} from '../../../../../../util/Constatnts';
-import {useSelector} from 'react-redux';
-import {storeStateTypes} from '../../../../../../util/types';
 
 type ButtonElementProps = {
   setting?: Record<string, any>;
@@ -76,7 +73,7 @@ const ButtonElement: React.FC<ButtonElementProps> = ({setting}) => {
   return (
     <div
       style={{alignItems: verticalAlignment, justifyContent: horizontalAlignment}}
-      className="bg-white rounded-lg flex flex-col h-[48px] w-full"
+      className="rounded-lg flex flex-col h-[48px] w-full"
     >
       <a style={{width: setting?.width ? setting?.width : '25%'}} href={setting?.btnLink}>
         <button

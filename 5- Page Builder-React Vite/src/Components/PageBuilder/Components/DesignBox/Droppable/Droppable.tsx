@@ -1,4 +1,7 @@
 import {useDroppable} from '@dnd-kit/core';
+import {useSelector} from 'react-redux';
+import {BuilderSlice} from '../../../../../redux/slices';
+import {storeStateTypes} from '../../../../../util/types';
 
 type DroppableProps = {
   id: string;
@@ -9,12 +12,15 @@ const Droppable: React.FC<DroppableProps> = ({id, children}) => {
   const {isOver, setNodeRef} = useDroppable({
     id,
   });
+  const showDropZone = useSelector((state: storeStateTypes) => state.builder.showDropZone);
+
   const style = {
-    opacity: isOver ? 1 : 0.5,
+    maxHeight: showDropZone ? '120px' : '0',
+    // transform: `scale(${showDropZone ? 1 : 0})`,
   };
 
   return (
-    <div ref={setNodeRef} style={style}>
+    <div ref={setNodeRef} style={style} className="transition-all overflow-hidden">
       {children}
     </div>
   );
