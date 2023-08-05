@@ -1,21 +1,6 @@
 {
   "components": [
-    {
-      "id": "876caed5-ebaa-4925-8419-f08d79ddf87d",
-      "setting": {},
-      "type": "btns",
-      "active": false,
-      "order": 2
-    },
-    {
-      "id": "7e1d72ad-35f4-4e8a-a663-772649568c08",
-      "setting": {
-        "bgColor": "#e24646"
-      },
-      "type": "btns",
-      "active": false,
-      "order": 1
-    }
+   
   ],
   "pageSetting": {
     "gap": "40",
@@ -23,5 +8,8 @@
     "spoiler": false,
     "paddingY": "",
     "paddingX": "12"
+  },
+  "pageHeader": {
+    "pageHeader": "page"
   }
 }

@@ -13,7 +13,7 @@ const SortableComponent = ({element}: {element: componentType}) => {
   return (
     <ElementBox
       dndListeners={listeners}
-      dndAttr={attributes}
+      dndAttr={attributes}  
       dndRef={setNodeRef}
       id={element.id}
       type={element.type}

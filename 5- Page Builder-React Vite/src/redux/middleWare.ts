@@ -53,6 +53,12 @@ const serverRequestMiddleware: Middleware<{}, storeStateTypes> = (store) => (nex
     });
   }
 
+  // set page header
+  if (action.type === 'builder/setPageHeader') {
+    const {header} = action.payload;
+    axios.post(`http://localhost:3000/pageHeader`, {pageHeader: header});
+  }
+
   ///
   const result = next(action);
   return result;

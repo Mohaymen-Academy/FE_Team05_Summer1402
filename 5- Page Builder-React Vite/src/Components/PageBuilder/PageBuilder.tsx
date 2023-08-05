@@ -21,7 +21,8 @@ const PageBuilder = () => {
     const setPrevData = async () => {
       const {data: components} = await axios.get('http://localhost:3000/components');
       const {data: pageSetting} = await axios.get('http://localhost:3000/pageSetting');
-      dispatch(BuilderSlice.actions.setAppData({components, pageSetting}));
+      const {data: {pageHeader}} = await axios.get('http://localhost:3000/pageHeader');
+      dispatch(BuilderSlice.actions.setAppData({components, pageSetting,pageHeader}));
       // setLoading(false);
     };
     setPrevData();
