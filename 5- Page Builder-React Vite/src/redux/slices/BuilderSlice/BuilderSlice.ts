@@ -20,18 +20,19 @@ export const BuilderSlice = createSlice({
   initialState: {
     component: [],
     pageSetting: {gap: '0.75rem', paddingY: '25px'},
-    pageHeader: 'نام صفحه',
+    pageHeader: '',
     showDropZone: false,
   },
   reducers: {
     //set components and page setting on app start
     setAppData: (
       state: BuilderSliceTypes,
-      action: {payload: {components: componentType[]; pageSetting: Record<string, any>}}
+      action: {payload: {components: componentType[]; pageSetting: Record<string, any>; pageHeader: string}}
     ) => {
-      const {components, pageSetting} = action.payload;
+      const {components, pageSetting, pageHeader} = action.payload;
       state.component = components;
       state.pageSetting = pageSetting;
+      state.pageHeader = pageHeader;
     },
     // set page header
     setPageHeader: (state: BuilderSliceTypes, action: {payload: {header: string}}) => {
