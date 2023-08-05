@@ -7,12 +7,12 @@ const serverRequestMiddleware: Middleware<{}, storeStateTypes> = (store) => (nex
   ///add component to DB
   if (action.type === 'builder/addComponent') {
     if (!['btns', 'txt'].includes(action.payload.type)) return;
-    axios.post(`http://localhost:3000/components/`, {...action.payload, active: false});
+    axios.post(`/api/components/`, {...action.payload, active: false});
   }
 
   ///delete component from  DB
   if (action.type === 'builder/removeComponent') {
-    axios.delete(`http://localhost:3000/components/${action.payload.id}`);
+    axios.delete(`/api/components/${action.payload.id}`);
   }
 
   //modify component settings
@@ -20,7 +20,7 @@ const serverRequestMiddleware: Middleware<{}, storeStateTypes> = (store) => (nex
     const editingId = action.payload.id;
     const editingComponent = prevState.builder.component.find((compo) => compo.id === editingId);
 
-    axios.put(`http://localhost:3000/components/${editingId}`, {
+    axios.put(`/api/components/${editingId}`, {
       ...editingComponent,
       setting: {...editingComponent?.setting, ...action.payload.setting},
       active: false,
@@ -31,7 +31,7 @@ const serverRequestMiddleware: Middleware<{}, storeStateTypes> = (store) => (nex
   if (action.type === 'builder/setPageSetting') {
     const pageSetting = prevState.builder.pageSetting;
 
-    axios.put(`http://localhost:3000/pageSetting`, {
+    axios.put(`/api/pageSetting`, {
       ...pageSetting,
       ...action.payload.setting,
     });
@@ -43,11 +43,11 @@ const serverRequestMiddleware: Middleware<{}, storeStateTypes> = (store) => (nex
     const overComponent = prevState.builder.component.find((compo) => compo.id === overId);
     const activeComponent = prevState.builder.component.find((compo) => compo.id === activeId);
 
-    axios.put(`http://localhost:3000/components/${activeId}`, {
+    axios.put(`/api/components/${activeId}`, {
       ...activeComponent,
       order: overOrder,
     });
-    axios.put(`http://localhost:3000/components/${overId}`, {
+    axios.put(`/api/components/${overId}`, {
       ...overComponent,
       order: activeOrder,
     });
@@ -56,7 +56,7 @@ const serverRequestMiddleware: Middleware<{}, storeStateTypes> = (store) => (nex
   // set page header
   if (action.type === 'builder/setPageHeader') {
     const {header} = action.payload;
-    axios.post(`http://localhost:3000/pageHeader`, {pageHeader: header});
+    axios.post(`/api/pageHeader`, {pageHeader: header});
   }
 
   ///

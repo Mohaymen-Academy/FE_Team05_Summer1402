@@ -9,7 +9,6 @@ import {IconAnchor} from './IconAnchor';
 import {useDispatch, useSelector} from 'react-redux';
 import {storeStateTypes} from '../../../../util/types';
 import {AsideSlice, BuilderSlice} from '../../../../redux/slices';
-import {Action} from '@dnd-kit/core/dist/store';
 
 type HeaderProps = {
   onClick: (e: React.MouseEvent) => void;
