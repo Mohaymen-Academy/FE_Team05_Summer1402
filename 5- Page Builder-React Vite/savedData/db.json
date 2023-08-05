@@ -1,30 +1,6 @@
 {
   "components": [
-    {
-      "id": "fbe7f491-ae51-446f-b428-27e4e55e8b55",
-      "setting": {},
-      "type": "btns",
-      "active": false,
-      "order": 2
-    },
-    {
-      "id": "b5935e9c-5c48-4c43-898d-4dd32fe1a120",
-      "setting": {},
-      "type": "btns",
-      "active": true,
-      "order": 1
-    },
-    {
-      "id": "4afd99dd-7701-462f-9b57-e34467e0286c",
-      "setting": {
-        "textType": "text",
-        "textSize": "16",
-        "textColor": "#be5050"
-      },
-      "type": "txt",
-      "active": false,
-      "order": 4
-    }
+   
   ],
   "pageSetting": {
     "gap": "40",
@@ -34,6 +10,6 @@
     "paddingX": "12"
   },
   "pageHeader": {
-    "pageHeader": "lewmcle;w"
+    "pageHeader": "page"
   }
 }
