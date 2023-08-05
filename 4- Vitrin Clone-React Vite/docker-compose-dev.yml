@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  vitrin:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./:/app
+  nginx:
+    depends_on:
+      - vitrin
+    restart: always
+    build: 
+      context: ./nginx/dev
+      dockerfile: Dockerfile.dev
+    ports:
+      - 80:80

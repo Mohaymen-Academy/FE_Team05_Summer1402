@@ -1,29 +1,20 @@
 {
   "components": [
     {
-      "id": "fbe7f491-ae51-446f-b428-27e4e55e8b55",
-      "setting": {},
-      "type": "btns",
-      "active": false,
-      "order": 1
-    },
-    {
-      "id": "b5935e9c-5c48-4c43-898d-4dd32fe1a120",
+      "id": "876caed5-ebaa-4925-8419-f08d79ddf87d",
       "setting": {},
       "type": "btns",
       "active": false,
       "order": 2
     },
     {
-      "id": "4afd99dd-7701-462f-9b57-e34467e0286c",
+      "id": "7e1d72ad-35f4-4e8a-a663-772649568c08",
       "setting": {
-        "textType": "text",
-        "textSize": "16",
-        "textColor": "#be5050"
+        "bgColor": "#e24646"
       },
-      "type": "txt",
+      "type": "btns",
       "active": false,
-      "order": 3
+      "order": 1
     }
   ],
   "pageSetting": {
