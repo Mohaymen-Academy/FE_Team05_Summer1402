@@ -2,7 +2,7 @@ import {SettingsHeader} from './Inputs/SettingsHeader';
 import {useSelector} from 'react-redux';
 import {storeStateTypes} from '../../../../util/types';
 import {useMemo} from 'react';
-import {PageButtons, PageLayout, PageSetting, TextPage} from '.';
+import {PageButtons, PageSetting, TextPage} from '.';
 
 const AsideMenu = () => {
   const settingType = useSelector((state: storeStateTypes) => state.aside.editingComponentType);

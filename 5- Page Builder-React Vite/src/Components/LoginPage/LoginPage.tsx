@@ -3,8 +3,6 @@ import logo from '../../assets/logo.png';
 import {Button, TextInput} from '../Common';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import state from 'sweetalert/typings/modules/state';
-import {storeStateTypes} from '../../util/types';
 import {BuilderSlice} from '../../redux/slices';
 
 const LoginPage = () => {

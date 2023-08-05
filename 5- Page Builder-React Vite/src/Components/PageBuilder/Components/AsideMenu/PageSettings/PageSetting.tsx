@@ -1,4 +1,3 @@
-import {FieldValues, useForm} from 'react-hook-form';
 import {SettingSelectionInput} from '../Inputs/SettingsSelectionInput';
 import {SettingsInput} from '../Inputs/SettingsInput';
 import {useDispatch, useSelector} from 'react-redux';
