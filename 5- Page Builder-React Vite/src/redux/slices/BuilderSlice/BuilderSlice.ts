@@ -107,6 +107,12 @@ export const BuilderSlice = createSlice({
         order: compo.id === activeId ? overOrder : compo.id === overId ? activeOrder : compo.order,
       }));
     },
+    setDeActiveElementBoxes: (state: BuilderSliceTypes, _) => {
+      state.component = state.component.map((compo) => ({
+        ...compo,
+        active: false,
+      }));
+    },
   },
 });
 

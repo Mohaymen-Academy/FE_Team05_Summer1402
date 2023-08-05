@@ -43,7 +43,8 @@ const ElementBox: React.FC<ElementBoxProps> = ({
     }
   }, [type, component]);
 
-  const onClickHandler = () => {
+  const onClickHandler = (e: any) => {
+    e.stopPropagation();
     dispatch(BuilderSlice.actions.setActive({id}));
     dispatch(AsideSlice.actions.setEditingComponent({id, type}));
   };
